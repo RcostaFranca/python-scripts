@@ -1,4 +1,4 @@
-import getinfo.py
+import getinfo
 
 def main():
     path =input("caminho da pasta com os xls")
