@@ -60,11 +60,11 @@ def getVlan( path , file, sheet):
 
 
 
-loja = getVlan("Carrefour-controle-lojas\lojas","IP TTU - Timbauba.xlsx",'Plano IP')
-print(len(loja))
+loja = getVlan("lojas","IP TTU - Timbauba.xlsx",'Plano IP')
+print(loja)
 
 #path para o xls de controle
-controlxls = os.path.normpath('Carrefour-controle-lojas\controle\Controle Geral_alterado.xlsx')
+controlxls = os.path.normpath('controle\Controle Geral_alterado.xlsx')
 
 #retorna o numero da linha que sera editada
 def getControlrow(xls, sheet, sigla):
