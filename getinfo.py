@@ -20,51 +20,32 @@ def infoFilter(xls, nome):
     rede = str(filtred ["Unnamed: 1"].values)+str(filtred ["Unnamed: 2"].values)+str(filtred ["Unnamed: 3"].values)+str(filtred ["Unnamed: 4"].values)+str(filtred ["Unnamed: 5"].values)+str(filtred ["Unnamed: 6"].values)+str(filtred ["Unnamed: 7"].values)
     rede = cleaning(rede)
     resultado = f"{subNome};{rede}"
+    if resultado == ";": resultado = "N/A" 
     return resultado
 
 #retorna uma lista com as subnets e gw do xls
 def getVlan( path , file, sheet):
     totalpath = f"{path}\{file}"
     raw = pd.read_excel(totalpath, sheet)
-    vlan10 = infoFilter(raw, "Subnet VLAN 10")
-    mask10 = infoFilter(raw, "Mask VLAN 10")
-    gwVlan10 = infoFilter(raw, "Default Gateway VLAN 10")
-    vlan20 = infoFilter(raw, "Subnet VLAN 20")
-    mask20 = infoFilter(raw, "Mask VLAN 20")
-    gwVlan20 = infoFilter(raw, "Default Gateway VLAN 20")
-    vlan40 = infoFilter(raw, "Subnet VLAN 40")
-    mask40 = infoFilter(raw, "Mask VLAN 40")
-    gwVlan40 = infoFilter(raw, "Default Gateway VLAN 40")
-    vlan41 = infoFilter(raw, "Subnet VLAN 41")
-    mask41 = infoFilter(raw, "Mask VLAN 41")
-    gwVlan41 = infoFilter(raw, "Default Gateway VLAN 41")    
-    vlan42 = infoFilter(raw, "Subnet VLAN 42")
-    mask42 = infoFilter(raw, "Mask VLAN 42")
-    gwVlan42 = infoFilter(raw, "Default Gateway VLAN 42")   
-    vlan44 = infoFilter(raw, "Subnet VLAN 44")
-    mask44 = infoFilter(raw, "Mask VLAN 44")
-    gwVlan44 = infoFilter(raw, "Default Gateway VLAN 44")
-    vlan50 = infoFilter(raw, "Subnet VLAN 50")
-    mask50 = infoFilter(raw, "Mask VLAN 50")
-    gwVlan50 = infoFilter(raw, "Default Gateway VLAN 50")   
-    vlan60 = infoFilter(raw, "Subnet VLAN 60")
-    mask60 = infoFilter(raw, "Mask VLAN 60")
-    gwVlan60 = infoFilter(raw, "Default Gateway VLAN 60")
-    vlan110 = infoFilter(raw, "Subnet VLAN 110")
-    mask110 = infoFilter(raw, "Mask VLAN 110")
-    gwVlan110 = infoFilter(raw, "Default Gateway VLAN 110")
     sigla = str(file).split(" ")[1]
-    #lista com as redes e gw
-    redes =[sigla, vlan10,mask10, gwVlan10,vlan20,mask20,gwVlan20,vlan40,mask40,gwVlan40,vlan41,mask41,gwVlan41,vlan42,mask42,gwVlan42,vlan44,mask44,gwVlan44,vlan50,mask50,gwVlan50,vlan60,mask60,gwVlan60,vlan110,mask110,gwVlan110]
+    vlans = ["1","10","20","21","30","40","41","42","44","50","51","60","61","110"]
+    redes = [sigla]
+    for itens in vlans:
+        vlan = infoFilter(raw, f"Subnet VLAN {itens}")
+        mask = infoFilter(raw, f"Mask VLAN {itens}")
+        gwVlan = infoFilter(raw, f"Default Gateway VLAN {itens}")    
+        redes.append(vlan)
+        redes.append(mask)
+        redes.append(gwVlan)
     return redes
 
 
 
-loja = getVlan("lojas","IP TTU - Timbauba.xlsx",'Plano IP')
+loja = getVlan("python-scripts\lojas","IP BRE - BIG Avenida Recife.xlsx",'Plano IP')
 print(loja)
 
 #path para o xls de controle
-controlxls = os.path.normpath('controle\Controle Geral_alterado.xlsx')
+controlxls = os.path.normpath('python-scripts\controle\Controle Geral_alterado.xlsx')
 
 #retorna o numero da linha que sera editada
 def getControlrow(xls, sheet, sigla):
@@ -88,4 +69,4 @@ def inputXls(plan, loja):
         print(loja[info])
     writer.close()
 
-inputXls(controlxls, loja)
+# inputXls(controlxls, loja)
