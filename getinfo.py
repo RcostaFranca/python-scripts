@@ -20,7 +20,7 @@ def infoFilter(xls, nome):
     rede = str(filtred ["Unnamed: 1"].values)+str(filtred ["Unnamed: 2"].values)+str(filtred ["Unnamed: 3"].values)+str(filtred ["Unnamed: 4"].values)+str(filtred ["Unnamed: 5"].values)+str(filtred ["Unnamed: 6"].values)+str(filtred ["Unnamed: 7"].values)
     rede = cleaning(rede)
     resultado = f"{subNome};{rede}"
-    if resultado == ";": resultado = "N/A" 
+    if resultado == ";": resultado = " ; " 
     return resultado
 
 #retorna uma lista com as subnets e gw do xls
@@ -41,25 +41,25 @@ def getVlan( path , file, sheet):
 
 
 
-loja = getVlan("python-scripts\lojas","IP BRE - BIG Avenida Recife.xlsx",'Plano IP')
-print(loja)
+# loja = getVlan("python-scripts\lojas","IP BRE - BIG Avenida Recife.xlsx",'Plano IP')
+# print(loja)
 
 #path para o xls de controle
-controlxls = os.path.normpath('python-scripts\controle\Controle Geral_alterado.xlsx')
+controlxls = os.path.normpath('python-scripts\controle\Controle Geral_rtz.xlsx')
 
 #retorna o numero da linha que sera editada
 def getControlrow(xls, sheet, sigla):
     raw = pd.read_excel(xls, sheet,)
-    rowNumber = raw.loc[raw['Controle Geral']==str(sigla)].index[0]
+    rowNumber = raw.loc[raw['Sigla']==str(sigla)].index[0]
     return rowNumber
 
-print(getControlrow(controlxls,'Controle',loja[0]))
+# print(getControlrow(controlxls,'Controle',loja[0]))
 
 def inputXls(plan, loja):
     
     rownumber = getControlrow(plan, 'Controle', loja[0])
     rownumber = int(rownumber)+1
-    counter = 24
+    counter = 1
     writer = pd.ExcelWriter(plan, engine='openpyxl', mode='a', if_sheet_exists='overlay')
     for info in range(1, len(loja)):
         print(counter)        
