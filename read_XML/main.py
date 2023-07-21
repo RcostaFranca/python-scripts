@@ -1,4 +1,4 @@
-import getinfo
+import read_XML.getinfo as getinfo
 import os
 from os import listdir
 from os.path import isfile, join
