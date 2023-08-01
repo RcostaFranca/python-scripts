@@ -1,0 +1,187 @@
+ {ltm node /DMZ-PRD-CEN/10.34.210.63 {
+     address 10.34.210.63
+ }
+ ltm node /DMZ-PRD-CEN/SPTAF11 {
+     address 10.34.210.65
+ }
+ ltm node /DMZ-PRD-CEN/SPTCADESCOLA11 {
+     address 10.34.210.43
+ }
+ ltm node /DMZ-PRD-CEN/SPTCADESCOLA12 {
+     address 10.34.210.44
+ }
+ ltm node /DMZ-PRD-CEN/SPTCADESCOLA13 {
+     address 10.34.210.68
+ }
+ ltm node /DMZ-PRD-CEN/SPTDWAPP02 {
+     address 10.34.194.23
+ }
+ ltm node /DMZ-PRD-CEN/SPTDWAPP05 {
+     address 10.34.210.15
+     session user-disabled
+     state user-down
+ }
+ ltm node /DMZ-PRD-CEN/SPTDWAPP06 {
+     address 10.34.210.23
+     session user-disabled
+     state user-down
+ }
+ ltm node /DMZ-PRD-CEN/SPTFSFTP11 {
+     address 10.34.210.28
+ }
+ ltm node /DMZ-PRD-CEN/SPTFSFTP12 {
+     address 10.34.210.29
+ }
+ ltm node /DMZ-PRD-CEN/SPTFTPAPP11 {
+     address 10.34.210.11
+ }
+ ltm node /DMZ-PRD-CEN/SPTFTPAPP12 {
+     address 10.34.210.41
+ }
+ ltm node /DMZ-PRD-CEN/SPTLVWEB01-TSM {
+     address 10.34.194.13
+     description "Máquina Transamérica"
+ }
+ ltm node /DMZ-PRD-CEN/SPTLVWEB02-TSM {
+     address 10.34.194.30
+     description "Máquina Transamérica - Loja virtual"
+ }
+ ltm node /DMZ-PRD-CEN/SPTLVWEB03-TSM {
+     address 10.34.194.37
+     description "Máquina Transamérica - Loja virtual"
+ }
+ ltm node /DMZ-PRD-CEN/SPTLVWEB11 {
+     address 10.34.210.13
+ }
+ ltm node /DMZ-PRD-CEN/SPTLVWEB12 {
+     address 10.34.210.30
+ }
+ ltm node /DMZ-PRD-CEN/SPTLVWEB13 {
+     address 10.34.210.37
+ }
+ ltm node /DMZ-PRD-CEN/SPTMNTODI11 {
+     address 10.34.210.48
+     description "Maquina ODI Cenesp"
+ }
+ ltm node /DMZ-PRD-CEN/SPTMNTODI12 {
+     address 10.34.210.49
+     description "Maquina ODI Cenesp"
+ }
+ ltm node /DMZ-PRD-CEN/SPTOSWEB-CNP1 {
+     address 10.34.210.59
+ }
+ ltm node /DMZ-PRD-CEN/SPTOSWEB-CNP2 {
+     address 10.34.210.60
+ }
+ ltm node /DMZ-PRD-CEN/SPTRELAY11 {
+     address 10.34.210.47
+     description "Máquina de Relay de SMTP"
+ }
+ ltm node /DMZ-PRD-CEN/SPTSCAAPP11 {
+     address 10.34.210.45
+ }
+ ltm node /DMZ-PRD-CEN/SPTSCAAPP14 {
+     address 10.34.210.46
+ }
+ ltm node /DMZ-PRD-CEN/SPTSCAPRIV01 {
+     address 10.34.194.39
+     description "Scapriv - Máquina Transamérica"
+ }
+ ltm node /DMZ-PRD-CEN/SPTSCAPRIV02 {
+     address 10.34.194.40
+     description "Scapriv - Máquina Transamérica"
+ }
+ ltm node /DMZ-PRD-CEN/SPTSCAPRIV03 {
+     address 10.34.194.121
+ }
+ ltm node /DMZ-PRD-CEN/SPTSCAPRIV04 {
+     address 10.34.194.122
+ }
+ ltm node /DMZ-PRD-CEN/SPTSCAPRIV11 {
+     address 10.34.210.39
+ }
+ ltm node /DMZ-PRD-CEN/SPTSCAPRIV12 {
+     address 10.34.210.40
+ }
+ ltm node /DMZ-PRD-CEN/SPTSCAPRIV13 {
+     address 10.34.210.69
+ }
+ ltm node /DMZ-PRD-CEN/SPTSCAPRIV14 {
+     address 10.34.210.70
+ }
+ ltm node /DMZ-PRD-CEN/SPTSCAPUB01 {
+     address 10.34.194.31
+ }
+ ltm node /DMZ-PRD-CEN/SPTSCAPUB02 {
+     address 10.34.194.32
+ }
+ ltm node /DMZ-PRD-CEN/SPTSCAPUB03 {
+     address 10.34.194.33
+ }
+ ltm node /DMZ-PRD-CEN/SPTSCAPUB04 {
+     address 10.34.194.34
+ }
+ ltm node /DMZ-PRD-CEN/SPTSCAPUB11 {
+     address 10.34.210.31
+ }
+ ltm node /DMZ-PRD-CEN/SPTSCAPUB12 {
+     address 10.34.210.32
+ }
+ ltm node /DMZ-PRD-CEN/SPTSCAPUB13 {
+     address 10.34.210.33
+ }
+ ltm node /DMZ-PRD-CEN/SPTSCAPUB14 {
+     address 10.34.210.34
+ }
+ ltm node /DMZ-PRD-CEN/SPTSCDAPP01-TSM {
+     address 10.34.194.19
+     description "Máquina SCD do Transamérica"
+ }
+ ltm node /DMZ-PRD-CEN/SPTSCDAPP02-TSM {
+     address 10.34.194.38
+     description "Máquina SCD do Transamérica"
+ }
+ ltm node /DMZ-PRD-CEN/SPTSCDAPP03-TSM {
+     address 10.34.194.42
+     description "Máquina SCD do Transamérica"
+ }
+ ltm node /DMZ-PRD-CEN/SPTSCDAPP11 {
+     address 10.34.210.19
+ }
+ ltm node /DMZ-PRD-CEN/SPTSCDAPP12 {
+     address 10.34.210.38
+ }
+ ltm node /DMZ-PRD-CEN/SPTSCDAPP13 {
+     address 10.34.210.42
+ }
+ ltm node /DMZ-PRD-CEN/SPTSCPWEB11 {
+     address 10.34.210.25
+ }
+ ltm node /DMZ-PRD-CEN/SPTSCPWEB12 {
+     address 10.34.210.26
+ }
+ ltm node /DMZ-PRD-CEN/SPTSCPWEB13 {
+     address 10.34.210.24
+ }
+ ltm node /DMZ-PRD-CEN/SPTSCPWEB14 {
+     address 10.34.210.27
+ }
+ ltm node /DMZ-PRD-CEN/SPTWSAPP03 {
+     address 10.34.194.77
+ }
+ ltm node /DMZ-PRD-CEN/SPTWSAPP04 {
+     address 10.34.194.78
+ }
+ ltm node /DMZ-PRD-CEN/SPTWSAPP11 {
+     address 10.34.210.35
+ }
+ ltm node /DMZ-PRD-CEN/SPTWSAPP12 {
+     address 10.34.210.36
+ }
+ ltm node /DMZ-PRD-CEN/SPTWSAPP13 {
+     address 10.34.210.54
+ }
+ ltm node /DMZ-PRD-CEN/SPTWSAPP14 {
+     address 10.34.210.55
+ }
+ }
