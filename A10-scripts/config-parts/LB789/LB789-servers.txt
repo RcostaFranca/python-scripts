@@ -1,0 +1,16 @@
+ltm node 10.34.199.50 {
+    address 10.34.199.50
+}
+ltm node 10.34.215.50 {
+    address 10.34.215.50
+}
+ltm node DNS1-OPTIGLOBE {
+    address 200.185.6.131
+    description DNS1-OPTIGLOBE
+}
+ltm node DNS2-OPTIGLOBE {
+    address 200.185.6.163
+    description DNS2-OPTIGLOBE
+}
+ltm node ns01.tivit.net {
+    address 107.162.181.142

@@ -1,4 +1,4 @@
- {ltm node /DMZ-PRD-CEN/10.34.210.63 {
+ ltm node /DMZ-PRD-CEN/10.34.210.63 {
      address 10.34.210.63
  }
  ltm node /DMZ-PRD-CEN/SPTAF11 {
@@ -184,4 +184,32 @@
  ltm node /DMZ-PRD-CEN/SPTWSAPP14 {
      address 10.34.210.55
  }
+ ltm node /FRONT-PRD-CEN/SPTHMREC11 {
+     address 10.34.218.14
  }
+ ltm node /FRONT-PRD-CEN/SPTHMREC12 {
+     address 10.34.218.15
+ }
+ ltm node /FRONT-PRD-CEN/SPTHMREC13 {
+     address 10.34.218.17
+ }
+ ltm node /FRONT-PRD-CEN/SPTHMREC14 {
+     address 10.34.218.18
+ }
+ ltm node /FRONT-PRD-CEN/SPTHMREC15 {
+     address 10.34.218.19
+ }
+ ltm node /FRONT-PRD-CEN/SPTHMREC16 {
+     address 10.34.218.30
+     description "Máquina HM 16"
+ }
+ ltm node /FRONT-PRD-CEN/SPTHMREC17 {
+     address 10.34.218.31
+     description "Máquina HM 17"
+ }
+ ltm node /FRONT-PRD-CEN/SPTHMREC18 {
+     address 10.34.218.33
+ }
+ ltm node /FRONT-PRD-CEN/SPTHMREC19 {
+     address 10.34.218.34
+ 
