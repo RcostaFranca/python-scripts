@@ -1,0 +1,495 @@
+# ltm monitor http /DMZ-PRD-CEN/mon_http-sptosbprd.sptrans.corp {
+#     adaptive disabled
+#     defaults-from /Common/http
+#     destination *:7003
+#     interval 5
+#     ip-dscp 0
+#     recv none
+#     recv-disable none
+#     send "GET /\r\n"
+#     time-until-up 0
+#     timeout 16
+# }
+# ltm monitor http /DMZ-PRD-CEN/mon_http_90_bilhete.sptrans {
+#     adaptive disabled
+#     defaults-from /Common/http
+#     description "Monitor pagina bilhete.sptrans.com.br"
+#     destination *:*
+#     interval 5
+#     ip-dscp 0
+#     recv none
+#     recv-disable none
+#     send "GET / HTTP/1.1 \r\r\n"
+#     time-until-up 0
+#     timeout 16
+# }
+# ltm monitor http /DMZ-PRD-CEN/mon_http_91_estudante.sptrans {
+#     adaptive disabled
+#     defaults-from /Common/http
+#     description "Monitor pagina estudante.sptrans.com.br"
+#     destination *:*
+#     interval 5
+#     ip-dscp 0
+#     recv none
+#     recv-disable none
+#     send "GET / HTTP/1.1 \r\r\n"
+#     time-until-up 0
+#     timeout 16
+# }
+# ltm monitor http /DMZ-PRD-CEN/mon_http_cadescola-sca {
+#     adaptive disabled
+#     defaults-from /Common/http
+#     destination *:*
+#     interval 5
+#     ip-dscp 0
+#     recv none
+#     recv-disable none
+#     send "GET /sca/index.jsp"
+#     time-until-up 0
+#     timeout 16
+# }
+# ltm monitor http /DMZ-PRD-CEN/mon_http_cobranca.dc.sptrans.corp {
+#     adaptive disabled
+#     defaults-from /Common/http
+#     destination *:8080
+#     interval 5
+#     ip-dscp 0
+#     recv none
+#     recv-disable none
+#     send "GET /\r\n"
+#     time-until-up 0
+#     timeout 16
+# }
+# ltm monitor http /DMZ-PRD-CEN/mon_http_consultacredito_ws {
+#     adaptive disabled
+#     defaults-from /Common/http
+#     destination *:*
+#     interval 3
+#     ip-dscp 0
+#     recv none
+#     recv-disable none
+#     send "GET /\r\n"
+#     time-until-up 60
+#     timeout 10
+#     up-interval 20
+# }
+# ltm monitor http /DMZ-PRD-CEN/mon_http_lojavirtual {
+#     adaptive disabled
+#     defaults-from /Common/http
+#     destination *:*
+#     interval 3
+#     ip-dscp 0
+#     recv none
+#     recv-disable none
+#     send "GET /Login.jsp\r\n"
+#     time-until-up 60
+#     timeout 10
+#     up-interval 20
+# }
+# ltm monitor http /DMZ-PRD-CEN/mon_http_lojavirtual-int {
+#     adaptive disabled
+#     defaults-from /Common/http
+#     destination *:*
+#     interval 3
+#     ip-dscp 0
+#     recv none
+#     recv-disable none
+#     send "GET /Login.jsp\r\n"
+#     time-until-up 60
+#     timeout 10
+#     up-interval 20
+# }
+# ltm monitor http /DMZ-PRD-CEN/mon_http_lvpriv.corp {
+#     adaptive disabled
+#     defaults-from /Common/http
+#     destination *:*
+#     interval 3
+#     ip-dscp 0
+#     recv none
+#     recv-disable none
+#     send "GET /Login.jsp\r\n"
+#     time-until-up 0
+#     timeout 10
+# }
+# ltm monitor http /DMZ-PRD-CEN/mon_http_odi.sptrans.corp {
+#     adaptive disabled
+#     defaults-from /Common/http
+#     description "Monitoracao URI para ODI"
+#     destination *:*
+#     interval 5
+#     ip-dscp 0
+#     recv "200 OK"
+#     recv-disable none
+#     send "GET /oraclediagent/OdiInvoke?WSDL/r/n"
+#     time-until-up 0
+#     timeout 16
+# }
+# ltm monitor http /DMZ-PRD-CEN/mon_http_pedidocredito {
+#     adaptive disabled
+#     defaults-from /Common/http
+#     destination *:*
+#     interval 3
+#     ip-dscp 0
+#     recv none
+#     recv-disable none
+#     send "GET /\r\n"
+#     time-until-up 60
+#     timeout 10
+#     up-interval 20
+# }
+# ltm monitor http /DMZ-PRD-CEN/mon_http_scapriv-PersoService {
+#     adaptive disabled
+#     defaults-from /Common/http
+#     destination *:*
+#     interval 5
+#     ip-dscp 0
+#     recv ok
+#     recv-disable none
+#     send "GET /sca/index.jsp"
+#     time-until-up 0
+#     timeout 16
+# }
+# ltm monitor http /DMZ-PRD-CEN/mon_http_scapriv-default_int {
+#     adaptive disabled
+#     defaults-from /Common/http
+#     destination *:*
+#     interval 5
+#     ip-dscp 0
+#     password $M$rP$u+Lf1saqBmTE+75vPIBREQ==
+#     recv ok
+#     recv-disable none
+#     send "GET /sa/healthcheck.dat\r\n"
+#     time-until-up 0
+#     timeout 16
+#     username tvt04211
+# }
+# ltm monitor http /DMZ-PRD-CEN/mon_http_scapriv-perso {
+#     adaptive disabled
+#     defaults-from /Common/http
+#     destination *:*
+#     interval 5
+#     ip-dscp 0
+#     recv none
+#     recv-disable none
+#     send "GET /sca/index.jsp"
+#     time-until-up 0
+#     timeout 16
+# }
+# ltm monitor http /DMZ-PRD-CEN/mon_http_scapriv-sa {
+#     adaptive disabled
+#     defaults-from /Common/http
+#     destination *:*
+#     interval 5
+#     ip-dscp 0
+#     recv ok
+#     recv-disable none
+#     send "GET /sa/healthcheck.dat\r\n"
+#     time-until-up 0
+#     timeout 16
+# }
+# ltm monitor http /DMZ-PRD-CEN/mon_http_scapriv-sa_int {
+#     adaptive disabled
+#     defaults-from /Common/http
+#     destination *:*
+#     interval 5
+#     ip-dscp 0
+#     recv ok
+#     recv-disable none
+#     send "GET /sa/healthcheck.dat\r\n"
+#     time-until-up 0
+#     timeout 16
+# }
+# ltm monitor http /DMZ-PRD-CEN/mon_http_scapriv-sca {
+#     adaptive disabled
+#     defaults-from /Common/http
+#     destination *:*
+#     interval 5
+#     ip-dscp 0
+#     recv none
+#     recv-disable none
+#     send "GET /sca/index.jsp"
+#     time-until-up 0
+#     timeout 16
+# }
+# ltm monitor http /DMZ-PRD-CEN/mon_http_scapriv-sca_int {
+#     adaptive disabled
+#     defaults-from /Common/http
+#     destination *:*
+#     interval 5
+#     ip-dscp 0
+#     recv none
+#     recv-disable none
+#     send "GET /sca/index.jsp"
+#     time-until-up 0
+#     timeout 16
+# }
+# ltm monitor http /DMZ-PRD-CEN/mon_http_scapub-sa {
+#     adaptive disabled
+#     defaults-from /Common/http
+#     destination *:*
+#     interval 5
+#     ip-dscp 0
+#     recv ok
+#     recv-disable none
+#     send "GET /sa/healthcheck.dat\r\n"
+#     time-until-up 0
+#     timeout 16
+# }
+# ltm monitor http /DMZ-PRD-CEN/mon_http_scapub-sa_int {
+#     adaptive disabled
+#     defaults-from /Common/http
+#     destination *:*
+#     interval 5
+#     ip-dscp 0
+#     recv ok
+#     recv-disable none
+#     send "GET /sa/healthcheck.dat\r\n"
+#     time-until-up 0
+#     timeout 16
+# }
+# ltm monitor http /DMZ-PRD-CEN/mon_http_scapub-sca {
+#     adaptive disabled
+#     defaults-from /Common/http
+#     destination *:*
+#     interval 5
+#     ip-dscp 0
+#     recv none
+#     recv-disable none
+#     send "GET /sca/index.jsp"
+#     time-until-up 0
+#     timeout 16
+# }
+# ltm monitor http /DMZ-PRD-CEN/mon_http_scapub-sca_int {
+#     adaptive disabled
+#     defaults-from /Common/http
+#     destination *:*
+#     interval 5
+#     ip-dscp 0
+#     recv none
+#     recv-disable none
+#     send "GET /sca/index.jsp"
+#     time-until-up 0
+#     timeout 16
+# }
+# ltm monitor http /DMZ-PRD-CEN/mon_http_scapub-sptransServices {
+#     adaptive disabled
+#     defaults-from /Common/http
+#     description "Monitor scapub.sbe.sptrans.com.br/sptransServices"
+#     destination *:*
+#     interval 5
+#     ip-dscp 0
+#     recv none
+#     recv-disable none
+#     send "GET /sptransServices/index.jsp"
+#     time-until-up 0
+#     timeout 16
+# }
+# ltm monitor http /DMZ-PRD-CEN/mon_http_scapub_emailsem {
+#     adaptive disabled
+#     defaults-from /Common/http
+#     destination *:*
+#     interval 5
+#     ip-dscp 0
+#     recv none
+#     recv-disable none
+#     send "send GET /EmailSemCadastro/index.jsp\r\n"
+#     time-until-up 0
+#     timeout 16
+# }
+# ltm monitor http /DMZ-PRD-CEN/mon_http_scd_web {
+#     adaptive disabled
+#     defaults-from /Common/http
+#     destination *:*
+#     interval 3
+#     ip-dscp 0
+#     recv "200 OK"
+#     recv-disable none
+#     send "GET /scd_web/default.asp"
+#     time-until-up 60
+#     timeout 10
+#     up-interval 20
+# }
+# ltm monitor http /DMZ-PRD-CEN/mon_http_scd_web-int {
+#     adaptive disabled
+#     defaults-from /Common/http
+#     destination *:*
+#     interval 3
+#     ip-dscp 0
+#     recv "200 OK"
+#     recv-disable none
+#     send "GET /scd_web/default.asp"
+#     time-until-up 60
+#     timeout 10
+#     up-interval 20
+# }
+# ltm monitor http /DMZ-PRD-CEN/mon_http_webservices {
+#     adaptive disabled
+#     defaults-from /Common/http
+#     destination *:*
+#     interval 3
+#     ip-dscp 0
+#     recv none
+#     recv-disable none
+#     send "GET /\r\n"
+#     time-until-up 60
+#     timeout 10
+#     up-interval 20
+# }
+# ltm monitor http /DMZ-PRD-CEN/mon_http_webservices-int {
+#     adaptive disabled
+#     defaults-from /Common/http
+#     destination *:*
+#     interval 3
+#     ip-dscp 0
+#     recv none
+#     recv-disable none
+#     send "GET /\r\n"
+#     time-until-up 60
+#     timeout 10
+#     up-interval 20
+# }
+# ltm monitor https /DMZ-PRD-CEN/mon_httpS_scd_web {
+#     adaptive disabled
+#     cipherlist DEFAULT
+#     compatibility enabled
+#     defaults-from /Common/https_443
+#     destination *:443
+#     interval 3
+#     ip-dscp 0
+#     recv "200 OK"
+#     recv-disable none
+#     send "GET /scd_web/default.asp"
+#     ssl-profile /DMZ-PRD-CEN/mon_httpS_scd_web_ssl_profile
+#     time-until-up 60
+#     timeout 10
+#     up-interval 20
+# }
+# ltm monitor tcp /DMZ-PRD-CEN/mon_pool_sptosbprd.sptrans.corp {
+#     adaptive disabled
+#     defaults-from /Common/tcp
+#     destination *:7003
+#     interval 5
+#     ip-dscp 0
+#     recv none
+#     recv-disable none
+#     send none
+#     time-until-up 0
+#     timeout 16
+# }
+# ltm monitor tcp /DMZ-PRD-CEN/monitor_pbe.bilheteunico.corp {
+#     adaptive disabled
+#     defaults-from /Common/tcp
+#     destination *:8080
+#     interval 5
+#     ip-dscp 0
+#     recv none
+#     recv-disable none
+#     send none
+#     time-until-up 0
+#     timeout 16
+# }
+# ltm monitor tcp /DMZ-PRD-CEN/monitor_webcidadao {
+#     adaptive disabled
+#     defaults-from /Common/tcp
+#     destination *:8080
+#     interval 5
+#     ip-dscp 0
+#     recv none
+#     recv-disable none
+#     send none
+#     time-until-up 0
+#     timeout 16
+# }
+# ltm monitor tcp-half-open /DMZ-PRD-CEN/mon_ftp_scdftp {
+#     defaults-from /Common/tcp_half_open
+#     description "Monitor FTP"
+#     destination *:21
+#     interval 3
+#     time-until-up 60
+#     timeout 10
+#     up-interval 20
+# }
+# ltm monitor tcp-half-open /DMZ-PRD-CEN/mon_ftp_scdftp-int {
+#     defaults-from /Common/tcp_half_open
+#     description "Monitor FTP"
+#     destination *:21
+#     interval 3
+#     time-until-up 60
+#     timeout 10
+#     up-interval 20
+# }
+# ltm monitor tcp-half-open /DMZ-PRD-CEN/mon_ftp_sptrans.com.br {
+#     defaults-from /Common/tcp_half_open
+#     description "Monitor para servico de ftp"
+#     destination *:21
+#     interval 5
+#     time-until-up 0
+#     timeout 16
+# }
+# ltm monitor tcp-half-open /DMZ-PRD-CEN/mon_ftp_sptrans.corp {
+#     defaults-from /Common/tcp_half_open
+#     description "Monitor para servico de ftp-corp"
+#     destination *:21
+#     interval 5
+#     time-until-up 0
+#     timeout 16
+# }
+# ltm monitor tcp-half-open /DMZ-PRD-CEN/mon_http_sbeweb.sbe.sptrans.com.br {
+#     defaults-from /Common/tcp_half_open
+#     destination *:*
+#     interval 5
+#     time-until-up 0
+#     timeout 16
+# }
+# ltm monitor tcp-half-open /DMZ-PRD-CEN/mon_http_sbeweb.sbe.sptrans.corp {
+#     defaults-from /Common/tcp_half_open
+#     destination *:*
+#     interval 5
+#     time-until-up 0
+#     timeout 16
+# }
+# ltm monitor tcp-half-open /DMZ-PRD-CEN/mon_http_scp.sbe.sptrans.com.br {
+#     defaults-from /Common/tcp_half_open
+#     destination *:*
+#     interval 5
+#     time-until-up 0
+#     timeout 16
+# }
+# ltm monitor tcp-half-open /DMZ-PRD-CEN/mon_http_scp.sbe.sptrans.corp {
+#     defaults-from /Common/tcp_half_open
+#     destination *:*
+#     interval 5
+#     time-until-up 0
+#     timeout 16
+# }
+# ltm monitor tcp-half-open /DMZ-PRD-CEN/tcp_half-snmp {
+#     defaults-from /Common/tcp_half_open
+#     destination *:*
+#     interval 5
+#     time-until-up 0
+#     timeout 16
+# }
+# ltm monitor tcp-half-open /DMZ-PRD-CEN/tcp_half_bi.sptrans.corp-int-7781 {
+#     defaults-from /Common/tcp_half_open
+#     description "Monitor TCP 7781 bi.sptrans.corp-Interno"
+#     destination *:7781
+#     interval 5
+#     time-until-up 0
+#     timeout 16
+# }
+# ltm monitor tcp-half-open /DMZ-PRD-CEN/tcp_half_portal-sptrans-ext-7778 {
+#     defaults-from /Common/tcp_half_open
+#     description "Monitor TCP 7778 portal.sptrans.com.br-externo"
+#     destination *:7778
+#     interval 5
+#     time-until-up 0
+#     timeout 16
+# }
+# ltm monitor tcp-half-open /DMZ-PRD-CEN/tcp_half_portal.sptrans.corp-int-7780 {
+#     defaults-from /Common/tcp_half_open
+#     description "Monitor TCP 7780 portal.sptrans.corp-Interno"
+#     destination *:7780
+#     interval 5
+#     time-until-up 0
+#     timeout 16
+# }
