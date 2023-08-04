@@ -43,3 +43,93 @@ configure
 slb server SPTHMREC19  10.34.218.34
 exit
 exit 
+active-partition FRONT-PRD-CEN
+configure
+slb server node 10.34.218.14
+exit
+exit 
+active-partition FRONT-PRD-CEN
+configure
+slb server node 10.34.218.15
+exit
+exit 
+active-partition FRONT-PRD-CEN
+configure
+slb server node 10.34.218.17
+exit
+exit 
+active-partition FRONT-PRD-CEN
+configure
+slb server node 10.34.218.18
+exit
+exit 
+active-partition FRONT-PRD-CEN
+configure
+slb server node 10.34.218.19
+exit
+exit 
+active-partition FRONT-PRD-CEN
+configure
+slb server node 10.34.218.30
+exit
+exit 
+active-partition FRONT-PRD-CEN
+configure
+slb server node 10.34.218.31
+exit
+exit 
+active-partition FRONT-PRD-CEN
+configure
+slb server node 10.34.218.33
+exit
+exit 
+active-partition FRONT-PRD-CEN
+configure
+slb server node 10.34.218.34
+exit
+exit 
+active-partition FRONT-PRD-CEN
+configure
+slb server node 10.34.218.14
+exit
+exit 
+active-partition FRONT-PRD-CEN
+configure
+slb server node 10.34.218.15
+exit
+exit 
+active-partition FRONT-PRD-CEN
+configure
+slb server node 10.34.218.17
+exit
+exit 
+active-partition FRONT-PRD-CEN
+configure
+slb server node 10.34.218.18
+exit
+exit 
+active-partition FRONT-PRD-CEN
+configure
+slb server node 10.34.218.19
+exit
+exit 
+active-partition FRONT-PRD-CEN
+configure
+slb server node 10.34.218.30
+exit
+exit 
+active-partition FRONT-PRD-CEN
+configure
+slb server node 10.34.218.31
+exit
+exit 
+active-partition FRONT-PRD-CEN
+configure
+slb server node 10.34.218.33
+exit
+exit 
+active-partition FRONT-PRD-CEN
+configure
+slb server node 10.34.218.34
+exit
+exit 

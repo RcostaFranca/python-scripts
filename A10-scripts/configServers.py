@@ -1,7 +1,7 @@
 import os
 
-f5_file = open(os.path.normpath("python-scripts/A10-scripts/config-parts/LB789/LB789-servers.txt"))
-a10_file = open(os.path.normpath("python-scripts/A10-scripts/result_files/LB789/A10-LB789-servers.txt"),"a")
+f5_file = open(os.path.normpath("python-scripts/A10-scripts/config-parts/LB794/LB794-servers.txt"))
+a10_file = open(os.path.normpath("python-scripts/A10-scripts/result_files/LB794/A10-LB794-servers.txt"),"a")
 
 norm_file = str(f5_file.read()).split("}")
 
@@ -17,11 +17,13 @@ def get_srv_ptt_adr (norm_file):
     #srv_info = [server, server_ip]
     return srv_info
 
-
-for lines in norm_file:
-    srv_data = get_srv_ptt_adr(lines)
+def write_server(server_list):
+    srv_data = get_srv_ptt_adr(server_list)
     a10_server_input =f"active-partition {srv_data[0]}\nconfigure\nslb server {srv_data[1]} {srv_data[2]}\nexit\nexit \n"
     #a10_server_input =f"configure\nslb server {srv_data[0]} {srv_data[1]}\nexit\nexit \n"
     a10_file.write(a10_server_input)    
-    print(a10_server_input)
-a10_file.close()
+    return a10_server_input
+
+
+for lines in norm_file:
+    print(write_server(lines))

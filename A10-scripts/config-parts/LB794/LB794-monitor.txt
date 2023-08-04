@@ -493,3 +493,18 @@
 #     time-until-up 0
 #     timeout 16
 # }
+# ltm monitor tcp-half-open /FRONT-PRD-CEN/tcp_half_hm-sptrans.src {
+#     defaults-from /Common/tcp_half_open
+#     description "Monitora porta 5000 dos servidores de app no HM"
+#     destination *:*
+#     interval 3
+#     time-until-up 0
+#     timeout 10
+# }
+# ltm monitor tcp-half-open /DMZ-HOM-CEN/mon_ftp_scdftp {
+#     defaults-from /Common/tcp_half_open
+#     destination *:*
+#     interval 3
+#     time-until-up 60
+#     timeout 10
+#     up-interval 20
