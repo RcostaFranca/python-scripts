@@ -40,11 +40,23 @@ def get_getinfo (norm_file):
     return [partition, virtual_server, ip, port, pool, snat]
 
 
-def write_vs (vs_list):
+def write_vs (vs_list, verifica_vs):
     vs_info = get_getinfo(vs_list)
-    a10_vs_input = f"active-partition {vs_info[0]}\nconfigure\nslb virtual-server {vs_info[1]} {vs_info[2]}\nport {vs_info[3]} tcp\n{vs_info[5]}\nservice-group {vs_info[4]}\nexit\nexit " 
+    if vs_info[2] in verifica_vs:
+        a10_vs_input =" "
+    else:
+        if vs_info[3] == "80":
+            a10_vs_input = f"active-partition {vs_info[0]}\nconfigure\nslb virtual-server {vs_info[1]} {vs_info[2]}\nport {vs_info[3]} tcp\n{vs_info[5]}\nservice-group {vs_info[4]}\nport 443 tcp\n{vs_info[5]}\nservice-group {vs_info[4]}\nexit\nexit\n " 
+            verifica_vs.append(vs_info[2])
+        elif vs_info[3] == "443":
+            a10_vs_input = f"active-partition {vs_info[0]}\nconfigure\nslb virtual-server {vs_info[1]} {vs_info[2]}\nport {vs_info[3]} tcp\n{vs_info[5]}\nservice-group {vs_info[4]}\nport 80 tcp\n{vs_info[5]}\nservice-group {vs_info[4]}\nexit\nexit\n " 
+            verifica_vs.append(vs_info[2])
+        else:
+            a10_vs_input = f"active-partition {vs_info[0]}\nconfigure\nslb virtual-server {vs_info[1]} {vs_info[2]}\nport {vs_info[3]} tcp\n{vs_info[5]}\nservice-group {vs_info[4]}\nexit\nexit\n " 
+            verifica_vs.append(vs_info[2])            
     return a10_vs_input
 
+verifica_vs = []
 for itens in norm_file:
-    print(write_vs(itens))
+    print(write_vs(itens, verifica_vs))
     
