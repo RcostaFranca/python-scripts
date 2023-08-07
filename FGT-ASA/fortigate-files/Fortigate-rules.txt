@@ -1,0 +1,1420 @@
+config firewall policy
+    edit 1
+        set srcintf "port26"
+        set dstintf "port28"
+        set srcaddr "SUPORTE-OSS"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-FTP" "GRUPO_NAT_DCN_HDM-ALV-PRX"
+        set action accept
+        set schedule "always"
+        set service "ALL"
+        set comments "acesso dcn temp"
+    next
+    edit 2
+        set srcintf "port26"
+        set dstintf "port29"
+        set srcaddr "SUPORTE-OSS" "10.32.206.163"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-APP" "GRUPO_NAT_DCN_HDM-ALV-DB" "GRUPO_NAT_DCN_HDM-ALV-REP"
+        set action accept
+        set schedule "always"
+        set service "ALL"
+        set comments "ARS16798430"
+    next
+    edit 59
+        set srcintf "port26"
+        set dstintf "port29"
+        set srcaddr "GRUPO_MONITORACAO" "10.21.18.90" "10.21.19.232" "10.21.18.176" "10.21.18.132" "10.21.19.170" "10.21.19.192" "10.21.25.188"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-APP" "GRUPO_NAT_DCN_HDM-ALV-DB"
+        set action accept
+        set schedule "always"
+        set service "TCP_17005" "TCP_17015" "TCP_17025"
+        set comments "ARS15798393"
+    next
+    edit 57
+        set srcintf "port26"
+        set dstintf "port30"
+        set srcaddr "SUPORTE-OSS" "10.125.62.116" "10.38.139.144/29" "10.38.176.0/20" "GRP_SUPORTE_OSS_UNIFICADO"
+        set dstaddr "GRUPO_NAT_DCN_SMP-ALV"
+        set action accept
+        set schedule "always"
+        set service "portas-grupo-suporte" "SSH" "ALL_ICMP" "TCP_9002" "TCP-1158" "ORACLE" "XWIN" "TCP_8080" "HTTP" "TCP-1525" "HTTPS" "TCP-9990" "TCP-8665"
+        set comments "ARS16798430/REQ000000250338"
+    next
+    edit 3
+        set srcintf "port26"
+        set dstintf "port30"
+        set srcaddr "Ehealth_10.121.212.39"
+        set dstaddr "GRUPO_NAT_DCN_SMP-ALV"
+        set action accept
+        set schedule "always"
+        set service "UDP_1691" "ALL_ICMP"
+        set comments "acesso dcn temp"
+    next
+    edit 4
+        set srcintf "port28"
+        set dstintf "port29"
+        set srcaddr "SERVIDORES_HDM-ALV-PRX"
+        set dstaddr "VIP_HDM_17005_to_TR069"
+        set action accept
+        set schedule "always"
+        set service "TCP_17005"
+        set comments "Sothbound TR-069 Traffic from CPE to HDM"
+    next
+    edit 5
+        set srcintf "port28"
+        set dstintf "port30"
+        set srcaddr "all"
+        set dstaddr "all"
+        set action accept
+        set schedule "always"
+        set service "ALL"
+    next
+    edit 6
+        set srcintf "port29"
+        set dstintf "port28"
+        set srcaddr "all"
+        set dstaddr "all"
+        set action accept
+        set schedule "always"
+        set service "ALL"
+    next
+    edit 7
+        set srcintf "port29"
+        set dstintf "port30"
+        set srcaddr "all"
+        set dstaddr "all"
+        set action accept
+        set schedule "always"
+        set service "ALL"
+        set logtraffic disable
+    next
+    edit 8
+        set srcintf "port30"
+        set dstintf "port28"
+        set srcaddr "all"
+        set dstaddr "all"
+        set action accept
+        set schedule "always"
+        set service "ALL"
+    next
+    edit 9
+        set srcintf "port30"
+        set dstintf "port29"
+        set srcaddr "all"
+        set dstaddr "all"
+        set action accept
+        set schedule "always"
+        set service "ALL"
+    next
+    edit 126
+        set srcintf "port29"
+        set dstintf "port26"
+        set srcaddr "HDM-ALV-APP-01"
+        set dstaddr "Proteus_10.121.2.48"
+        set action accept
+        set schedule "always"
+        set service "ALL"
+        set logtraffic disable
+        set logtraffic-start enable
+        set nat enable
+    next
+    edit 13
+        set srcintf "port29"
+        set dstintf "port26"
+        set srcaddr "SERVIDORES_HDM-ALV-APP" "SERVIDORES_HDM-ALV-DB" "SERVIDORES_HDM-ALV-REP"
+        set dstaddr "TI_Oi_DCN"
+        set action accept
+        set schedule "always"
+        set service "ALL"
+        set logtraffic disable
+        set logtraffic-start enable
+        set nat enable
+    next
+    edit 14
+        set srcintf "port28"
+        set dstintf "port26"
+        set srcaddr "SERVIDORES_HDM-ALV-PRX" "SERVIDORES_HDM-ALV-FTP"
+        set dstaddr "SERVIDORES_NTP_TI"
+        set action accept
+        set schedule "always"
+        set service "NTP"
+        set logtraffic disable
+        set comments "ARS 20093451"
+        set nat enable
+    next
+    edit 121
+        set srcintf "port28"
+        set dstintf "port26"
+        set srcaddr "SERVIDORES_HDM-ALV-PRX" "SERVIDORES_HDM-ALV-FTP"
+        set dstaddr "TI_Oi_DCN"
+        set action accept
+        set schedule "always"
+        set service "ALL"
+        set logtraffic disable
+        set nat enable
+    next
+    edit 15
+        set srcintf "port30"
+        set dstintf "port26"
+        set srcaddr "SERVIDORES_HDM-ALV-SMP"
+        set dstaddr "TI_Oi_DCN"
+        set action accept
+        set schedule "always"
+        set service "ALL"
+        set logtraffic disable
+        set nat enable
+    next
+    edit 22
+        set srcintf "port1"
+        set dstintf "port29"
+        set srcaddr "Group_MGT_RMS" "Proteus_200.222.75.25"
+        set dstaddr "SERVIDORES_HDM-ALV-APP" "SERVIDORES_HDM-ALV-DB"
+        set action accept
+        set schedule "always"
+        set service "ALL_ICMP" "SSH"
+        set comments "Acesso MGT RMS SN3"
+    next
+    edit 127
+        set srcintf "port1"
+        set dstintf "port29"
+        set srcaddr "52.67.215.237"
+        set dstaddr "HDM-ALV-DB-01" "HDM-ALV-DB-02" "HDM-ALV-DB-03"
+        set action accept
+        set schedule "always"
+        set service "SSH"
+    next
+    edit 23
+        set srcintf "port1"
+        set dstintf "port30"
+        set srcaddr "Group_MGT_RMS" "Proteus_200.222.75.25"
+        set dstaddr "SERVIDORES_HDM-ALV-SMP"
+        set action accept
+        set schedule "always"
+        set service "ALL_ICMP" "SSH"
+        set comments "Acesso MGT RMS SN3"
+    next
+    edit 24
+        set srcintf "port1"
+        set dstintf "port28"
+        set srcaddr "Group_Oi_AS7738" "Group_Oi_AS8167" "Group_Parceiros_Unbundling"
+        set dstaddr "VIP_TR069_80_to_RMS"
+        set action accept
+        set schedule "always"
+        set service "HTTP"
+        set comments "Sothbound TR-069 Traffic from CPE to HDM"
+    next
+    edit 27
+        set srcintf "port29"
+        set dstintf "port1"
+        set srcaddr "LAN_RMS_HDM_APP_ALV"
+        set dstaddr "ALV-RJ-CLF-01" "PRA-RJ-CLF-01"
+        set action accept
+        set schedule "always"
+        set service "TCP_9443" "TCP_9080" "PING" "TRACEROUTE"
+        set comments "HDM-APP SOAP to NASS-CLF"
+    next
+    edit 30
+        set srcintf "port1"
+        set dstintf "port28"
+        set srcaddr "Group_Oi_AS7738" "Group_Oi_AS8167" "Group_Parceiros_Unbundling"
+        set dstaddr "VIP_TR069_7548_to_RMS"
+        set action accept
+        set schedule "always"
+        set service "TCP_7548"
+        set comments "Sothbound TR-069 Traffic from CPE to HDM"
+    next
+    edit 52
+        set srcintf "port1"
+        set dstintf "port28"
+        set srcaddr "Group_Oi_AS7738" "Group_Oi_AS8167" "Group_Parceiros_Unbundling"
+        set dstaddr "VIP_TR069_7780_to_RMS"
+        set action accept
+        set schedule "always"
+        set service "TCP_7780"
+        set comments "comunicao manager server 7780"
+    next
+    edit 31
+        set srcintf "port1"
+        set dstintf "port28"
+        set srcaddr "Group_Oi_AS7738" "Group_Oi_AS8167" "Group_Parceiros_Unbundling"
+        set dstaddr "VIP_TR069_7558_to_RMS"
+        set action accept
+        set schedule "always"
+        set service "TCP_7558"
+        set comments "Sothbound TR-069 Traffic from CPE to HDM"
+    next
+    edit 32
+        set srcintf "port1"
+        set dstintf "port28"
+        set srcaddr "Group_Oi_AS7738" "Group_Oi_AS8167" "Group_Parceiros_Unbundling"
+        set dstaddr "VIP_TR069_7568_to_RMS"
+        set action accept
+        set schedule "always"
+        set service "TCP_7568"
+        set comments "Sothbound TR-069 Traffic from CPE to HDM"
+    next
+    edit 46
+        set srcintf "port1"
+        set dstintf "port28"
+        set srcaddr "Group_Oi_AS7738" "Group_Oi_AS8167" "Group_Parceiros_Unbundling"
+        set dstaddr "VIP_TR069_7748_to_RMS"
+        set action accept
+        set schedule "always"
+        set service "TCP_7748"
+        set comments "Sothbound TR-069 Traffic from CPE to HDM"
+    next
+    edit 42
+        set srcintf "port1"
+        set dstintf "port28"
+        set srcaddr "Group_Oi_AS7738" "Group_Oi_AS8167" "Group_Parceiros_Unbundling"
+        set dstaddr "VIP_TR069_443_to_RMS"
+        set action accept
+        set schedule "always"
+        set service "TCP_7748"
+        set comments "Sothbound TR-069 Traffic from CPE to HDM (Migration-On demand)"
+    next
+    edit 48
+        set srcintf "port1"
+        set dstintf "port28"
+        set srcaddr "Group_Oi_AS7738" "Group_Oi_AS8167" "Group_Parceiros_Unbundling"
+        set dstaddr "VIP_TR069_7758_to_RMS"
+        set action accept
+        set schedule "always"
+        set service "TCP_7758"
+        set comments "Sothbound TR-069 Traffic from CPE to HDM"
+    next
+    edit 53
+        set srcintf "port1"
+        set dstintf "port28"
+        set srcaddr "Group_Oi_AS7738" "Group_Oi_AS8167" "Group_Parceiros_Unbundling"
+        set dstaddr "VIP_TR069_7759_to_RMS"
+        set action accept
+        set schedule "always"
+        set service "TCP_7759"
+        set comments "Sothbound TR-069 Traffic from CPE to HDM"
+    next
+    edit 54
+        set srcintf "port1"
+        set dstintf "port28"
+        set srcaddr "Group_Oi_AS7738" "Group_Oi_AS8167" "Group_Parceiros_Unbundling"
+        set dstaddr "VIP_TR069_7760_to_RMS"
+        set action accept
+        set schedule "always"
+        set service "TCP_7760"
+        set comments "Sothbound TR-069 Traffic from CPE to HDM"
+    next
+    edit 29
+        set srcintf "port1"
+        set dstintf "port28"
+        set srcaddr "Group_Oi_AS7738" "Group_Oi_AS8167" "Group_Parceiros_Unbundling"
+        set dstaddr "VIP_TR069_8080_to_RMS"
+        set action accept
+        set schedule "always"
+        set service "TCP_8080"
+        set comments "Sothbound TR-069 Traffic from CPE to HDM"
+    next
+    edit 34
+        set srcintf "port28"
+        set dstintf "port29"
+        set srcaddr "SERVIDORES_HDM-ALV-PRX"
+        set dstaddr "VIP_HDM_17015_to_TR069"
+        set action accept
+        set schedule "always"
+        set service "TCP_17015"
+        set comments "Sothbound TR-069 Traffic from CPE to HDM"
+    next
+    edit 35
+        set srcintf "port28"
+        set dstintf "port29"
+        set srcaddr "all"
+        set dstaddr "VIP_HDM_17025_to_TR069"
+        set action accept
+        set schedule "always"
+        set service "TCP_17025"
+        set comments "CSC to VIP HDM"
+    next
+    edit 36
+        set srcintf "port28"
+        set dstintf "port29"
+        set srcaddr "SERVIDORES_HDM-ALV-PRX" "SERVIDORES_HDM-ALV-FTP"
+        set dstaddr "SERVIDORES_HDM-ALV-APP" "SERVIDORES_HDM-ALV-DB"
+        set action accept
+        set schedule "always"
+        set service "ALL_ICMP"
+        set comments "Teste de conectividade"
+    next
+    edit 37
+        set srcintf "port26"
+        set dstintf "port29"
+        set srcaddr "TI_Oi_DCN"
+        set dstaddr "VIP_HDM_17025_to_DCN"
+        set action accept
+        set schedule "always"
+        set service "TCP_17025" "TCP-17105"
+        set logtraffic-start enable
+        set capture-packet enable
+        set auto-asic-offload disable
+        set comments "Provisioning flow via DCN - TEMP"
+    next
+    edit 55
+        set srcintf "port26"
+        set dstintf "port29"
+        set srcaddr "TI_Oi_DCN"
+        set dstaddr "VIP_HDM_9002_to_DCN" "VIP_HDM_17025_to_DCN"
+        set action accept
+        set schedule "always"
+        set service "TCP_9002"
+        set comments "Provisioning flow via DCN - TEMP"
+    next
+    edit 56
+        set srcintf "port26"
+        set dstintf "port29"
+        set srcaddr "Ehealth_10.121.212.39"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-APP" "GRUPO_NAT_DCN_HDM-ALV-DB" "GRUPO_NAT_DCN_HDM-ALV-REP"
+        set action accept
+        set schedule "always"
+        set service "UDP_1691" "ALL_ICMP"
+        set comments "ComunicaÃ§Ã£o com Ehealth"
+    next
+    edit 58
+        set srcintf "port26"
+        set dstintf "port29"
+        set srcaddr "10.21.18.31" "10.21.19.170" "10.21.25.188" "10.21.18.176" "10.21.19.192" "10.21.18.132" "10.21.18.90" "10.121.247.125" "10.121.247.65" "10.21.19.232" "10.21.26.113" "10.38.176.0/20"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-DB"
+        set action accept
+        set schedule "always"
+        set service "ORACLE" "SSH"
+    next
+    edit 67
+        set srcintf "port26"
+        set dstintf "port29"
+        set srcaddr "10.121.213.138" "10.121.213.141"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-APP"
+        set action accept
+        set schedule "always"
+        set service "tcp_8123" "TCP_8080" "PING"
+    next
+    edit 61
+        set srcintf "port26"
+        set dstintf "port29"
+        set srcaddr "Servidores_Proteus"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-APP" "GRUPO_NAT_DCN_HDM-ALV-DB" "GRUPO_NAT_DCN_HDM-ALV-REP"
+        set action accept
+        set schedule "always"
+        set service "SSH" "FTP" "HTTP" "HTTPS"
+        set comments "ARS16214456-16675607-20756290"
+    next
+    edit 47
+        set srcintf "port1"
+        set dstintf "port28"
+        set srcaddr "Group_Oi_AS7738" "Group_Oi_AS8167" "HUGHES_131.0.216.0" "Group_Parceiros_Unbundling"
+        set dstaddr "SERVIDORES_HDM-ALV-FTP"
+        set action accept
+        set schedule "always"
+        set service "HTTP" "TCP_8080"
+        set comments "Teste Velox TR069"
+    next
+    edit 45
+        set srcintf "port30"
+        set dstintf "port1"
+        set srcaddr "SERVIDORES_HDM-ALV-SMP"
+        set dstaddr "REPOSITORIO_RHEL"
+        set action accept
+        set schedule "always"
+        set service "HTTP" "HTTPS"
+        set comments "WO0000000113066"
+    next
+    edit 118
+        set srcintf "port30"
+        set dstintf "port1"
+        set srcaddr "SERVIDORES_HDM-ALV-SMP"
+        set dstaddr "ARC-RJ-NTP-01" "MPI-MG-NTP-01"
+        set action accept
+        set schedule "always"
+        set service "NTP"
+        set logtraffic disable
+        set comments "ARS 20093451"
+    next
+    edit 21
+        set srcintf "port1"
+        set dstintf "port28"
+        set srcaddr "Group_MGT_RMS"
+        set dstaddr "SERVIDORES_HDM-ALV-PRX" "SERVIDORES_HDM-ALV-FTP"
+        set action accept
+        set schedule "always"
+        set service "ALL_ICMP" "SSH"
+        set comments "Acesso MGT RMS SN3"
+    next
+    edit 50
+        set srcintf "port28"
+        set dstintf "port1"
+        set srcaddr "SERVIDORES_HDM-ALV-PRX"
+        set dstaddr "Group_Oi_AS7738" "Group_Oi_AS8167"
+        set action accept
+        set schedule "always"
+        set service "TELNET" "HTTP" "TCP_7468" "TCP_7548" "TCP_8080" "TCP_8081" "TCP_8082" "TCP_8085" "TCP_30005" "TCP_51005" "TCP_7547" "ALL_ICMP"
+        set comments "Connection Request to CPE - ARS16818299"
+    next
+    edit 116
+        set srcintf "port28"
+        set dstintf "port1"
+        set srcaddr "SERVIDORES_HDM-ALV-FTP" "SERVIDORES_HDM-ALV-PRX"
+        set dstaddr "ARC-RJ-NTP-01" "MPI-MG-NTP-01"
+        set action accept
+        set schedule "always"
+        set service "NTP"
+        set logtraffic disable
+        set comments "ARS 20093451"
+    next
+    edit 155
+        set srcintf "port28"
+        set dstintf "port1"
+        set srcaddr "SERVIDORES_HDM-ALV-FTP" "SERVIDORES_HDM-ALV-PRX"
+        set dstaddr "REPOSITORIO_RHEL"
+        set action accept
+        set schedule "always"
+        set service "HTTP" "HTTPS"
+        set logtraffic disable
+        set comments "WO0000000113066"
+    next
+    edit 106
+        set srcintf "port28"
+        set dstintf "port1"
+        set srcaddr "HDM-ALV-PRX-08"
+        set dstaddr "13.58.93.249"
+        set action accept
+        set schedule "always"
+        set service "TCP_8080"
+    next
+    edit 40
+        set srcintf "port29"
+        set dstintf "port1"
+        set srcaddr "LAN_RMS_HDM_APP_ALV"
+        set dstaddr "Group_Oi_AS7738" "Group_Oi_AS8167"
+        set action accept
+        set schedule "always"
+        set service "TELNET" "HTTP" "TCP_7468" "TCP_7548" "TCP_8080" "TCP_8081" "TCP_8082" "TCP_8085" "TCP_30005" "TCP_51005" "TCP_7547" "SSH" "HTTPS" "TCP_7021" "TRACEROUTE" "PING"
+        set comments "Connection Request to CPE - ARS16818299"
+    next
+    edit 39
+        set srcintf "port26"
+        set dstintf "port30"
+        set srcaddr "TI_Oi_DCN"
+        set dstaddr "VIP_SMP_8403_to_DCN"
+        set action accept
+        set schedule "always"
+        set service "TCP_8403"
+        set comments "CSC Console"
+    next
+    edit 62
+        set srcintf "port26"
+        set dstintf "port30"
+        set srcaddr "Servidores_Proteus"
+        set dstaddr "GRUPO_NAT_DCN_SMP-ALV"
+        set action accept
+        set schedule "always"
+        set service "SSH" "HTTP" "HTTPS"
+        set comments "ARS16214456"
+    next
+    edit 68
+        set srcintf "port26"
+        set dstintf "port30"
+        set srcaddr "10.121.213.138" "10.121.213.141"
+        set dstaddr "GRUPO_NAT_DCN_SMP-ALV"
+        set action accept
+        set schedule "always"
+        set service "TCP_8080" "tcp_8123"
+    next
+    edit 41
+        set srcintf "port1"
+        set dstintf "port28"
+        set srcaddr "Group_Oi_AS7738" "Group_Oi_AS8167" "Group_Parceiros_Unbundling"
+        set dstaddr "VIP_TR069_7547_to_RMS"
+        set action accept
+        set schedule "always"
+        set service "TCP_7547" "TCP_7748"
+        set comments "Sothbound TR-069 Traffic from CPE to HDM"
+    next
+    edit 44
+        set srcintf "port29"
+        set dstintf "port1"
+        set srcaddr "LAN_RMS_HDM_APP_ALV"
+        set dstaddr "GRUPO_CLF_VELOX"
+        set action accept
+        set schedule "always"
+        set service "TCP_9080" "TRACEROUTE" "PING"
+        set comments "Lib.de_Regra_Firewall HDM - CLF (NASS Velox)-ARS11783747"
+    next
+    edit 109
+        set srcintf "port29"
+        set dstintf "port1"
+        set srcaddr "LAN_RMS_HDM_APP_ALV" "SOAP_HDM_GROUP"
+        set dstaddr "VIP_CLF-FIBRA-R1-RJ"
+        set action accept
+        set schedule "always"
+        set service "TCP-9080"
+        set logtraffic disable
+        set comments "Lib.de_Regra_Firewall HDM - CLF (NASS Velox)-ARS11783747"
+    next
+    edit 110
+        set srcintf "port29"
+        set dstintf "port1"
+        set srcaddr "LAN_RMS_HDM_APP_ALV" "SOAP_HDM_GROUP"
+        set dstaddr "VIP_CLF-VELOX-R2"
+        set action accept
+        set schedule "always"
+        set service "TCP-9080"
+        set logtraffic disable
+        set comments "Lib.de_Regra_Firewall HDM - CLF (NASS Velox)-ARS11783747"
+    next
+    edit 111
+        set srcintf "port29"
+        set dstintf "port1"
+        set srcaddr "LAN_RMS_HDM_APP_ALV" "SOAP_HDM_GROUP"
+        set dstaddr "VIP_CLF-FIBRA-R2"
+        set action accept
+        set schedule "always"
+        set service "TCP-9080"
+        set logtraffic disable
+        set comments "Lib.de_Regra_Firewall HDM - CLF (NASS Velox)-ARS11783747"
+    next
+    edit 112
+        set srcintf "port29"
+        set dstintf "port1"
+        set srcaddr "HDM_SOAP_CLF" "LAN_RMS_HDM_APP_ALV"
+        set dstaddr "VIP_CLF-VELOX-R1"
+        set action accept
+        set schedule "always"
+        set service "TCP_9080"
+    next
+    edit 60
+        set srcintf "port29"
+        set dstintf "port1"
+        set srcaddr "SERVIDORES_HDM-ALV-APP" "SERVIDORES_HDM-ALV-DB"
+        set dstaddr "52.67.215.237"
+        set action accept
+        set schedule "always"
+        set service "SSH"
+        set comments "Lib.de_Regra_Firewall HDM - ANATEL - ARS16013022-16719287"
+    next
+    edit 117
+        set srcintf "port29"
+        set dstintf "port1"
+        set srcaddr "SERVIDORES_HDM-ALV-APP" "SERVIDORES_HDM-ALV-DB" "SERVIDORES_HDM-ALV-REP"
+        set dstaddr "ARC-RJ-NTP-01" "MPI-MG-NTP-01"
+        set action accept
+        set schedule "always"
+        set service "NTP"
+        set logtraffic disable
+        set comments "ARS 20093451"
+    next
+    edit 156
+        set srcintf "port29"
+        set dstintf "port1"
+        set srcaddr "SERVIDORES_HDM-ALV-APP" "SERVIDORES_HDM-ALV-DB" "SERVIDORES_HDM-ALV-REP"
+        set dstaddr "REPOSITORIO_RHEL"
+        set action accept
+        set schedule "always"
+        set service "HTTP" "HTTPS"
+        set logtraffic disable
+        set comments "WO0000000113066"
+    next
+    edit 65
+        set srcintf "port1"
+        set dstintf "port28"
+        set srcaddr "Group_Oi_AS7738" "Group_Oi_AS8167" "Group_Parceiros_Unbundling"
+        set dstaddr "VIP_TR069_7761_to_RMS"
+        set action accept
+        set schedule "always"
+        set service "TCP-7761"
+    next
+    edit 163
+        set srcintf "port1"
+        set dstintf "port28"
+        set srcaddr "AXTRACT1 - 179.190.61.66/32" "AXTRACT1 - 179.190.41.20/32"
+        set dstaddr "VIP_TR069_8000_to_RMS"
+        set action accept
+        set schedule "always"
+        set service "TCP-8000"
+        set comments "ComunicaÃ§Ã£o AXTRACT1 (ClearTech) --> TRM #REQ000000907182"
+    next
+    edit 66
+        set srcintf "port1"
+        set dstintf "port28"
+        set srcaddr "Proteus_200.222.75.25"
+        set dstaddr "HDM-ALV-PRX-01" "HDM-ALV-PRX-02" "HDM-ALV-PRX-07" "HDM-ALV-PRX-08"
+        set action accept
+        set schedule "always"
+        set service "SSH" "FTP"
+        set comments "ARS16675607"
+    next
+    edit 69
+        set srcintf "port26"
+        set dstintf "port29"
+        set srcaddr "10.21.18.90" "10.21.19.232" "10.21.18.176" "10.21.18.132" "10.21.19.170" "10.21.19.192" "10.21.25.188" "10.21.26.113" "10.121.60.2" "10.121.60.3"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-APP" "GRUPO_NAT_DCN_HDM-ALV-REP"
+        set action accept
+        set schedule "always"
+        set service "SSH" "ALL_ICMP"
+    next
+    edit 70
+        set srcintf "port26"
+        set dstintf "port30"
+        set srcaddr "10.21.18.90" "10.21.19.232" "10.21.18.176" "10.21.18.132" "10.21.19.170" "10.21.19.192" "10.21.25.188" "10.21.26.113" "10.121.247.65" "10.121.247.125" "10.121.60.2" "10.121.60.3"
+        set dstaddr "GRUPO_NAT_DCN_SMP-ALV"
+        set action accept
+        set schedule "always"
+        set service "SSH" "ALL_ICMP"
+    next
+    edit 71
+        set srcintf "port26"
+        set dstintf "port29"
+        set srcaddr "10.21.18.90" "10.21.19.232" "10.21.18.176" "10.21.18.132" "10.21.19.170" "10.21.19.192" "10.21.25.188" "10.121.60.2" "10.121.60.3"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-APP" "GRUPO_NAT_DCN_HDM-ALV-REP"
+        set action accept
+        set schedule "always"
+        set service "TCP_7548" "TCP_8080" "TCP_7780" "TCP_7558" "HTTP" "TCP_7547" "TCP_7748" "TCP_7568" "TCP_7758" "TCP_7759" "TCP_7760"
+    next
+    edit 72
+        set srcintf "port26"
+        set dstintf "port30"
+        set srcaddr "10.21.27.147" "10.121.184.68"
+        set dstaddr "GRUPO_NAT_DCN_SMP-ALV"
+        set action accept
+        set schedule "always"
+        set service "TCP_10050" "TCP_10051" "TCP_161" "SSH"
+    next
+    edit 73
+        set srcintf "port26"
+        set dstintf "port29"
+        set srcaddr "10.21.27.147" "10.121.184.68" "10.38.176.0/20"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-APP" "GRUPO_NAT_DCN_HDM-ALV-DB" "GRUPO_NAT_DCN_HDM-ALV-REP"
+        set action accept
+        set schedule "always"
+        set service "TCP_10050" "TCP_10051" "TCP_161" "SSH" "HTTP" "HTTPS"
+    next
+    edit 75
+        set srcintf "port35"
+        set dstintf "port30"
+        set srcaddr "SERVIDORES_NEETZA"
+        set dstaddr "GRUPO_NAT_DCN_VPNDC_SMP-ALV-DB"
+        set action accept
+        set schedule "always"
+        set service "TCP-1521"
+    next
+    edit 76
+        set srcintf "port30"
+        set dstintf "port35"
+        set srcaddr "all"
+        set dstaddr "all"
+        set action accept
+        set schedule "always"
+        set service "ALL"
+        set comments "teste"
+    next
+    edit 77
+        set srcintf "port35"
+        set dstintf "port29"
+        set srcaddr "10.0.0.0/8"
+        set dstaddr "GRUPO_NAT_DCN_VPNDC_HDM-ALV-DB" "GRUPO_NAT_DCN_VPNDC_HDM-ALV-APP"
+        set action accept
+        set schedule "always"
+        set service "ALL_ICMP" "TCP_8080" "TCP-9990"
+        set logtraffic disable
+        set logtraffic-start enable
+        set auto-asic-offload disable
+    next
+    edit 79
+        set srcintf "port35"
+        set dstintf "port29"
+        set srcaddr "SERVIDORES_NEETZA"
+        set dstaddr "GRUPO_NAT_DCN_VPNDC_HDM-ALV-DB"
+        set action accept
+        set schedule "always"
+        set service "TCP-1525" "TCP-1521"
+    next
+    edit 80
+        set srcintf "port35"
+        set dstintf "port29"
+        set srcaddr "10.0.0.0/8"
+        set dstaddr "VIP_HDM_17025_to_DCN_VPNDC"
+        set action accept
+        set schedule "always"
+        set service "TCP_17025"
+        set logtraffic disable
+        set logtraffic-start enable
+        set auto-asic-offload disable
+    next
+    edit 78
+        set srcintf "port29"
+        set dstintf "port35"
+        set srcaddr "SERVIDORES_HDM-ALV-DB" "SERVIDORES_HDM-ALV-APP"
+        set dstaddr "10.0.0.0/8"
+        set action accept
+        set schedule "always"
+        set service "ALL_ICMP"
+    next
+    edit 81
+        set srcintf "port29"
+        set dstintf "port35"
+        set srcaddr "SERVIDORES_HDM-ALV-APP"
+        set dstaddr "SERVIDORES_NETQ"
+        set action accept
+        set schedule "always"
+        set service "TCP_8080" "tcp_8123"
+    next
+    edit 83
+        set srcintf "port26"
+        set dstintf "port28"
+        set srcaddr "10.125.62.116" "10.38.139.144/29" "GRUPO_MONITORACAO" "10.21.26.113" "10.121.60.2" "10.121.60.3"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-FTP" "GRUPO_NAT_DCN_HDM-ALV-PRX"
+        set action accept
+        set schedule "always"
+        set service "SSH" "ALL_ICMP"
+    next
+    edit 84
+        set srcintf "port26"
+        set dstintf "port29"
+        set srcaddr "10.38.139.144/29" "10.125.62.116" "10.125.62.117"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-REP" "GRUPO_NAT_DCN_HDM-ALV-DB"
+        set action accept
+        set schedule "always"
+        set service "ORACLE" "SSH" "TCP-1158"
+    next
+    edit 85
+        set srcintf "port26"
+        set dstintf "port29"
+        set srcaddr "10.38.139.144/29" "10.125.62.116" "10.121.60.2" "10.121.60.3" "10.125.62.117" "10.21.25.63" "10.21.25.224" "10.21.24.217" "10.21.24.214"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-APP"
+        set action accept
+        set schedule "always"
+        set service "SSH" "TCP_17005" "TCP_17015" "TCP_17025" "TCP_9002"
+    next
+    edit 86
+        set srcintf "port26"
+        set dstintf "port28"
+        set srcaddr "10.32.216.27" "10.32.216.34" "10.32.216.190" "10.32.216.192" "10.32.206.152" "10.32.206.153" "10.32.206.155" "10.32.206.163" "10.32.206.164" "10.32.206.165" "10.57.148.49" "10.57.148.50" "10.57.148.51" "10.57.148.52" "10.57.148.53" "10.57.148.54" "10.57.148.63" "10.57.148.64" "10.57.148.65" "10.57.148.68" "10.57.148.67" "10.57.148.66" "10.58.1.46" "10.58.1.45" "10.58.4.125" "10.58.82.0/23" "10.58.168.15" "10.58.88.11" "10.58.168.16" "10.58.92.8" "10.58.168.17"
+        set dstaddr "VIP_HDM_7790_to_DCN"
+        set action accept
+        set schedule "always"
+        set service "TCP_7790"
+    next
+    edit 87
+        set srcintf "port26"
+        set dstintf "port28"
+        set srcaddr "10.21.18.90" "10.21.19.232" "10.21.18.176" "10.21.18.132" "10.21.19.170" "10.21.19.192" "10.21.25.188"
+        set dstaddr "SERVIDORES_HDM-ALV-PRX"
+        set action accept
+        set schedule "always"
+        set service "SSH"
+    next
+    edit 99
+        set srcintf "port26"
+        set dstintf "port28"
+        set srcaddr "GRUPO_MONITORACAO"
+        set dstaddr "HDM-ALV-PRX-04_NAT_DCN" "HDM-ALV-PRX-05_NAT_DCN"
+        set action accept
+        set schedule "always"
+        set service "TCP_7790"
+        set comments "ARS17925885"
+    next
+    edit 100
+        set srcintf "port26"
+        set dstintf "port28"
+        set srcaddr "10.21.25.63" "10.21.25.224" "10.21.24.217" "10.21.24.214"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-PRX"
+        set action accept
+        set schedule "always"
+        set service "SSH" "TCP_7548" "TCP_8080" "TCP_7558" "HTTP" "TCP_7547" "TCP_7748" "TCP_7568" "TCP_7758" "TCP_7759" "TCP_7760" "TCP-7761" "ALL_ICMP"
+        set comments "ARS18481752"
+    next
+    edit 82
+        set srcintf "port26"
+        set dstintf "port28"
+        set srcaddr "TI_Oi_DCN"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-FTP" "GRUPO_NAT_DCN_HDM-ALV-PRX"
+        set action accept
+        set schedule "always"
+        set service "ALL_ICMP" "TCP_7468" "TCP_8080" "TCP_7558" "HTTP" "TCP_7547" "TCP_7548" "TCP_7568" "TCP_7758" "TCP_7759" "TCP_7760" "TCP-7761" "TCP_7780" "TCP_7748"
+        set comments "acesso dcn temp"
+    next
+    edit 88
+        set srcintf "port26"
+        set dstintf "port29"
+        set srcaddr "Equipe de Plataforma"
+        set dstaddr "HDM-ALV-APP-01" "HDM-ALV-APP-02" "HDM-ALV-APP-03" "HDM-ALV-APP-04" "HDM-ALV-APP-05" "HDM-ALV-APP-06"
+        set action accept
+        set schedule "always"
+        set service "SSH" "TCP_17005" "TCP_17015" "TCP_17025" "TCP_9002"
+    next
+    edit 89
+        set srcintf "port26"
+        set dstintf "port30"
+        set srcaddr "Equipe de Plataforma"
+        set dstaddr "SMP-ALV-DB-02"
+        set action accept
+        set schedule "always"
+        set service "SSH" "TCP_8403"
+    next
+    edit 91
+        set srcintf "port26"
+        set dstintf "port30"
+        set srcaddr "10.125.62.116" "10.125.62.117" "Acesso-Remoto-Nokia"
+        set dstaddr "GRUPO_NAT_DCN_SMP-ALV"
+        set action accept
+        set schedule "always"
+        set service "SSH" "HTTP" "HTTPS"
+    next
+    edit 92
+        set srcintf "port26"
+        set dstintf "port29"
+        set srcaddr "Nokia_10.222.219.112" "Nokia_10.222.219.113" "10.121.60.2" "10.121.60.3"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-REP" "GRUPO_NAT_DCN_HDM-ALV-DB"
+        set action accept
+        set schedule "always"
+        set service "ORACLE" "TCP-1158"
+    next
+    edit 93
+        set srcintf "port26"
+        set dstintf "port30"
+        set srcaddr "Nokia_10.222.219.112" "Nokia_10.222.219.113" "10.121.60.2" "10.121.60.3" "10.125.62.116" "10.125.62.117"
+        set dstaddr "GRUPO_NAT_DCN_SMP-ALV"
+        set action accept
+        set schedule "always"
+        set service "ORACLE" "TCP-1158"
+    next
+    edit 94
+        set srcintf "port1"
+        set dstintf "port28"
+        set srcaddr "HUGHES_201.54.32.6"
+        set dstaddr "SERVIDORES_HDM-ALV-FTP"
+        set action accept
+        set schedule "always"
+        set service "SSH"
+        set logtraffic disable
+        set comments "SFTP_HUGHES"
+    next
+    edit 105
+        set srcintf "port1"
+        set dstintf "port28"
+        set srcaddr "13.58.93.249"
+        set dstaddr "HDM-ALV-PRX-08"
+        set action accept
+        set schedule "always"
+        set service "TCP_8080"
+    next
+    edit 95
+        set srcintf "port26"
+        set dstintf "port30"
+        set srcaddr "10.121.60.2" "10.121.60.3"
+        set dstaddr "SMP-ALV-DB-01_NAT_DCN" "SMP-ALV-DB-02_NAT_DCN"
+        set action accept
+        set schedule "always"
+        set service "SSH" "TCP_8403" "TCP_9402"
+    next
+    edit 97
+        set srcintf "port26"
+        set dstintf "port29"
+        set srcaddr "10.22.180.80"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-REP"
+        set action accept
+        set schedule "always"
+        set service "TCP_8080"
+    next
+    edit 98
+        set srcintf "port26"
+        set dstintf "port29"
+        set srcaddr "GRUPO_SALTO_OSS"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-DB"
+        set action accept
+        set schedule "always"
+        set service "SSH" "TCP-1158" "ORACLE"
+        set comments "ARS-17839138"
+    next
+    edit 101
+        set srcintf "port26"
+        set dstintf "port28"
+        set srcaddr "10.125.62.116" "10.125.62.117" "10.38.176.0/20"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-PRX"
+        set action accept
+        set schedule "always"
+        set service "SSH" "HTTP" "HTTPS" "TCP_9002" "TCP_9402" "TCP_17025"
+    next
+    edit 102
+        set srcintf "port26"
+        set dstintf "port28"
+        set srcaddr "10.125.62.116" "10.125.62.117" "10.38.176.0/20"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-FTP"
+        set action accept
+        set schedule "always"
+        set service "SSH" "HTTP" "HTTPS" "TCP_8080" "TCP_9002" "TCP_9402" "TCP_17025"
+    next
+    edit 103
+        set srcintf "port26"
+        set dstintf "port30"
+        set srcaddr "TI_Oi_DCN"
+        set dstaddr "VIP_SMP_8080_to_DCN"
+        set action accept
+        set schedule "always"
+        set service "TCP_8080"
+    next
+    edit 104
+        set srcintf "port26"
+        set dstintf "port30"
+        set srcaddr "TI_Oi_DCN"
+        set dstaddr "VIP_SMP_8665_to_DCN"
+        set action accept
+        set schedule "always"
+        set service "TCP-8665"
+    next
+    edit 130
+        set srcintf "port26"
+        set dstintf "port30"
+        set srcaddr "10.58.22.0/24"
+        set dstaddr "SMP-ALV-DB-02_NAT_DCN" "SMP-ALV-DB-01_NAT_DCN"
+        set action accept
+        set schedule "always"
+        set service "ORACLE"
+        set comments "ARS 20756290/REQ000000250338"
+    next
+    edit 107
+        set srcintf "port1"
+        set dstintf "port28"
+        set srcaddr "Group_Oi_AS7738" "Group_Oi_AS8167" "Group_Parceiros_Unbundling"
+        set dstaddr "VIP_TR069_7770_to_RMS"
+        set action accept
+        set schedule "always"
+        set service "TCP_7770"
+    next
+    edit 113
+        set srcintf "port29"
+        set dstintf "port1"
+        set srcaddr "LAN_RMS_HDM_APP_ALV" "SOAP_HDM_GROUP"
+        set dstaddr "VIP_CLF-FIBRA-R1-BA"
+        set action accept
+        set schedule "always"
+        set service "TCP-9080"
+        set logtraffic disable
+    next
+    edit 128
+        set srcintf "port29"
+        set dstintf "port1"
+        set srcaddr "HDM-ALV-DB-01" "HDM-ALV-DB-02" "HDM-ALV-DB-03"
+        set dstaddr "52.67.215.237" "179.190.42.141" "179.190.41.25"
+        set action accept
+        set schedule "always"
+        set service "SSH"
+    next
+    edit 145
+        set srcintf "port29"
+        set dstintf "port1"
+        set srcaddr "SERVIDORES_HDM-ALV-DB"
+        set dstaddr "179.190.42.141" "179.190.41.25"
+        set action accept
+        set schedule "always"
+        set service "TCP_2201" "TCP-22202"
+        set comments "ARS_21155660 e ARS_21653096"
+    next
+    edit 114
+        set srcintf "port26"
+        set dstintf "port29"
+        set srcaddr "10.38.176.0/20"
+        set dstaddr "HDM-ALV-APP-01_NAT_DCN"
+        set action accept
+        set schedule "always"
+        set service "TCP_9002" "TCP_17025"
+    next
+    edit 115
+        set srcintf "port26"
+        set dstintf "port28"
+        set srcaddr "Servidores_Proteus"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-FTP" "GRUPO_NAT_DCN_HDM-ALV-PRX"
+        set action accept
+        set schedule "always"
+        set service "SSH" "HTTP" "HTTPS"
+        set comments "ARS 20756290 "
+    next
+    edit 119
+        set srcintf "port26"
+        set dstintf "port28"
+        set srcaddr "10.38.64.0/19" "10.55.64.0/19" "SUPORTE-OSS" "Acesso-Remoto-Nokia" "GRP_SUPORTE_OSS_UNIFICADO"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-PRX" "GRUPO_NAT_DCN_HDM-ALV-FTP"
+        set action accept
+        set schedule "always"
+        set service "SSH" "HTTP" "HTTPS"
+        set comments "REQ000000250338"
+    next
+    edit 136
+        set srcintf "port26"
+        set dstintf "port28"
+        set srcaddr "SERVIDORES-TI-NAM"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-PRX"
+        set action accept
+        set schedule "always"
+        set service "HTTPS"
+        set comments "ARS20864093"
+    next
+    edit 147
+        set srcintf "port26"
+        set dstintf "port28"
+        set srcaddr "10.21.9.161"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-PRX" "GRUPO_NAT_DCN_HDM-ALV-FTP"
+        set action accept
+        set schedule "always"
+        set service "ALL_ICMP" "SSH"
+        set comments "ARS21439456"
+    next
+    edit 139
+        set srcintf "port26"
+        set dstintf "port28"
+        set srcaddr "10.121.184.68" "10.21.9.161"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-PRX" "GRUPO_NAT_DCN_HDM-ALV-FTP"
+        set action accept
+        set schedule "always"
+        set service "SNMP"
+        set comments "ARS21439456"
+    next
+    edit 120
+        set srcintf "port26"
+        set dstintf "port29"
+        set srcaddr "10.55.64.0/19" "10.38.64.0/19" "10.103.0.0/17" "10.104.0.0/17"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-APP" "GRUPO_NAT_DCN_HDM-ALV-DB" "GRUPO_NAT_DCN_HDM-ALV-REP"
+        set action accept
+        set schedule "always"
+        set service "SSH" "TCP_9002" "TCP_17025"
+    next
+    edit 122
+        set srcintf "port26"
+        set dstintf "port30"
+        set srcaddr "10.55.64.0/19" "10.38.64.0/19" "10.103.0.0/17" "10.104.0.0/17"
+        set dstaddr "GRUPO_NAT_DCN_SMP-ALV"
+        set action accept
+        set schedule "always"
+        set service "SSH" "TCP-1525" "TCP_9402" "HTTP" "HTTPS" "ORACLE" "TCP-9990" "TCP_8080"
+    next
+    edit 133
+        set srcintf "port26"
+        set dstintf "port30"
+        set srcaddr "SERVIDORES-TI-NAM"
+        set dstaddr "GRUPO_NAT_DCN_SMP-ALV"
+        set action accept
+        set schedule "always"
+        set service "HTTPS"
+        set comments "ARS20864093"
+    next
+    edit 149
+        set srcintf "port26"
+        set dstintf "port30"
+        set srcaddr "10.21.9.161" "10.21.9.160"
+        set dstaddr "GRUPO_NAT_DCN_SMP-ALV"
+        set action accept
+        set schedule "always"
+        set service "ALL_ICMP" "SSH"
+        set comments "ARS21439456"
+    next
+    edit 142
+        set srcintf "port26"
+        set dstintf "port30"
+        set srcaddr "10.121.184.68" "10.21.9.161"
+        set dstaddr "GRUPO_NAT_DCN_SMP-ALV"
+        set action accept
+        set schedule "always"
+        set service "SNMP"
+        set comments "ARS20864093 / ARS21439456"
+    next
+    edit 123
+        set srcintf "port26"
+        set dstintf "port29"
+        set srcaddr "10.55.64.0/19" "10.38.64.0/19" "10.32.142.43" "10.32.143.27" "10.57.148.139" "10.58.22.0/24" "10.58.30.0/24" "10.121.247.200" "10.121.247.201" "10.121.247.113" "10.121.1.113" "10.121.1.155" "10.121.184.155" "10.61.46.190" "10.61.46.191" "10.121.184.249" "10.121.189.68" "10.101.3.136" "10.101.3.137" "10.101.35.75" "10.101.35.76" "10.103.0.0/17" "10.104.0.0/17" "10.50.1.0/24" "10.58.36.0/24" "10.32.143.28"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-DB"
+        set action accept
+        set schedule "always"
+        set service "ORACLE"
+    next
+    edit 140
+        set srcintf "port26"
+        set dstintf "port29"
+        set srcaddr "Acesso-Remoto-Nokia" "SUPORTE-OSS" "10.38.176.0/20" "10.55.64.0/19" "GRP_SUPORTE_OSS_UNIFICADO"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-APP" "GRUPO_NAT_DCN_HDM-ALV-DB" "GRUPO_NAT_DCN_HDM-ALV-REP"
+        set action accept
+        set schedule "always"
+        set service "HTTP" "HTTPS" "SSH"
+        set comments "20756290/REQ000000250338"
+    next
+    edit 135
+        set srcintf "port26"
+        set dstintf "port29"
+        set srcaddr "SERVIDORES-TI-NAM"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-APP"
+        set action accept
+        set schedule "always"
+        set service "HTTPS"
+        set comments "ARS20864093"
+    next
+    edit 148
+        set srcintf "port26"
+        set dstintf "port29"
+        set srcaddr "10.21.9.161" "10.21.9.160"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-APP" "GRUPO_NAT_DCN_HDM-ALV-DB" "GRUPO_NAT_DCN_HDM-ALV-REP"
+        set action accept
+        set schedule "always"
+        set service "ALL_ICMP" "SSH"
+        set comments "ARS21439456"
+    next
+    edit 141
+        set srcintf "port26"
+        set dstintf "port29"
+        set srcaddr "10.121.184.68" "10.21.9.161"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-APP" "GRUPO_NAT_DCN_HDM-ALV-DB" "GRUPO_NAT_DCN_HDM-ALV-REP"
+        set action accept
+        set schedule "always"
+        set service "SNMP"
+        set comments "ARS20756290 / ARS21439456"
+    next
+    edit 152
+        set srcintf "port26"
+        set dstintf "port29"
+        set srcaddr "10.121.189.93" "10.121.187.138" "10.121.189.68" "10.121.184.249"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-APP"
+        set action accept
+        set schedule "always"
+        set service "TCP-8090"
+        set comments "ARS_21607532"
+    next
+    edit 153
+        set srcintf "port26"
+        set dstintf "port29"
+        set srcaddr "10.58.212.0/23" "10.58.168.12/32" "10.58.168.13/32" "10.58.168.14/32"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-APP"
+        set action accept
+        set schedule "always"
+        set service "TCP_7790" "TCP_17025" "HTTP" "HTTPS" "TCP_8080" "TCP_1702" "TCP_7003" "TCP_47021"
+        set comments "WO0000000011543/ARS21708551"
+    next
+    edit 154
+        set srcintf "port26"
+        set dstintf "port29"
+        set srcaddr "10.58.82.0/23" "10.58.168.15" "10.58.168.16" "10.58.168.17" "10.58.88.11" "10.58.92.8"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-APP"
+        set action accept
+        set schedule "always"
+        set service "TCP_7790" "TCP_17025"
+        set comments "WO0000000035815"
+    next
+    edit 108
+        set srcintf "port26"
+        set dstintf "port31"
+        set srcaddr "SUPORTE-OSS" "GRP_SUPORTE_OSS_UNIFICADO"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-APP-HOST" "GRUPO_NAT_DCN_HDM-ALV-PRX-HOST" "GRUPO_NAT_DCN_HDM-ALV-REDIS" "HDM-ALV-MNGT-01_NAT_DCN" "GRUPO_NAT_DCN_HDM-ALV-PRX-SBI" "GRUPO-HDM-ALV-LBF5"
+        set action accept
+        set schedule "always"
+        set service "SSH" "HTTP" "HTTPS"
+        set comments "REQ000000250338"
+    next
+    edit 124
+        set srcintf "port26"
+        set dstintf "port31"
+        set srcaddr "Nokia_10.222.219.112" "Nokia_10.222.219.113" "10.125.62.116" "10.125.62.117"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-APP-HOST" "GRUPO_NAT_DCN_HDM-ALV-PRX-HOST" "GRUPO_NAT_DCN_HDM-ALV-REDIS" "HDM-ALV-MNGT-01_NAT_DCN" "GRUPO_NAT_DCN_HDM-ALV-PRX-SBI" "GRUPO-HDM-ALV-LBF5"
+        set action accept
+        set schedule "always"
+        set service "SSH" "HTTP" "HTTPS"
+    next
+    edit 125
+        set srcintf "port26"
+        set dstintf "port31"
+        set srcaddr "10.38.176.0/20" "10.55.64.0/19" "10.103.0.0/17" "10.104.0.0/17"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-APP-HOST" "GRUPO_NAT_DCN_HDM-ALV-PRX-HOST" "GRUPO_NAT_DCN_HDM-ALV-REDIS" "HDM-ALV-MNGT-01_NAT_DCN" "GRUPO_NAT_DCN_HDM-ALV-PRX-SBI"
+        set action accept
+        set schedule "always"
+        set service "SSH" "HTTP" "HTTPS" "TCP-9990" "TCP_8080"
+    next
+    edit 134
+        set srcintf "port26"
+        set dstintf "port31"
+        set srcaddr "SERVIDORES-TI-NAM"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-APP-HOST" "GRUPO_NAT_DCN_HDM-ALV-PRX-HOST" "GRUPO_NAT_DCN_HDM-ALV-REDIS" "HDM-ALV-MNGT-01_NAT_DCN" "GRUPO_NAT_DCN_HDM-ALV-PRX-SBI"
+        set action accept
+        set schedule "always"
+        set service "HTTPS"
+        set comments "ARS20864093"
+    next
+    edit 150
+        set srcintf "port26"
+        set dstintf "port31"
+        set srcaddr "10.21.9.161" "10.21.9.160"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-APP-HOST" "GRUPO_NAT_DCN_HDM-ALV-PRX-HOST" "GRUPO_NAT_DCN_HDM-ALV-REDIS" "HDM-ALV-MNGT-01_NAT_DCN" "GRUPO_NAT_DCN_HDM-ALV-PRX-SBI"
+        set action accept
+        set schedule "always"
+        set service "ALL_ICMP" "SSH"
+        set comments "ARS21439456"
+    next
+    edit 143
+        set srcintf "port26"
+        set dstintf "port31"
+        set srcaddr "10.121.184.68" "10.21.9.161"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-APP-HOST" "GRUPO_NAT_DCN_HDM-ALV-PRX-HOST" "GRUPO_NAT_DCN_HDM-ALV-REDIS" "HDM-ALV-MNGT-01_NAT_DCN" "GRUPO_NAT_DCN_HDM-ALV-PRX-SBI"
+        set action accept
+        set schedule "always"
+        set service "SNMP"
+        set comments "ARS20864093/ARS21439456"
+    next
+    edit 144
+        set srcintf "port26"
+        set dstintf "port31"
+        set srcaddr "10.32.206.153" "10.32.206.155" "10.32.206.163" "10.32.206.164" "10.32.206.165"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-APP-HOST" "GRUPO_NAT_DCN_HDM-ALV-PRX-HOST" "GRUPO_NAT_DCN_HDM-ALV-REDIS" "HDM-ALV-MNGT-01_NAT_DCN" "GRUPO_NAT_DCN_HDM-ALV-PRX-SBI"
+        set action accept
+        set schedule "always"
+        set service "TCP_8080" "TCP-47007" "TCP-47021"
+        set comments "ARS20864093"
+    next
+    edit 129
+        set srcintf "port26"
+        set dstintf "port30"
+        set srcaddr "10.58.1.37" "10.58.1.38"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-APP-SMP"
+        set action accept
+        set schedule "always"
+        set service "HTTPS"
+    next
+    edit 132
+        set srcintf "port26"
+        set dstintf "port30"
+        set srcaddr "Nokia_10.222.219.112" "Nokia_10.222.219.113" "10.125.62.116" "10.125.62.117" "host_10.22.192.16" "host_10.121.60.18" "host_10.21.24.248" "host_10.21.17.34" "host_10.21.27.23" "host_10.21.27.150" "host_10.20.230.206" "host_10.21.27.167" "10.21.25.3"
+        set dstaddr "VIP_SMP_443_to_DCN"
+        set action accept
+        set schedule "always"
+        set service "HTTPS" "PING"
+    next
+    edit 137
+        set srcintf "port31"
+        set dstintf "port26"
+        set srcaddr "LAN_MNGTLOCAL_FTTH"
+        set dstaddr "Host_10.58.23.116" "host_10.58.90.68"
+        set action accept
+        set schedule "always"
+        set service "TCP-636"
+        set comments "ARS20864093"
+        set nat enable
+    next
+    edit 138
+        set srcintf "port31"
+        set dstintf "port26"
+        set srcaddr "LAN_MNGTLOCAL_FTTH"
+        set dstaddr "10.121.187.138" "10.121.189.93"
+        set action accept
+        set schedule "always"
+        set service "TCP-8090"
+        set comments "ARS20864093"
+        set nat enable
+    next
+    edit 131
+        set srcintf "port26"
+        set dstintf "port30"
+        set srcaddr "10.21.26.194" "10.121.184.246"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-APP-SMP"
+        set action accept
+        set schedule "always"
+        set service "SSH" "TCP-9990" "TCP_8080" "HTTPS" "TCP-8665"
+    next
+    edit 146
+        set srcintf "port31"
+        set dstintf "port26"
+        set srcaddr "LAN_MNGTLOCAL_FTTH"
+        set dstaddr "TI_Oi_DCN"
+        set action accept
+        set schedule "always"
+        set service "ALL"
+        set nat enable
+    next
+    edit 151
+        set srcintf "port26"
+        set dstintf "port31"
+        set srcaddr "Servidores_Proteus"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-APP-HOST" "GRUPO_NAT_DCN_HDM-ALV-PRX-HOST" "GRUPO_NAT_DCN_HDM-ALV-REDIS" "GRUPO_NAT_DCN_HDM-ALV-PRX-SBI" "HDM-ALV-MNGT-01_NAT_DCN" "GRUPO-HDM-ALV-LBF5"
+        set action accept
+        set schedule "always"
+        set service "SSH" "ALL_ICMP" "TRACEROUTE"
+    next
+    edit 157
+        set srcintf "port35"
+        set dstintf "port29"
+        set srcaddr "10.58.1.58" "10.58.7.41" "10.58.22.13" "10.32.142.43/32"
+        set dstaddr "GRUPO_NAT_DCN_VPNDC_HDM-ALV-DB"
+        set action accept
+        set schedule "always"
+        set service "TCP-1521"
+    next
+    edit 158
+        set srcintf "port26"
+        set dstintf "port31"
+        set srcaddr "10.121.187.68"
+        set dstaddr "GRUPO-HDM-ALV-LBF5"
+        set action accept
+        set schedule "always"
+        set service "TCP_10050" "TCP_10051" "ALL_ICMP" "SNMP"
+        set comments "Zabbix plataformas de Rede gerencia novos loadbalances F5"
+    next
+    edit 159
+        set srcintf "port26"
+        set dstintf "port31"
+        set srcaddr "10.121.184.249" "10.121.189.68"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-APP-HOST" "GRUPO_NAT_DCN_HDM-ALV-PRX-HOST" "GRUPO_NAT_DCN_HDM-ALV-REDIS" "HDM-ALV-MNGT-01_NAT_DCN" "GRUPO_NAT_DCN_HDM-ALV-PRX-SBI"
+        set action accept
+        set schedule "always"
+        set service "TCP-6379" "TCP-6380" "TCP-6381"
+    next
+    edit 160
+        set srcintf "port26"
+        set dstintf "port29"
+        set srcaddr "10.121.184.249" "10.121.189.68"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-APP"
+        set action accept
+        set schedule "always"
+        set service "TCP-6379" "TCP-6380" "TCP-6381"
+    next
+    edit 161
+        set srcintf "port26"
+        set dstintf "port28"
+        set srcaddr "10.121.184.249" "10.121.189.68"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-PRX"
+        set action accept
+        set schedule "always"
+        set service "TCP-6379" "TCP-6380" "TCP-6381"
+    next
+    edit 162
+        set srcintf "port1"
+        set dstintf "port29"
+        set srcaddr "34.151.244.172"
+        set dstaddr "HDM-ALV-DB-01"
+        set action accept
+        set schedule "always"
+        set service "TCP-1521"
+    next
+    edit 164
+        set srcintf "port26"
+        set dstintf "port29"
+        set srcaddr "10.61.46.190" "10.61.46.191"
+        set dstaddr "HDM-ALV-APP-13_NAT_DCN" "HDM-ALV-APP-14_NAT_DCN"
+        set action accept
+        set schedule "always"
+        set service "SSH"
+    next
+    edit 165
+        set srcintf "port26"
+        set dstintf "port28"
+        set srcaddr "10.32.206.155" "10.32.206.163" "10.32.206.164" "10.32.206.165"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-FTP" "GRUPO_NAT_DCN_HDM-ALV-PRX"
+        set action accept
+        set schedule "always"
+        set service "TCP-47007" "TCP-47021"
+    next
+    edit 166
+        set srcintf "port26"
+        set dstintf "port29"
+        set srcaddr "10.32.206.155" "10.32.206.163" "10.32.206.164" "10.32.206.165"
+        set dstaddr "GRUPO_NAT_DCN_HDM-ALV-APP" "GRUPO_NAT_DCN_HDM-ALV-REP" "GRUPO_NAT_DCN_HDM-ALV-DB"
+        set action accept
+        set schedule "always"
+        set service "TCP-47007" "TCP-47021"
+    next
