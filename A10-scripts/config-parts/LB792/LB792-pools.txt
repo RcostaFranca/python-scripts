@@ -1,0 +1,4346 @@
+ltm pool /DMZ-HOM/pool_8080_webservices {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-HOM/SPTLVWS01H:8080 {
+            address 10.34.196.25
+        }
+        /DMZ-HOM/SPTLVWS02H:8080 {
+            address 10.34.196.26
+        }
+    }
+    monitor /DMZ-HOM/mon_http_webservices
+    service-down-action reset
+}
+ltm pool /DMZ-HOM/pool_appservices_hom {
+    members {
+        /DMZ-HOM/SPTSCAPRIV01H:8001 {
+            address 10.34.196.12
+        }
+        /DMZ-HOM/SPTSCAPRIV02H:8001 {
+            address 10.34.196.13
+        }
+    }
+    monitor /DMZ-HOM/mon_http_scapriv-sca
+}
+ltm pool /DMZ-HOM/pool_ftp_scdftp {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-HOM/SPTFTPAPP01H:21 {
+            address 10.34.196.24
+        }
+    }
+    monitor /DMZ-HOM/mon_ftp_scdftp
+    service-down-action reselect
+}
+ltm pool /DMZ-HOM/pool_ftp_scdftp-int {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-HOM/SPTFTPAPP01H:21 {
+            address 10.34.196.24
+        }
+    }
+    monitor /DMZ-HOM/mon_ftp_scdftp
+    service-down-action reselect
+}
+ltm pool /DMZ-HOM/pool_highports_cadescola-sca {
+    members {
+        /DMZ-HOM/SPTCADESCOLA01H:8001 {
+            address 10.34.196.16
+        }
+        /DMZ-HOM/SPTCADESCOLA01H:8002 {
+            address 10.34.196.16
+        }
+        /DMZ-HOM/SPTCADESCOLA02H:8001 {
+            address 10.34.196.17
+        }
+        /DMZ-HOM/SPTCADESCOLA02H:8002 {
+            address 10.34.196.17
+        }
+    }
+    monitor /DMZ-HOM/mon_http_cadescola-sca
+    service-down-action reselect
+}
+ltm pool /DMZ-HOM/pool_highports_cadescola-sca-int {
+    members {
+        /DMZ-HOM/SPTCADESCOLA01H:8001 {
+            address 10.34.196.16
+        }
+        /DMZ-HOM/SPTCADESCOLA01H:8002 {
+            address 10.34.196.16
+        }
+        /DMZ-HOM/SPTCADESCOLA02H:8001 {
+            address 10.34.196.17
+        }
+        /DMZ-HOM/SPTCADESCOLA02H:8002 {
+            address 10.34.196.17
+        }
+    }
+    monitor /DMZ-HOM/mon_http_cadescola-sca
+    service-down-action reselect
+}
+ltm pool /DMZ-HOM/pool_highports_lojavirtual_hom {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-HOM/SPTLVWEB01H:8080 {
+            address 10.34.196.27
+        }
+        /DMZ-HOM/SPTLVWEB01H:8090 {
+            address 10.34.196.27
+        }
+        /DMZ-HOM/SPTLVWEB02H:8080 {
+            address 10.34.196.28
+        }
+        /DMZ-HOM/SPTLVWEB02H:8090 {
+            address 10.34.196.28
+        }
+    }
+    monitor /DMZ-HOM/mon_http_lojavirtual_mon
+    service-down-action reselect
+}
+ltm pool /DMZ-HOM/pool_highports_lojavirtual_hom-int {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-HOM/SPTLVWEB01H:8080 {
+            address 10.34.196.27
+        }
+        /DMZ-HOM/SPTLVWEB01H:8090 {
+            address 10.34.196.27
+        }
+        /DMZ-HOM/SPTLVWEB02H:8080 {
+            address 10.34.196.28
+        }
+        /DMZ-HOM/SPTLVWEB02H:8090 {
+            address 10.34.196.28
+        }
+    }
+    monitor /DMZ-HOM/mon_http_lojavirtual_mon
+    service-down-action reselect
+}
+ltm pool /DMZ-HOM/pool_highports_scapub-emailsemcadastro {
+    members {
+        /DMZ-HOM/SPTSCAPUB01H:9001 {
+            address 10.34.198.14
+        }
+        /DMZ-HOM/SPTSCAPUB02H:9001 {
+            address 10.34.198.15
+        }
+    }
+    monitor /DMZ-HOM/mon_http_scapub_emailsemcadastro
+    service-down-action reselect
+}
+ltm pool /DMZ-HOM/pool_highports_scapub-emailsemcadastro-int {
+    members {
+        /DMZ-HOM/SPTSCAPUB01H:9001 {
+            address 10.34.198.14
+        }
+        /DMZ-HOM/SPTSCAPUB02H:9001 {
+            address 10.34.198.15
+        }
+    }
+    monitor /DMZ-HOM/mon_http_scapub_emailsemcadastro
+    service-down-action reselect
+}
+ltm pool /DMZ-HOM/pool_highports_scapub-sa {
+    members {
+        /DMZ-HOM/SPTSCAPUB01H:8080 {
+            address 10.34.198.14
+        }
+        /DMZ-HOM/SPTSCAPUB01H:8090 {
+            address 10.34.198.14
+        }
+        /DMZ-HOM/SPTSCAPUB01H:8100 {
+            address 10.34.198.14
+        }
+        /DMZ-HOM/SPTSCAPUB01H:8110 {
+            address 10.34.198.14
+        }
+        /DMZ-HOM/SPTSCAPUB01H:8120 {
+            address 10.34.198.14
+        }
+        /DMZ-HOM/SPTSCAPUB01H:8130 {
+            address 10.34.198.14
+        }
+        /DMZ-HOM/SPTSCAPUB01H:8140 {
+            address 10.34.198.14
+        }
+        /DMZ-HOM/SPTSCAPUB01H:8150 {
+            address 10.34.198.14
+        }
+        /DMZ-HOM/SPTSCAPUB02H:8080 {
+            address 10.34.198.15
+        }
+        /DMZ-HOM/SPTSCAPUB02H:8090 {
+            address 10.34.198.15
+        }
+        /DMZ-HOM/SPTSCAPUB02H:8100 {
+            address 10.34.198.15
+        }
+        /DMZ-HOM/SPTSCAPUB02H:8110 {
+            address 10.34.198.15
+        }
+        /DMZ-HOM/SPTSCAPUB02H:8120 {
+            address 10.34.198.15
+        }
+        /DMZ-HOM/SPTSCAPUB02H:8130 {
+            address 10.34.198.15
+        }
+        /DMZ-HOM/SPTSCAPUB02H:8140 {
+            address 10.34.198.15
+        }
+        /DMZ-HOM/SPTSCAPUB02H:8150 {
+            address 10.34.198.15
+        }
+    }
+    monitor /DMZ-HOM/mon_http_scapub-sa
+    service-down-action reselect
+}
+ltm pool /DMZ-HOM/pool_highports_scapub-sa-int {
+    members {
+        /DMZ-HOM/SPTSCAPUB01H:8080 {
+            address 10.34.198.14
+        }
+        /DMZ-HOM/SPTSCAPUB01H:8090 {
+            address 10.34.198.14
+        }
+        /DMZ-HOM/SPTSCAPUB01H:8100 {
+            address 10.34.198.14
+        }
+        /DMZ-HOM/SPTSCAPUB01H:8110 {
+            address 10.34.198.14
+        }
+        /DMZ-HOM/SPTSCAPUB01H:8120 {
+            address 10.34.198.14
+        }
+        /DMZ-HOM/SPTSCAPUB01H:8130 {
+            address 10.34.198.14
+        }
+        /DMZ-HOM/SPTSCAPUB01H:8140 {
+            address 10.34.198.14
+        }
+        /DMZ-HOM/SPTSCAPUB01H:8150 {
+            address 10.34.198.14
+        }
+        /DMZ-HOM/SPTSCAPUB02H:8080 {
+            address 10.34.198.15
+        }
+        /DMZ-HOM/SPTSCAPUB02H:8090 {
+            address 10.34.198.15
+        }
+        /DMZ-HOM/SPTSCAPUB02H:8100 {
+            address 10.34.198.15
+        }
+        /DMZ-HOM/SPTSCAPUB02H:8110 {
+            address 10.34.198.15
+        }
+        /DMZ-HOM/SPTSCAPUB02H:8120 {
+            address 10.34.198.15
+        }
+        /DMZ-HOM/SPTSCAPUB02H:8130 {
+            address 10.34.198.15
+        }
+        /DMZ-HOM/SPTSCAPUB02H:8140 {
+            address 10.34.198.15
+        }
+        /DMZ-HOM/SPTSCAPUB02H:8150 {
+            address 10.34.198.15
+        }
+    }
+    monitor /DMZ-HOM/mon_http_scapub-sa
+    service-down-action reselect
+}
+ltm pool /DMZ-HOM/pool_highports_scapub-sca {
+    members {
+        /DMZ-HOM/SPTSCAPUB01H:8001 {
+            address 10.34.198.14
+        }
+        /DMZ-HOM/SPTSCAPUB02H:8001 {
+            address 10.34.198.15
+        }
+    }
+    monitor /DMZ-HOM/mon_http_scapub-sca
+    service-down-action reselect
+}
+ltm pool /DMZ-HOM/pool_highports_scapub-sca-int {
+    members {
+        /DMZ-HOM/SPTSCAPUB01H:8001 {
+            address 10.34.198.14
+        }
+        /DMZ-HOM/SPTSCAPUB02H:8001 {
+            address 10.34.198.15
+        }
+    }
+    monitor /DMZ-HOM/mon_http_scapub-sca
+    service-down-action reselect
+}
+ltm pool /DMZ-HOM/pool_http_highports_scapriv-perso {
+    members {
+        /DMZ-HOM/SPTSCAPRIV01H:8080 {
+            address 10.34.196.12
+        }
+        /DMZ-HOM/SPTSCAPRIV01H:8090 {
+            address 10.34.196.12
+        }
+        /DMZ-HOM/SPTSCAPRIV01H:8100 {
+            address 10.34.196.12
+        }
+        /DMZ-HOM/SPTSCAPRIV01H:8110 {
+            address 10.34.196.12
+        }
+        /DMZ-HOM/SPTSCAPRIV02H:8080 {
+            address 10.34.196.13
+        }
+        /DMZ-HOM/SPTSCAPRIV02H:8090 {
+            address 10.34.196.13
+        }
+        /DMZ-HOM/SPTSCAPRIV02H:8100 {
+            address 10.34.196.13
+        }
+        /DMZ-HOM/SPTSCAPRIV02H:8110 {
+            address 10.34.196.13
+        }
+    }
+    monitor /DMZ-HOM/mon_http_scapriv-person
+    service-down-action reselect
+}
+ltm pool /DMZ-HOM/pool_http_highports_scapriv-perso-int {
+    members {
+        /DMZ-HOM/SPTSCAPRIV01H:8080 {
+            address 10.34.196.12
+        }
+        /DMZ-HOM/SPTSCAPRIV01H:8090 {
+            address 10.34.196.12
+        }
+        /DMZ-HOM/SPTSCAPRIV01H:8100 {
+            address 10.34.196.12
+        }
+        /DMZ-HOM/SPTSCAPRIV01H:8110 {
+            address 10.34.196.12
+        }
+        /DMZ-HOM/SPTSCAPRIV02H:8080 {
+            address 10.34.196.13
+        }
+        /DMZ-HOM/SPTSCAPRIV02H:8090 {
+            address 10.34.196.13
+        }
+        /DMZ-HOM/SPTSCAPRIV02H:8100 {
+            address 10.34.196.13
+        }
+        /DMZ-HOM/SPTSCAPRIV02H:8110 {
+            address 10.34.196.13
+        }
+    }
+    monitor /DMZ-HOM/mon_http_scapriv-person
+    service-down-action reselect
+}
+ltm pool /DMZ-HOM/pool_http_highports_scapriv-sa {
+    members {
+        /DMZ-HOM/SPTSCAPRIV01H:8080 {
+            address 10.34.196.12
+        }
+        /DMZ-HOM/SPTSCAPRIV01H:8090 {
+            address 10.34.196.12
+        }
+        /DMZ-HOM/SPTSCAPRIV01H:8100 {
+            address 10.34.196.12
+        }
+        /DMZ-HOM/SPTSCAPRIV01H:8110 {
+            address 10.34.196.12
+        }
+        /DMZ-HOM/SPTSCAPRIV02H:8080 {
+            address 10.34.196.13
+        }
+        /DMZ-HOM/SPTSCAPRIV02H:8090 {
+            address 10.34.196.13
+        }
+        /DMZ-HOM/SPTSCAPRIV02H:8100 {
+            address 10.34.196.13
+        }
+        /DMZ-HOM/SPTSCAPRIV02H:8110 {
+            address 10.34.196.13
+        }
+    }
+    monitor /DMZ-HOM/mon_http_scapriv-sa
+    service-down-action reselect
+}
+ltm pool /DMZ-HOM/pool_http_highports_scapriv-sa-int {
+    members {
+        /DMZ-HOM/SPTSCAPRIV01H:8080 {
+            address 10.34.196.12
+        }
+        /DMZ-HOM/SPTSCAPRIV01H:8090 {
+            address 10.34.196.12
+        }
+        /DMZ-HOM/SPTSCAPRIV01H:8100 {
+            address 10.34.196.12
+        }
+        /DMZ-HOM/SPTSCAPRIV01H:8110 {
+            address 10.34.196.12
+        }
+        /DMZ-HOM/SPTSCAPRIV02H:8080 {
+            address 10.34.196.13
+        }
+        /DMZ-HOM/SPTSCAPRIV02H:8090 {
+            address 10.34.196.13
+        }
+        /DMZ-HOM/SPTSCAPRIV02H:8100 {
+            address 10.34.196.13
+        }
+        /DMZ-HOM/SPTSCAPRIV02H:8110 {
+            address 10.34.196.13
+        }
+    }
+    monitor /DMZ-HOM/mon_http_scapriv-sa
+    service-down-action reselect
+}
+ltm pool /DMZ-HOM/pool_http_highports_scapriv-sca {
+    members {
+        /DMZ-HOM/SPTSCAPRIV01H:8001 {
+            address 10.34.196.12
+        }
+        /DMZ-HOM/SPTSCAPRIV01H:8002 {
+            address 10.34.196.12
+        }
+        /DMZ-HOM/SPTSCAPRIV02H:8001 {
+            address 10.34.196.13
+        }
+        /DMZ-HOM/SPTSCAPRIV02H:8002 {
+            address 10.34.196.13
+        }
+    }
+    monitor /DMZ-HOM/mon_http_scapriv-sca
+    service-down-action reselect
+}
+ltm pool /DMZ-HOM/pool_http_highports_scapriv-sca-int {
+    members {
+        /DMZ-HOM/SPTSCAPRIV01H:8001 {
+            address 10.34.196.12
+        }
+        /DMZ-HOM/SPTSCAPRIV01H:8002 {
+            address 10.34.196.12
+        }
+        /DMZ-HOM/SPTSCAPRIV02H:8001 {
+            address 10.34.196.13
+        }
+        /DMZ-HOM/SPTSCAPRIV02H:8002 {
+            address 10.34.196.13
+        }
+    }
+    monitor /DMZ-HOM/mon_http_scapriv-sca
+    service-down-action reselect
+}
+ltm pool /DMZ-HOM/pool_http_portal-sptrans-ext {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-HOM/SPTDWAPP01H:7778 {
+            address 10.34.196.31
+            monitor /DMZ-HOM/mon_tcp_half_portal-sptrans-ext
+        }
+        /DMZ-HOM/SPTDWAPP02H:7778 {
+            address 10.34.196.32
+            monitor /DMZ-HOM/mon_tcp_half_portal-sptrans-ext
+        }
+        /DMZ-HOM/SPTDWAPP03H:7778 {
+            address 10.34.196.33
+            monitor /DMZ-HOM/mon_tcp_half_portal-sptrans-ext
+        }
+    }
+    service-down-action reselect
+}
+ltm pool /DMZ-HOM/pool_http_portal-sptrans-int {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-HOM/SPTDWAPP01H:7778 {
+            address 10.34.196.31
+            monitor /DMZ-HOM/mon_tcp_half_portal-sptrans-int
+        }
+        /DMZ-HOM/SPTDWAPP02H:7778 {
+            address 10.34.196.32
+            monitor /DMZ-HOM/mon_tcp_half_portal-sptrans-int
+        }
+        /DMZ-HOM/SPTDWAPP03H:7778 {
+            address 10.34.196.33
+            monitor /DMZ-HOM/mon_tcp_half_portal-sptrans-int
+        }
+    }
+    service-down-action reselect
+}
+ltm pool /DMZ-HOM/pool_http_sbeweb {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-HOM/SPTSCDAPP01H:80 {
+            address 10.34.196.22
+        }
+        /DMZ-HOM/SPTSCPWEB03H:80 {
+            address 10.34.196.7
+        }
+        /DMZ-HOM/SPTSCPWEB04H:80 {
+            address 10.34.196.30
+        }
+    }
+    monitor /DMZ-HOM/mon_http_sbeweb.sbe.sptrans.com.br
+    service-down-action reselect
+}
+ltm pool /DMZ-HOM/pool_http_sbeweb-int {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-HOM/SPTSCDAPP01H:80 {
+            address 10.34.196.22
+        }
+        /DMZ-HOM/SPTSCPWEB03H:80 {
+            address 10.34.196.7
+        }
+        /DMZ-HOM/SPTSCPWEB04H:80 {
+            address 10.34.196.30
+        }
+    }
+    monitor /DMZ-HOM/mon_http_sbeweb.sbe.sptrans.com.br
+    service-down-action reselect
+}
+ltm pool /DMZ-HOM/pool_http_scp {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-HOM/SPTSCPWEB01H:8080 {
+            address 10.34.196.6
+        }
+        /DMZ-HOM/SPTSCPWEB02H:8080 {
+            address 10.34.196.29
+        }
+    }
+    monitor /DMZ-HOM/mon_http_scp.sbe.sptrans.com.br
+    service-down-action reselect
+}
+ltm pool /DMZ-HOM/pool_http_scp-int {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-HOM/SPTSCPWEB01H:8080 {
+            address 10.34.196.6
+        }
+        /DMZ-HOM/SPTSCPWEB02H:8080 {
+            address 10.34.196.29
+        }
+    }
+    monitor /DMZ-HOM/mon_http_scp.sbe.sptrans.corp
+    service-down-action reselect
+}
+ltm pool /DMZ-HOM/pool_http_webservices-int {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-HOM/SPTLVWS01H:8080 {
+            address 10.34.196.25
+        }
+        /DMZ-HOM/SPTLVWS02H:8080 {
+            address 10.34.196.26
+        }
+    }
+    monitor /DMZ-HOM/mon_http_webservices
+    service-down-action reselect
+}
+ltm pool /DMZ-HOM/pool_intraneth.dc.sptrans.corp {
+    description "Intranet Homologacao"
+    members {
+        /DMZ-HOM/10.34.196.63:8080 {
+            address 10.34.196.63
+        }
+    }
+    monitor /Common/tcp_half_open
+}
+ltm pool /DMZ-HOM/pool_lojavirtual_sptransGateway_hom {
+    description http://lvpriv.hsbe.sptrans.com.br/sptransGateway
+    members {
+        /DMZ-HOM/SPTSCAPRIV01H:8001 {
+            address 10.34.196.12
+        }
+        /DMZ-HOM/SPTSCAPRIV02H:8001 {
+            address 10.34.196.13
+        }
+    }
+    monitor /Common/gateway_icmp
+}
+ltm pool /DMZ-HOM/pool_pedidocredito.ws.hsbe {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-HOM/SPTWSAPP03H:8080 {
+            address 10.34.196.36
+        }
+        /DMZ-HOM/SPTWSAPP03H:8090 {
+            address 10.34.196.36
+        }
+        /DMZ-HOM/SPTWSAPP03H:8100 {
+            address 10.34.196.36
+        }
+        /DMZ-HOM/SPTWSAPP03H:8110 {
+            address 10.34.196.36
+        }
+        /DMZ-HOM/SPTWSAPP04H:8080 {
+            address 10.34.196.39
+            monitor /DMZ-HOM/mon_http_pedidocredito
+        }
+        /DMZ-HOM/SPTWSAPP04H:8090 {
+            address 10.34.196.39
+            monitor /DMZ-HOM/mon_http_pedidocredito
+        }
+        /DMZ-HOM/SPTWSAPP04H:8100 {
+            address 10.34.196.39
+            monitor /DMZ-HOM/mon_http_pedidocredito
+        }
+        /DMZ-HOM/SPTWSAPP04H:8110 {
+            address 10.34.196.39
+            monitor /DMZ-HOM/mon_http_pedidocredito
+        }
+    }
+    monitor /DMZ-HOM/mon_http_pedidocredito
+    service-down-action reselect
+}
+ltm pool /DMZ-HOM/pool_pedidocredito.ws.hsbe.sptrans.corp {
+    members {
+        /DMZ-HOM/SPTWSAPP03H:8080 {
+            address 10.34.196.36
+        }
+        /DMZ-HOM/SPTWSAPP03H:8090 {
+            address 10.34.196.36
+        }
+        /DMZ-HOM/SPTWSAPP03H:8100 {
+            address 10.34.196.36
+        }
+        /DMZ-HOM/SPTWSAPP03H:8110 {
+            address 10.34.196.36
+            monitor /DMZ-HOM/mon_http_pedidocredito.corp
+        }
+        /DMZ-HOM/SPTWSAPP04H:8080 {
+            address 10.34.196.39
+            monitor /DMZ-HOM/mon_http_pedidocredito.corp
+        }
+        /DMZ-HOM/SPTWSAPP04H:8090 {
+            address 10.34.196.39
+            monitor /DMZ-HOM/mon_http_pedidocredito.corp
+        }
+        /DMZ-HOM/SPTWSAPP04H:8100 {
+            address 10.34.196.39
+            monitor /DMZ-HOM/mon_http_pedidocredito.corp
+        }
+        /DMZ-HOM/SPTWSAPP04H:8110 {
+            address 10.34.196.39
+            monitor /DMZ-HOM/mon_http_pedidocredito.corp
+        }
+    }
+    monitor /DMZ-HOM/mon_http_pedidocredito.corp
+    service-down-action reselect
+}
+ltm pool /DMZ-HOM/pool_scd-hom {
+    members {
+        /DMZ-HOM/SPTSCDAPP01H:80 {
+            address 10.34.196.22
+        }
+        /DMZ-HOM/SPTSCDAPP02H:80 {
+            address 10.34.196.23
+        }
+    }
+    monitor /DMZ-HOM/monitor_http
+}
+ltm pool /DMZ-HOM/pool_scd-web-hom {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-HOM/SPTSCDAPP01H:80 {
+            address 10.34.196.22
+            monitor /DMZ-HOM/mon_scd-web_hom
+        }
+        /DMZ-HOM/SPTSCDAPP02H:80 {
+            address 10.34.196.23
+        }
+    }
+    monitor /DMZ-HOM/mon_scd-web_hom
+    service-down-action reselect
+}
+ltm pool /DMZ-HOM/pool_scd-web-hom-int {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-HOM/SPTSCDAPP01H:80 {
+            address 10.34.196.22
+        }
+    }
+    monitor /DMZ-HOM/mon_scd-web_hom
+    service-down-action reselect
+}
+ltm pool /DMZ-HOM/pool_smtp.sbe.sptrans.corp {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-HOM/SPTRELAY01H:25 {
+            address 10.34.196.19
+        }
+    }
+    monitor /DMZ-HOM/tcp_half_snmp-relay
+    service-down-action reselect
+}
+ltm pool /DMZ-HOM/pool_sptosbhml.sptrans.corp {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-HOM/SPTOSBWEB01H:7002 {
+            address 10.34.196.77
+        }
+        /DMZ-HOM/SPTOSBWEB02H:7002 {
+            address 10.34.196.78
+        }
+    }
+    monitor /DMZ-HOM/mon_sptosbhml
+}
+ltm pool /DMZ-HOM/pool_sptosbtestefab.dc.sptrans.corp {
+    members {
+        /DMZ-HOM/sptsoaweb03d:7002 {
+            address 10.34.196.65
+        }
+        /DMZ-HOM/sptsoaweb04d:7002 {
+            address 10.34.196.66
+        }
+    }
+    monitor /DMZ-HOM/monitor_sptosbtestefab7002
+}
+ltm pool /DMZ-HOM/pool_sptsoatestefab.dc.sptrans.corp {
+    load-balancing-mode least-connections-node
+    members {
+        /DMZ-HOM/sptsoaweb03d:7003 {
+            address 10.34.196.65
+        }
+        /DMZ-HOM/sptsoaweb04d:7003 {
+            address 10.34.196.66
+        }
+    }
+    monitor /DMZ-HOM/monitor_sptosbtestefab
+}
+ltm pool /DMZ-HOM/pool_web-teste {
+    members {
+        /DMZ-HOM/SPTLVWS02H:80 {
+            address 10.34.196.26
+        }
+    }
+    monitor /DMZ-HOM/mon_http_webservices
+}
+ltm pool /DMZ-PRD/pool_81_lp.sbe.sptrans.corp {
+    description "Pool servidores porta 81 Lista Permanente"
+    load-balancing-mode least-connections-node
+    members {
+        /DMZ-PRD/SPTLPAPP01:81 {
+            address 10.34.205.103
+        }
+        /DMZ-PRD/SPTLPAPP02:81 {
+            address 10.34.205.104
+        }
+        /DMZ-PRD/SPTLPAPP03:81 {
+            address 10.34.205.105
+        }
+        /DMZ-PRD/SPTLPAPP04:81 {
+            address 10.34.205.106
+        }
+    }
+    monitor /DMZ-PRD/tcp_half_lp.sbe.sptrans.corp_81
+}
+ltm pool /DMZ-PRD/pool_7778-bi.sptrans.corp-int {
+    description http://bi.sptrans.corp
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTDWAPP02:7778 {
+            address 10.34.194.23
+            monitor /DMZ-PRD/tcp_half_bi-sptrans-int-corp-7778
+        }
+        /DMZ-PRD/SPTDWAPP03:7778 {
+            address 10.34.194.15
+            monitor /DMZ-PRD/tcp_half_bi-sptrans-int-corp-7778
+        }
+    }
+    monitor /DMZ-PRD/tcp_half_bi-sptrans-int-corp-7778
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_7778-portal.sptrans.corp-int {
+    description http://portal.sptrans.corp
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTDWAPP03:7778 {
+            address 10.34.194.15
+        }
+    }
+    monitor /DMZ-PRD/tcp_half_portal-sptrans-int-corp-7778
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_7778-portalsptrans-ext {
+    description http://portal.sptrans.com.br
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTDWAPP02:7778 {
+            address 10.34.194.23
+            monitor /DMZ-PRD/tcp_half_bi-sptrans-int-corp-7778
+        }
+        /DMZ-PRD/SPTDWAPP03:7778 {
+            address 10.34.194.15
+        }
+    }
+    monitor /DMZ-PRD/tcp_half_portal-sptrans-ext-7778
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_7781-bi.sptrans.corp-int {
+    description pool_7781-bi.sptrans.corp-int
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTDWAPP02:7781 {
+            address 10.34.194.23
+            session user-disabled
+            state user-down
+        }
+        /DMZ-PRD/SPTDWAPP03:7781 {
+            address 10.34.194.15
+            session user-disabled
+            state user-down
+        }
+    }
+    monitor /DMZ-PRD/tcp_half_bi.sptrans.corp-int-7781
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_8001_odi.sptrans.corp {
+    description "Pool porta 8001"
+    members {
+        /DMZ-PRD/SPTMNTODI01:8001 {
+            address 10.34.194.73
+        }
+        /DMZ-PRD/SPTMNTODI02:8001 {
+            address 10.34.194.75
+        }
+    }
+    monitor /DMZ-PRD/mon_http_odi.sptrans.corp
+}
+ltm pool /DMZ-PRD/pool_8080_webservices {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTWSAPP01:8080 {
+            address 10.34.194.35
+            monitor /DMZ-PRD/mon_http_webservices
+        }
+        /DMZ-PRD/SPTWSAPP02:8080 {
+            address 10.34.194.36
+            monitor /DMZ-PRD/mon_http_webservices
+        }
+    }
+    monitor /DMZ-PRD/mon_http_webservices
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_8080_webservices-int {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTWSAPP01:8080 {
+            address 10.34.194.35
+            monitor /DMZ-PRD/mon_http_webservices-int
+        }
+        /DMZ-PRD/SPTWSAPP02:8080 {
+            address 10.34.194.36
+            monitor /DMZ-PRD/mon_http_webservices-int
+        }
+    }
+    monitor /DMZ-PRD/mon_http_webservices-int
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_10000_lp.sbe.sptrans.corp {
+    description "Pool servidores Lista Permanente porta 10.000"
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTLPAPP01:10000 {
+            address 10.34.205.103
+        }
+        /DMZ-PRD/SPTLPAPP02:10000 {
+            address 10.34.205.104
+        }
+        /DMZ-PRD/SPTLPAPP03:10000 {
+            address 10.34.205.105
+        }
+        /DMZ-PRD/SPTLPAPP04:10000 {
+            address 10.34.205.106
+        }
+    }
+    monitor /DMZ-PRD/tcp_half_lp.sbe.sptrans.corp_10000
+}
+ltm pool /DMZ-PRD/pool_10001_lp.sbe.sptrans.corp {
+    description "Pool servidores lista permanente porta 10.001"
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTLPAPP01:10001 {
+            address 10.34.205.103
+        }
+        /DMZ-PRD/SPTLPAPP02:10001 {
+            address 10.34.205.104
+        }
+        /DMZ-PRD/SPTLPAPP03:10001 {
+            address 10.34.205.105
+        }
+        /DMZ-PRD/SPTLPAPP04:10001 {
+            address 10.34.205.106
+        }
+    }
+    monitor /DMZ-PRD/tcp_half_lp.sbe.sptrans.corp_10001
+}
+ltm pool /DMZ-PRD/pool_10002_lp.sbe.sptrans.corp {
+    description "Pool servidores Lista Permanente porta 10.002"
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTLPAPP01:10002 {
+            address 10.34.205.103
+        }
+        /DMZ-PRD/SPTLPAPP02:10002 {
+            address 10.34.205.104
+        }
+        /DMZ-PRD/SPTLPAPP03:10002 {
+            address 10.34.205.105
+        }
+        /DMZ-PRD/SPTLPAPP04:10002 {
+            address 10.34.205.106
+        }
+    }
+    monitor /DMZ-PRD/tcp_half_lp.sbe.sptrans.corp_10002
+}
+ltm pool /DMZ-PRD/pool_11000_lp.sbe.sptrans.corp {
+    description "Pool servidores porta 11.000 Lista Permanente"
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTLPAPP01:11000 {
+            address 10.34.205.103
+        }
+        /DMZ-PRD/SPTLPAPP02:11000 {
+            address 10.34.205.104
+        }
+        /DMZ-PRD/SPTLPAPP03:11000 {
+            address 10.34.205.105
+        }
+        /DMZ-PRD/SPTLPAPP04:11000 {
+            address 10.34.205.106
+        }
+    }
+    monitor /DMZ-PRD/tcp_half_lp.sbe.sptrans.corp_11000
+}
+ltm pool /DMZ-PRD/pool_11001_lp.sbe.sptrans.corp {
+    description "Pool servidores porta 11.001 Lista Permanente"
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTLPAPP01:11001 {
+            address 10.34.205.103
+        }
+        /DMZ-PRD/SPTLPAPP02:11001 {
+            address 10.34.205.104
+        }
+        /DMZ-PRD/SPTLPAPP03:11001 {
+            address 10.34.205.105
+        }
+        /DMZ-PRD/SPTLPAPP04:11001 {
+            address 10.34.205.106
+        }
+    }
+    monitor /DMZ-PRD/tcp_half_lp.sbe.sptrans.corp_11001
+}
+ltm pool /DMZ-PRD/pool_11002_lp.sbe.sptrans.corp {
+    description "Pool servidores porta 11.002 Lista Permanente"
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTLPAPP01:11002 {
+            address 10.34.205.103
+        }
+        /DMZ-PRD/SPTLPAPP02:11002 {
+            address 10.34.205.104
+        }
+        /DMZ-PRD/SPTLPAPP03:11002 {
+            address 10.34.205.105
+        }
+        /DMZ-PRD/SPTLPAPP04:11002 {
+            address 10.34.205.106
+        }
+    }
+    monitor /DMZ-PRD/tcp_half_lp.sbe.sptrans.corp_11002
+}
+ltm pool /DMZ-PRD/pool_antifraude.sbe.dc.sptrans.corp {
+    description "Ambiente AntiFraude - TSM"
+    members {
+        /DMZ-PRD/SPTAF01:8080 {
+            address 10.34.194.101
+            description "Anti Fraude 8080"
+        }
+        /DMZ-PRD/SPTAF01:8090 {
+            address 10.34.194.101
+            session user-disabled
+        }
+    }
+    monitor /Common/tcp_half_open
+}
+ltm pool /DMZ-PRD/pool_api.sptrans.corp {
+    description "Pool api sptrans"
+    members {
+        /DMZ-PRD/SPTSCAPUB01:8002 {
+            address 10.34.194.31
+        }
+        /DMZ-PRD/SPTSCAPUB02:8002 {
+            address 10.34.194.32
+            session user-disabled
+        }
+        /DMZ-PRD/SPTSCAPUB03:8002 {
+            address 10.34.194.33
+            session user-disabled
+        }
+        /DMZ-PRD/SPTSCAPUB04:8002 {
+            address 10.34.194.34
+            session user-disabled
+        }
+    }
+    monitor /Common/gateway_icmp
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_backoffice.recon.sptrans.corp {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/10.34.194.98:8080 {
+            address 10.34.194.98
+        }
+    }
+    monitor /DMZ-PRD/monitor_backoffice_8080
+}
+ltm pool /DMZ-PRD/pool_cobranca.dc.sptrans.corp {
+    load-balancing-mode least-connections-node
+    members {
+        /DMZ-PRD/SPTWSAPP03:8080 {
+            address 10.34.194.77
+        }
+        /DMZ-PRD/SPTWSAPP04:8080 {
+            address 10.34.194.78
+        }
+    }
+    monitor /DMZ-PRD/mon_http_cobranca.dc.sptrans.corp
+}
+ltm pool /DMZ-PRD/pool_consultacredito_ws {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTWSAPP03:8080 {
+            address 10.34.194.77
+        }
+        /DMZ-PRD/SPTWSAPP03:8090 {
+            address 10.34.194.77
+        }
+        /DMZ-PRD/SPTWSAPP03:8100 {
+            address 10.34.194.77
+        }
+        /DMZ-PRD/SPTWSAPP03:8110 {
+            address 10.34.194.77
+        }
+        /DMZ-PRD/SPTWSAPP04:8080 {
+            address 10.34.194.78
+        }
+        /DMZ-PRD/SPTWSAPP04:8090 {
+            address 10.34.194.78
+        }
+        /DMZ-PRD/SPTWSAPP04:8100 {
+            address 10.34.194.78
+        }
+        /DMZ-PRD/SPTWSAPP04:8110 {
+            address 10.34.194.78
+        }
+    }
+    monitor /DMZ-PRD/mon_http_consultacredido_ws
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_cyberark {
+    description "Pool servidores Cyberark"
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTAPPSM1:3389 {
+            address 10.34.194.124
+        }
+        /DMZ-PRD/SPTAPPSM1-DR:3389 {
+            address 10.34.210.71
+        }
+        /DMZ-PRD/SPTAPPSM2:3389 {
+            address 10.34.194.125
+        }
+        /DMZ-PRD/SPTAPPSMP1:22 {
+            address 10.34.194.126
+        }
+        /DMZ-PRD/SPTAPPSMP1-DR:22 {
+            address 10.34.210.72
+        }
+        /DMZ-PRD/SPTAPPSMP2:22 {
+            address 10.34.194.127
+        }
+    }
+    monitor /Common/gateway_icmp
+}
+ltm pool /DMZ-PRD/pool_edi.sptrans.corp {
+    description "Pool para balanceamento das maquinas EDI"
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTEDI10:22 {
+            address 10.34.194.64
+        }
+        /DMZ-PRD/SPTEDI11:22 {
+            address 10.34.194.65
+        }
+    }
+    monitor /DMZ-PRD/mon_http_edi_garagens-fotos and /DMZ-PRD/mon_http_edi_garagens-gar and /DMZ-PRD/mon_ssh_edi_garagens
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_ftp_scdftp {
+    description "Pool para servidores de FTP no SCD"
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTFTPAPP01:21 {
+            address 10.34.194.12
+        }
+    }
+    monitor /DMZ-PRD/mon_ftp_scdftp
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_ftp_scdftp-int {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTFTPAPP01:21 {
+            address 10.34.194.12
+        }
+        /DMZ-PRD/SPTFTPAPP02:21 {
+            address 10.34.194.41
+        }
+    }
+    monitor /DMZ-PRD/mon_ftp_scdftp-int
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_ftp_sptrans.com.br {
+    description "acesso externo de parceiro"
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTFSFTP01:21 {
+            address 10.34.194.28
+        }
+        /DMZ-PRD/SPTFSFTP02:21 {
+            address 10.34.194.29
+        }
+    }
+    monitor /DMZ-PRD/mon_ftp_sptrans.com.br
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_ftp_sptrans.corp {
+    description "FTP acesso interno"
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTFSFTP01:21 {
+            address 10.34.194.28
+        }
+        /DMZ-PRD/SPTFSFTP02:21 {
+            address 10.34.194.29
+        }
+    }
+    monitor /DMZ-PRD/mon_ftp_sptrans.corp
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_highports_cadescola-sca {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTCADESCOLA01:8001 {
+            address 10.34.194.43
+        }
+        /DMZ-PRD/SPTCADESCOLA01:8002 {
+            address 10.34.194.43
+        }
+        /DMZ-PRD/SPTCADESCOLA02:8001 {
+            address 10.34.194.44
+        }
+        /DMZ-PRD/SPTCADESCOLA02:8002 {
+            address 10.34.194.44
+        }
+    }
+    monitor /DMZ-PRD/mon_http_cadescola-sca
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_highports_cadescola-sca_int {
+    description http://cadescola.dc.sptrans.corp/sca
+    load-balancing-mode least-connections-node
+    members {
+        /DMZ-PRD/SPTCADESCOLA01:8001 {
+            address 10.34.194.43
+        }
+        /DMZ-PRD/SPTCADESCOLA01:8002 {
+            address 10.34.194.43
+        }
+        /DMZ-PRD/SPTCADESCOLA02:8001 {
+            address 10.34.194.44
+        }
+        /DMZ-PRD/SPTCADESCOLA02:8002 {
+            address 10.34.194.44
+        }
+    }
+    monitor /DMZ-PRD/mon_http_cadescola-sca
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_highports_lojavirtual {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTLVWEB01:8080 {
+            address 10.34.194.13
+        }
+        /DMZ-PRD/SPTLVWEB01:8090 {
+            address 10.34.194.13
+        }
+        /DMZ-PRD/SPTLVWEB02:8080 {
+            address 10.34.194.30
+        }
+        /DMZ-PRD/SPTLVWEB02:8090 {
+            address 10.34.194.30
+        }
+        /DMZ-PRD/SPTLVWEB03:8080 {
+            address 10.34.194.37
+        }
+        /DMZ-PRD/SPTLVWEB03:8090 {
+            address 10.34.194.37
+        }
+    }
+    monitor /DMZ-PRD/mon_http_lojavirtual
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_highports_lojavirtual-int {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTLVWEB01:8080 {
+            address 10.34.194.13
+        }
+        /DMZ-PRD/SPTLVWEB01:8090 {
+            address 10.34.194.13
+        }
+        /DMZ-PRD/SPTLVWEB02:8080 {
+            address 10.34.194.30
+        }
+        /DMZ-PRD/SPTLVWEB02:8090 {
+            address 10.34.194.30
+        }
+        /DMZ-PRD/SPTLVWEB03:8080 {
+            address 10.34.194.37
+        }
+        /DMZ-PRD/SPTLVWEB03:8090 {
+            address 10.34.194.37
+        }
+        /DMZ-PRD/SPTLVWEB11-CNP:8080 {
+            address 10.34.210.13
+        }
+        /DMZ-PRD/SPTLVWEB11-CNP:8090 {
+            address 10.34.210.13
+        }
+        /DMZ-PRD/SPTLVWEB12-CNP:8080 {
+            address 10.34.210.30
+        }
+        /DMZ-PRD/SPTLVWEB12-CNP:8090 {
+            address 10.34.210.30
+        }
+        /DMZ-PRD/SPTLVWEB13-CNP:8080 {
+            address 10.34.210.37
+        }
+        /DMZ-PRD/SPTLVWEB13-CNP:8090 {
+            address 10.34.210.37
+        }
+    }
+    monitor /DMZ-PRD/mon_http_lojavirtual-int
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_highports_lvpriv-corp {
+    description http://lvpriv.sbe.sptrans.corp
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTLVWEB02:8081 {
+            address 10.34.194.30
+        }
+        /DMZ-PRD/SPTLVWEB12-CNP:8081 {
+            address 10.34.210.30
+        }
+    }
+    monitor /DMZ-PRD/mon_http_lvpriv.corp
+}
+ltm pool /DMZ-PRD/pool_highports_scapriv-PersoService {
+    members {
+        /DMZ-PRD/SPTSCAPRIV01:8201 {
+            address 10.34.194.39
+        }
+        /DMZ-PRD/SPTSCAPRIV01:8202 {
+            address 10.34.194.39
+        }
+        /DMZ-PRD/SPTSCAPRIV02:8201 {
+            address 10.34.194.40
+        }
+        /DMZ-PRD/SPTSCAPRIV02:8202 {
+            address 10.34.194.40
+        }
+        /DMZ-PRD/SPTSCAPRIV03:8201 {
+            address 10.34.194.121
+        }
+        /DMZ-PRD/SPTSCAPRIV03:8202 {
+            address 10.34.194.121
+        }
+        /DMZ-PRD/SPTSCAPRIV04:8201 {
+            address 10.34.194.122
+        }
+        /DMZ-PRD/SPTSCAPRIV04:8202 {
+            address 10.34.194.122
+        }
+    }
+    monitor /Common/gateway_icmp
+}
+ltm pool /DMZ-PRD/pool_highports_scapriv-default_int {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTSCAPRIV01:8080 {
+            address 10.34.194.39
+        }
+        /DMZ-PRD/SPTSCAPRIV01:8090 {
+            address 10.34.194.39
+        }
+        /DMZ-PRD/SPTSCAPRIV02:8080 {
+            address 10.34.194.40
+        }
+        /DMZ-PRD/SPTSCAPRIV02:8090 {
+            address 10.34.194.40
+        }
+        /DMZ-PRD/SPTSCAPRIV03:8080 {
+            address 10.34.194.121
+        }
+        /DMZ-PRD/SPTSCAPRIV03:8090 {
+            address 10.34.194.121
+        }
+        /DMZ-PRD/SPTSCAPRIV04:8080 {
+            address 10.34.194.122
+            monitor /DMZ-PRD/mon_http_scapriv-default_int
+        }
+        /DMZ-PRD/SPTSCAPRIV04:8090 {
+            address 10.34.194.122
+        }
+    }
+    monitor /DMZ-PRD/mon_http_scapriv-default_int
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_highports_scapriv-sca_int {
+    description https://scapriv.sbe.sptrans.corp/sca
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTSCAPRIV01:8001 {
+            address 10.34.194.39
+        }
+        /DMZ-PRD/SPTSCAPRIV01:8002 {
+            address 10.34.194.39
+        }
+        /DMZ-PRD/SPTSCAPRIV02:8001 {
+            address 10.34.194.40
+        }
+        /DMZ-PRD/SPTSCAPRIV02:8002 {
+            address 10.34.194.40
+        }
+        /DMZ-PRD/SPTSCAPRIV03:8001 {
+            address 10.34.194.121
+            monitor /DMZ-PRD/mon_http_scapriv-sca_int
+        }
+        /DMZ-PRD/SPTSCAPRIV03:8002 {
+            address 10.34.194.121
+            monitor /DMZ-PRD/mon_http_scapriv-sca_int
+        }
+        /DMZ-PRD/SPTSCAPRIV04:8001 {
+            address 10.34.194.122
+            monitor /DMZ-PRD/mon_http_scapriv-sca_int
+        }
+        /DMZ-PRD/SPTSCAPRIV04:8002 {
+            address 10.34.194.122
+            monitor /DMZ-PRD/mon_http_scapriv-sca_int
+        }
+        /DMZ-PRD/SPTSCAPRIV11:8001 {
+            address 10.34.210.39
+        }
+        /DMZ-PRD/SPTSCAPRIV11:8002 {
+            address 10.34.210.39
+        }
+        /DMZ-PRD/SPTSCAPRIV12:8001 {
+            address 10.34.210.40
+        }
+        /DMZ-PRD/SPTSCAPRIV12:8002 {
+            address 10.34.210.40
+        }
+        /DMZ-PRD/SPTSCAPRIV13:8001 {
+            address 10.34.210.69
+        }
+        /DMZ-PRD/SPTSCAPRIV13:8002 {
+            address 10.34.210.69
+        }
+        /DMZ-PRD/SPTSCAPRIV14:8001 {
+            address 10.34.210.70
+        }
+        /DMZ-PRD/SPTSCAPRIV14:8002 {
+            address 10.34.210.70
+        }
+    }
+    monitor /DMZ-PRD/mon_http_scapriv-sca_int
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_highports_scapub-emailsemcadastro {
+    description scapub.sbe.sptrans.com.br/EmailSemCadastro
+    members {
+        /DMZ-PRD/SPTSCAPUB01:9001 {
+            address 10.34.194.31
+        }
+        /DMZ-PRD/SPTSCAPUB02:9001 {
+            address 10.34.194.32
+        }
+        /DMZ-PRD/SPTSCAPUB03:9001 {
+            address 10.34.194.33
+        }
+        /DMZ-PRD/SPTSCAPUB04:9001 {
+            address 10.34.194.34
+        }
+    }
+    monitor /DMZ-PRD/mon_http_scapub_emailsem
+}
+ltm pool /DMZ-PRD/pool_highports_scapub-sa {
+    members {
+        /DMZ-PRD/SPTSCAPUB01:8080 {
+            address 10.34.194.31
+        }
+        /DMZ-PRD/SPTSCAPUB01:8090 {
+            address 10.34.194.31
+        }
+        /DMZ-PRD/SPTSCAPUB01:8100 {
+            address 10.34.194.31
+        }
+        /DMZ-PRD/SPTSCAPUB01:8110 {
+            address 10.34.194.31
+        }
+        /DMZ-PRD/SPTSCAPUB02:8080 {
+            address 10.34.194.32
+        }
+        /DMZ-PRD/SPTSCAPUB02:8090 {
+            address 10.34.194.32
+        }
+        /DMZ-PRD/SPTSCAPUB02:8100 {
+            address 10.34.194.32
+        }
+        /DMZ-PRD/SPTSCAPUB02:8110 {
+            address 10.34.194.32
+        }
+        /DMZ-PRD/SPTSCAPUB03:8080 {
+            address 10.34.194.33
+        }
+        /DMZ-PRD/SPTSCAPUB03:8090 {
+            address 10.34.194.33
+        }
+        /DMZ-PRD/SPTSCAPUB03:8100 {
+            address 10.34.194.33
+        }
+        /DMZ-PRD/SPTSCAPUB03:8110 {
+            address 10.34.194.33
+        }
+        /DMZ-PRD/SPTSCAPUB04:8080 {
+            address 10.34.194.34
+            session user-disabled
+            state user-down
+        }
+        /DMZ-PRD/SPTSCAPUB04:8090 {
+            address 10.34.194.34
+            session user-disabled
+            state user-down
+        }
+        /DMZ-PRD/SPTSCAPUB04:8100 {
+            address 10.34.194.34
+            session user-disabled
+            state user-down
+        }
+        /DMZ-PRD/SPTSCAPUB04:8110 {
+            address 10.34.194.34
+            session user-disabled
+            state user-down
+        }
+    }
+    monitor /DMZ-PRD/mon_http_scapub-sa
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_highports_scapub-sa_int {
+    members {
+        /DMZ-PRD/SPTSCAPUB01:8080 {
+            address 10.34.194.31
+        }
+        /DMZ-PRD/SPTSCAPUB01:8090 {
+            address 10.34.194.31
+        }
+        /DMZ-PRD/SPTSCAPUB01:8100 {
+            address 10.34.194.31
+        }
+        /DMZ-PRD/SPTSCAPUB01:8110 {
+            address 10.34.194.31
+        }
+        /DMZ-PRD/SPTSCAPUB02:8080 {
+            address 10.34.194.32
+        }
+        /DMZ-PRD/SPTSCAPUB02:8090 {
+            address 10.34.194.32
+        }
+        /DMZ-PRD/SPTSCAPUB02:8100 {
+            address 10.34.194.32
+        }
+        /DMZ-PRD/SPTSCAPUB02:8110 {
+            address 10.34.194.32
+        }
+        /DMZ-PRD/SPTSCAPUB03:8080 {
+            address 10.34.194.33
+        }
+        /DMZ-PRD/SPTSCAPUB03:8090 {
+            address 10.34.194.33
+        }
+        /DMZ-PRD/SPTSCAPUB03:8100 {
+            address 10.34.194.33
+        }
+        /DMZ-PRD/SPTSCAPUB03:8110 {
+            address 10.34.194.33
+        }
+        /DMZ-PRD/SPTSCAPUB04:8080 {
+            address 10.34.194.34
+        }
+        /DMZ-PRD/SPTSCAPUB04:8090 {
+            address 10.34.194.34
+        }
+        /DMZ-PRD/SPTSCAPUB04:8100 {
+            address 10.34.194.34
+        }
+        /DMZ-PRD/SPTSCAPUB04:8110 {
+            address 10.34.194.34
+        }
+    }
+    monitor /DMZ-PRD/mon_http_scapub-sa_int
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_highports_scapub-sca {
+    members {
+        /DMZ-PRD/SPTSCAPUB01:8001 {
+            address 10.34.194.31
+        }
+        /DMZ-PRD/SPTSCAPUB02:8001 {
+            address 10.34.194.32
+        }
+        /DMZ-PRD/SPTSCAPUB03:8001 {
+            address 10.34.194.33
+        }
+        /DMZ-PRD/SPTSCAPUB04:8001 {
+            address 10.34.194.34
+            session user-disabled
+            state user-down
+        }
+    }
+    monitor /DMZ-PRD/mon_http_scapub-sca
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_highports_scapub-sca_int {
+    members {
+        /DMZ-PRD/SPTSCAPUB01:8001 {
+            address 10.34.194.31
+        }
+        /DMZ-PRD/SPTSCAPUB02:8001 {
+            address 10.34.194.32
+        }
+        /DMZ-PRD/SPTSCAPUB03:8001 {
+            address 10.34.194.33
+        }
+        /DMZ-PRD/SPTSCAPUB04:8001 {
+            address 10.34.194.34
+        }
+    }
+    monitor /DMZ-PRD/mon_http_scapub-sca_int
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_highports_scapub-sptransServices {
+    description "Pool servidores scapub.sbe.sptrans.com.br/sptransServices"
+    members {
+        /DMZ-PRD/SPTSCAPUB01:8001 {
+            address 10.34.194.31
+        }
+        /DMZ-PRD/SPTSCAPUB02:8001 {
+            address 10.34.194.32
+        }
+        /DMZ-PRD/SPTSCAPUB03:8001 {
+            address 10.34.194.33
+        }
+        /DMZ-PRD/SPTSCAPUB04:8001 {
+            address 10.34.194.34
+        }
+    }
+    monitor /DMZ-PRD/mon_http_scapub-sptransServices
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_http-portal.discovery.sptrans-ext {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTDWAPP02:7778 {
+            address 10.34.194.23
+        }
+        /DMZ-PRD/SPTDWAPP03:7778 {
+            address 10.34.194.15
+        }
+    }
+    monitor /DMZ-PRD/tcp_half_portal-sptrans-ext-7778
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_http-portal.discovery.sptrans-int {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTDWAPP02:7778 {
+            address 10.34.194.23
+        }
+        /DMZ-PRD/SPTDWAPP03:7778 {
+            address 10.34.194.15
+        }
+    }
+    monitor /DMZ-PRD/tcp_half_portal-sptrans-int-7778
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_http-portal.pls.sptrans-ext {
+    members {
+        /DMZ-PRD/SPTDWAPP02:7778 {
+            address 10.34.194.23
+            session user-disabled
+            state user-down
+        }
+        /DMZ-PRD/SPTDWAPP03:7778 {
+            address 10.34.194.15
+        }
+    }
+    monitor /DMZ-PRD/tcp_half_portal-sptrans-ext-7778
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_http-portal.pls.sptrans-int {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTDWAPP02:7778 {
+            address 10.34.194.23
+            session user-disabled
+            state user-down
+        }
+        /DMZ-PRD/SPTDWAPP03:7778 {
+            address 10.34.194.15
+        }
+    }
+    monitor /DMZ-PRD/tcp_half_portal-sptrans-int-7778
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_httpS_scd_web {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTSCDAPP01:80 {
+            address 10.34.194.19
+        }
+        /DMZ-PRD/SPTSCDAPP02:80 {
+            address 10.34.194.38
+        }
+        /DMZ-PRD/SPTSCDAPP03:80 {
+            address 10.34.194.42
+        }
+    }
+    monitor /DMZ-PRD/mon_http_scd_web
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_http_90_bilhete.sptrans {
+    description http://bilheteunico.sptrans.com.br
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTSCAAPP01:90 {
+            address 10.34.194.16
+        }
+        /DMZ-PRD/SPTSCAAPP04:90 {
+            address 10.34.194.26
+        }
+    }
+    monitor /DMZ-PRD/mon_http_90_bilhete.sptrans
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_http_91_estudante.sptrans {
+    description http://estudante.sptrans.com.br
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTSCAAPP01:91 {
+            address 10.34.194.16
+        }
+        /DMZ-PRD/SPTSCAAPP04:91 {
+            address 10.34.194.26
+        }
+    }
+    monitor /DMZ-PRD/mon_http_91_estudante.sptrans
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_http_highports_scapriv-perso {
+    members {
+        /DMZ-PRD/SPTSCAPRIV01:8080 {
+            address 10.34.194.39
+        }
+        /DMZ-PRD/SPTSCAPRIV01:8090 {
+            address 10.34.194.39
+        }
+        /DMZ-PRD/SPTSCAPRIV02:8080 {
+            address 10.34.194.40
+        }
+        /DMZ-PRD/SPTSCAPRIV02:8090 {
+            address 10.34.194.40
+        }
+        /DMZ-PRD/SPTSCAPRIV03:8080 {
+            address 10.34.194.121
+        }
+        /DMZ-PRD/SPTSCAPRIV03:8090 {
+            address 10.34.194.121
+        }
+        /DMZ-PRD/SPTSCAPRIV04:8080 {
+            address 10.34.194.122
+        }
+        /DMZ-PRD/SPTSCAPRIV04:8090 {
+            address 10.34.194.122
+        }
+    }
+    monitor /DMZ-PRD/mon_http_scapriv-perso
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_http_highports_scapriv-perso-int {
+    members {
+        /DMZ-PRD/SPTSCAPRIV01:8080 {
+            address 10.34.194.39
+        }
+        /DMZ-PRD/SPTSCAPRIV01:8090 {
+            address 10.34.194.39
+        }
+        /DMZ-PRD/SPTSCAPRIV02:8080 {
+            address 10.34.194.40
+        }
+        /DMZ-PRD/SPTSCAPRIV02:8090 {
+            address 10.34.194.40
+        }
+        /DMZ-PRD/SPTSCAPRIV03:8080 {
+            address 10.34.194.121
+        }
+        /DMZ-PRD/SPTSCAPRIV03:8090 {
+            address 10.34.194.121
+        }
+        /DMZ-PRD/SPTSCAPRIV04:8080 {
+            address 10.34.194.122
+        }
+        /DMZ-PRD/SPTSCAPRIV04:8090 {
+            address 10.34.194.122
+        }
+    }
+    monitor /DMZ-PRD/mon_http_scapriv_person
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_http_highports_scapriv-sa {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTSCAPRIV01:8080 {
+            address 10.34.194.39
+        }
+        /DMZ-PRD/SPTSCAPRIV01:8090 {
+            address 10.34.194.39
+        }
+        /DMZ-PRD/SPTSCAPRIV01:8100 {
+            address 10.34.194.39
+            monitor /DMZ-PRD/mon_http_scapriv-sca
+        }
+        /DMZ-PRD/SPTSCAPRIV01:8110 {
+            address 10.34.194.39
+            monitor /DMZ-PRD/mon_http_scapriv-sa
+        }
+        /DMZ-PRD/SPTSCAPRIV02:8080 {
+            address 10.34.194.40
+        }
+        /DMZ-PRD/SPTSCAPRIV02:8090 {
+            address 10.34.194.40
+        }
+        /DMZ-PRD/SPTSCAPRIV02:8100 {
+            address 10.34.194.40
+            monitor /DMZ-PRD/mon_http_scapriv-sa
+        }
+        /DMZ-PRD/SPTSCAPRIV02:8110 {
+            address 10.34.194.40
+            monitor /DMZ-PRD/mon_http_scapriv-sa
+        }
+        /DMZ-PRD/SPTSCAPRIV03:8080 {
+            address 10.34.194.121
+            monitor /DMZ-PRD/mon_http_scapriv-sa
+        }
+        /DMZ-PRD/SPTSCAPRIV03:8090 {
+            address 10.34.194.121
+            monitor /DMZ-PRD/mon_http_scapriv-sa
+        }
+        /DMZ-PRD/SPTSCAPRIV03:8100 {
+            address 10.34.194.121
+            monitor /DMZ-PRD/mon_http_scapriv-sa
+        }
+        /DMZ-PRD/SPTSCAPRIV03:8110 {
+            address 10.34.194.121
+            monitor /DMZ-PRD/mon_http_scapriv-sa
+        }
+        /DMZ-PRD/SPTSCAPRIV04:8080 {
+            address 10.34.194.122
+            monitor /DMZ-PRD/mon_http_scapriv-sa
+        }
+        /DMZ-PRD/SPTSCAPRIV04:8090 {
+            address 10.34.194.122
+            monitor /DMZ-PRD/mon_http_scapriv-sa
+        }
+        /DMZ-PRD/SPTSCAPRIV04:8100 {
+            address 10.34.194.122
+            monitor /DMZ-PRD/mon_http_scapriv-sa
+        }
+        /DMZ-PRD/SPTSCAPRIV04:8110 {
+            address 10.34.194.122
+            monitor /DMZ-PRD/mon_http_scapriv-sa
+        }
+    }
+    monitor /DMZ-PRD/mon_http_scapriv-sa
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_http_highports_scapriv-sca {
+    description http://scapriv.sbe.sptrans.com.br/sca
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTSCAPRIV01:8001 {
+            address 10.34.194.39
+        }
+        /DMZ-PRD/SPTSCAPRIV01:8002 {
+            address 10.34.194.39
+        }
+        /DMZ-PRD/SPTSCAPRIV02:8001 {
+            address 10.34.194.40
+        }
+        /DMZ-PRD/SPTSCAPRIV02:8002 {
+            address 10.34.194.40
+        }
+        /DMZ-PRD/SPTSCAPRIV03:8001 {
+            address 10.34.194.121
+            monitor /DMZ-PRD/mon_http_scapriv-sca
+        }
+        /DMZ-PRD/SPTSCAPRIV03:8002 {
+            address 10.34.194.121
+            monitor /DMZ-PRD/mon_http_scapriv-sca
+        }
+        /DMZ-PRD/SPTSCAPRIV04:8001 {
+            address 10.34.194.122
+            monitor /DMZ-PRD/mon_http_scapriv-sca
+        }
+        /DMZ-PRD/SPTSCAPRIV04:8002 {
+            address 10.34.194.122
+            monitor /DMZ-PRD/mon_http_scapriv-sca
+        }
+    }
+    monitor /DMZ-PRD/mon_http_scapriv-sca
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_http_scd_web {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTSCDAPP01:80 {
+            address 10.34.194.19
+        }
+        /DMZ-PRD/SPTSCDAPP02:80 {
+            address 10.34.194.38
+        }
+        /DMZ-PRD/SPTSCDAPP03:80 {
+            address 10.34.194.42
+        }
+    }
+    monitor /DMZ-PRD/mon_http_scd_web
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_http_scd_web-int {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTSCDAPP01:80 {
+            address 10.34.194.19
+        }
+        /DMZ-PRD/SPTSCDAPP02:80 {
+            address 10.34.194.38
+        }
+        /DMZ-PRD/SPTSCDAPP03:80 {
+            address 10.34.194.42
+        }
+        /DMZ-PRD/SPTSCDAPP11-CNP:80 {
+            address 10.34.210.19
+        }
+        /DMZ-PRD/SPTSCDAPP12-CNP:80 {
+            address 10.34.210.38
+        }
+        /DMZ-PRD/SPTSCDAPP13-CNP:80 {
+            address 10.34.210.42
+        }
+    }
+    monitor /DMZ-PRD/mon_http_scd_web-int
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_https_90_bilhete.sptrans {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTSCAAPP01:90 {
+            address 10.34.194.16
+        }
+        /DMZ-PRD/SPTSCAAPP04:90 {
+            address 10.34.194.26
+        }
+    }
+    monitor /Common/gateway_icmp
+}
+ltm pool /DMZ-PRD/pool_https_91_estudante.sptrans {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTSCAAPP01:91 {
+            address 10.34.194.16
+        }
+        /DMZ-PRD/SPTSCAAPP04:91 {
+            address 10.34.194.26
+        }
+    }
+    monitor /Common/gateway_icmp
+}
+ltm pool /DMZ-PRD/pool_https_highports_scapriv-sa {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTSCAPRIV01:8080 {
+            address 10.34.194.39
+        }
+        /DMZ-PRD/SPTSCAPRIV01:8090 {
+            address 10.34.194.39
+        }
+        /DMZ-PRD/SPTSCAPRIV02:8080 {
+            address 10.34.194.40
+        }
+        /DMZ-PRD/SPTSCAPRIV02:8090 {
+            address 10.34.194.40
+        }
+        /DMZ-PRD/SPTSCAPRIV03:8080 {
+            address 10.34.194.121
+            monitor /DMZ-PRD/mon_http_scapriv-sa
+        }
+        /DMZ-PRD/SPTSCAPRIV03:8090 {
+            address 10.34.194.121
+            monitor /DMZ-PRD/mon_http_scapriv-sa
+        }
+        /DMZ-PRD/SPTSCAPRIV04:8080 {
+            address 10.34.194.122
+            monitor /DMZ-PRD/mon_http_scapriv-sa
+        }
+        /DMZ-PRD/SPTSCAPRIV04:8090 {
+            address 10.34.194.122
+            monitor /DMZ-PRD/mon_http_scapriv-sa
+        }
+    }
+    monitor /DMZ-PRD/mon_http_scapriv-sa
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_https_highports_scapriv-sca {
+    description https://scapriv.sbe.sptrans.com.br/sca
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTSCAPRIV01:8001 {
+            address 10.34.194.39
+        }
+        /DMZ-PRD/SPTSCAPRIV01:8002 {
+            address 10.34.194.39
+        }
+        /DMZ-PRD/SPTSCAPRIV02:8001 {
+            address 10.34.194.40
+        }
+        /DMZ-PRD/SPTSCAPRIV02:8002 {
+            address 10.34.194.40
+        }
+        /DMZ-PRD/SPTSCAPRIV03:8001 {
+            address 10.34.194.121
+            monitor /DMZ-PRD/mon_http_scapriv-sca
+        }
+        /DMZ-PRD/SPTSCAPRIV03:8002 {
+            address 10.34.194.121
+            monitor /DMZ-PRD/mon_http_scapriv-sca
+        }
+        /DMZ-PRD/SPTSCAPRIV04:8001 {
+            address 10.34.194.122
+            monitor /DMZ-PRD/mon_http_scapriv-sca
+        }
+        /DMZ-PRD/SPTSCAPRIV04:8002 {
+            address 10.34.194.122
+            monitor /DMZ-PRD/mon_http_scapriv-sca
+        }
+    }
+    monitor /DMZ-PRD/mon_http_scapriv-sca
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_https_lp.sbe.sptrans.corp {
+    description "Pool servidores Lista Permanente porta 443"
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTLPAPP01:443 {
+            address 10.34.205.103
+        }
+        /DMZ-PRD/SPTLPAPP02:443 {
+            address 10.34.205.104
+        }
+        /DMZ-PRD/SPTLPAPP03:443 {
+            address 10.34.205.105
+        }
+        /DMZ-PRD/SPTLPAPP04:443 {
+            address 10.34.205.106
+        }
+    }
+    monitor /DMZ-PRD/mon_https_lp.sbe.sptrans.corp
+}
+ltm pool /DMZ-PRD/pool_intranet.dc.sptrans.corp {
+    description Intranet
+    monitor /Common/tcp_half_open
+}
+ltm pool /DMZ-PRD/pool_lp.sbe.sptrans.corp {
+    description http://listapermanente.sbe.sptrans.corp
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTLPAPP01:80 {
+            address 10.34.205.103
+            description CTASK0322444_CHG20200005183
+        }
+        /DMZ-PRD/SPTLPAPP02:80 {
+            address 10.34.205.104
+            description CTASK0322444_CHG20200005183
+        }
+        /DMZ-PRD/SPTLPAPP03:80 {
+            address 10.34.205.105
+            description CTASK0322444_CHG20200005183
+        }
+        /DMZ-PRD/SPTLPAPP04:80 {
+            address 10.34.205.106
+            description CTASK0322444_CHG20200005183
+        }
+    }
+    monitor /DMZ-PRD/http_lp.sbe.sptrans.corp
+}
+ltm pool /DMZ-PRD/pool_pbe.bilheteunico.dc.sptrans.com.br {
+    members {
+        /DMZ-PRD/10.34.194.98:8080 {
+            address 10.34.194.98
+        }
+    }
+    monitor /DMZ-PRD/mon_http_webcidadao
+}
+ltm pool /DMZ-PRD/pool_pbe.bilheteunico.dc.sptrans.corp {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/10.34.194.98:8080 {
+            address 10.34.194.98
+        }
+    }
+    monitor /DMZ-PRD/monitor_pbe.bilheteunico.corp
+}
+ltm pool /DMZ-PRD/pool_pedidocredito {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTWSAPP03:8080 {
+            address 10.34.194.77
+            monitor /DMZ-PRD/mon_http_pedidocredito
+        }
+        /DMZ-PRD/SPTWSAPP03:8090 {
+            address 10.34.194.77
+            monitor /DMZ-PRD/mon_http_pedidocredito
+        }
+        /DMZ-PRD/SPTWSAPP03:8100 {
+            address 10.34.194.77
+            monitor /DMZ-PRD/mon_http_pedidocredito
+        }
+        /DMZ-PRD/SPTWSAPP03:8110 {
+            address 10.34.194.77
+            monitor /DMZ-PRD/mon_http_pedidocredito
+        }
+        /DMZ-PRD/SPTWSAPP04:8080 {
+            address 10.34.194.78
+            monitor /DMZ-PRD/mon_http_pedidocredito
+        }
+        /DMZ-PRD/SPTWSAPP04:8090 {
+            address 10.34.194.78
+            monitor /DMZ-PRD/mon_http_pedidocredito
+        }
+        /DMZ-PRD/SPTWSAPP04:8100 {
+            address 10.34.194.78
+            monitor /DMZ-PRD/mon_http_pedidocredito
+        }
+        /DMZ-PRD/SPTWSAPP04:8110 {
+            address 10.34.194.78
+            monitor /DMZ-PRD/mon_http_pedidocredito
+        }
+        /DMZ-PRD/SPTWSAPP13:8080 {
+            address 10.34.210.54
+            session user-disabled
+            state user-down
+        }
+        /DMZ-PRD/SPTWSAPP13:8090 {
+            address 10.34.210.54
+            session user-disabled
+            state user-down
+        }
+        /DMZ-PRD/SPTWSAPP13:8100 {
+            address 10.34.210.54
+            session user-disabled
+            state user-down
+        }
+        /DMZ-PRD/SPTWSAPP13:8110 {
+            address 10.34.210.54
+            session user-disabled
+            state user-down
+        }
+        /DMZ-PRD/SPTWSAPP14:8080 {
+            address 10.34.210.55
+            session user-disabled
+            state user-down
+        }
+        /DMZ-PRD/SPTWSAPP14:8090 {
+            address 10.34.210.55
+            session user-disabled
+            state user-down
+        }
+        /DMZ-PRD/SPTWSAPP14:8100 {
+            address 10.34.210.55
+            session user-disabled
+            state user-down
+        }
+        /DMZ-PRD/SPTWSAPP14:8110 {
+            address 10.34.210.55
+            session user-disabled
+            state user-down
+        }
+    }
+    monitor /DMZ-PRD/mon_http_pedidocredito
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_sbeweb.sbe.sptrans.com.br {
+    members {
+        /DMZ-PRD/SPTSCPWEB03:80 {
+            address 10.34.194.17
+        }
+        /DMZ-PRD/SPTSCPWEB04:80 {
+            address 10.34.194.48
+        }
+    }
+    monitor /DMZ-PRD/mon_http_sbeweb.sbe.sptrans.com.br
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_sbeweb.sbe.sptrans.corp {
+    members {
+        /DMZ-PRD/SPTSCPWEB03:80 {
+            address 10.34.194.17
+        }
+        /DMZ-PRD/SPTSCPWEB04:80 {
+            address 10.34.194.48
+        }
+    }
+    monitor /DMZ-PRD/http_lp.sbe.sptrans.corp
+}
+ltm pool /DMZ-PRD/pool_scp.sbe.sptrans.com.br {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTSCPWEB01:8080 {
+            address 10.34.194.45
+        }
+        /DMZ-PRD/SPTSCPWEB02:8080 {
+            address 10.34.194.46
+        }
+    }
+    monitor /DMZ-PRD/mon_http_scp.sbe.sptrans.com.br
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_scp.sbe.sptrans.corp {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTSCPWEB01:8080 {
+            address 10.34.194.45
+        }
+        /DMZ-PRD/SPTSCPWEB02:8080 {
+            address 10.34.194.46
+        }
+    }
+    monitor /DMZ-PRD/mon_http_scp.sbe.sptrans.corp
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_services.sptrans.corp_int {
+    description http://services.sptrans.corp
+    members {
+        /DMZ-PRD/SPTSCAPRIV01:8001 {
+            address 10.34.194.39
+        }
+        /DMZ-PRD/SPTSCAPRIV02:8001 {
+            address 10.34.194.40
+        }
+        /DMZ-PRD/SPTSCAPRIV03:8001 {
+            address 10.34.194.121
+        }
+        /DMZ-PRD/SPTSCAPRIV04:8001 {
+            address 10.34.194.122
+        }
+        /DMZ-PRD/SPTSCAPRIV11:8001 {
+            address 10.34.210.39
+        }
+        /DMZ-PRD/SPTSCAPRIV12:8001 {
+            address 10.34.210.40
+        }
+        /DMZ-PRD/SPTSCAPRIV13:8001 {
+            address 10.34.210.69
+        }
+        /DMZ-PRD/SPTSCAPRIV14:8001 {
+            address 10.34.210.70
+        }
+    }
+    monitor /DMZ-PRD/mon_http_scapub-sca_int
+}
+ltm pool /DMZ-PRD/pool_smtp.sbe.sptrans.corp {
+    description "SMTP Relay Interno"
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTRELAY01:25 {
+            address 10.34.194.47
+        }
+    }
+    monitor /DMZ-PRD/tcp_half_snmp-relay
+    service-down-action reset
+}
+ltm pool /DMZ-PRD/pool_soainfra.dc.sptrans.corp {
+    load-balancing-mode least-connections-node
+    members {
+        /DMZ-PRD/SPTADMWEB01:80 {
+            address 10.34.194.83
+        }
+        /DMZ-PRD/SPTADMWEB02:80 {
+            address 10.34.194.86
+        }
+    }
+    monitor /Common/http
+}
+ltm pool /DMZ-PRD/pool_sptosbprd.sptrans.corp {
+    load-balancing-mode least-connections-node
+    members {
+        /DMZ-PRD/SPTOSBWEB01:7003 {
+            address 10.34.194.90
+        }
+        /DMZ-PRD/SPTOSBWEB02:7003 {
+            address 10.34.194.91
+        }
+        /DMZ-PRD/SPTOSBWEB03:7003 {
+            address 10.34.194.92
+        }
+        /DMZ-PRD/SPTOSBWEB04:7003 {
+            address 10.34.194.93
+        }
+    }
+    monitor /DMZ-PRD/mon_http-sptosbprd.sptrans.corp
+}
+ltm pool /DMZ-PRD/pool_ssh_edi_garagens {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTEDI01:22 {
+            address 10.34.194.55
+        }
+        /DMZ-PRD/SPTEDI02:22 {
+            address 10.34.194.56
+        }
+        /DMZ-PRD/SPTEDI03:22 {
+            address 10.34.194.57
+        }
+        /DMZ-PRD/SPTEDI04:22 {
+            address 10.34.194.58
+        }
+        /DMZ-PRD/SPTEDI05:22 {
+            address 10.34.194.59
+        }
+        /DMZ-PRD/SPTEDI06:22 {
+            address 10.34.194.60
+        }
+        /DMZ-PRD/SPTEDI07:22 {
+            address 10.34.194.61
+        }
+        /DMZ-PRD/SPTEDI08:22 {
+            address 10.34.194.62
+        }
+        /DMZ-PRD/SPTEDI09:22 {
+            address 10.34.194.63
+        }
+        /DMZ-PRD/SPTEDI10:22 {
+            address 10.34.194.64
+        }
+        /DMZ-PRD/SPTEDI11:22 {
+            address 10.34.194.65
+        }
+    }
+    monitor /DMZ-PRD/mon_http_edi_garagens-fotos and /DMZ-PRD/mon_http_edi_garagens-gar and /DMZ-PRD/mon_ssh_edi_garagens
+    service-down-action reselect
+}
+ltm pool /DMZ-PRD/pool_teste_sptrans {
+    members {
+        /DMZ-PRD/SPTDWAPP03:7778 {
+            address 10.34.194.15
+        }
+    }
+    monitor /DMZ-PRD/mon_teste_sptrans2
+}
+ltm pool /DMZ-PRD/pool_validacaoserpro.sptrans.corp {
+    members {
+        /DMZ-PRD/SPTSCAPRIV01:8001 {
+            address 10.34.194.39
+        }
+        /DMZ-PRD/SPTSCAPRIV01:8002 {
+            address 10.34.194.39
+        }
+        /DMZ-PRD/SPTSCAPRIV02:8001 {
+            address 10.34.194.40
+        }
+        /DMZ-PRD/SPTSCAPRIV02:8002 {
+            address 10.34.194.40
+        }
+        /DMZ-PRD/SPTSCAPRIV03:8001 {
+            address 10.34.194.121
+        }
+        /DMZ-PRD/SPTSCAPRIV03:8002 {
+            address 10.34.194.121
+        }
+        /DMZ-PRD/SPTSCAPRIV04:8001 {
+            address 10.34.194.122
+        }
+        /DMZ-PRD/SPTSCAPRIV04:8002 {
+            address 10.34.194.122
+        }
+    }
+    monitor /DMZ-PRD/mon_http_scapriv-sca_int
+}
+ltm pool /DMZ-PRD/pool_vs_http_teste_web {
+    description "Pool para realização de teste .corp"
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/SPTLVWEB11-CNP:8080 {
+            address 10.34.210.13
+        }
+        /DMZ-PRD/SPTLVWEB11-CNP:8090 {
+            address 10.34.210.13
+        }
+        /DMZ-PRD/SPTLVWEB12-CNP:8080 {
+            address 10.34.210.30
+        }
+        /DMZ-PRD/SPTLVWEB12-CNP:8090 {
+            address 10.34.210.30
+        }
+        /DMZ-PRD/SPTLVWEB13-CNP:8080 {
+            address 10.34.210.37
+        }
+        /DMZ-PRD/SPTLVWEB13-CNP:8090 {
+            address 10.34.210.37
+        }
+    }
+    monitor /DMZ-PRD/mon_http_lojavirtual-int
+}
+ltm pool /DMZ-PRD/pool_webcidadao.sbe.sptrans.corp {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-PRD/10.34.194.98:8080 {
+            address 10.34.194.98
+        }
+    }
+    monitor /DMZ-PRD/mon_http_webcidadao
+}
+ltm pool /DMZ-QAS/pool_8001_odiagent-int {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-QAS/SPTMNTODI01Q:8001 {
+            address 10.34.197.9
+        }
+        /DMZ-QAS/SPTMNTODI02Q:8001 {
+            address 10.34.197.11
+        }
+    }
+    monitor /DMZ-QAS/mon_http_odiagent
+}
+ltm pool /DMZ-QAS/pool_ftp_scdftp {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-QAS/SPTFTPAPP01Q:21 {
+            address 10.34.197.17
+        }
+    }
+    monitor /DMZ-QAS/mon_ftp_scdftp
+    service-down-action reselect
+}
+ltm pool /DMZ-QAS/pool_ftp_scdftp-int {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-QAS/SPTFTPAPP01Q:21 {
+            address 10.34.197.17
+        }
+    }
+    monitor /DMZ-QAS/mon_ftp_scdftp
+    service-down-action reselect
+}
+ltm pool /DMZ-QAS/pool_highports_cadescola-sca {
+    members {
+        /DMZ-QAS/SPTCADESCOLA01Q:8001 {
+            address 10.34.197.26
+        }
+        /DMZ-QAS/SPTCADESCOLA01Q:8002 {
+            address 10.34.197.26
+        }
+        /DMZ-QAS/SPTCADESCOLA02Q:8001 {
+            address 10.34.197.30
+        }
+        /DMZ-QAS/SPTCADESCOLA02Q:8002 {
+            address 10.34.197.30
+        }
+    }
+    monitor /DMZ-QAS/mon_http_cadescola-sca
+    service-down-action reselect
+}
+ltm pool /DMZ-QAS/pool_highports_cadescola-sca-int {
+    members {
+        /DMZ-QAS/SPTCADESCOLA01Q:8001 {
+            address 10.34.197.26
+        }
+        /DMZ-QAS/SPTCADESCOLA01Q:8002 {
+            address 10.34.197.26
+        }
+        /DMZ-QAS/SPTCADESCOLA02Q:8001 {
+            address 10.34.197.30
+        }
+        /DMZ-QAS/SPTCADESCOLA02Q:8002 {
+            address 10.34.197.30
+        }
+    }
+    monitor /DMZ-QAS/mon_http_cadescola-sca
+    service-down-action reselect
+}
+ltm pool /DMZ-QAS/pool_highports_scapub-emailsemcadastro {
+    members {
+        /DMZ-QAS/SPTSCAPUB01Q:9001 {
+            address 10.34.197.29
+        }
+        /DMZ-QAS/SPTSCAPUB02Q:9001 {
+            address 10.34.197.33
+        }
+    }
+    monitor /DMZ-QAS/mon_http_scapub_emailsemcadastro
+    service-down-action reselect
+}
+ltm pool /DMZ-QAS/pool_highports_scapub-emailsemcadastro-int {
+    members {
+        /DMZ-QAS/SPTSCAPUB01Q:9001 {
+            address 10.34.197.29
+        }
+        /DMZ-QAS/SPTSCAPUB02Q:9001 {
+            address 10.34.197.33
+        }
+    }
+    monitor /DMZ-QAS/mon_http_scapub_emailsemcadastro
+    service-down-action reselect
+}
+ltm pool /DMZ-QAS/pool_highports_scapub-sa {
+    members {
+        /DMZ-QAS/SPTSCAPUB01Q:8080 {
+            address 10.34.197.29
+        }
+        /DMZ-QAS/SPTSCAPUB01Q:8090 {
+            address 10.34.197.29
+        }
+        /DMZ-QAS/SPTSCAPUB01Q:8100 {
+            address 10.34.197.29
+        }
+        /DMZ-QAS/SPTSCAPUB01Q:8110 {
+            address 10.34.197.29
+        }
+        /DMZ-QAS/SPTSCAPUB01Q:8120 {
+            address 10.34.197.29
+        }
+        /DMZ-QAS/SPTSCAPUB01Q:8130 {
+            address 10.34.197.29
+        }
+        /DMZ-QAS/SPTSCAPUB01Q:8140 {
+            address 10.34.197.29
+        }
+        /DMZ-QAS/SPTSCAPUB01Q:8150 {
+            address 10.34.197.29
+        }
+        /DMZ-QAS/SPTSCAPUB02Q:8080 {
+            address 10.34.197.33
+        }
+        /DMZ-QAS/SPTSCAPUB02Q:8090 {
+            address 10.34.197.33
+        }
+        /DMZ-QAS/SPTSCAPUB02Q:8100 {
+            address 10.34.197.33
+        }
+        /DMZ-QAS/SPTSCAPUB02Q:8110 {
+            address 10.34.197.33
+        }
+        /DMZ-QAS/SPTSCAPUB02Q:8120 {
+            address 10.34.197.33
+        }
+        /DMZ-QAS/SPTSCAPUB02Q:8130 {
+            address 10.34.197.33
+        }
+        /DMZ-QAS/SPTSCAPUB02Q:8140 {
+            address 10.34.197.33
+        }
+        /DMZ-QAS/SPTSCAPUB02Q:8150 {
+            address 10.34.197.33
+        }
+    }
+    monitor /DMZ-QAS/mon_http_scapub-sa
+    service-down-action reselect
+}
+ltm pool /DMZ-QAS/pool_highports_scapub-sa-int {
+    members {
+        /DMZ-QAS/SPTSCAPUB01Q:8080 {
+            address 10.34.197.29
+        }
+        /DMZ-QAS/SPTSCAPUB01Q:8090 {
+            address 10.34.197.29
+        }
+        /DMZ-QAS/SPTSCAPUB01Q:8100 {
+            address 10.34.197.29
+        }
+        /DMZ-QAS/SPTSCAPUB01Q:8110 {
+            address 10.34.197.29
+        }
+        /DMZ-QAS/SPTSCAPUB01Q:8120 {
+            address 10.34.197.29
+        }
+        /DMZ-QAS/SPTSCAPUB01Q:8130 {
+            address 10.34.197.29
+        }
+        /DMZ-QAS/SPTSCAPUB01Q:8140 {
+            address 10.34.197.29
+        }
+        /DMZ-QAS/SPTSCAPUB01Q:8150 {
+            address 10.34.197.29
+        }
+        /DMZ-QAS/SPTSCAPUB02Q:8080 {
+            address 10.34.197.33
+        }
+        /DMZ-QAS/SPTSCAPUB02Q:8090 {
+            address 10.34.197.33
+        }
+        /DMZ-QAS/SPTSCAPUB02Q:8100 {
+            address 10.34.197.33
+        }
+        /DMZ-QAS/SPTSCAPUB02Q:8110 {
+            address 10.34.197.33
+        }
+        /DMZ-QAS/SPTSCAPUB02Q:8120 {
+            address 10.34.197.33
+        }
+        /DMZ-QAS/SPTSCAPUB02Q:8130 {
+            address 10.34.197.33
+        }
+        /DMZ-QAS/SPTSCAPUB02Q:8140 {
+            address 10.34.197.33
+        }
+        /DMZ-QAS/SPTSCAPUB02Q:8150 {
+            address 10.34.197.33
+        }
+    }
+    monitor /DMZ-QAS/mon_http_scapub-sa
+    service-down-action reselect
+}
+ltm pool /DMZ-QAS/pool_highports_scapub-sca {
+    members {
+        /DMZ-QAS/SPTSCAPUB01Q:8001 {
+            address 10.34.197.29
+        }
+        /DMZ-QAS/SPTSCAPUB02Q:8001 {
+            address 10.34.197.33
+        }
+    }
+    monitor /DMZ-QAS/mon_http_scapub-sca
+    service-down-action reselect
+}
+ltm pool /DMZ-QAS/pool_highports_scapub-sca-int {
+    members {
+        /DMZ-QAS/SPTSCAPUB01Q:8001 {
+            address 10.34.197.29
+        }
+        /DMZ-QAS/SPTSCAPUB02Q:8001 {
+            address 10.34.197.33
+        }
+    }
+    monitor /DMZ-QAS/mon_http_scapub-sca
+    service-down-action reselect
+}
+ltm pool /DMZ-QAS/pool_http_highports_scapriv-perso {
+    members {
+        /DMZ-QAS/SPTSCAPRIV01Q:8080 {
+            address 10.34.197.32
+        }
+        /DMZ-QAS/SPTSCAPRIV01Q:8090 {
+            address 10.34.197.32
+        }
+        /DMZ-QAS/SPTSCAPRIV01Q:8100 {
+            address 10.34.197.32
+        }
+        /DMZ-QAS/SPTSCAPRIV01Q:8110 {
+            address 10.34.197.32
+        }
+        /DMZ-QAS/SPTSCAPRIV02Q:8080 {
+            address 10.34.197.34
+        }
+        /DMZ-QAS/SPTSCAPRIV02Q:8090 {
+            address 10.34.197.34
+        }
+        /DMZ-QAS/SPTSCAPRIV02Q:8100 {
+            address 10.34.197.34
+        }
+        /DMZ-QAS/SPTSCAPRIV02Q:8110 {
+            address 10.34.197.34
+        }
+    }
+    monitor /DMZ-QAS/mon_http_scapriv-person
+    service-down-action reselect
+}
+ltm pool /DMZ-QAS/pool_http_highports_scapriv-perso-int {
+    members {
+        /DMZ-QAS/SPTSCAPRIV01Q:8080 {
+            address 10.34.197.32
+        }
+        /DMZ-QAS/SPTSCAPRIV01Q:8090 {
+            address 10.34.197.32
+        }
+        /DMZ-QAS/SPTSCAPRIV01Q:8100 {
+            address 10.34.197.32
+        }
+        /DMZ-QAS/SPTSCAPRIV01Q:8110 {
+            address 10.34.197.32
+        }
+        /DMZ-QAS/SPTSCAPRIV02Q:8080 {
+            address 10.34.197.34
+        }
+        /DMZ-QAS/SPTSCAPRIV02Q:8090 {
+            address 10.34.197.34
+        }
+        /DMZ-QAS/SPTSCAPRIV02Q:8100 {
+            address 10.34.197.34
+        }
+        /DMZ-QAS/SPTSCAPRIV02Q:8110 {
+            address 10.34.197.34
+        }
+    }
+    monitor /DMZ-QAS/mon_http_scapriv-person
+    service-down-action reselect
+}
+ltm pool /DMZ-QAS/pool_http_highports_scapriv-sa {
+    members {
+        /DMZ-QAS/SPTSCAPRIV01Q:8080 {
+            address 10.34.197.32
+        }
+        /DMZ-QAS/SPTSCAPRIV01Q:8090 {
+            address 10.34.197.32
+        }
+        /DMZ-QAS/SPTSCAPRIV01Q:8100 {
+            address 10.34.197.32
+        }
+        /DMZ-QAS/SPTSCAPRIV01Q:8110 {
+            address 10.34.197.32
+        }
+        /DMZ-QAS/SPTSCAPRIV02Q:8080 {
+            address 10.34.197.34
+        }
+        /DMZ-QAS/SPTSCAPRIV02Q:8090 {
+            address 10.34.197.34
+        }
+        /DMZ-QAS/SPTSCAPRIV02Q:8100 {
+            address 10.34.197.34
+        }
+        /DMZ-QAS/SPTSCAPRIV02Q:8110 {
+            address 10.34.197.34
+        }
+    }
+    monitor /DMZ-QAS/mon_http_scapriv-sa
+    service-down-action reselect
+}
+ltm pool /DMZ-QAS/pool_http_highports_scapriv-sa-int {
+    members {
+        /DMZ-QAS/SPTSCAPRIV01Q:8080 {
+            address 10.34.197.32
+        }
+        /DMZ-QAS/SPTSCAPRIV01Q:8090 {
+            address 10.34.197.32
+        }
+        /DMZ-QAS/SPTSCAPRIV01Q:8100 {
+            address 10.34.197.32
+        }
+        /DMZ-QAS/SPTSCAPRIV01Q:8110 {
+            address 10.34.197.32
+        }
+        /DMZ-QAS/SPTSCAPRIV02Q:8080 {
+            address 10.34.197.34
+        }
+        /DMZ-QAS/SPTSCAPRIV02Q:8090 {
+            address 10.34.197.34
+        }
+        /DMZ-QAS/SPTSCAPRIV02Q:8100 {
+            address 10.34.197.34
+        }
+        /DMZ-QAS/SPTSCAPRIV02Q:8110 {
+            address 10.34.197.34
+        }
+    }
+    monitor /DMZ-QAS/mon_http_scapriv-sa
+    service-down-action reselect
+}
+ltm pool /DMZ-QAS/pool_http_highports_scapriv-sca {
+    members {
+        /DMZ-QAS/SPTSCAPRIV01Q:8001 {
+            address 10.34.197.32
+        }
+        /DMZ-QAS/SPTSCAPRIV01Q:8002 {
+            address 10.34.197.32
+        }
+        /DMZ-QAS/SPTSCAPRIV02Q:8001 {
+            address 10.34.197.34
+        }
+        /DMZ-QAS/SPTSCAPRIV02Q:8002 {
+            address 10.34.197.34
+        }
+    }
+    monitor /DMZ-QAS/mon_http_scapriv-sca
+    service-down-action reselect
+}
+ltm pool /DMZ-QAS/pool_http_highports_scapriv-sca-int {
+    members {
+        /DMZ-QAS/SPTSCAPRIV01Q:8001 {
+            address 10.34.197.32
+        }
+        /DMZ-QAS/SPTSCAPRIV01Q:8002 {
+            address 10.34.197.32
+        }
+        /DMZ-QAS/SPTSCAPRIV02Q:8001 {
+            address 10.34.197.34
+        }
+        /DMZ-QAS/SPTSCAPRIV02Q:8002 {
+            address 10.34.197.34
+        }
+    }
+    monitor /DMZ-QAS/mon_http_scapriv-sca
+    service-down-action reselect
+}
+ltm pool /DMZ-QAS/pool_http_portal-sptrans-ext {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-QAS/SPTDWAPP01Q:7778 {
+            address 10.34.197.13
+            monitor /DMZ-QAS/mon_tcp_half_portal-sptrans-ext
+        }
+        /DMZ-QAS/SPTDWAPP02Q:7778 {
+            address 10.34.197.14
+            monitor /DMZ-QAS/mon_tcp_half_portal-sptrans-ext
+        }
+        /DMZ-QAS/SPTDWAPP03Q:7778 {
+            address 10.34.197.15
+            monitor /DMZ-QAS/mon_tcp_half_portal-sptrans-ext
+        }
+    }
+    service-down-action reselect
+}
+ltm pool /DMZ-QAS/pool_http_portal-sptrans-int {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-QAS/SPTDWAPP01Q:7778 {
+            address 10.34.197.13
+            monitor /DMZ-QAS/mon_tcp_half_portal-sptrans-int
+        }
+        /DMZ-QAS/SPTDWAPP02Q:7778 {
+            address 10.34.197.14
+            monitor /DMZ-QAS/mon_tcp_half_portal-sptrans-int
+        }
+        /DMZ-QAS/SPTDWAPP03Q:7778 {
+            address 10.34.197.15
+            monitor /DMZ-QAS/mon_tcp_half_portal-sptrans-int
+        }
+    }
+    service-down-action reselect
+}
+ltm pool /DMZ-QAS/pool_http_sbeweb {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-QAS/SPTSCDAPP01Q:80 {
+            address 10.34.197.35
+        }
+        /DMZ-QAS/SPTSCPWEB03Q:80 {
+            address 10.34.196.7
+        }
+        /DMZ-QAS/SPTSCPWEB04Q:80 {
+            address 10.34.196.30
+        }
+    }
+    monitor /DMZ-QAS/mon_http_sbeweb.sbe.sptrans.com.br
+    service-down-action reselect
+}
+ltm pool /DMZ-QAS/pool_http_sbeweb-int {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-QAS/SPTSCDAPP01Q:80 {
+            address 10.34.197.35
+        }
+        /DMZ-QAS/SPTSCPWEB03Q:80 {
+            address 10.34.196.7
+        }
+        /DMZ-QAS/SPTSCPWEB04Q:80 {
+            address 10.34.196.30
+        }
+    }
+    monitor /DMZ-QAS/mon_http_sbeweb.sbe.sptrans.com.br
+    service-down-action reselect
+}
+ltm pool /DMZ-QAS/pool_http_scd_web {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-QAS/SPTSCDAPP01Q:80 {
+            address 10.34.197.35
+        }
+        /DMZ-QAS/SPTSCDAPP02Q:80 {
+            address 10.34.197.36
+        }
+    }
+    monitor /DMZ-QAS/mon_http_scd_web
+    service-down-action reselect
+}
+ltm pool /DMZ-QAS/pool_http_scd_web-int {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-QAS/SPTSCDAPP01Q:80 {
+            address 10.34.197.35
+        }
+        /DMZ-QAS/SPTSCDAPP02Q:80 {
+            address 10.34.197.36
+        }
+    }
+    monitor /DMZ-QAS/mon_http_scd_web
+    service-down-action reselect
+}
+ltm pool /DMZ-QAS/pool_http_scp_qas {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-QAS/SPTSCPWEB01Q:8080 {
+            address 10.34.197.42
+        }
+        /DMZ-QAS/SPTSCPWEB02Q:8080 {
+            address 10.34.197.38
+        }
+    }
+    monitor /DMZ-QAS/mon_http_scp.qsbe.sptrans.com.br
+    service-down-action reselect
+}
+ltm pool /DMZ-QAS/pool_http_scp_qas-int {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-QAS/SPTSCPWEB01Q:8080 {
+            address 10.34.197.42
+        }
+        /DMZ-QAS/SPTSCPWEB02Q:8080 {
+            address 10.34.197.38
+        }
+    }
+    monitor /DMZ-QAS/mon_http_scp.qsbe.sptrans.corp
+    service-down-action reselect
+}
+ltm pool /DMZ-QAS/pool_qbe.bilheteunico.sptrans.com.br {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-QAS/SPTINTRA01Q:8080 {
+            address 10.34.197.56
+        }
+        /DMZ-QAS/SPTINTRA02Q:8080 {
+            address 10.34.197.57
+        }
+    }
+    monitor /DMZ-QAS/monitor_qsbe.bilheteunico.sptrans.com.br
+}
+ltm pool /DMZ-QAS/pool_smtp.qsbe.sptrans.corp {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-QAS/SPTRELAY01Q:25 {
+            address 10.34.197.25
+        }
+    }
+    monitor /DMZ-QAS/tcp_half_snmp-relay
+    service-down-action reselect
+}
+ltm pool /DMZ-TEST/pool_ftp_scdftp {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-TEST/SPTFTPAPP01T:21 {
+            address 10.34.198.13
+        }
+    }
+    monitor /DMZ-TEST/mon_ftp_scdftp
+    service-down-action reselect
+}
+ltm pool /DMZ-TEST/pool_ftp_scdftp-int {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-TEST/SPTFTPAPP01T:21 {
+            address 10.34.198.13
+        }
+    }
+    monitor /DMZ-TEST/mon_ftp_scdftp
+    service-down-action reselect
+}
+ltm pool /DMZ-TEST/pool_highports_cadescola-sca {
+    members {
+        /DMZ-TEST/SPTCADESCOLA01T:8001 {
+            address 10.34.198.22
+        }
+        /DMZ-TEST/SPTCADESCOLA01T:8002 {
+            address 10.34.198.22
+        }
+        /DMZ-TEST/SPTCADESCOLA02T:8001 {
+            address 10.34.198.26
+        }
+        /DMZ-TEST/SPTCADESCOLA02T:8002 {
+            address 10.34.198.26
+        }
+    }
+    monitor /DMZ-TEST/mon_http_cadescola-sca
+    service-down-action reselect
+}
+ltm pool /DMZ-TEST/pool_highports_cadescola-sca-int {
+    members {
+        /DMZ-TEST/SPTCADESCOLA01T:8001 {
+            address 10.34.198.22
+        }
+        /DMZ-TEST/SPTCADESCOLA01T:8002 {
+            address 10.34.198.22
+        }
+        /DMZ-TEST/SPTCADESCOLA02T:8001 {
+            address 10.34.198.26
+        }
+        /DMZ-TEST/SPTCADESCOLA02T:8002 {
+            address 10.34.198.26
+        }
+    }
+    monitor /DMZ-TEST/mon_http_cadescola-sca
+    service-down-action reselect
+}
+ltm pool /DMZ-TEST/pool_highports_scapub-emailsemcadastro {
+    members {
+        /DMZ-TEST/SPTSCAPUB01T:9001 {
+            address 10.34.198.25
+        }
+        /DMZ-TEST/SPTSCAPUB02T:9001 {
+            address 10.34.198.29
+        }
+    }
+    monitor /DMZ-TEST/mon_http_scapub_emailsemcadastro
+    service-down-action reselect
+}
+ltm pool /DMZ-TEST/pool_highports_scapub-emailsemcadastro-int {
+    members {
+        /DMZ-TEST/SPTSCAPUB01T:9001 {
+            address 10.34.198.25
+        }
+        /DMZ-TEST/SPTSCAPUB02T:9001 {
+            address 10.34.198.29
+        }
+    }
+    monitor /DMZ-TEST/mon_http_scapub_emailsemcadastro
+    service-down-action reselect
+}
+ltm pool /DMZ-TEST/pool_highports_scapub-sa {
+    members {
+        /DMZ-TEST/SPTSCAPUB01T:8080 {
+            address 10.34.198.25
+        }
+        /DMZ-TEST/SPTSCAPUB01T:8090 {
+            address 10.34.198.25
+        }
+        /DMZ-TEST/SPTSCAPUB01T:8100 {
+            address 10.34.198.25
+        }
+        /DMZ-TEST/SPTSCAPUB01T:8110 {
+            address 10.34.198.25
+        }
+        /DMZ-TEST/SPTSCAPUB01T:8120 {
+            address 10.34.198.25
+        }
+        /DMZ-TEST/SPTSCAPUB01T:8130 {
+            address 10.34.198.25
+        }
+        /DMZ-TEST/SPTSCAPUB01T:8140 {
+            address 10.34.198.25
+        }
+        /DMZ-TEST/SPTSCAPUB01T:8150 {
+            address 10.34.198.25
+        }
+        /DMZ-TEST/SPTSCAPUB02T:8080 {
+            address 10.34.198.29
+        }
+        /DMZ-TEST/SPTSCAPUB02T:8090 {
+            address 10.34.198.29
+        }
+        /DMZ-TEST/SPTSCAPUB02T:8100 {
+            address 10.34.198.29
+        }
+        /DMZ-TEST/SPTSCAPUB02T:8110 {
+            address 10.34.198.29
+        }
+        /DMZ-TEST/SPTSCAPUB02T:8120 {
+            address 10.34.198.29
+        }
+        /DMZ-TEST/SPTSCAPUB02T:8130 {
+            address 10.34.198.29
+        }
+        /DMZ-TEST/SPTSCAPUB02T:8140 {
+            address 10.34.198.29
+        }
+        /DMZ-TEST/SPTSCAPUB02T:8150 {
+            address 10.34.198.29
+        }
+    }
+    monitor /DMZ-TEST/mon_http_scapub-sa
+    service-down-action reselect
+}
+ltm pool /DMZ-TEST/pool_highports_scapub-sa-int {
+    members {
+        /DMZ-TEST/SPTSCAPUB01T:8080 {
+            address 10.34.198.25
+        }
+        /DMZ-TEST/SPTSCAPUB01T:8090 {
+            address 10.34.198.25
+        }
+        /DMZ-TEST/SPTSCAPUB01T:8100 {
+            address 10.34.198.25
+        }
+        /DMZ-TEST/SPTSCAPUB01T:8110 {
+            address 10.34.198.25
+        }
+        /DMZ-TEST/SPTSCAPUB01T:8120 {
+            address 10.34.198.25
+        }
+        /DMZ-TEST/SPTSCAPUB01T:8130 {
+            address 10.34.198.25
+        }
+        /DMZ-TEST/SPTSCAPUB01T:8140 {
+            address 10.34.198.25
+        }
+        /DMZ-TEST/SPTSCAPUB01T:8150 {
+            address 10.34.198.25
+        }
+        /DMZ-TEST/SPTSCAPUB02T:8080 {
+            address 10.34.198.29
+        }
+        /DMZ-TEST/SPTSCAPUB02T:8090 {
+            address 10.34.198.29
+        }
+        /DMZ-TEST/SPTSCAPUB02T:8100 {
+            address 10.34.198.29
+        }
+        /DMZ-TEST/SPTSCAPUB02T:8110 {
+            address 10.34.198.29
+        }
+        /DMZ-TEST/SPTSCAPUB02T:8120 {
+            address 10.34.198.29
+        }
+        /DMZ-TEST/SPTSCAPUB02T:8130 {
+            address 10.34.198.29
+        }
+        /DMZ-TEST/SPTSCAPUB02T:8140 {
+            address 10.34.198.29
+        }
+        /DMZ-TEST/SPTSCAPUB02T:8150 {
+            address 10.34.198.29
+        }
+    }
+    monitor /DMZ-TEST/mon_http_scapub-sa
+    service-down-action reselect
+}
+ltm pool /DMZ-TEST/pool_highports_scapub-sca {
+    members {
+        /DMZ-TEST/SPTSCAPUB01T:8001 {
+            address 10.34.198.25
+        }
+        /DMZ-TEST/SPTSCAPUB02T:8001 {
+            address 10.34.198.29
+        }
+    }
+    monitor /DMZ-TEST/mon_http_scapub-sca
+    service-down-action reselect
+}
+ltm pool /DMZ-TEST/pool_highports_scapub-sca-int {
+    members {
+        /DMZ-TEST/SPTSCAPUB01T:8001 {
+            address 10.34.198.25
+        }
+        /DMZ-TEST/SPTSCAPUB02T:8001 {
+            address 10.34.198.29
+        }
+    }
+    monitor /DMZ-TEST/mon_http_scapub-sca
+    service-down-action reselect
+}
+ltm pool /DMZ-TEST/pool_http_highports_scapriv-perso {
+    members {
+        /DMZ-TEST/SPTSCAPRIV01T:8080 {
+            address 10.34.198.28
+        }
+        /DMZ-TEST/SPTSCAPRIV01T:8090 {
+            address 10.34.198.28
+        }
+        /DMZ-TEST/SPTSCAPRIV01T:8100 {
+            address 10.34.198.28
+        }
+        /DMZ-TEST/SPTSCAPRIV01T:8110 {
+            address 10.34.198.28
+        }
+        /DMZ-TEST/SPTSCAPRIV02T:8080 {
+            address 10.34.198.30
+        }
+        /DMZ-TEST/SPTSCAPRIV02T:8090 {
+            address 10.34.198.30
+        }
+        /DMZ-TEST/SPTSCAPRIV02T:8100 {
+            address 10.34.198.30
+        }
+        /DMZ-TEST/SPTSCAPRIV02T:8110 {
+            address 10.34.198.30
+        }
+    }
+    monitor /DMZ-TEST/mon_http_scapriv-person
+    service-down-action reselect
+}
+ltm pool /DMZ-TEST/pool_http_highports_scapriv-perso-int {
+    members {
+        /DMZ-TEST/SPTSCAPRIV01T:8080 {
+            address 10.34.198.28
+        }
+        /DMZ-TEST/SPTSCAPRIV01T:8090 {
+            address 10.34.198.28
+        }
+        /DMZ-TEST/SPTSCAPRIV01T:8100 {
+            address 10.34.198.28
+        }
+        /DMZ-TEST/SPTSCAPRIV01T:8110 {
+            address 10.34.198.28
+        }
+        /DMZ-TEST/SPTSCAPRIV02T:8080 {
+            address 10.34.198.30
+        }
+        /DMZ-TEST/SPTSCAPRIV02T:8090 {
+            address 10.34.198.30
+        }
+        /DMZ-TEST/SPTSCAPRIV02T:8100 {
+            address 10.34.198.30
+        }
+        /DMZ-TEST/SPTSCAPRIV02T:8110 {
+            address 10.34.198.30
+        }
+    }
+    monitor /DMZ-TEST/mon_http_scapriv-person
+    service-down-action reselect
+}
+ltm pool /DMZ-TEST/pool_http_highports_scapriv-sa {
+    members {
+        /DMZ-TEST/SPTSCAPRIV01T:8080 {
+            address 10.34.198.28
+        }
+        /DMZ-TEST/SPTSCAPRIV01T:8090 {
+            address 10.34.198.28
+        }
+        /DMZ-TEST/SPTSCAPRIV01T:8100 {
+            address 10.34.198.28
+        }
+        /DMZ-TEST/SPTSCAPRIV01T:8110 {
+            address 10.34.198.28
+        }
+        /DMZ-TEST/SPTSCAPRIV02T:8080 {
+            address 10.34.198.30
+        }
+        /DMZ-TEST/SPTSCAPRIV02T:8090 {
+            address 10.34.198.30
+        }
+        /DMZ-TEST/SPTSCAPRIV02T:8100 {
+            address 10.34.198.30
+        }
+        /DMZ-TEST/SPTSCAPRIV02T:8110 {
+            address 10.34.198.30
+        }
+    }
+    monitor /DMZ-TEST/mon_http_scapriv-sa
+    service-down-action reselect
+}
+ltm pool /DMZ-TEST/pool_http_highports_scapriv-sa-int {
+    members {
+        /DMZ-TEST/SPTSCAPRIV01T:8080 {
+            address 10.34.198.28
+        }
+        /DMZ-TEST/SPTSCAPRIV01T:8090 {
+            address 10.34.198.28
+        }
+        /DMZ-TEST/SPTSCAPRIV01T:8100 {
+            address 10.34.198.28
+        }
+        /DMZ-TEST/SPTSCAPRIV01T:8110 {
+            address 10.34.198.28
+        }
+        /DMZ-TEST/SPTSCAPRIV02T:8080 {
+            address 10.34.198.30
+        }
+        /DMZ-TEST/SPTSCAPRIV02T:8090 {
+            address 10.34.198.30
+        }
+        /DMZ-TEST/SPTSCAPRIV02T:8100 {
+            address 10.34.198.30
+        }
+        /DMZ-TEST/SPTSCAPRIV02T:8110 {
+            address 10.34.198.30
+        }
+    }
+    monitor /DMZ-TEST/mon_http_scapriv-sa
+    service-down-action reselect
+}
+ltm pool /DMZ-TEST/pool_http_highports_scapriv-sca {
+    members {
+        /DMZ-TEST/SPTSCAPRIV01T:8001 {
+            address 10.34.198.28
+        }
+        /DMZ-TEST/SPTSCAPRIV01T:8002 {
+            address 10.34.198.28
+        }
+        /DMZ-TEST/SPTSCAPRIV02T:8001 {
+            address 10.34.198.30
+        }
+        /DMZ-TEST/SPTSCAPRIV02T:8002 {
+            address 10.34.198.30
+        }
+    }
+    monitor /DMZ-TEST/mon_http_scapriv-sca
+    service-down-action reselect
+}
+ltm pool /DMZ-TEST/pool_http_highports_scapriv-sca-int {
+    members {
+        /DMZ-TEST/SPTSCAPRIV01T:8001 {
+            address 10.34.198.28
+        }
+        /DMZ-TEST/SPTSCAPRIV01T:8002 {
+            address 10.34.198.28
+        }
+        /DMZ-TEST/SPTSCAPRIV02T:8001 {
+            address 10.34.198.30
+        }
+        /DMZ-TEST/SPTSCAPRIV02T:8002 {
+            address 10.34.198.30
+        }
+    }
+    monitor /DMZ-TEST/mon_http_scapriv-sca
+    service-down-action reselect
+}
+ltm pool /DMZ-TEST/pool_http_portal-sptrans-ext {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-TEST/SPTDWAPP01T:7778 {
+            address 10.34.198.9
+            monitor /DMZ-TEST/mon_tcp_half_portal-sptrans-ext
+        }
+        /DMZ-TEST/SPTDWAPP02T:7778 {
+            address 10.34.198.10
+            monitor /DMZ-TEST/mon_tcp_half_portal-sptrans-ext
+        }
+        /DMZ-TEST/SPTDWAPP03T:7778 {
+            address 10.34.198.11
+            monitor /DMZ-TEST/mon_tcp_half_portal-sptrans-ext
+        }
+    }
+    service-down-action reselect
+}
+ltm pool /DMZ-TEST/pool_http_portal-sptrans-int {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-TEST/SPTDWAPP01T:7778 {
+            address 10.34.198.9
+            monitor /DMZ-TEST/mon_tcp_half_portal-sptrans-int
+        }
+        /DMZ-TEST/SPTDWAPP02T:7778 {
+            address 10.34.198.10
+            monitor /DMZ-TEST/mon_tcp_half_portal-sptrans-int
+        }
+        /DMZ-TEST/SPTDWAPP03T:7778 {
+            address 10.34.198.11
+            monitor /DMZ-TEST/mon_tcp_half_portal-sptrans-int
+        }
+    }
+    service-down-action reselect
+}
+ltm pool /DMZ-TEST/pool_http_sbeweb {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-TEST/SPTSCDAPP01T:80 {
+            address 10.34.198.31
+        }
+        /DMZ-TEST/SPTSCDAPP02T:80 {
+            address 10.34.198.32
+        }
+        /DMZ-TEST/SPTSCPWEB03T:80 {
+            address 10.34.198.36
+        }
+        /DMZ-TEST/SPTSCPWEB04T:80 {
+            address 10.34.198.35
+        }
+    }
+    monitor /DMZ-TEST/mon_http_sbeweb.sbe.sptrans.com.br
+    service-down-action reselect
+}
+ltm pool /DMZ-TEST/pool_http_sbeweb-int {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-TEST/SPTSCDAPP01T:80 {
+            address 10.34.198.31
+        }
+        /DMZ-TEST/SPTSCDAPP02T:80 {
+            address 10.34.198.32
+        }
+        /DMZ-TEST/SPTSCPWEB03T:80 {
+            address 10.34.198.36
+        }
+        /DMZ-TEST/SPTSCPWEB04T:80 {
+            address 10.34.198.35
+        }
+    }
+    monitor /DMZ-TEST/mon_http_sbeweb.sbe.sptrans.com.br
+    service-down-action reselect
+}
+ltm pool /DMZ-TEST/pool_http_scd_web {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-TEST/SPTSCDAPP01T:80 {
+            address 10.34.198.31
+        }
+        /DMZ-TEST/SPTSCDAPP02T:80 {
+            address 10.34.198.32
+        }
+    }
+    monitor /DMZ-TEST/mon_http_scd_web
+    service-down-action reselect
+}
+ltm pool /DMZ-TEST/pool_http_scd_web-int {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-TEST/SPTSCDAPP01T:80 {
+            address 10.34.198.31
+        }
+        /DMZ-TEST/SPTSCDAPP02T:80 {
+            address 10.34.198.32
+        }
+    }
+    monitor /DMZ-TEST/mon_http_scd_web
+    service-down-action reselect
+}
+ltm pool /DMZ-TEST/pool_http_scp_tst {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-TEST/SPTSCPWEB01T:8080 {
+            address 10.34.198.34
+        }
+        /DMZ-TEST/SPTSCPWEB02T:8080 {
+            address 10.34.198.38
+        }
+    }
+    monitor /DMZ-TEST/mon_http_scp.tsbe.sptrans.com.br
+    service-down-action reselect
+}
+ltm pool /DMZ-TEST/pool_http_scp_tst-int {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-TEST/SPTSCPWEB01T:8080 {
+            address 10.34.198.34
+        }
+        /DMZ-TEST/SPTSCPWEB02T:8080 {
+            address 10.34.198.38
+        }
+    }
+    monitor /DMZ-TEST/mon_http_scp.tsbe.sptrans.corp
+    service-down-action reselect
+}
+ltm pool /DMZ-TEST/pool_https_test10.34.198.50 {
+    description test10.34.198.50
+    members {
+        /DMZ-TEST/TEST10.34.198.50:8080 {
+            address 10.34.198.50
+        }
+    }
+    monitor /Common/gateway_icmp
+}
+ltm pool /DMZ-TEST/pool_smtp.tsbe.sptrans.corp {
+    load-balancing-mode least-connections-member
+    members {
+        /DMZ-TEST/SPTRELAY01T:25 {
+            address 10.34.198.21
+        }
+    }
+    monitor /DMZ-TEST/tcp_half_snmp-relay
+    service-down-action reselect
+}
+ltm pool /DMZ-TEST/pool_sptosbteste.sptrans.corp {
+    members {
+        /DMZ-TEST/10.34.198.48:7002 {
+            address 10.34.198.48
+        }
+        /DMZ-TEST/10.34.198.48:7003 {
+            address 10.34.198.48
+        }
+    }
+    monitor /Common/http
+}
+ltm pool /FRONT-HOM/pool-hom.cef.sptrans.src {
+    description "Pool homologação"
+    load-balancing-mode least-connections-member
+    members {
+        /FRONT-HOM/SPTHMREST01H:5000 {
+            address 10.34.202.132
+            monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+        }
+        /FRONT-HOM/SPTHMREST02H:5000 {
+            address 10.34.202.133
+            monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+        }
+    }
+    monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+    service-down-action reselect
+}
+ltm pool /FRONT-HOM/pool-hom.devels-ipnet.sptrans.src {
+    load-balancing-mode least-connections-member
+    members {
+        /FRONT-HOM/SPTHMREST01H:5000 {
+            address 10.34.202.132
+        }
+        /FRONT-HOM/SPTHMREST02H:5000 {
+            address 10.34.202.133
+        }
+    }
+    monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+}
+ltm pool /FRONT-HOM/pool-hom.devels.sptrans.src {
+    description "Pool homologação"
+    load-balancing-mode least-connections-member
+    members {
+        /FRONT-HOM/SPTHMREST01H:5000 {
+            address 10.34.202.132
+            monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+        }
+        /FRONT-HOM/SPTHMREST02H:5000 {
+            address 10.34.202.133
+            monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+        }
+    }
+    monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+    service-down-action reselect
+}
+ltm pool /FRONT-HOM/pool-hom.getnet.sptrans.src {
+    description "Pool homologação"
+    load-balancing-mode least-connections-member
+    members {
+        /FRONT-HOM/SPTHMREST01H:5000 {
+            address 10.34.202.132
+            monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+        }
+        /FRONT-HOM/SPTHMREST02H:5000 {
+            address 10.34.202.133
+            monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+        }
+    }
+    monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+    service-down-action reselect
+}
+ltm pool /FRONT-HOM/pool-hom.grupocard.sptrans.src {
+    load-balancing-mode least-connections-member
+    members {
+        /FRONT-HOM/SPTHMREST01H:5000 {
+            address 10.34.202.132
+        }
+        /FRONT-HOM/SPTHMREST02H:5000 {
+            address 10.34.202.133
+        }
+    }
+    monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+}
+ltm pool /FRONT-HOM/pool-hom.n2.sptrans.src {
+    description "Pool Homologação"
+    load-balancing-mode least-connections-member
+    members {
+        /FRONT-HOM/SPTHMREST01H:5000 {
+            address 10.34.202.132
+        }
+        /FRONT-HOM/SPTHMREST02H:5000 {
+            address 10.34.202.133
+        }
+    }
+    monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+}
+ltm pool /FRONT-HOM/pool-hom.pcerto.sptrans.src {
+    description "Pool homologação"
+    load-balancing-mode least-connections-member
+    members {
+        /FRONT-HOM/SPTHMREST01H:5000 {
+            address 10.34.202.132
+            monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+        }
+        /FRONT-HOM/SPTHMREST02H:5000 {
+            address 10.34.202.133
+            monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+        }
+    }
+    monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+    service-down-action reselect
+}
+ltm pool /FRONT-HOM/pool-hom.perto.sptrans.src {
+    description "Pool homologação"
+    load-balancing-mode least-connections-node
+    members {
+        /FRONT-HOM/SPTHMREST01H:5000 {
+            address 10.34.202.132
+            monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+        }
+        /FRONT-HOM/SPTHMREST02H:5000 {
+            address 10.34.202.133
+            monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+        }
+    }
+    monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+    service-down-action reselect
+}
+ltm pool /FRONT-HOM/pool-hom.planin.sptrans.src {
+    description "Pool homologação"
+    load-balancing-mode least-connections-member
+    members {
+        /FRONT-HOM/SPTHMREST01H:5000 {
+            address 10.34.202.132
+            monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+        }
+        /FRONT-HOM/SPTHMREST02H:5000 {
+            address 10.34.202.133
+            monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+        }
+    }
+    monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+    service-down-action reselect
+}
+ltm pool /FRONT-HOM/pool-hom.pldevice.sptrans.src {
+    description "Pool homologação"
+    load-balancing-mode least-connections-member
+    members {
+        /FRONT-HOM/SPTHMREST01H:5000 {
+            address 10.34.202.132
+            monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+        }
+        /FRONT-HOM/SPTHMREST02H:5000 {
+            address 10.34.202.133
+            monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+        }
+    }
+    monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+    service-down-action reselect
+}
+ltm pool /FRONT-HOM/pool-hom.prodata.sptrans.src {
+    description "Pool homologação"
+    load-balancing-mode least-connections-member
+    members {
+        /FRONT-HOM/SPTHMREST01H:5000 {
+            address 10.34.202.132
+            monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+        }
+        /FRONT-HOM/SPTHMREST02H:5000 {
+            address 10.34.202.133
+            monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+        }
+    }
+    monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+    service-down-action reselect
+}
+ltm pool /FRONT-HOM/pool-hom.protege.sptrans.src {
+    description "Pool homologação"
+    load-balancing-mode least-connections-member
+    members {
+        /FRONT-HOM/SPTHMREST01H:5000 {
+            address 10.34.202.132
+            monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+        }
+        /FRONT-HOM/SPTHMREST02H:5000 {
+            address 10.34.202.133
+            monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+        }
+    }
+    monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+    service-down-action reselect
+}
+ltm pool /FRONT-HOM/pool-hom.servlot.sptrans.src {
+    description "Pool homologação"
+    load-balancing-mode least-connections-member
+    members {
+        /FRONT-HOM/SPTHMREST01H:5000 {
+            address 10.34.202.132
+            monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+        }
+        /FRONT-HOM/SPTHMREST02H:5000 {
+            address 10.34.202.133
+            monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+        }
+    }
+    monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+    service-down-action reselect
+}
+ltm pool /FRONT-HOM/pool-hom.smartnet.sptrans.src {
+    description "Pool homologação"
+    load-balancing-mode least-connections-member
+    members {
+        /FRONT-HOM/SPTHMREST01H:5000 {
+            address 10.34.202.132
+            monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+        }
+        /FRONT-HOM/SPTHMREST02H:5000 {
+            address 10.34.202.133
+            monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+        }
+    }
+    monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+    service-down-action reselect
+}
+ltm pool /FRONT-HOM/pool-hom.tendencia.sptrans.src {
+    description "Pool para servidores de homologacao"
+    load-balancing-mode least-connections-node
+    members {
+        /FRONT-HOM/SPTHMREST01H:5000 {
+            address 10.34.202.132
+        }
+        /FRONT-HOM/SPTHMREST02H:5000 {
+            address 10.34.202.133
+            monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+        }
+    }
+    monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+    service-down-action reselect
+}
+ltm pool /FRONT-HOM/pool_hom.autopass.sptrans.src {
+    load-balancing-mode least-connections-member
+    members {
+        /FRONT-HOM/SPTHMREST01H:5000 {
+            address 10.34.202.132
+        }
+        /FRONT-HOM/SPTHMREST02H:5000 {
+            address 10.34.202.133
+        }
+    }
+    monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+}
+ltm pool /FRONT-HOM/pool_hom.bencerto.sptrans.src {
+    description "Parceiro Beneficio Certo"
+    load-balancing-mode least-connections-member
+    members {
+        /FRONT-HOM/SPTHMREST01H:5000 {
+            address 10.34.202.132
+        }
+        /FRONT-HOM/SPTHMREST02H:5000 {
+            address 10.34.202.133
+        }
+    }
+    monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+    service-down-action reselect
+}
+ltm pool /FRONT-HOM/pool_hom.claropay.sptrans.src {
+    description "Claropay Recarga Homologacao"
+    load-balancing-mode least-connections-member
+    members {
+        /FRONT-HOM/SPTHMREST01H:5000 {
+            address 10.34.202.132
+        }
+        /FRONT-HOM/SPTHMREST02H:5000 {
+            address 10.34.202.133
+        }
+    }
+    monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+    service-down-action reselect
+}
+ltm pool /FRONT-HOM/pool_hom.epago.sptrans.src {
+    members {
+        /FRONT-HOM/SPTHMREST01H:5000 {
+            address 10.34.202.132
+        }
+        /FRONT-HOM/SPTHMREST02H:5000 {
+            address 10.34.202.133
+        }
+    }
+    monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+    service-down-action reselect
+}
+ltm pool /FRONT-HOM/pool_hom.mandacaru.sptrans.src {
+    load-balancing-mode least-connections-member
+    members {
+        /FRONT-HOM/SPTHMREST01H:5000 {
+            address 10.34.202.132
+        }
+        /FRONT-HOM/SPTHMREST02H:5000 {
+            address 10.34.202.133
+        }
+    }
+    monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+    service-down-action reselect
+}
+ltm pool /FRONT-HOM/pool_hom.qiwibrasil.sptrans.src {
+    load-balancing-mode least-connections-member
+    members {
+        /FRONT-HOM/SPTHMREST01H:5000 {
+            address 10.34.202.132
+        }
+        /FRONT-HOM/SPTHMREST02H:5000 {
+            address 10.34.202.133
+        }
+    }
+    monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+    service-down-action reselect
+}
+ltm pool /FRONT-HOM/pool_hom.sodexo.sptrans.src {
+    members {
+        /FRONT-HOM/SPTHMREST01H:5000 {
+            address 10.34.202.132
+        }
+        /FRONT-HOM/SPTHMREST02H:5000 {
+            address 10.34.202.133
+        }
+    }
+    monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+    service-down-action reselect
+}
+ltm pool /FRONT-HOM/pool_hom.tacom.sptrans.src {
+    load-balancing-mode least-connections-member
+    members {
+        /FRONT-HOM/SPTHMREST01H:5000 {
+            address 10.34.202.132
+        }
+        /FRONT-HOM/SPTHMREST02H:5000 {
+            address 10.34.202.133
+        }
+    }
+    monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+    service-down-action reselect
+}
+ltm pool /FRONT-HOM/pool_hom.zuum.sptrans.src {
+    members {
+        /FRONT-HOM/SPTHMREST01H:5000 {
+            address 10.34.202.132
+        }
+        /FRONT-HOM/SPTHMREST02H:5000 {
+            address 10.34.202.133
+        }
+    }
+    monitor /FRONT-HOM/tcp_half_hm-sptrans.src
+    service-down-action reselect
+}
+ltm pool /FRONT-PRD/pool01-hm.sptrans.src {
+    description "Pool 01 USAR PARA TESTES"
+    load-balancing-mode least-connections-node
+    members {
+        /FRONT-PRD/SPTHMREC01:5000 {
+            address 10.34.202.41
+            session user-disabled
+            state user-down
+        }
+        /FRONT-PRD/SPTHMREC02:5000 {
+            address 10.34.202.42
+        }
+        /FRONT-PRD/SPTHMREC03:5000 {
+            address 10.34.202.44
+        }
+    }
+    monitor /FRONT-PRD/tcp_half_hm-sptrans.src
+    service-down-action reselect
+}
+ltm pool /FRONT-PRD/pool02-hm.sptrans.src {
+    description "Pool 02 USAR PARA TESTES"
+    load-balancing-mode least-connections-node
+    members {
+        /FRONT-PRD/SPTHMREC04:5000 {
+            address 10.34.202.45
+        }
+        /FRONT-PRD/SPTHMREC05:5000 {
+            address 10.34.202.46
+        }
+    }
+    monitor /FRONT-PRD/tcp_half_hm-sptrans.src
+    service-down-action reselect
+}
+ltm pool /FRONT-PRD/pool-autopass.sptrans.src {
+    load-balancing-mode least-connections-node
+    members {
+        /FRONT-PRD/SPTHMREC01:5000 {
+            address 10.34.202.41
+        }
+        /FRONT-PRD/SPTHMREC02:5000 {
+            address 10.34.202.42
+        }
+        /FRONT-PRD/SPTHMREC03:5000 {
+            address 10.34.202.44
+        }
+        /FRONT-PRD/SPTHMREC04:5000 {
+            address 10.34.202.45
+        }
+        /FRONT-PRD/SPTHMREC05:5000 {
+            address 10.34.202.46
+        }
+        /FRONT-PRD/SPTHMREC06:5000 {
+            address 10.34.202.48
+        }
+        /FRONT-PRD/SPTHMREC07:5000 {
+            address 10.34.202.49
+        }
+        /FRONT-PRD/SPTHMREC08:5000 {
+            address 10.34.202.50
+        }
+        /FRONT-PRD/SPTHMREC09:5000 {
+            address 10.34.202.57
+        }
+        /FRONT-PRD/SPTHMREC10:5000 {
+            address 10.34.202.58
+        }
+    }
+    monitor /FRONT-PRD/tcp_half_hm-sptrans.src
+}
+ltm pool /FRONT-PRD/pool-bencerto.sptrans.src {
+    load-balancing-mode least-connections-node
+    members {
+        /FRONT-PRD/SPTHMREC01:5000 {
+            address 10.34.202.41
+            monitor /FRONT-PRD/tcp_half_hm-sptrans.src
+        }
+        /FRONT-PRD/SPTHMREC02:5000 {
+            address 10.34.202.42
+            monitor /FRONT-PRD/tcp_half_hm-sptrans.src
+        }
+        /FRONT-PRD/SPTHMREC03:5000 {
+            address 10.34.202.44
+            monitor /FRONT-PRD/tcp_half_hm-sptrans.src
+        }
+        /FRONT-PRD/SPTHMREC04:5000 {
+            address 10.34.202.45
+            monitor /FRONT-PRD/tcp_half_hm-sptrans.src
+        }
+        /FRONT-PRD/SPTHMREC05:5000 {
+            address 10.34.202.46
+            monitor /FRONT-PRD/tcp_half_hm-sptrans.src
+        }
+        /FRONT-PRD/SPTHMREC06:5000 {
+            address 10.34.202.48
+            monitor /FRONT-PRD/tcp_half_hm-sptrans.src
+        }
+        /FRONT-PRD/SPTHMREC07:5000 {
+            address 10.34.202.49
+            monitor /FRONT-PRD/tcp_half_hm-sptrans.src
+        }
+        /FRONT-PRD/SPTHMREC08:5000 {
+            address 10.34.202.50
+            monitor /FRONT-PRD/tcp_half_hm-sptrans.src
+        }
+        /FRONT-PRD/SPTHMREC09:5000 {
+            address 10.34.202.57
+            monitor /FRONT-PRD/tcp_half_hm-sptrans.src
+        }
+        /FRONT-PRD/SPTHMREC10:5000 {
+            address 10.34.202.58
+            monitor /FRONT-PRD/tcp_half_hm-sptrans.src
+        }
+    }
+    service-down-action reselect
+}
+ltm pool /FRONT-PRD/pool-cef.sptrans.src {
+    description pool-cef.sptrans.src
+    load-balancing-mode least-connections-node
+    members {
+        /FRONT-PRD/SPTHMREC01:5000 {
+            address 10.34.202.41
+        }
+        /FRONT-PRD/SPTHMREC02:5000 {
+            address 10.34.202.42
+        }
+        /FRONT-PRD/SPTHMREC03:5000 {
+            address 10.34.202.44
+        }
+        /FRONT-PRD/SPTHMREC04:5000 {
+            address 10.34.202.45
+        }
+        /FRONT-PRD/SPTHMREC05:5000 {
+            address 10.34.202.46
+        }
+        /FRONT-PRD/SPTHMREC06:5000 {
+            address 10.34.202.48
+        }
+        /FRONT-PRD/SPTHMREC07:5000 {
+            address 10.34.202.49
+        }
+        /FRONT-PRD/SPTHMREC08:5000 {
+            address 10.34.202.50
+        }
+        /FRONT-PRD/SPTHMREC09:5000 {
+            address 10.34.202.57
+        }
+        /FRONT-PRD/SPTHMREC10:5000 {
+            address 10.34.202.58
+        }
+    }
+    monitor /FRONT-PRD/tcp_half_hm-sptrans.src
+    service-down-action reselect
+}
+ltm pool /FRONT-PRD/pool-devels.sptrans.src {
+    description pool-devels.sptrans.src
+    load-balancing-mode least-connections-node
+    members {
+        /FRONT-PRD/SPTHMREC01:5000 {
+            address 10.34.202.41
+        }
+        /FRONT-PRD/SPTHMREC02:5000 {
+            address 10.34.202.42
+        }
+        /FRONT-PRD/SPTHMREC03:5000 {
+            address 10.34.202.44
+        }
+        /FRONT-PRD/SPTHMREC04:5000 {
+            address 10.34.202.45
+        }
+        /FRONT-PRD/SPTHMREC05:5000 {
+            address 10.34.202.46
+        }
+        /FRONT-PRD/SPTHMREC06:5000 {
+            address 10.34.202.48
+        }
+        /FRONT-PRD/SPTHMREC07:5000 {
+            address 10.34.202.49
+        }
+        /FRONT-PRD/SPTHMREC08:5000 {
+            address 10.34.202.50
+        }
+        /FRONT-PRD/SPTHMREC09:5000 {
+            address 10.34.202.57
+        }
+        /FRONT-PRD/SPTHMREC10:5000 {
+            address 10.34.202.58
+        }
+    }
+    monitor /FRONT-PRD/tcp_half_hm-sptrans.src
+    service-down-action reselect
+}
+ltm pool /FRONT-PRD/pool-grupocard.sptrans.src {
+    description "Pool Grupocard Sistema Recarga"
+    members {
+        /FRONT-PRD/SPTHMREC01:5000 {
+            address 10.34.202.41
+        }
+        /FRONT-PRD/SPTHMREC02:5000 {
+            address 10.34.202.42
+        }
+        /FRONT-PRD/SPTHMREC03:5000 {
+            address 10.34.202.44
+        }
+        /FRONT-PRD/SPTHMREC04:5000 {
+            address 10.34.202.45
+        }
+        /FRONT-PRD/SPTHMREC05:5000 {
+            address 10.34.202.46
+        }
+        /FRONT-PRD/SPTHMREC06:5000 {
+            address 10.34.202.48
+        }
+        /FRONT-PRD/SPTHMREC07:5000 {
+            address 10.34.202.49
+        }
+        /FRONT-PRD/SPTHMREC08:5000 {
+            address 10.34.202.50
+        }
+        /FRONT-PRD/SPTHMREC09:5000 {
+            address 10.34.202.57
+        }
+        /FRONT-PRD/SPTHMREC10:5000 {
+            address 10.34.202.58
+        }
+    }
+    monitor /FRONT-PRD/tcp_half_hm-sptrans.src
+    service-down-action reselect
+}
+ltm pool /FRONT-PRD/pool-newprodata.sptrans.src {
+    description "HM - New Prodata"
+    load-balancing-mode least-connections-node
+    members {
+        /FRONT-PRD/SPTHMREC01:5000 {
+            address 10.34.202.41
+        }
+        /FRONT-PRD/SPTHMREC02:5000 {
+            address 10.34.202.42
+        }
+        /FRONT-PRD/SPTHMREC03:5000 {
+            address 10.34.202.44
+        }
+        /FRONT-PRD/SPTHMREC04:5000 {
+            address 10.34.202.45
+        }
+        /FRONT-PRD/SPTHMREC05:5000 {
+            address 10.34.202.46
+        }
+        /FRONT-PRD/SPTHMREC06:5000 {
+            address 10.34.202.48
+        }
+        /FRONT-PRD/SPTHMREC07:5000 {
+            address 10.34.202.49
+        }
+        /FRONT-PRD/SPTHMREC08:5000 {
+            address 10.34.202.50
+        }
+        /FRONT-PRD/SPTHMREC09:5000 {
+            address 10.34.202.57
+        }
+        /FRONT-PRD/SPTHMREC10:5000 {
+            address 10.34.202.58
+        }
+    }
+    monitor /FRONT-PRD/tcp_half_hm-sptrans.src
+}
+ltm pool /FRONT-PRD/pool-pcerto.sptrans.src {
+    description pool-pcerto.sptrans.src
+    load-balancing-mode least-connections-member
+    members {
+        /FRONT-PRD/SPTHMREC01:5000 {
+            address 10.34.202.41
+        }
+        /FRONT-PRD/SPTHMREC02:5000 {
+            address 10.34.202.42
+        }
+        /FRONT-PRD/SPTHMREC03:5000 {
+            address 10.34.202.44
+        }
+        /FRONT-PRD/SPTHMREC04:5000 {
+            address 10.34.202.45
+        }
+        /FRONT-PRD/SPTHMREC05:5000 {
+            address 10.34.202.46
+        }
+        /FRONT-PRD/SPTHMREC06:5000 {
+            address 10.34.202.48
+        }
+        /FRONT-PRD/SPTHMREC07:5000 {
+            address 10.34.202.49
+        }
+        /FRONT-PRD/SPTHMREC08:5000 {
+            address 10.34.202.50
+        }
+        /FRONT-PRD/SPTHMREC09:5000 {
+            address 10.34.202.57
+        }
+        /FRONT-PRD/SPTHMREC10:5000 {
+            address 10.34.202.58
+        }
+    }
+    monitor /FRONT-PRD/tcp_half_hm-sptrans.src
+    service-down-action reselect
+}
+ltm pool /FRONT-PRD/pool-perto.sptrans.src {
+    description pool-perto.sptrans.src
+    members {
+        /FRONT-PRD/SPTHMREC01:5000 {
+            address 10.34.202.41
+        }
+        /FRONT-PRD/SPTHMREC02:5000 {
+            address 10.34.202.42
+        }
+        /FRONT-PRD/SPTHMREC03:5000 {
+            address 10.34.202.44
+        }
+        /FRONT-PRD/SPTHMREC04:5000 {
+            address 10.34.202.45
+        }
+        /FRONT-PRD/SPTHMREC05:5000 {
+            address 10.34.202.46
+        }
+        /FRONT-PRD/SPTHMREC06:5000 {
+            address 10.34.202.48
+        }
+        /FRONT-PRD/SPTHMREC07:5000 {
+            address 10.34.202.49
+        }
+        /FRONT-PRD/SPTHMREC08:5000 {
+            address 10.34.202.50
+        }
+        /FRONT-PRD/SPTHMREC09:5000 {
+            address 10.34.202.57
+        }
+        /FRONT-PRD/SPTHMREC10:5000 {
+            address 10.34.202.58
+        }
+    }
+    monitor /FRONT-PRD/tcp_half_hm-sptrans.src
+    service-down-action reselect
+}
+ltm pool /FRONT-PRD/pool-planin.sptrans.src {
+    description pool-planin.sptrans.src
+    load-balancing-mode least-connections-node
+    members {
+        /FRONT-PRD/SPTHMREC01:5000 {
+            address 10.34.202.41
+        }
+        /FRONT-PRD/SPTHMREC02:5000 {
+            address 10.34.202.42
+        }
+        /FRONT-PRD/SPTHMREC03:5000 {
+            address 10.34.202.44
+        }
+        /FRONT-PRD/SPTHMREC04:5000 {
+            address 10.34.202.45
+            monitor /FRONT-PRD/tcp_half_hm-sptrans.src
+        }
+        /FRONT-PRD/SPTHMREC05:5000 {
+            address 10.34.202.46
+            monitor /FRONT-PRD/tcp_half_hm-sptrans.src
+        }
+        /FRONT-PRD/SPTHMREC06:5000 {
+            address 10.34.202.48
+        }
+        /FRONT-PRD/SPTHMREC07:5000 {
+            address 10.34.202.49
+        }
+        /FRONT-PRD/SPTHMREC08:5000 {
+            address 10.34.202.50
+        }
+        /FRONT-PRD/SPTHMREC09:5000 {
+            address 10.34.202.57
+        }
+        /FRONT-PRD/SPTHMREC10:5000 {
+            address 10.34.202.58
+        }
+    }
+    monitor /FRONT-PRD/tcp_half_hm-sptrans.src
+    service-down-action reselect
+}
+ltm pool /FRONT-PRD/pool-pldevice.sptrans.src {
+    description pool-pldevice.sptrans.src
+    load-balancing-mode least-connections-node
+    members {
+        /FRONT-PRD/SPTHMREC01:5000 {
+            address 10.34.202.41
+        }
+        /FRONT-PRD/SPTHMREC02:5000 {
+            address 10.34.202.42
+        }
+        /FRONT-PRD/SPTHMREC03:5000 {
+            address 10.34.202.44
+        }
+        /FRONT-PRD/SPTHMREC04:5000 {
+            address 10.34.202.45
+        }
+        /FRONT-PRD/SPTHMREC05:5000 {
+            address 10.34.202.46
+        }
+        /FRONT-PRD/SPTHMREC06:5000 {
+            address 10.34.202.48
+        }
+        /FRONT-PRD/SPTHMREC07:5000 {
+            address 10.34.202.49
+            monitor /FRONT-PRD/tcp_half_hm-sptrans.src
+        }
+        /FRONT-PRD/SPTHMREC08:5000 {
+            address 10.34.202.50
+        }
+        /FRONT-PRD/SPTHMREC09:5000 {
+            address 10.34.202.57
+        }
+        /FRONT-PRD/SPTHMREC10:5000 {
+            address 10.34.202.58
+        }
+    }
+    monitor /FRONT-PRD/tcp_half_hm-sptrans.src
+    service-down-action reselect
+}
+ltm pool /FRONT-PRD/pool-prodata.sptrans.src {
+    description pool-prodata.sptrans.src
+    members {
+        /FRONT-PRD/SPTHMREC01:5000 {
+            address 10.34.202.41
+        }
+        /FRONT-PRD/SPTHMREC02:5000 {
+            address 10.34.202.42
+        }
+        /FRONT-PRD/SPTHMREC03:5000 {
+            address 10.34.202.44
+        }
+        /FRONT-PRD/SPTHMREC04:5000 {
+            address 10.34.202.45
+        }
+        /FRONT-PRD/SPTHMREC05:5000 {
+            address 10.34.202.46
+        }
+        /FRONT-PRD/SPTHMREC06:5000 {
+            address 10.34.202.48
+        }
+        /FRONT-PRD/SPTHMREC07:5000 {
+            address 10.34.202.49
+        }
+        /FRONT-PRD/SPTHMREC08:5000 {
+            address 10.34.202.50
+        }
+        /FRONT-PRD/SPTHMREC09:5000 {
+            address 10.34.202.57
+        }
+        /FRONT-PRD/SPTHMREC10:5000 {
+            address 10.34.202.58
+        }
+    }
+    monitor /FRONT-PRD/tcp_half_hm-sptrans.src
+    service-down-action reselect
+}
+ltm pool /FRONT-PRD/pool-protege.sptrans.src {
+    description pool-protege.sptrans.src
+    members {
+        /FRONT-PRD/SPTHMREC01:5000 {
+            address 10.34.202.41
+            monitor /FRONT-PRD/tcp_half_hm-Protege-sptrans.src
+        }
+        /FRONT-PRD/SPTHMREC02:5000 {
+            address 10.34.202.42
+        }
+        /FRONT-PRD/SPTHMREC03:5000 {
+            address 10.34.202.44
+            monitor /FRONT-PRD/tcp_half_hm-Protege-sptrans.src
+        }
+        /FRONT-PRD/SPTHMREC04:5000 {
+            address 10.34.202.45
+            monitor /FRONT-PRD/tcp_half_hm-sptrans.src
+        }
+        /FRONT-PRD/SPTHMREC05:5000 {
+            address 10.34.202.46
+            monitor /FRONT-PRD/tcp_half_hm-sptrans.src
+        }
+        /FRONT-PRD/SPTHMREC06:5000 {
+            address 10.34.202.48
+            monitor /FRONT-PRD/tcp_half_hm-sptrans.src
+        }
+        /FRONT-PRD/SPTHMREC07:5000 {
+            address 10.34.202.49
+            monitor /FRONT-PRD/tcp_half_hm-sptrans.src
+        }
+        /FRONT-PRD/SPTHMREC08:5000 {
+            address 10.34.202.50
+            monitor /FRONT-PRD/tcp_half_hm-sptrans.src
+        }
+        /FRONT-PRD/SPTHMREC09:5000 {
+            address 10.34.202.57
+            monitor /FRONT-PRD/tcp_half_hm-Protege-sptrans.src
+        }
+        /FRONT-PRD/SPTHMREC10:5000 {
+            address 10.34.202.58
+            monitor /FRONT-PRD/tcp_half_hm-Protege-sptrans.src
+        }
+    }
+    monitor /FRONT-PRD/tcp_half_hm-Protege-sptrans.src
+    service-down-action reselect
+}
+ltm pool /FRONT-PRD/pool-qiwi.sptrans.src {
+    members {
+        /FRONT-PRD/SPTHMREC01:5000 {
+            address 10.34.202.41
+        }
+        /FRONT-PRD/SPTHMREC02:5000 {
+            address 10.34.202.42
+        }
+        /FRONT-PRD/SPTHMREC03:5000 {
+            address 10.34.202.44
+        }
+        /FRONT-PRD/SPTHMREC04:5000 {
+            address 10.34.202.45
+        }
+        /FRONT-PRD/SPTHMREC05:5000 {
+            address 10.34.202.46
+        }
+        /FRONT-PRD/SPTHMREC06:5000 {
+            address 10.34.202.48
+        }
+        /FRONT-PRD/SPTHMREC07:5000 {
+            address 10.34.202.49
+        }
+        /FRONT-PRD/SPTHMREC08:5000 {
+            address 10.34.202.50
+        }
+        /FRONT-PRD/SPTHMREC09:5000 {
+            address 10.34.202.57
+        }
+        /FRONT-PRD/SPTHMREC10:5000 {
+            address 10.34.202.58
+        }
+    }
+    monitor /FRONT-PRD/tcp_hal_open_5000
+    service-down-action reselect
+}
+ltm pool /FRONT-PRD/pool-servlot.sptrans.src {
+    description pool-servlot.sptrans.src
+    load-balancing-mode least-connections-node
+    members {
+        /FRONT-PRD/SPTHMREC01:5000 {
+            address 10.34.202.41
+            monitor /FRONT-PRD/tcp_half_hm-sptrans.src
+        }
+        /FRONT-PRD/SPTHMREC02:5000 {
+            address 10.34.202.42
+        }
+        /FRONT-PRD/SPTHMREC03:5000 {
+            address 10.34.202.44
+            monitor /FRONT-PRD/tcp_half_hm-sptrans.src
+        }
+        /FRONT-PRD/SPTHMREC04:5000 {
+            address 10.34.202.45
+        }
+        /FRONT-PRD/SPTHMREC05:5000 {
+            address 10.34.202.46
+        }
+        /FRONT-PRD/SPTHMREC06:5000 {
+            address 10.34.202.48
+        }
+        /FRONT-PRD/SPTHMREC07:5000 {
+            address 10.34.202.49
+        }
+        /FRONT-PRD/SPTHMREC08:5000 {
+            address 10.34.202.50
+        }
+        /FRONT-PRD/SPTHMREC09:5000 {
+            address 10.34.202.57
+        }
+        /FRONT-PRD/SPTHMREC10:5000 {
+            address 10.34.202.58
+        }
+    }
+    monitor /FRONT-PRD/tcp_half_hm-sptrans.src
+    service-down-action reselect
+}
+ltm pool /FRONT-PRD/pool-smartnet.sptrans.src {
+    description pool-smartnet.sptrans.src
+    load-balancing-mode least-connections-node
+    members {
+        /FRONT-PRD/SPTHMREC01:5000 {
+            address 10.34.202.41
+        }
+        /FRONT-PRD/SPTHMREC02:5000 {
+            address 10.34.202.42
+        }
+        /FRONT-PRD/SPTHMREC03:5000 {
+            address 10.34.202.44
+        }
+        /FRONT-PRD/SPTHMREC04:5000 {
+            address 10.34.202.45
+        }
+        /FRONT-PRD/SPTHMREC05:5000 {
+            address 10.34.202.46
+        }
+        /FRONT-PRD/SPTHMREC06:5000 {
+            address 10.34.202.48
+        }
+        /FRONT-PRD/SPTHMREC07:5000 {
+            address 10.34.202.49
+        }
+        /FRONT-PRD/SPTHMREC08:5000 {
+            address 10.34.202.50
+        }
+        /FRONT-PRD/SPTHMREC09:5000 {
+            address 10.34.202.57
+        }
+        /FRONT-PRD/SPTHMREC10:5000 {
+            address 10.34.202.58
+        }
+    }
+    monitor /FRONT-PRD/tcp_half_hm-sptrans.src
+    service-down-action reselect
+}
+ltm pool /FRONT-QAS/GATEWAY-FAILSAFE-FE-QAS {
+    members {
+        /FRONT-QAS/10.34.193.161:0 {
+            address 10.34.193.161
+        }
+    }
+    monitor /Common/gateway_icmp
+}

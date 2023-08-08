@@ -1,0 +1,533 @@
+ltm node /DMZ-HOM/10.34.196.63 {
+    address 10.34.196.63
+}
+ltm node /DMZ-HOM/10.34.198.48 {
+    address 10.34.198.48
+}
+ltm node /DMZ-HOM/SPTCADESCOLA01H {
+    address 10.34.196.16
+}
+ltm node /DMZ-HOM/SPTCADESCOLA02H {
+    address 10.34.196.17
+}
+ltm node /DMZ-HOM/SPTDWAPP01H {
+    address 10.34.196.31
+}
+ltm node /DMZ-HOM/SPTDWAPP02H {
+    address 10.34.196.32
+}
+ltm node /DMZ-HOM/SPTDWAPP03H {
+    address 10.34.196.33
+}
+ltm node /DMZ-HOM/SPTFTPAPP01H {
+    address 10.34.196.24
+}
+ltm node /DMZ-HOM/SPTLVWEB01H {
+    address 10.34.196.27
+}
+ltm node /DMZ-HOM/SPTLVWEB02H {
+    address 10.34.196.28
+}
+ltm node /DMZ-HOM/SPTLVWS01H {
+    address 10.34.196.25
+}
+ltm node /DMZ-HOM/SPTLVWS02H {
+    address 10.34.196.26
+}
+ltm node /DMZ-HOM/SPTOSBWEB01H {
+    address 10.34.196.77
+}
+ltm node /DMZ-HOM/SPTOSBWEB02H {
+    address 10.34.196.78
+}
+ltm node /DMZ-HOM/SPTRELAY01H {
+    address 10.34.196.19
+}
+ltm node /DMZ-HOM/SPTSCAPRIV01H {
+    address 10.34.196.12
+}
+ltm node /DMZ-HOM/SPTSCAPRIV02H {
+    address 10.34.196.13
+}
+ltm node /DMZ-HOM/SPTSCAPUB01H {
+    address 10.34.198.14
+}
+ltm node /DMZ-HOM/SPTSCAPUB02H {
+    address 10.34.198.15
+}
+ltm node /DMZ-HOM/SPTSCDAPP01H {
+    address 10.34.196.22
+}
+ltm node /DMZ-HOM/SPTSCDAPP02H {
+    address 10.34.196.23
+}
+ltm node /DMZ-HOM/SPTSCPWEB01H {
+    address 10.34.196.6
+}
+ltm node /DMZ-HOM/SPTSCPWEB02H {
+    address 10.34.196.29
+}
+ltm node /DMZ-HOM/SPTSCPWEB03H {
+    address 10.34.196.7
+}
+ltm node /DMZ-HOM/SPTSCPWEB04H {
+    address 10.34.196.30
+}
+ltm node /DMZ-HOM/SPTWSAPP03 {
+    address 10.34.194.77
+}
+ltm node /DMZ-HOM/SPTWSAPP03H {
+    address 10.34.196.36
+}
+ltm node /DMZ-HOM/SPTWSAPP04 {
+    address 10.34.194.78
+}
+ltm node /DMZ-HOM/SPTWSAPP04H {
+    address 10.34.196.39
+}
+ltm node /DMZ-HOM/sptsoaweb03d {
+    address 10.34.196.65
+}
+ltm node /DMZ-HOM/sptsoaweb04d {
+    address 10.34.196.66
+}
+ltm node /DMZ-PRD/10.34.194.98 {
+    address 10.34.194.98
+}
+ltm node /DMZ-PRD/SPTADMWEB01 {
+    address 10.34.194.83
+}
+ltm node /DMZ-PRD/SPTADMWEB02 {
+    address 10.34.194.86
+}
+ltm node /DMZ-PRD/SPTAF01 {
+    address 10.34.194.101
+    description "NODE  Antifraude - TSM"
+}
+ltm node /DMZ-PRD/SPTAPPSM1 {
+    address 10.34.194.124
+}
+ltm node /DMZ-PRD/SPTAPPSM1-DR {
+    address 10.34.210.71
+}
+ltm node /DMZ-PRD/SPTAPPSM2 {
+    address 10.34.194.125
+}
+ltm node /DMZ-PRD/SPTAPPSMP1 {
+    address 10.34.194.126
+}
+ltm node /DMZ-PRD/SPTAPPSMP1-DR {
+    address 10.34.210.72
+}
+ltm node /DMZ-PRD/SPTAPPSMP2 {
+    address 10.34.194.127
+}
+ltm node /DMZ-PRD/SPTCADESCOLA01 {
+    address 10.34.194.43
+}
+ltm node /DMZ-PRD/SPTCADESCOLA02 {
+    address 10.34.194.44
+}
+ltm node /DMZ-PRD/SPTDWAPP02 {
+    address 10.34.194.23
+}
+ltm node /DMZ-PRD/SPTDWAPP03 {
+    address 10.34.194.15
+}
+ltm node /DMZ-PRD/SPTEDI01 {
+    address 10.34.194.55
+}
+ltm node /DMZ-PRD/SPTEDI02 {
+    address 10.34.194.56
+}
+ltm node /DMZ-PRD/SPTEDI03 {
+    address 10.34.194.57
+}
+ltm node /DMZ-PRD/SPTEDI04 {
+    address 10.34.194.58
+}
+ltm node /DMZ-PRD/SPTEDI05 {
+    address 10.34.194.59
+}
+ltm node /DMZ-PRD/SPTEDI06 {
+    address 10.34.194.60
+}
+ltm node /DMZ-PRD/SPTEDI07 {
+    address 10.34.194.61
+}
+ltm node /DMZ-PRD/SPTEDI08 {
+    address 10.34.194.62
+}
+ltm node /DMZ-PRD/SPTEDI09 {
+    address 10.34.194.63
+}
+ltm node /DMZ-PRD/SPTEDI10 {
+    address 10.34.194.64
+}
+ltm node /DMZ-PRD/SPTEDI11 {
+    address 10.34.194.65
+}
+ltm node /DMZ-PRD/SPTFSFTP01 {
+    address 10.34.194.28
+}
+ltm node /DMZ-PRD/SPTFSFTP02 {
+    address 10.34.194.29
+}
+ltm node /DMZ-PRD/SPTFTPAPP01 {
+    address 10.34.194.12
+}
+ltm node /DMZ-PRD/SPTFTPAPP02 {
+    address 10.34.194.41
+}
+ltm node /DMZ-PRD/SPTLPAPP01 {
+    address 10.34.205.103
+}
+ltm node /DMZ-PRD/SPTLPAPP02 {
+    address 10.34.205.104
+}
+ltm node /DMZ-PRD/SPTLPAPP03 {
+    address 10.34.205.105
+}
+ltm node /DMZ-PRD/SPTLPAPP04 {
+    address 10.34.205.106
+}
+ltm node /DMZ-PRD/SPTLVWEB01 {
+    address 10.34.194.13
+}
+ltm node /DMZ-PRD/SPTLVWEB02 {
+    address 10.34.194.30
+}
+ltm node /DMZ-PRD/SPTLVWEB03 {
+    address 10.34.194.37
+}
+ltm node /DMZ-PRD/SPTLVWEB11-CNP {
+    address 10.34.210.13
+    description "Máquinas Cenesp Loja Virtual"
+}
+ltm node /DMZ-PRD/SPTLVWEB12-CNP {
+    address 10.34.210.30
+    description "Máquinas Cenesp Loja Virtual"
+}
+ltm node /DMZ-PRD/SPTLVWEB13-CNP {
+    address 10.34.210.37
+    description "Máquinas Cenesp Loja Virtual"
+}
+ltm node /DMZ-PRD/SPTMNTODI01 {
+    address 10.34.194.73
+    description "Maquina ODI Transamérica"
+}
+ltm node /DMZ-PRD/SPTMNTODI02 {
+    address 10.34.194.75
+    description "Maquina ODI Transamérica"
+}
+ltm node /DMZ-PRD/SPTOSBWEB01 {
+    address 10.34.194.90
+}
+ltm node /DMZ-PRD/SPTOSBWEB02 {
+    address 10.34.194.91
+}
+ltm node /DMZ-PRD/SPTOSBWEB03 {
+    address 10.34.194.92
+}
+ltm node /DMZ-PRD/SPTOSBWEB04 {
+    address 10.34.194.93
+}
+ltm node /DMZ-PRD/SPTRELAY01 {
+    address 10.34.194.47
+    description "Máquina de Relay de SMTP"
+}
+ltm node /DMZ-PRD/SPTSCAAPP01 {
+    address 10.34.194.16
+}
+ltm node /DMZ-PRD/SPTSCAAPP04 {
+    address 10.34.194.26
+}
+ltm node /DMZ-PRD/SPTSCAPRIV01 {
+    address 10.34.194.39
+}
+ltm node /DMZ-PRD/SPTSCAPRIV02 {
+    address 10.34.194.40
+    monitor /Common/icmp
+}
+ltm node /DMZ-PRD/SPTSCAPRIV03 {
+    address 10.34.194.121
+}
+ltm node /DMZ-PRD/SPTSCAPRIV04 {
+    address 10.34.194.122
+}
+ltm node /DMZ-PRD/SPTSCAPRIV11 {
+    address 10.34.210.39
+    description "Scapriv - Máquina Cenesp"
+}
+ltm node /DMZ-PRD/SPTSCAPRIV12 {
+    address 10.34.210.40
+    description "Scapriv - Máquina Cenesp"
+}
+ltm node /DMZ-PRD/SPTSCAPRIV13 {
+    address 10.34.210.69
+}
+ltm node /DMZ-PRD/SPTSCAPRIV14 {
+    address 10.34.210.70
+}
+ltm node /DMZ-PRD/SPTSCAPUB01 {
+    address 10.34.194.31
+}
+ltm node /DMZ-PRD/SPTSCAPUB02 {
+    address 10.34.194.32
+}
+ltm node /DMZ-PRD/SPTSCAPUB03 {
+    address 10.34.194.33
+}
+ltm node /DMZ-PRD/SPTSCAPUB04 {
+    address 10.34.194.34
+}
+ltm node /DMZ-PRD/SPTSCAPUB11 {
+    address 10.34.210.31
+}
+ltm node /DMZ-PRD/SPTSCAPUB12 {
+    address 10.34.210.32
+}
+ltm node /DMZ-PRD/SPTSCAPUB13 {
+    address 10.34.210.33
+}
+ltm node /DMZ-PRD/SPTSCAPUB14 {
+    address 10.34.210.34
+}
+ltm node /DMZ-PRD/SPTSCDAPP01 {
+    address 10.34.194.19
+    description "Node para aplicacao do SCD"
+}
+ltm node /DMZ-PRD/SPTSCDAPP02 {
+    address 10.34.194.38
+    description "Node para aplicacao do SCD"
+}
+ltm node /DMZ-PRD/SPTSCDAPP03 {
+    address 10.34.194.42
+}
+ltm node /DMZ-PRD/SPTSCDAPP11-CNP {
+    address 10.34.210.19
+    description "Máquina SCD do Cenesp"
+}
+ltm node /DMZ-PRD/SPTSCDAPP12-CNP {
+    address 10.34.210.38
+    description "Máquina SCD do Cenesp"
+}
+ltm node /DMZ-PRD/SPTSCDAPP13-CNP {
+    address 10.34.210.42
+    description "Máquina SCD do Cenesp"
+}
+ltm node /DMZ-PRD/SPTSCPWEB01 {
+    address 10.34.194.45
+    description "Node SCP Linux"
+}
+ltm node /DMZ-PRD/SPTSCPWEB02 {
+    address 10.34.194.46
+    description "Node SCP Linux"
+}
+ltm node /DMZ-PRD/SPTSCPWEB03 {
+    address 10.34.194.17
+    description "Node SCP Windows"
+}
+ltm node /DMZ-PRD/SPTSCPWEB04 {
+    address 10.34.194.48
+    description "Node SCP Windows"
+}
+ltm node /DMZ-PRD/SPTWSAPP01 {
+    address 10.34.194.35
+}
+ltm node /DMZ-PRD/SPTWSAPP02 {
+    address 10.34.194.36
+}
+ltm node /DMZ-PRD/SPTWSAPP03 {
+    address 10.34.194.77
+}
+ltm node /DMZ-PRD/SPTWSAPP04 {
+    address 10.34.194.78
+}
+ltm node /DMZ-PRD/SPTWSAPP13 {
+    address 10.34.210.54
+}
+ltm node /DMZ-PRD/SPTWSAPP14 {
+    address 10.34.210.55
+}
+ltm node /DMZ-QAS/SPTCADESCOLA01Q {
+    address 10.34.197.26
+}
+ltm node /DMZ-QAS/SPTCADESCOLA02Q {
+    address 10.34.197.30
+}
+ltm node /DMZ-QAS/SPTDWAPP01Q {
+    address 10.34.197.13
+}
+ltm node /DMZ-QAS/SPTDWAPP02Q {
+    address 10.34.197.14
+}
+ltm node /DMZ-QAS/SPTDWAPP03Q {
+    address 10.34.197.15
+}
+ltm node /DMZ-QAS/SPTFTPAPP01Q {
+    address 10.34.197.17
+}
+ltm node /DMZ-QAS/SPTINTRA01Q {
+    address 10.34.197.56
+}
+ltm node /DMZ-QAS/SPTINTRA02Q {
+    address 10.34.197.57
+}
+ltm node /DMZ-QAS/SPTMNTODI01Q {
+    address 10.34.197.9
+}
+ltm node /DMZ-QAS/SPTMNTODI02Q {
+    address 10.34.197.11
+}
+ltm node /DMZ-QAS/SPTRELAY01Q {
+    address 10.34.197.25
+}
+ltm node /DMZ-QAS/SPTSCAPRIV01Q {
+    address 10.34.197.32
+}
+ltm node /DMZ-QAS/SPTSCAPRIV02Q {
+    address 10.34.197.34
+}
+ltm node /DMZ-QAS/SPTSCAPUB01Q {
+    address 10.34.197.29
+}
+ltm node /DMZ-QAS/SPTSCAPUB02Q {
+    address 10.34.197.33
+}
+ltm node /DMZ-QAS/SPTSCDAPP01Q {
+    address 10.34.197.35
+}
+ltm node /DMZ-QAS/SPTSCDAPP02Q {
+    address 10.34.197.36
+}
+ltm node /DMZ-QAS/SPTSCPWEB01Q {
+    address 10.34.197.42
+}
+ltm node /DMZ-QAS/SPTSCPWEB02Q {
+    address 10.34.197.38
+}
+ltm node /DMZ-QAS/SPTSCPWEB03Q {
+    address 10.34.196.7
+}
+ltm node /DMZ-QAS/SPTSCPWEB04Q {
+    address 10.34.196.30
+}
+ltm node /DMZ-TEST/10.34.198.48 {
+    address 10.34.198.48
+}
+ltm node /DMZ-TEST/SPTCADESCOLA01T {
+    address 10.34.198.22
+}
+ltm node /DMZ-TEST/SPTCADESCOLA02T {
+    address 10.34.198.26
+}
+ltm node /DMZ-TEST/SPTDWAPP01T {
+    address 10.34.198.9
+}
+ltm node /DMZ-TEST/SPTDWAPP02T {
+    address 10.34.198.10
+}
+ltm node /DMZ-TEST/SPTDWAPP03T {
+    address 10.34.198.11
+}
+ltm node /DMZ-TEST/SPTFTPAPP01T {
+    address 10.34.198.13
+}
+ltm node /DMZ-TEST/SPTRELAY01T {
+    address 10.34.198.21
+}
+ltm node /DMZ-TEST/SPTSCAPRIV01T {
+    address 10.34.198.28
+}
+ltm node /DMZ-TEST/SPTSCAPRIV02T {
+    address 10.34.198.30
+}
+ltm node /DMZ-TEST/SPTSCAPUB01T {
+    address 10.34.198.25
+}
+ltm node /DMZ-TEST/SPTSCAPUB02T {
+    address 10.34.198.29
+}
+ltm node /DMZ-TEST/SPTSCDAPP01T {
+    address 10.34.198.31
+}
+ltm node /DMZ-TEST/SPTSCDAPP02T {
+    address 10.34.198.32
+}
+ltm node /DMZ-TEST/SPTSCPWEB01T {
+    address 10.34.198.34
+}
+ltm node /DMZ-TEST/SPTSCPWEB02T {
+    address 10.34.198.38
+}
+ltm node /DMZ-TEST/SPTSCPWEB03T {
+    address 10.34.198.36
+}
+ltm node /DMZ-TEST/SPTSCPWEB04T {
+    address 10.34.198.35
+}
+ltm node /DMZ-TEST/TEST10.34.198.50 {
+    address 10.34.198.50
+    description TEST
+}
+ltm node /FRONT-HOM/SPTHM01H {
+    address 10.34.202.141
+    description "Máquina HM Homologação"
+}
+ltm node /FRONT-HOM/SPTHM02H {
+    address 10.34.202.142
+    description "Máquina HM Homologação"
+}
+ltm node /FRONT-HOM/SPTHMREST01H {
+    address 10.34.202.132
+    description "Maquina de Homologação"
+}
+ltm node /FRONT-HOM/SPTHMREST02H {
+    address 10.34.202.133
+    description "Maquina de Homologação"
+}
+ltm node /FRONT-PRD/SPTHMREC01 {
+    address 10.34.202.41
+}
+ltm node /FRONT-PRD/SPTHMREC02 {
+    address 10.34.202.42
+    description "Máquina HM 02"
+}
+ltm node /FRONT-PRD/SPTHMREC03 {
+    address 10.34.202.44
+    description "Máquina HM 03"
+}
+ltm node /FRONT-PRD/SPTHMREC04 {
+    address 10.34.202.45
+    description "Máquina HM 04"
+}
+ltm node /FRONT-PRD/SPTHMREC05 {
+    address 10.34.202.46
+    description "Máquina HM 05"
+}
+ltm node /FRONT-PRD/SPTHMREC06 {
+    address 10.34.202.48
+}
+ltm node /FRONT-PRD/SPTHMREC07 {
+    address 10.34.202.49
+    description "Máquina HM 07"
+}
+ltm node /FRONT-PRD/SPTHMREC08 {
+    address 10.34.202.50
+    description "Máquina HM 08"
+}
+ltm node /FRONT-PRD/SPTHMREC09 {
+    address 10.34.202.57
+}
+ltm node /FRONT-PRD/SPTHMREC10 {
+    address 10.34.202.58
+}
+ltm node /FRONT-PRD/SPTSCPAPP01 {
+    address 10.34.202.25
+}
+ltm node /FRONT-PRD/SPTSCPAPP02 {
+    address 10.34.202.26
+}
+ltm node /FRONT-QAS/10.34.193.161 {
+    address 10.34.193.161

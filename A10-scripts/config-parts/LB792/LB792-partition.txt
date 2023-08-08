@@ -1,0 +1,23 @@
+auth partition DMZ-HOM {
+    default-route-domain 2
+}
+auth partition DMZ-PRD {
+    default-route-domain 1
+}
+auth partition DMZ-QAS {
+    default-route-domain 3
+}
+auth partition DMZ-TEST {
+    default-route-domain 4
+}
+auth partition FRONT-DEV {
+    default-route-domain 30
+}
+auth partition FRONT-HOM {
+    default-route-domain 20
+}
+auth partition FRONT-PRD {
+    default-route-domain 10
+}
+auth partition FRONT-TEST {
+    default-route-domain 40

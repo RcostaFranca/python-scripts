@@ -1,0 +1,3725 @@
+ltm virtual /DMZ-HOM/vs_809_lv.hsbe.sptrans.com.br {
+    description http://lv.hsbe.sptrans.com.br:809
+    destination /DMZ-HOM/200.185.50.203%2:809
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        /Common/tcp { }
+        /DMZ-HOM/prof_http_lojavirtual_vs809 { }
+    }
+    rules {
+        /Common/_sys_https_redirect
+    }
+    source 0.0.0.0/0
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-HOM/vs_7778_portal.sptrans.com.br {
+    destination /DMZ-HOM/200.185.50.194%2:7778
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-HOM/sticky_srcip_portal_sptrans-ext {
+            default yes
+        }
+    }
+    pool /DMZ-HOM/pool_http_portal-sptrans-ext
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-HOM/SNAT_POOL_HOMPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-HOM/vs_8080_ws.hsbe.dc.sptrans.corp {
+    destination /DMZ-HOM/10.34.199.105%2:8080
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-HOM/sticky_ck_webservices {
+            default yes
+        }
+    }
+    pool /DMZ-HOM/pool_http_webservices-int
+    profiles {
+        /Common/tcp { }
+        /DMZ-HOM/prof_http_webservices { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-HOM/SNAT_POOL_HOMPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-HOM/vs_8080_ws.hsbe.sptrans.com.br {
+    description http://lv.hsbe.sptrans.com.br
+    destination /DMZ-HOM/200.185.50.193%2:8080
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-HOM/sticky_ck_webservices {
+            default yes
+        }
+    }
+    pool /DMZ-HOM/pool_8080_webservices
+    profiles {
+        /Common/tcp { }
+        /DMZ-HOM/prof_http_webservices { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-HOM/SNAT_POOL_HOMPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-HOM/vs_appservices_hom.sptrans.corp {
+    description http://10.34.199.116
+    destination /DMZ-HOM/10.34.199.116%2:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        /Common/tcp { }
+        /DMZ-HOM/prof_http_scapriv { }
+    }
+    rules {
+        /DMZ-HOM/irule_pools_scd-web-hom
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-HOM/SNAT_POOL_HOMPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-HOM/vs_ftp_scdftp.hsbe.sptrans.com.br {
+    destination /DMZ-HOM/200.185.50.202%2:21
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-HOM/sticky_scrip_ftp_scdftp {
+            default yes
+        }
+    }
+    pool /DMZ-HOM/pool_ftp_scdftp
+    profiles {
+        /Common/tcp { }
+        /DMZ-HOM/prof_ftp_scdftp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-HOM/SNAT_POOL_HOMPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-HOM/vs_ftp_scdftp.hsbe.sptrans.corp {
+    destination /DMZ-HOM/10.34.199.103%2:21
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-HOM/sticky_scrip_ftp_scdftp {
+            default yes
+        }
+    }
+    pool /DMZ-HOM/pool_ftp_scdftp
+    profiles {
+        /Common/tcp { }
+        /DMZ-HOM/prof_ftp_scdftp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-HOM/SNAT_POOL_HOMPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-HOM/vs_http_cadescola.sptrans.com.br {
+    destination /DMZ-HOM/200.185.50.197%2:80
+    fallback-persistence /DMZ-HOM/sticky_srcip_cadescola-sca
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-HOM/sticky_ck_cadescola-sca {
+            default yes
+        }
+    }
+    pool /DMZ-HOM/pool_highports_cadescola-sca
+    profiles {
+        /Common/tcp { }
+        /DMZ-HOM/prof_http_cadescola-sca { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-HOM/SNAT_POOL_HOMPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-HOM/vs_http_lv.hsbe.dc.sptrans.corp {
+    destination /DMZ-HOM/10.34.199.104%2:80
+    fallback-persistence /DMZ-HOM/sticky_srcip_lojavirtual_hom
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-HOM/sticky_ck_lojavirtual {
+            default yes
+        }
+    }
+    pool /DMZ-HOM/pool_highports_lojavirtual_hom-int
+    profiles {
+        /Common/tcp { }
+        /DMZ-HOM/prof_http_lojavirtual_vshttp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-HOM/SNAT_POOL_HOMPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-HOM/vs_http_lv.hsbe.sptrans.com.br {
+    description http://lv.hsbe.sptrans.com.br
+    destination /DMZ-HOM/200.185.50.203%2:80
+    fallback-persistence /DMZ-HOM/sticky_srcip_lojavirtual_hom
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-HOM/sticky_ck_lojavirtual {
+            default yes
+        }
+    }
+    pool /DMZ-HOM/pool_highports_lojavirtual_hom
+    profiles {
+        /Common/tcp { }
+        /DMZ-HOM/prof_http_lojavirtual_vshttp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-HOM/SNAT_POOL_HOMPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-HOM/vs_http_pedidocredito.ws.hsbe.sptrans.com.br {
+    description http://pedidocredito.ws.hsbe.sptrans.com.br
+    destination /DMZ-HOM/200.185.50.206%2:8081
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-HOM/sticky_srcip_pedidocredito {
+            default yes
+        }
+    }
+    pool /DMZ-HOM/pool_pedidocredito.ws.hsbe
+    profiles {
+        /Common/tcp { }
+        /DMZ-HOM/prof_http_pedidocredito { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-HOM/SNAT_POOL_HOMPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-HOM/vs_http_pedidocredito.ws.hsbe.sptrans.corp {
+    description http://pedidocredito.ws.hsbe.sptrans.corp
+    destination /DMZ-HOM/10.34.199.111%2:8081
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /Common/cookie {
+            default yes
+        }
+    }
+    pool /DMZ-HOM/pool_pedidocredito.ws.hsbe.sptrans.corp
+    profiles {
+        /Common/tcp { }
+        /DMZ-HOM/prof_http_pedidocredito.corp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-HOM/SNAT_POOL_HOMPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-HOM/vs_http_portal.sptrans.com.br {
+    destination /DMZ-HOM/200.185.50.194%2:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-HOM/sticky_srcip_portal_sptrans-ext {
+            default yes
+        }
+    }
+    pool /DMZ-HOM/pool_http_portal-sptrans-ext
+    profiles {
+        /Common/fastL4 { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-HOM/SNAT_POOL_HOMPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-HOM/vs_http_sbeweb.hsbe.sptrans.com.br {
+    destination /DMZ-HOM/200.185.50.204%2:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-HOM/sticky_srcip_sbeweb {
+            default yes
+        }
+    }
+    pool /DMZ-HOM/pool_http_sbeweb
+    profiles {
+        /Common/tcp { }
+        /DMZ-HOM/prof_http_sbeweb { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-HOM/SNAT_POOL_HOMPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-HOM/vs_http_sbeweb.hsbe.sptrans.corp {
+    destination /DMZ-HOM/10.34.199.107%2:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-HOM/sticky_srcip_sbeweb {
+            default yes
+        }
+    }
+    pool /DMZ-HOM/pool_http_sbeweb-int
+    profiles {
+        /Common/tcp { }
+        /DMZ-HOM/prof_http_sbeweb { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-HOM/SNAT_POOL_HOMPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-HOM/vs_http_scapriv.hsbe.dc.sptrans.com.br {
+    destination /DMZ-HOM/200.185.50.196%2:80
+    fallback-persistence /DMZ-HOM/sticky_srcip_scapriv
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-HOM/sticky_ck_scapriv {
+            default yes
+        }
+    }
+    profiles {
+        /Common/tcp { }
+        /DMZ-HOM/prof_http_scapriv { }
+    }
+    rules {
+        /DMZ-HOM/irule_pools_scapriv_ext
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-HOM/SNAT_POOL_HOMPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-HOM/vs_http_scapriv.hsbe.dc.sptrans.corp {
+    destination /DMZ-HOM/10.34.199.100%2:80
+    fallback-persistence /DMZ-HOM/sticky_srcip_scapriv
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-HOM/sticky_ck_scapriv {
+            default yes
+        }
+    }
+    profiles {
+        /Common/tcp { }
+        /DMZ-HOM/prof_http_scapriv { }
+    }
+    rules {
+        /DMZ-HOM/irule_pools_scapriv_int
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-HOM/SNAT_POOL_HOMPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-HOM/vs_http_scapub.hsbe.dc.sptrans.com.br {
+    destination /DMZ-HOM/200.185.50.195%2:80
+    fallback-persistence /DMZ-HOM/sticky_srcip_scapub
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-HOM/sticky_ck_scapub {
+            default yes
+        }
+    }
+    profiles {
+        /Common/tcp { }
+        /DMZ-HOM/prof_http_scapub { }
+    }
+    rules {
+        /DMZ-HOM/irule_pools_scapub_ext
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-HOM/SNAT_POOL_HOMPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-HOM/vs_http_scapub.hsbe.dc.sptrans.corp {
+    destination /DMZ-HOM/10.34.199.99%2:80
+    fallback-persistence /DMZ-HOM/sticky_srcip_scapub
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-HOM/sticky_ck_scapub {
+            default yes
+        }
+    }
+    profiles {
+        /Common/tcp { }
+        /DMZ-HOM/prof_http_scapub { }
+    }
+    rules {
+        /DMZ-HOM/irule_pools_scapub_int
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-HOM/SNAT_POOL_HOMPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-HOM/vs_http_scd.hsbe.dc.sptrans.corp {
+    destination /DMZ-HOM/10.34.199.102%2:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-HOM/sticky_ck_scd_web-hom {
+            default yes
+        }
+    }
+    pool /DMZ-HOM/pool_scd-web-hom-int
+    profiles {
+        /Common/tcp { }
+        /DMZ-HOM/prof_http_scd-web-hom { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-HOM/SNAT_POOL_HOMPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-HOM/vs_http_scd.hsbe.sptrans.com.br {
+    description http://scd.hsbe.sptrans.com.br
+    destination /DMZ-HOM/200.185.50.201%2:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-HOM/sticky_ck_scd_web-hom {
+            default yes
+        }
+    }
+    pool /DMZ-HOM/pool_scd-web-hom
+    profiles {
+        /Common/tcp { }
+        /DMZ-HOM/prof_http_scd-web-hom { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-HOM/SNAT_POOL_HOMPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-HOM/vs_http_scp.hsbe.sptrans.com.br {
+    destination /DMZ-HOM/200.185.50.205%2:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-HOM/sticky_srcip_scp {
+            default yes
+        }
+    }
+    pool /DMZ-HOM/pool_http_scp
+    profiles {
+        /Common/tcp { }
+        /DMZ-HOM/prof_http_scp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-HOM/SNAT_POOL_HOMPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-HOM/vs_http_scp.hsbe.sptrans.corp {
+    destination /DMZ-HOM/10.34.199.108%2:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-HOM/sticky_srcip_scp {
+            default yes
+        }
+    }
+    pool /DMZ-HOM/pool_http_scp-int
+    profiles {
+        /Common/tcp { }
+        /DMZ-HOM/prof_http_scp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-HOM/SNAT_POOL_HOMPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-HOM/vs_https_appservices_hom.sptrans.corp {
+    description https://appservices_hom.sptrans.corp
+    destination /DMZ-HOM/10.34.199.116%2:443
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        /Common/tcp { }
+        /DMZ-HOM/appservices_hom {
+            context clientside
+        }
+        /DMZ-HOM/prof_http_scapriv { }
+    }
+    rules {
+        /DMZ-HOM/irule_pools_scd-web-hom
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-HOM/SNAT_POOL_HOMPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-HOM/vs_https_lv.hsbe.sptrans.com.br {
+    description https://lv.hsbe.sptrans.com.br
+    destination /DMZ-HOM/200.185.50.203%2:443
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /DMZ-HOM/pool_lojavirtual_sptransGateway_hom
+    profiles {
+        /Common/tcp { }
+        /DMZ-HOM/padrao.sptrans.com.br {
+            context clientside
+        }
+        /DMZ-HOM/prof_http_lojavirtual_vshttp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-HOM/SNAT_POOL_HOMPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-HOM/vs_intraneth.dc.sptrans.corp {
+    description "Intranet ho"
+    destination /DMZ-HOM/10.34.199.112%2:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /DMZ-HOM/pool_intraneth.dc.sptrans.corp
+    profiles {
+        /Common/http { }
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-HOM/SNAT_POOL_HOMPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-HOM/vs_smtp.hsbe.sptrans.corp {
+    destination /DMZ-HOM/10.34.199.109%2:25
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-HOM/sticky_srcip_smtp {
+            default yes
+        }
+    }
+    pool /DMZ-HOM/pool_smtp.sbe.sptrans.corp
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-HOM/SNAT_POOL_HOMPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-HOM/vs_sptosbhml.dc.sptrans.corp {
+    destination /DMZ-HOM/10.34.199.115%2:7002
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /Common/cookie {
+            default yes
+        }
+    }
+    pool /DMZ-HOM/pool_sptosbhml.sptrans.corp
+    profiles {
+        /Common/http { }
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-HOM/SNAT_POOL_HOMPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-HOM/vs_sptosbtestefab.dc.sptrans.corp {
+    destination /DMZ-HOM/10.34.199.114%2:7002
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /Common/cookie {
+            default yes
+        }
+    }
+    pool /DMZ-HOM/pool_sptosbtestefab.dc.sptrans.corp
+    profiles {
+        /Common/http { }
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-HOM/SNAT_POOL_HOMPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-HOM/vs_sptsoatestefab.dc.sptrans.corp {
+    destination /DMZ-HOM/10.34.199.113%2:7003
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /DMZ-HOM/pool_sptsoatestefab.dc.sptrans.corp
+    profiles {
+        /Common/http { }
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-HOM/SNAT_POOL_HOMPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vc_ftp_ftp.sptrans.corp {
+    description "FTP acesso interno"
+    destination /DMZ-PRD/10.34.199.11%1:21
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_srcip_ftp.sptrans.corp {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_ftp_sptrans.corp
+    profiles {
+        /Common/tcp { }
+        /DMZ-PRD/prof_ftp_sptrans.corp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_81_lp.sbe.sptrans.corp {
+    destination /DMZ-PRD/10.34.199.26%1:81
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /DMZ-PRD/pool_81_lp.sbe.sptrans.corp
+    profiles {
+        /Common/fastL4 { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_DMZ_TVS
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_809_lv.sbe.dc.sptrans.corp {
+    description http://lv.sbe.sptrans.com.br:809
+    destination /DMZ-PRD/10.34.199.9%1:809
+    disabled
+    fallback-persistence /DMZ-PRD/sticky_srcip_lojavirtual-int
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_ck_lojavirtual-int {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_highports_lojavirtual-int
+    profiles {
+        /Common/tcp { }
+        /DMZ-PRD/prof_http_lojavirtual-int { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        type automap
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_809_lv.sbe.sptrans.com.br {
+    description http://lv.sbe.sptrans.com.br:809
+    destination /DMZ-PRD/200.185.40.202%1:809
+    disabled
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        /Common/tcp { }
+        /DMZ-PRD/prof_http_lojavirtual_vs809 { }
+    }
+    rules {
+        /Common/_sys_https_redirect
+    }
+    source 0.0.0.0/0
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_7778_portal.sptrans.com.br_externo {
+    description http://portal.sptrans.com.br
+    destination /DMZ-PRD/200.185.40.193%1:7778
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_srcip_portal-sptrans-ext {
+            default yes
+        }
+    }
+    profiles {
+        /DMZ-PRD/prof_portal_dw { }
+        /DMZ-PRD/prof_tcp_portal-sptrans-ext { }
+    }
+    rules {
+        /DMZ-PRD/irule_pools_dw_ext
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_8080_antifraude.sbe.dc.sptrans.corp {
+    description https://antifraude.sbe.sptrans.corp
+    destination /DMZ-PRD/10.34.199.19%1:8080
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /Common/cookie {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_antifraude.sbe.dc.sptrans.corp
+    profiles {
+        /Common/http { }
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_8080_ws.sbe.dc.sptrans.corp {
+    description https://ws.sbe.dc.sptrans.corp
+    destination /DMZ-PRD/10.34.199.10%1:8080
+    fallback-persistence /DMZ-PRD/sticky_srcip_webservices-int
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_ck_webservices-int {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_8080_webservices-int
+    profiles {
+        /Common/tcp { }
+        /DMZ-PRD/prof_http_webservices-int { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_8080_ws.sbe.sptrans.com.br {
+    description https://lv.sbe.sptrans.com.br
+    destination /DMZ-PRD/200.185.40.203%1:8080
+    fallback-persistence /DMZ-PRD/sticky_srcip_webservices
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_ck_webservices {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_8080_webservices
+    profiles {
+        /Common/tcp { }
+        /DMZ-PRD/prof_http_webservices { }
+    }
+    rules {
+        /DMZ-PRD/irule_pools_ws
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_8081_lvpriv.sbe.sptrans.corp {
+    description http://lvpriv.sbe.sptrans.corp:8081
+    destination /DMZ-PRD/10.34.199.25%1:80
+    fallback-persistence /DMZ-PRD/sticky_srcip_lvpriv-corp
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_ck_lvpriv-corp {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_highports_lvpriv-corp
+    profiles {
+        /Common/tcp { }
+        /DMZ-PRD/prof_http_lvpriv-corp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_10000_lp.sbe.sptrans.corp {
+    destination /DMZ-PRD/10.34.199.26%1:10000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /DMZ-PRD/pool_10000_lp.sbe.sptrans.corp
+    profiles {
+        /Common/fastL4 { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_DMZ_TVS
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_10001_lp.sbe.sptrans.corp {
+    description http://lp.sbe.sptrans.corp
+    destination /DMZ-PRD/10.34.199.26%1:10001
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /DMZ-PRD/pool_10001_lp.sbe.sptrans.corp
+    profiles {
+        /Common/fastL4 { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_DMZ_TVS
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_10002_lp.sbe.sptrans.corp {
+    description http://lp.sbe.sptrans.corp
+    destination /DMZ-PRD/10.34.199.26%1:10002
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /DMZ-PRD/pool_10002_lp.sbe.sptrans.corp
+    profiles {
+        /Common/fastL4 { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_DMZ_TVS
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_11000_lp.sbe.sptrans.corp {
+    description vs_11000_lp.sbe.sptrans.corp
+    destination /DMZ-PRD/10.34.199.26%1:11000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /DMZ-PRD/pool_11000_lp.sbe.sptrans.corp
+    profiles {
+        /Common/fastL4 { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_DMZ_TVS
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_11001_lp.sbe.sptrans.corp {
+    destination /DMZ-PRD/10.34.199.26%1:11001
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /DMZ-PRD/pool_11001_lp.sbe.sptrans.corp
+    profiles {
+        /Common/fastL4 { }
+    }
+    source 0.0.0.0/0
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_11002_lp.sbe.sptrans.corp {
+    destination /DMZ-PRD/10.34.199.26%1:11002
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /DMZ-PRD/pool_11002_lp.sbe.sptrans.corp
+    profiles {
+        /Common/fastL4 { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_DMZ_TVS
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_cobranca.dc.sptrans.corp {
+    destination /DMZ-PRD/10.34.199.22%1:8080
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /Common/cookie {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_cobranca.dc.sptrans.corp
+    profiles {
+        /Common/http { }
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_forwarding_all-dmz-prd {
+    description AnyAny
+    destination /DMZ-PRD/0.0.0.0%1:0
+    ip-forward
+    ip-protocol tcp
+    mask any
+    profiles {
+        /DMZ-PRD/fastL4_dmz-prd { }
+    }
+    source 0.0.0.0/0
+    translate-address disabled
+    translate-port disabled
+}
+ltm virtual /DMZ-PRD/vs_ftp_scdftp.sbe.sptran.scom.br {
+    description ftp://scdftp.sbe.sptran.scom.br
+    destination /DMZ-PRD/200.185.40.201%1:21
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_scrip_ftp_scdftp {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_ftp_scdftp
+    profiles {
+        /Common/tcp { }
+        /DMZ-PRD/prof_ftp_scdftp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_ftp_scdftp.sbe.sptrans.corp {
+    description ftp://scdftp.sbe.sptrans.corp
+    destination /DMZ-PRD/10.34.199.8%1:21
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_scrip_ftp_scdftp-int {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_ftp_scdftp-int
+    profiles {
+        /Common/tcp { }
+        /DMZ-PRD/prof_ftp_scdftp-int { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_ftp_sptrans.com.br {
+    description ftp://ftp.sptrans.com.br
+    destination /DMZ-PRD/200.185.40.199%1:21
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_srcip_ftp.sptrans.com.br {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_ftp_sptrans.com.br
+    profiles {
+        /Common/tcp { }
+        /DMZ-PRD/prof_ftp_ftp.sptrans.com.br { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_httpS_cadescola.sptrans.com.br {
+    description https://cadescola.sptrans.com.br
+    destination /DMZ-PRD/200.185.40.196%1:443
+    fallback-persistence /DMZ-PRD/sticky_srcip_cadescola-sca
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_ck_cadescola-sca {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_highports_cadescola-sca
+    profiles {
+        /Common/oneconnect { }
+        /Common/tcp { }
+        /DMZ-PRD/analytics_sptrans { }
+        /DMZ-PRD/prof_http_cadescola-sca { }
+        /DMZ-PRD/ssl_client_cadescola-sca {
+            context clientside
+        }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_httpS_lv.sbe.sptrans.com.br {
+    description https://lv.sbe.sptrans.com.br
+    destination /DMZ-PRD/200.185.40.202%1:443
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_ck_lojavirtual {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_highports_lojavirtual
+    profiles {
+        /Common/tcp { }
+        /DMZ-PRD/analytics_sptrans { }
+        /DMZ-PRD/prof_http_lojavirtual { }
+        /DMZ-PRD/ssl_client_lv-pkcs-2015 {
+            context clientside
+        }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_httpS_pbe.bilheteunico.dc.sptrans.com.br {
+    destination /DMZ-PRD/200.185.40.207%1:443
+    fallback-persistence /Common/dest_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /Common/cookie {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_pbe.bilheteunico.dc.sptrans.com.br
+    profiles {
+        /Common/http { }
+        /Common/tcp { }
+        /DMZ-PRD/ssl_client_pbe.bilheteunico.dc.sptrans.com.br {
+            context clientside
+        }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_httpS_scapriv.sbe.sptrans.com.br {
+    description https://scapriv.sbe.sptrans.com.br
+    destination /DMZ-PRD/200.185.40.195%1:443
+    fallback-persistence /Common/source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_ck_scapriv {
+            default yes
+        }
+    }
+    profiles {
+        /Common/tcp { }
+        /DMZ-PRD/analytics_sptrans { }
+        /DMZ-PRD/prof_http_scapriv { }
+        /DMZ-PRD/ssl_client_scapriv {
+            context clientside
+        }
+    }
+    rules {
+        /DMZ-PRD/irule_pools_scapriv-https
+    }
+    source 0.0.0.0/0
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_httpS_scapub.sbe.sptrans.com.br {
+    description https://scapub.sbe.sptrans.com.br
+    destination /DMZ-PRD/200.185.40.194%1:443
+    fallback-persistence /DMZ-PRD/sticky_srcip_scapub
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_ck_scapub {
+            default yes
+        }
+    }
+    profiles {
+        /Common/oneconnect { }
+        /Common/tcp { }
+        /DMZ-PRD/analytics_sptrans { }
+        /DMZ-PRD/prof_http_scapub { }
+        /DMZ-PRD/ssl_client_scapub-pkcs-2015 {
+            context clientside
+        }
+    }
+    rules {
+        /DMZ-PRD/irule_pools_scapub_ext
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_httpS_scd.sbe.sptrans.com.br {
+    description https://scd.sbe.sptrans.com.br
+    destination /DMZ-PRD/200.185.40.200%1:443
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_ck_scd_web {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_httpS_scd_web
+    profiles {
+        /Common/tcp { }
+        /DMZ-PRD/prof_http_scd-web { }
+        /DMZ-PRD/ssl_client_scd-pkcs {
+            context clientside
+        }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_http_api.sptrans.corp {
+    description http://api.sptrans.corp
+    destination /DMZ-PRD/10.34.199.18%1:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_ck_scapub_int {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_api.sptrans.corp
+    profiles {
+        /Common/tcp { }
+        /DMZ-PRD/prof_http_scapub_int { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_http_backoffice.recon.sptrans.corp {
+    destination /DMZ-PRD/10.34.199.24%1:8080
+    fallback-persistence /Common/source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /Common/cookie {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_backoffice.recon.sptrans.corp
+    profiles {
+        /Common/http { }
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_http_bi.sptrans.corp_int {
+    description http://bi.sptrans.corp
+    destination /DMZ-PRD/10.34.199.3%1:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_srcip_portal-sptrans-int {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_7778-bi.sptrans.corp-int
+    profiles {
+        /DMZ-PRD/prof_tcp_portal-sptrans-int { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_http_bilheteunico.sptrans.com.br {
+    description http://bilheteunico.sptrans.com.br
+    destination /DMZ-PRD/200.185.40.198%1:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_srcip_bilheteunico.sptrans.com.br {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_http_90_bilhete.sptrans
+    profiles {
+        /Common/oneconnect { }
+        /Common/tcp { }
+        /DMZ-PRD/prof_http_bilhete_vshttp { }
+    }
+    rules {
+        /DMZ-PRD/irule_redirect_http_to_httpS
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_http_cadescola.dc.sptrans.corp {
+    description http://cadescola.dc.sptrans.corp/sca
+    destination /DMZ-PRD/10.34.199.6%1:80
+    fallback-persistence /DMZ-PRD/sticky_srcip_cadescola_int
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_ck_cadescola_int {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_highports_cadescola-sca_int
+    profiles {
+        /Common/tcp { }
+        /DMZ-PRD/prof_http_cadescola_int { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_http_cadescola.sptrans.com.br {
+    description http://cadescola.sptrans.com.br
+    destination /DMZ-PRD/200.185.40.196%1:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        /Common/tcp { }
+        /DMZ-PRD/prof_http_cadescola_vshttp { }
+    }
+    rules {
+        /DMZ-PRD/irule_redirect_http_to_httpS
+    }
+    source 0.0.0.0/0
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_http_cyberark {
+    description http://cyberark.sptrans.corp
+    destination /DMZ-PRD/10.34.199.29%1:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /DMZ-PRD/pool_cyberark
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_http_estudante.sptrans.com.br {
+    description http://estudante.sptrans.com.br
+    destination /DMZ-PRD/200.185.40.197%1:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_srcip_estudante.sptrans.com.br {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_http_91_estudante.sptrans
+    profiles {
+        /Common/tcp { }
+        /DMZ-PRD/prof_http_estudante_vshttp { }
+    }
+    rules {
+        /DMZ-PRD/irule_redirect_http_to_httpS
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_http_lp.sbe.sptrans.corp {
+    description http://lp.sbe.sptrans.corp
+    destination /DMZ-PRD/10.34.199.26%1:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /DMZ-PRD/pool_lp.sbe.sptrans.corp
+    profiles {
+        /Common/fastL4 { }
+        /Common/http { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_DMZ_TVS
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_http_lv.sbe.dc.sptrans.corp {
+    destination /DMZ-PRD/10.34.199.9%1:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        /Common/tcp { }
+        /DMZ-PRD/prof_http_lojavirtual_vshttp { }
+    }
+    rules {
+        /DMZ-PRD/irule_redirect_80-to-809
+    }
+    source 0.0.0.0/0
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_http_lv.sbe.sptrans.com.br {
+    description http://lv.sbe.sptrans.com.br/
+    destination /DMZ-PRD/200.185.40.202%1:80
+    disabled
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        /Common/tcp { }
+        /DMZ-PRD/prof_http_lojavirtual_vshttp { }
+    }
+    rules {
+        /Common/_sys_https_redirect
+    }
+    source 0.0.0.0/0
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_http_odi.sptrans.corp {
+    description "Virtual Services para o ODI"
+    destination /DMZ-PRD/10.34.199.15%1:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_ck_odi.sptrans.corp {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_8001_odi.sptrans.corp
+    profiles {
+        /Common/fastL4 { }
+        /DMZ-PRD/prof_http_odi.sptrans.corp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_http_pbe.bilheteunico.dc.sptrans.com.br {
+    destination /DMZ-PRD/200.185.40.207%1:80
+    fallback-persistence /Common/source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /Common/cookie {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_pbe.bilheteunico.dc.sptrans.com.br
+    profiles {
+        /Common/http { }
+        /Common/tcp { }
+    }
+    rules {
+        /DMZ-PRD/irule_redirect_http_to_httpS
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_http_pbe.bilheteunico.dc.sptrans.corp {
+    destination /DMZ-PRD/10.34.199.23%1:80
+    fallback-persistence /Common/source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /Common/cookie {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_pbe.bilheteunico.dc.sptrans.corp
+    profiles {
+        /Common/http { }
+        /Common/tcp { }
+    }
+    rules {
+        /DMZ-PRD/irule_redirect_http_to_httpS
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_http_pedidodecredito.ws.sbe.dc.sptrans.corp {
+    destination /DMZ-PRD/10.34.199.16%1:8081
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /DMZ-PRD/pool_pedidocredito
+    profiles {
+        /Common/fastL4 { }
+        /DMZ-PRD/prof_http_pedidocredito { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_http_portal.sptrans.com.br_externo {
+    description http://portal.sptrans.com.br
+    destination /DMZ-PRD/200.185.40.193%1:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_srcip_portal-sptrans-ext {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_7778-portalsptrans-ext
+    profiles {
+        /Common/fastL4 { }
+        /DMZ-PRD/prof_portal_dw { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_http_portal.sptrans.corp_int {
+    description http://portal.sptrans.corp_int
+    destination /DMZ-PRD/10.34.199.2%1:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_srcip_portal-sptrans-int {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_7778-portal.sptrans.corp-int
+    profiles {
+        /Common/fastL4 { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_http_sbeweb.sbe.sptrans.com.br {
+    description http://sbeweb.sbe.sptrans.com.br
+    destination /DMZ-PRD/200.185.40.204%1:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_srcip_sbeweb {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_sbeweb.sbe.sptrans.com.br
+    profiles {
+        /Common/tcp { }
+        /DMZ-PRD/prof_http_sbeweb { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_http_sbeweb.sbe.sptrans.corp {
+    destination /DMZ-PRD/10.34.199.12%1:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_ip_sbeweb {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_sbeweb.sbe.sptrans.corp
+    profiles {
+        /Common/tcp { }
+        /DMZ-PRD/prof_http_sbeweb-int { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_http_scapriv.sbe.dc.sptrans.corp {
+    description http://scapriv.sbe.dc.sptrans.corp
+    destination /DMZ-PRD/10.34.199.5%1:80
+    fallback-persistence /Common/source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_ck_scapriv_int {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_highports_scapriv-default_int
+    profiles {
+        /Common/tcp { }
+        /DMZ-PRD/prof_http_scapriv_int { }
+    }
+    rules {
+        /DMZ-PRD/irule_pools_scapriv_corp
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        type automap
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_http_scapriv.sbe.sptrans.com.br {
+    description http://scapriv.sbe.sptrans.com.br
+    destination /DMZ-PRD/200.185.40.195%1:80
+    fallback-persistence /Common/source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_ck_scapriv {
+            default yes
+        }
+    }
+    profiles {
+        /Common/tcp { }
+        /DMZ-PRD/analytics_sptrans { }
+        /DMZ-PRD/prof_http_scapriv { }
+    }
+    rules {
+        /DMZ-PRD/irule_pools_scapriv-http
+    }
+    source 0.0.0.0/0
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_http_scapub.sbe.dc.sptrans.corp {
+    description http://scapub.sbe.dc.sptrans.corp
+    destination /DMZ-PRD/10.34.199.4%1:80
+    fallback-persistence /DMZ-PRD/sticky_srcip_scapub_int
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_ck_scapub_int {
+            default yes
+        }
+    }
+    profiles {
+        /Common/tcp { }
+        /DMZ-PRD/prof_http_scapub_int { }
+    }
+    rules {
+        /DMZ-PRD/irule_pools_scapub_int
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_http_scapub.sbe.sptrans.com.br {
+    description http://scapub.sbe.sptrans.com.br
+    destination /DMZ-PRD/200.185.40.194%1:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        /Common/tcp { }
+        /DMZ-PRD/prof_http_scapub { }
+    }
+    rules {
+        /DMZ-PRD/irule_redirect_http_to_httpS
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_http_scd.sbe.sptrans.com.br {
+    description http://scd.sbe.sptrans.com.br
+    destination /DMZ-PRD/200.185.40.200%1:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_ck_scd_web {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_http_scd_web
+    profiles {
+        /Common/tcp { }
+        /DMZ-PRD/prof_http_scd-web { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_http_scd.sbe.sptrans.corp {
+    description http://scd.sbe.sptrans.corp
+    destination /DMZ-PRD/10.34.199.7%1:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_ck_scd_web-int {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_http_scd_web-int
+    profiles {
+        /Common/tcp { }
+        /DMZ-PRD/prof_http_scd-web-int { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        type automap
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_http_scp.sbe.sptrans.com.br {
+    description http://scp.sbe.sptrans.com.br
+    destination /DMZ-PRD/200.185.40.205%1:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_srcip_scp {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_scp.sbe.sptrans.com.br
+    profiles {
+        /Common/tcp { }
+        /DMZ-PRD/prof_http_scp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_http_scp.sbe.sptrans.corp {
+    description http://scp.sbe.sptrans.corp
+    destination /DMZ-PRD/10.34.199.13%1:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_srcip_scp {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_scp.sbe.sptrans.corp
+    profiles {
+        /Common/tcp { }
+        /DMZ-PRD/prof_http_scp-int { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_http_services.sptrans.corp {
+    description http://services.sptrans.corp
+    destination /DMZ-PRD/10.34.199.28%1:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_ck_scapub_int {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_services.sptrans.corp_int
+    profiles {
+        /Common/tcp { }
+        /DMZ-PRD/prof_http_scapub_int { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        type automap
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_http_soainfraprd.dc.sptrans.corp {
+    destination /DMZ-PRD/10.34.199.20%1:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /Common/cookie {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_soainfra.dc.sptrans.corp
+    profiles {
+        /Common/tcp { }
+        /DMZ-PRD/prof_http_sbeweb-int { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_http_teste_web {
+    description "VS - Para realizar teste na camada WEB - .corp"
+    destination /DMZ-PRD/10.34.199.30%1:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /DMZ-PRD/pool_vs_http_teste_web
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        type automap
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_http_validacaoserpro.sptrans.corp {
+    description http://validacaoserpro.sptrans.corp
+    destination /DMZ-PRD/10.34.199.27%1:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /DMZ-PRD/pool_validacaoserpro.sptrans.corp
+    profiles {
+        /Common/tcp { }
+        /DMZ-PRD/prof_http_scapriv_int { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        type automap
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_https_api.sptrans.corp {
+    description https://api.sptrans.corp
+    destination /DMZ-PRD/10.34.199.18%1:443
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_ck_scapub_int {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_api.sptrans.corp
+    profiles {
+        /Common/tcp { }
+        /DMZ-PRD/api.sptrans.corp {
+            context clientside
+        }
+        /DMZ-PRD/prof_http_scapub { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_https_bilheteunico.sptrans.com.br {
+    description https://bilheteunico.sptrans.com.br
+    destination /DMZ-PRD/200.185.40.198%1:443
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_srcip_bilheteunico.sptrans.com.br {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_https_90_bilhete.sptrans
+    profiles {
+        /Common/tcp { }
+        /DMZ-PRD/padrao.sptrans.com.br {
+            context clientside
+        }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_https_estudante.sptrans.com.br {
+    description https://estudante.sptrans.com.br
+    destination /DMZ-PRD/200.185.40.197%1:443
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_srcip_estudante.sptrans.com.br {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_https_91_estudante.sptrans
+    profiles {
+        /Common/tcp { }
+        /DMZ-PRD/padrao.sptrans.com.br {
+            context clientside
+        }
+        /DMZ-PRD/prof_http_estudante_vshttp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_https_lp.sbe.sptrans.corp {
+    description http://lp.sbe.sptrans.corp
+    destination /DMZ-PRD/10.34.199.26%1:443
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /DMZ-PRD/pool_https_lp.sbe.sptrans.corp
+    profiles {
+        /Common/fastL4 { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_DMZ_TVS
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_https_pbe.bilheteunico.dc.sptrans.corp {
+    destination /DMZ-PRD/10.34.199.23%1:443
+    fallback-persistence /Common/source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /Common/cookie {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_pbe.bilheteunico.dc.sptrans.corp
+    profiles {
+        /Common/http { }
+        /Common/tcp { }
+        /DMZ-PRD/ssl_client_pbe.bilheteunico.dc.sptrans.corp {
+            context clientside
+        }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_smtp.sbe.sptrans.crop {
+    description "SMTP Relay Interno"
+    destination /DMZ-PRD/10.34.199.14%1:25
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_ip_smtp {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_smtp.sbe.sptrans.corp
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_sptosbprd.sptrans.corp {
+    destination /DMZ-PRD/10.34.199.21%1:7003
+    fallback-persistence /Common/dest_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /Common/cookie {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_sptosbprd.sptrans.corp
+    profiles {
+        /Common/http { }
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-PRD/vs_ssh_edi.dc.sptrans.com.br {
+    destination /DMZ-PRD/10.34.199.17%1:22
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-PRD/sticky_srcip_edi-garagens {
+            default yes
+        }
+    }
+    pool /DMZ-PRD/pool_ssh_edi_garagens
+    profiles {
+        /DMZ-PRD/prof_tcp_ssh_garagens {
+            context clientside
+        }
+        /DMZ-PRD/prof_tcp_ssh_garagens_server {
+            context serverside
+        }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-PRD/SNAT_POOL_DMZPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-QAS/vs_7778_portal.sptrans.com.br {
+    destination /DMZ-QAS/200.185.50.209%3:7778
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-QAS/sticky_srcip_portal_sptrans-ext {
+            default yes
+        }
+    }
+    pool /DMZ-QAS/pool_http_portal-sptrans-ext
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-QAS/SNAT-POOL-DMZ-QAS
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-QAS/vs_ftp_scdftp.qsbe.sptrans.com.br {
+    destination /DMZ-QAS/200.185.50.217%3:21
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-QAS/sticky_scrip_ftp_scdftp {
+            default yes
+        }
+    }
+    pool /DMZ-QAS/pool_ftp_scdftp
+    profiles {
+        /Common/tcp { }
+        /DMZ-QAS/prof_ftp_scdftp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-QAS/SNAT-POOL-DMZ-QAS
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-QAS/vs_ftp_scdftp.qsbe.sptrans.corp {
+    destination /DMZ-QAS/10.34.199.136%3:21
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-QAS/sticky_scrip_ftp_scdftp {
+            default yes
+        }
+    }
+    pool /DMZ-QAS/pool_ftp_scdftp
+    profiles {
+        /Common/tcp { }
+        /DMZ-QAS/prof_ftp_scdftp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-QAS/SNAT-POOL-DMZ-QAS
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-QAS/vs_httpS_qsbe.bilheteunico.sptrans.com.br {
+    destination /DMZ-QAS/200.185.50.213%3:443
+    fallback-persistence /Common/dest_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /Common/cookie {
+            default yes
+        }
+    }
+    pool /DMZ-QAS/pool_qbe.bilheteunico.sptrans.com.br
+    profiles {
+        /Common/http { }
+        /Common/tcp { }
+        /DMZ-QAS/PFL_SSL_qsbe.bilheteunico.sptrans.com.br {
+            context clientside
+        }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-QAS/SNAT-POOL-DMZ-QAS
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-QAS/vs_http_bi.sptrans.corp {
+    destination /DMZ-QAS/10.34.199.131%3:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-QAS/sticky_srcip_portal_sptrans-int {
+            default yes
+        }
+    }
+    pool /DMZ-QAS/pool_http_portal-sptrans-int
+    profiles {
+        /DMZ-QAS/prof_tcp_portal-sptrans-int { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-QAS/SNAT-POOL-DMZ-QAS
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-QAS/vs_http_cadescola.sptrans.com.br {
+    destination /DMZ-QAS/200.185.50.212%3:80
+    fallback-persistence /DMZ-QAS/sticky_srcip_cadescola-sca
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-QAS/sticky_ck_cadescola-sca {
+            default yes
+        }
+    }
+    pool /DMZ-QAS/pool_highports_cadescola-sca
+    profiles {
+        /Common/tcp { }
+        /DMZ-QAS/prof_http_cadescola-sca { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-QAS/SNAT-POOL-DMZ-QAS
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-QAS/vs_http_cadescola.sptrans.corp {
+    destination /DMZ-QAS/10.34.199.134%3:80
+    fallback-persistence /DMZ-QAS/sticky_srcip_cadescola-sca
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-QAS/sticky_ck_cadescola-sca {
+            default yes
+        }
+    }
+    pool /DMZ-QAS/pool_highports_cadescola-sca-int
+    profiles {
+        /Common/tcp { }
+        /DMZ-QAS/prof_http_cadescola-sca { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-QAS/SNAT-POOL-DMZ-QAS
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-QAS/vs_http_odiagent.qa.sptrans.corp {
+    destination /DMZ-QAS/10.34.199.129%3:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-QAS/sticky_ck_odiagent.qa-int {
+            default yes
+        }
+    }
+    pool /DMZ-QAS/pool_8001_odiagent-int
+    profiles {
+        /Common/tcp { }
+        /DMZ-QAS/prof_http_odiagent { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-QAS/SNAT-POOL-DMZ-QAS
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-QAS/vs_http_portal.sptrans.com.br {
+    destination /DMZ-QAS/200.185.50.209%3:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-QAS/sticky_srcip_portal_sptrans-ext {
+            default yes
+        }
+    }
+    pool /DMZ-QAS/pool_http_portal-sptrans-ext
+    profiles {
+        /Common/fastL4 { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-QAS/SNAT-POOL-DMZ-QAS
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-QAS/vs_http_portal.sptrans.corp {
+    destination /DMZ-QAS/10.34.199.130%3:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-QAS/sticky_srcip_portal_sptrans-int {
+            default yes
+        }
+    }
+    pool /DMZ-QAS/pool_http_portal-sptrans-int
+    profiles {
+        /Common/fastL4 { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-QAS/SNAT-POOL-DMZ-QAS
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-QAS/vs_http_sbeweb.qsbe.sptrans.com.br {
+    destination /DMZ-QAS/200.185.50.219%3:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-QAS/sticky_srcip_sbeweb {
+            default yes
+        }
+    }
+    pool /DMZ-QAS/pool_http_sbeweb
+    profiles {
+        /Common/tcp { }
+        /DMZ-QAS/prof_http_sbeweb { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-QAS/SNAT-POOL-DMZ-QAS
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-QAS/vs_http_sbeweb.qsbe.sptrans.corp {
+    destination /DMZ-QAS/10.34.199.140%3:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-QAS/sticky_srcip_sbeweb {
+            default yes
+        }
+    }
+    pool /DMZ-QAS/pool_http_sbeweb-int
+    profiles {
+        /Common/tcp { }
+        /DMZ-QAS/prof_http_sbeweb { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-QAS/SNAT-POOL-DMZ-QAS
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-QAS/vs_http_scapriv.qsbe.dc.sptrans.com.br {
+    destination /DMZ-QAS/200.185.50.211%3:80
+    fallback-persistence /DMZ-QAS/sticky_srcip_scapriv
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-QAS/sticky_ck_scapriv {
+            default yes
+        }
+    }
+    profiles {
+        /Common/tcp { }
+        /DMZ-QAS/prof_http_scapriv { }
+    }
+    rules {
+        /DMZ-QAS/irule_pools_scapriv_ext
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-QAS/SNAT-POOL-DMZ-QAS
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-QAS/vs_http_scapriv.qsbe.dc.sptrans.corp {
+    destination /DMZ-QAS/10.34.199.133%3:80
+    fallback-persistence /DMZ-QAS/sticky_srcip_scapriv
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-QAS/sticky_ck_scapriv {
+            default yes
+        }
+    }
+    profiles {
+        /Common/tcp { }
+        /DMZ-QAS/prof_http_scapriv { }
+    }
+    rules {
+        /DMZ-QAS/irule_pools_scapriv_int
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-QAS/SNAT-POOL-DMZ-QAS
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-QAS/vs_http_scapub.qsbe.dc.sptrans.com.br {
+    destination /DMZ-QAS/200.185.50.210%3:80
+    fallback-persistence /DMZ-QAS/sticky_srcip_scapub
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-QAS/sticky_ck_scapub {
+            default yes
+        }
+    }
+    profiles {
+        /Common/tcp { }
+        /DMZ-QAS/prof_http_scapub { }
+    }
+    rules {
+        /DMZ-QAS/irule_pools_scapub_ext
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-QAS/SNAT-POOL-DMZ-QAS
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-QAS/vs_http_scapub.qsbe.dc.sptrans.corp {
+    destination /DMZ-QAS/10.34.199.132%3:80
+    fallback-persistence /DMZ-QAS/sticky_srcip_scapub
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-QAS/sticky_ck_scapub {
+            default yes
+        }
+    }
+    profiles {
+        /Common/tcp { }
+        /DMZ-QAS/prof_http_scapub { }
+    }
+    rules {
+        /DMZ-QAS/irule_pools_scapub_int
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-QAS/SNAT-POOL-DMZ-QAS
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-QAS/vs_http_scd.qsbe.dc.sptrans.com.br {
+    destination /DMZ-QAS/200.185.50.216%3:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-QAS/sticky_ck_scd_web {
+            default yes
+        }
+    }
+    pool /DMZ-QAS/pool_http_scd_web
+    profiles {
+        /Common/tcp { }
+        /DMZ-QAS/prof_http_scd-web { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-QAS/SNAT-POOL-DMZ-QAS
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-QAS/vs_http_scd.qsbe.dc.sptrans.corp {
+    destination /DMZ-QAS/10.34.199.135%3:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-QAS/sticky_ck_scd_web {
+            default yes
+        }
+    }
+    pool /DMZ-QAS/pool_http_scd_web-int
+    profiles {
+        /Common/tcp { }
+        /DMZ-QAS/prof_http_scd-web { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-QAS/SNAT-POOL-DMZ-QAS
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-QAS/vs_http_scp.qsbe.sptrans.com.br {
+    destination /DMZ-QAS/200.185.50.220%3:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-QAS/sticky_srcip_scp_qas {
+            default yes
+        }
+    }
+    pool /DMZ-QAS/pool_http_scp_qas
+    profiles {
+        /Common/tcp { }
+        /DMZ-QAS/prof_http_scp_qas { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-QAS/SNAT-POOL-DMZ-QAS
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-QAS/vs_http_scp.qsbe.sptrans.corp {
+    destination /DMZ-QAS/10.34.199.141%3:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-QAS/sticky_srcip_scp_qas {
+            default yes
+        }
+    }
+    pool /DMZ-QAS/pool_http_scp_qas-int
+    profiles {
+        /Common/tcp { }
+        /DMZ-QAS/prof_http_scp_qas { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-QAS/SNAT-POOL-DMZ-QAS
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-QAS/vs_qsbe.bilheteunico.sptrans.com.br {
+    destination /DMZ-QAS/200.185.50.213%3:80
+    fallback-persistence /Common/source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /Common/cookie {
+            default yes
+        }
+    }
+    pool /DMZ-QAS/pool_qbe.bilheteunico.sptrans.com.br
+    profiles {
+        /Common/http { }
+        /Common/tcp { }
+    }
+    rules {
+        /DMZ-QAS/irule_http_to_https
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-QAS/SNAT-POOL-DMZ-QAS
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-QAS/vs_smtp.qsbe.sptrans.corp {
+    destination /DMZ-QAS/10.34.199.142%3:25
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-QAS/sticky_srcip_smtp_qas {
+            default yes
+        }
+    }
+    pool /DMZ-QAS/pool_smtp.qsbe.sptrans.corp
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-QAS/SNAT-POOL-DMZ-QAS
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-TEST/vs_7778_portal.sptrans.com.br {
+    destination /DMZ-TEST/200.185.50.225%4:7778
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-TEST/sticky_srcip_portal_sptrans-ext {
+            default yes
+        }
+    }
+    pool /DMZ-TEST/pool_http_portal-sptrans-ext
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-TEST/SNAT_POOL_TSTPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-TEST/vs_ftp_scdftp.tsbe.sptrans.com.br {
+    destination /DMZ-TEST/200.185.50.233%4:21
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-TEST/sticky_scrip_ftp_scdftp {
+            default yes
+        }
+    }
+    pool /DMZ-TEST/pool_ftp_scdftp
+    profiles {
+        /Common/tcp { }
+        /DMZ-TEST/prof_ftp_scdftp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-TEST/SNAT_POOL_TSTPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-TEST/vs_ftp_scdftp.tsbe.sptrans.corp {
+    destination /DMZ-TEST/10.34.199.167%4:21
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-TEST/sticky_scrip_ftp_scdftp {
+            default yes
+        }
+    }
+    pool /DMZ-TEST/pool_ftp_scdftp
+    profiles {
+        /Common/tcp { }
+        /DMZ-TEST/prof_ftp_scdftp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-TEST/SNAT_POOL_TSTPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-TEST/vs_http_bi.sptrans.corp {
+    destination /DMZ-TEST/10.34.199.162%4:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-TEST/sticky_srcip_portal_sptrans-int {
+            default yes
+        }
+    }
+    pool /DMZ-TEST/pool_http_portal-sptrans-int
+    profiles {
+        /DMZ-TEST/prof_tcp_portal-sptrans-int { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-TEST/SNAT_POOL_TSTPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-TEST/vs_http_cadescola.sptrans.com.br {
+    destination /DMZ-TEST/200.185.50.228%4:80
+    fallback-persistence /DMZ-TEST/sticky_srcip_cadescola-sca
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-TEST/sticky_ck_cadescola-sca {
+            default yes
+        }
+    }
+    pool /DMZ-TEST/pool_highports_cadescola-sca
+    profiles {
+        /Common/tcp { }
+        /DMZ-TEST/prof_http_cadescola-sca { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-TEST/SNAT_POOL_TSTPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-TEST/vs_http_cadescola.sptrans.corp {
+    destination /DMZ-TEST/10.34.199.165%4:80
+    fallback-persistence /DMZ-TEST/sticky_srcip_cadescola-sca
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-TEST/sticky_ck_cadescola-sca {
+            default yes
+        }
+    }
+    pool /DMZ-TEST/pool_highports_cadescola-sca-int
+    profiles {
+        /Common/tcp { }
+        /DMZ-TEST/prof_http_cadescola-sca { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-TEST/SNAT_POOL_TSTPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-TEST/vs_http_portal.sptrans.com.br {
+    destination /DMZ-TEST/200.185.50.225%4:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-TEST/sticky_srcip_portal_sptrans-ext {
+            default yes
+        }
+    }
+    pool /DMZ-TEST/pool_http_portal-sptrans-ext
+    profiles {
+        /Common/fastL4 { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-TEST/SNAT_POOL_TSTPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-TEST/vs_http_portal.sptrans.corp {
+    destination /DMZ-TEST/10.34.199.161%4:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-TEST/sticky_srcip_portal_sptrans-int {
+            default yes
+        }
+    }
+    pool /DMZ-TEST/pool_http_portal-sptrans-int
+    profiles {
+        /Common/fastL4 { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-TEST/SNAT_POOL_TSTPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-TEST/vs_http_sbeweb.tsbe.sptrans.com.br {
+    destination /DMZ-TEST/200.185.50.235%4:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-TEST/sticky_srcip_sbeweb {
+            default yes
+        }
+    }
+    pool /DMZ-TEST/pool_http_sbeweb
+    profiles {
+        /Common/tcp { }
+        /DMZ-TEST/prof_http_sbeweb { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-TEST/SNAT_POOL_TSTPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-TEST/vs_http_sbeweb.tsbe.sptrans.corp {
+    destination /DMZ-TEST/10.34.199.171%4:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-TEST/sticky_srcip_sbeweb {
+            default yes
+        }
+    }
+    pool /DMZ-TEST/pool_http_sbeweb-int
+    profiles {
+        /Common/tcp { }
+        /DMZ-TEST/prof_http_sbeweb { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-TEST/SNAT_POOL_TSTPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-TEST/vs_http_scapriv.tsbe.dc.sptrans.com.br {
+    destination /DMZ-TEST/200.185.50.227%4:80
+    fallback-persistence /DMZ-TEST/sticky_srcip_scapriv
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-TEST/sticky_ck_scapriv {
+            default yes
+        }
+    }
+    profiles {
+        /Common/tcp { }
+        /DMZ-TEST/prof_http_scapriv { }
+    }
+    rules {
+        /DMZ-TEST/irule_pools_scapriv_ext
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-TEST/SNAT_POOL_TSTPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-TEST/vs_http_scapriv.tsbe.dc.sptrans.corp {
+    destination /DMZ-TEST/10.34.199.164%4:80
+    fallback-persistence /DMZ-TEST/sticky_srcip_scapriv
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-TEST/sticky_ck_scapriv {
+            default yes
+        }
+    }
+    profiles {
+        /Common/tcp { }
+        /DMZ-TEST/prof_http_scapriv { }
+    }
+    rules {
+        /DMZ-TEST/irule_pools_scapriv_int
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-TEST/SNAT_POOL_TSTPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-TEST/vs_http_scapub.tsbe.dc.sptrans.com.br {
+    destination /DMZ-TEST/200.185.50.226%4:80
+    fallback-persistence /DMZ-TEST/sticky_srcip_scapub
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-TEST/sticky_ck_scapub {
+            default yes
+        }
+    }
+    profiles {
+        /Common/tcp { }
+        /DMZ-TEST/prof_http_scapub { }
+    }
+    rules {
+        /DMZ-TEST/irule_pools_scapub_ext
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-TEST/SNAT_POOL_TSTPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-TEST/vs_http_scapub.tsbe.dc.sptrans.corp {
+    destination /DMZ-TEST/10.34.199.163%4:80
+    fallback-persistence /DMZ-TEST/sticky_srcip_scapub
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-TEST/sticky_ck_scapub {
+            default yes
+        }
+    }
+    profiles {
+        /Common/tcp { }
+        /DMZ-TEST/prof_http_scapub { }
+    }
+    rules {
+        /DMZ-TEST/irule_pools_scapub_int
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-TEST/SNAT_POOL_TSTPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-TEST/vs_http_scd.tsbe.dc.sptrans.com.br {
+    destination /DMZ-TEST/200.185.50.232%4:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-TEST/sticky_ck_scd_web {
+            default yes
+        }
+    }
+    pool /DMZ-TEST/pool_http_scd_web
+    profiles {
+        /Common/tcp { }
+        /DMZ-TEST/prof_http_scd-web { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-TEST/SNAT_POOL_TSTPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-TEST/vs_http_scd.tsbe.dc.sptrans.corp {
+    destination /DMZ-TEST/10.34.199.166%4:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-TEST/sticky_ck_scd_web {
+            default yes
+        }
+    }
+    pool /DMZ-TEST/pool_http_scd_web-int
+    profiles {
+        /Common/tcp { }
+        /DMZ-TEST/prof_http_scd-web { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-TEST/SNAT_POOL_TSTPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-TEST/vs_http_scp.tsbe.sptrans.com.br {
+    destination /DMZ-TEST/200.185.50.236%4:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-TEST/sticky_srcip_scp_tst {
+            default yes
+        }
+    }
+    pool /DMZ-TEST/pool_http_scp_tst
+    profiles {
+        /Common/tcp { }
+        /DMZ-TEST/prof_http_scp_tst { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-TEST/SNAT_POOL_TSTPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-TEST/vs_http_scp.tsbe.sptrans.corp {
+    destination /DMZ-TEST/10.34.199.172%4:80
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-TEST/sticky_srcip_scp_tst {
+            default yes
+        }
+    }
+    pool /DMZ-TEST/pool_http_scp_tst-int
+    profiles {
+        /Common/tcp { }
+        /DMZ-TEST/prof_http_scp_tst { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-TEST/SNAT_POOL_TSTPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-TEST/vs_https_10.34.198.50 {
+    description test10.34.198.50
+    destination /DMZ-TEST/10.34.199.190%4:443
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /DMZ-TEST/pool_https_test10.34.198.50
+    profiles {
+        /Common/clientssl {
+            context clientside
+        }
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-TEST/SNAT_POOL_TSTPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-TEST/vs_smtp.tsbe.sptrans.corp {
+    destination /DMZ-TEST/10.34.199.173%4:25
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /DMZ-TEST/sticky_srcip_smtp_tst {
+            default yes
+        }
+    }
+    pool /DMZ-TEST/pool_smtp.tsbe.sptrans.corp
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-TEST/SNAT_POOL_TSTPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /DMZ-TEST/vs_sptosbteste.sptrans.corp {
+    destination /DMZ-TEST/10.34.199.176%4:7002
+    fallback-persistence /Common/source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        /Common/cookie {
+            default yes
+        }
+    }
+    pool /DMZ-TEST/pool_sptosbteste.sptrans.corp
+    profiles {
+        /Common/http { }
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /DMZ-TEST/SNAT_POOL_TSTPRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-HOM/hom.autopass.sptrans.src {
+    description "Recarga - Homologação - Autopass"
+    destination /FRONT-HOM/10.34.199.83%20:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-HOM/pool_hom.autopass.sptrans.src
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-HOM/SNAT-POOL-FE-HOM
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-HOM/hom.mandacaru.sptrans.src {
+    description "Recarga - Mandacaru"
+    destination /FRONT-HOM/10.34.199.82%20:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-HOM/pool_hom.mandacaru.sptrans.src
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-HOM/SNAT-POOL-FE-HOM
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-HOM/vs_hom.bencerto.sptrans.src {
+    destination /FRONT-HOM/10.34.199.80%20:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-HOM/pool_hom.bencerto.sptrans.src
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-HOM/SNAT-POOL-FE-HOM
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-HOM/vs_hom.cef.sptrans.src {
+    description "VS Sistema de Recarga Homologação"
+    destination /FRONT-HOM/10.34.199.66%20:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-HOM/pool-hom.cef.sptrans.src
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-HOM/SNAT-POOL-FE-HOM
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-HOM/vs_hom.claropay.sptrans.src {
+    description "VIP Recarga Claropay homologacao"
+    destination /FRONT-HOM/10.34.199.86%20:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-HOM/pool_hom.claropay.sptrans.src
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-HOM/SNAT-POOL-FE-HOM
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-HOM/vs_hom.devels-ipnet.sptrans.src {
+    description "VS Sistema de Recarga Homologação"
+    destination /FRONT-HOM/10.34.199.88%20:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-HOM/pool-hom.devels-ipnet.sptrans.src
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-HOM/SNAT-POOL-FE-HOM
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-HOM/vs_hom.devels.sptrans.src {
+    description "VS Sistema de Recarga Homologação"
+    destination /FRONT-HOM/10.34.199.68%20:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-HOM/pool-hom.devels.sptrans.src
+    profiles {
+        /FRONT-HOM/prof_fastl4_devels { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-HOM/SNAT-POOL-FE-HOM
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-HOM/vs_hom.epago.sptrans.src {
+    destination /FRONT-HOM/10.34.199.78%20:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-HOM/pool_hom.epago.sptrans.src
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-HOM/SNAT-POOL-FE-HOM
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-HOM/vs_hom.getnet.sptrans.src {
+    description "VS Sistema de Recarga Homologação"
+    destination /FRONT-HOM/10.34.199.74%20:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-HOM/pool-hom.getnet.sptrans.src
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-HOM/SNAT-POOL-FE-HOM
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-HOM/vs_hom.grupocard.sptrans.src {
+    description "VS Sistema de Recarga Homologação"
+    destination /FRONT-HOM/10.34.199.85%20:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-HOM/pool-hom.grupocard.sptrans.src
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-HOM/SNAT-POOL-FE-HOM
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-HOM/vs_hom.n2.sptrans.src {
+    description "VS Sistema de Recarga Homologação"
+    destination /FRONT-HOM/10.34.199.84%20:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-HOM/pool-hom.n2.sptrans.src
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-HOM/SNAT-POOL-FE-HOM
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-HOM/vs_hom.pcerto.sptrans.src {
+    description "VS Sistema de Recarga Homologação"
+    destination /FRONT-HOM/10.34.199.65%20:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-HOM/pool-hom.pcerto.sptrans.src
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-HOM/SNAT-POOL-FE-HOM
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-HOM/vs_hom.perto.sptrans.src {
+    description "VS Sistema de Recarga Homologação"
+    destination /FRONT-HOM/10.34.199.70%20:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-HOM/pool-hom.smartnet.sptrans.src
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-HOM/SNAT-POOL-FE-HOM
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-HOM/vs_hom.planin.sptrans.src {
+    description "VS Sistema de Recarga Homologação"
+    destination /FRONT-HOM/10.34.199.73%20:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-HOM/pool-hom.planin.sptrans.src
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-HOM/SNAT-POOL-FE-HOM
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-HOM/vs_hom.pldevice.sptrans.src {
+    description "VS Sistema de Recarga Homologação"
+    destination /FRONT-HOM/10.34.199.75%20:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-HOM/pool-hom.pldevice.sptrans.src
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-HOM/SNAT-POOL-FE-HOM
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-HOM/vs_hom.prodata.sptrans.src {
+    description "VS Sistema de Recarga Homologação"
+    destination /FRONT-HOM/10.34.199.72%20:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-HOM/pool-hom.prodata.sptrans.src
+    profiles {
+        /FRONT-HOM/prof_fastl4_prodata { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-HOM/SNAT-POOL-FE-HOM
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-HOM/vs_hom.protege.sptrans.src {
+    description "VS Sistema de Recarga Homologação"
+    destination /FRONT-HOM/10.34.199.71%20:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-HOM/pool-hom.protege.sptrans.src
+    profiles {
+        /FRONT-HOM/prof_fastl4_protege { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-HOM/SNAT-POOL-FE-HOM
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-HOM/vs_hom.qiwibrasil.sptrans.src {
+    description FRONT-HOM
+    destination /FRONT-HOM/10.34.199.81%20:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-HOM/pool_hom.qiwibrasil.sptrans.src
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-HOM/SNAT-POOL-FE-HOM
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-HOM/vs_hom.servlot.sptrans.src {
+    description "VS Sistema de Recarga Homologação"
+    destination /FRONT-HOM/10.34.199.67%20:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-HOM/pool-hom.servlot.sptrans.src
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-HOM/SNAT-POOL-FE-HOM
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-HOM/vs_hom.smartnet.sptrans.src {
+    description "VS Sistema de Recarga Homologação"
+    destination /FRONT-HOM/10.34.199.69%20:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-HOM/pool-hom.smartnet.sptrans.src
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-HOM/SNAT-POOL-FE-HOM
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-HOM/vs_hom.sodexo.sptrans.src {
+    destination /FRONT-HOM/10.34.199.77%20:5000
+    disabled
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-HOM/pool_hom.sodexo.sptrans.src
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-HOM/SNAT-POOL-FE-HOM
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-HOM/vs_hom.tacom.sptrans.src {
+    description "VIP Recarga Tacom homologacao"
+    destination /FRONT-HOM/10.34.199.87%20:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-HOM/pool_hom.tacom.sptrans.src
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-HOM/SNAT-POOL-FE-HOM
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-HOM/vs_hom.tendencia.sptrans.src {
+    destination /FRONT-HOM/10.34.199.76%20:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-HOM/pool-hom.tendencia.sptrans.src
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-HOM/SNAT-POOL-FE-HOM
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-HOM/vs_hom.zuum.sptrans.src {
+    destination /FRONT-HOM/10.34.199.79%20:5000
+    disabled
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-HOM/pool_hom.zuum.sptrans.src
+    profiles {
+        /Common/mptcp-mobile-optimized { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-HOM/SNAT-POOL-FE-HOM
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-PRD/vs_autopass.sptrans.src {
+    destination /FRONT-PRD/10.34.199.47%10:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-PRD/pool-autopass.sptrans.src
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-PRD/SNAT-POOL-FE-PRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-PRD/vs_bencerto.sptrans.scr {
+    destination /FRONT-PRD/10.34.199.45%10:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-PRD/pool-bencerto.sptrans.src
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-PRD/SNAT-POOL-FE-PRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-PRD/vs_cef.sptrans.src {
+    description "VS sistema de recarga - Caixa Economica"
+    destination /FRONT-PRD/10.34.199.34%10:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-PRD/pool-cef.sptrans.src
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-PRD/SNAT-POOL-FE-PRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-PRD/vs_devels.sptrans.src {
+    description "VS sistema de recarga -Devels"
+    destination /FRONT-PRD/10.34.199.36%10:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-PRD/pool-devels.sptrans.src
+    profiles {
+        /FRONT-PRD/prof_fastl4_devels_prd { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-PRD/SNAT-POOL-FE-PRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-PRD/vs_grupocard.sptrans.src {
+    description "VS sistema de recarga - Grupocard"
+    destination /FRONT-PRD/10.34.199.50%10:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-PRD/pool-grupocard.sptrans.src
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-PRD/SNAT-POOL-FE-PRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-PRD/vs_newprodata.sptrans.src {
+    description "HM - New Prodata"
+    destination /FRONT-PRD/10.34.199.48%10:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-PRD/pool-newprodata.sptrans.src
+    profiles {
+        /FRONT-PRD/prof_fastl4_prodata_prd { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-PRD/SNAT-POOL-FE-PRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-PRD/vs_pcerto.sptrans.src {
+    description "VS sistema de recarga - Ponto Certo"
+    destination /FRONT-PRD/10.34.199.33%10:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-PRD/pool-pcerto.sptrans.src
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-PRD/SNAT-POOL-FE-PRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-PRD/vs_perto.sptrans.src {
+    description "VS sistema de recarga -Perto"
+    destination /FRONT-PRD/10.34.199.38%10:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-PRD/pool-perto.sptrans.src
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-PRD/SNAT-POOL-FE-PRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-PRD/vs_planin.sptrans.src {
+    description "VS sistema de recarga - Planin"
+    destination /FRONT-PRD/10.34.199.41%10:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-PRD/pool-planin.sptrans.src
+    profiles {
+        /Common/tcp {
+            context clientside
+        }
+        /FRONT-PRD/prof_tcp_timeout {
+            context serverside
+        }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-PRD/SNAT-POOL-FE-PRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-PRD/vs_pldevice.sptrans.src {
+    description "VS sistema de recarga - Pldevice"
+    destination /FRONT-PRD/10.34.199.43%10:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-PRD/pool-pldevice.sptrans.src
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-PRD/SNAT-POOL-FE-PRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-PRD/vs_prodata.sptrans.src {
+    description "VS sistema de recarga - Pro Data"
+    destination /FRONT-PRD/10.34.199.40%10:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-PRD/pool-prodata.sptrans.src
+    profiles {
+        /FRONT-PRD/prof_fastl4_prodata_prd { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-PRD/SNAT-POOL-FE-PRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-PRD/vs_protege.sptrans.src {
+    description "VS sistema de recarga - Protege"
+    destination /FRONT-PRD/10.34.199.39%10:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-PRD/pool-protege.sptrans.src
+    profiles {
+        /FRONT-PRD/prof_fastl4_protege_prd { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-PRD/SNAT-POOL-FE-PRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-PRD/vs_qiwi.sptrans.src {
+    destination /FRONT-PRD/10.34.199.60%10:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-PRD/pool-qiwi.sptrans.src
+    profiles {
+        /Common/fastL4 { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-PRD/SNAT-POOL-FE-PRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-PRD/vs_servlot.sptrans.src {
+    description "VS sistema de recarga - ServLot"
+    destination /FRONT-PRD/10.34.199.35%10:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-PRD/pool-servlot.sptrans.src
+    profiles {
+        /Common/tcp { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-PRD/SNAT-POOL-FE-PRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+ltm virtual /FRONT-PRD/vs_smartnet.sptrans.src {
+    description "VS sistema de recarga -Smartnet (VR)"
+    destination /FRONT-PRD/10.34.199.37%10:5000
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool /FRONT-PRD/pool-smartnet.sptrans.src
+    profiles {
+        /Common/mptcp-mobile-optimized { }
+    }
+    source 0.0.0.0/0
+    source-address-translation {
+        pool /FRONT-PRD/SNAT-POOL-FE-PRD
+        type snat
+    }
+    translate-address enabled
+    translate-port enabled
+}
+
