@@ -1,0 +1,840 @@
+active-partition DMZ-HOM
+configure
+slb server 10.34.196.63  10.34.196.63
+exit
+exit 
+active-partition DMZ-HOM
+configure
+slb server 10.34.198.48  10.34.198.48
+exit
+exit 
+active-partition DMZ-HOM
+configure
+slb server SPTCADESCOLA01H  10.34.196.16
+exit
+exit 
+active-partition DMZ-HOM
+configure
+slb server SPTCADESCOLA02H  10.34.196.17
+exit
+exit 
+active-partition DMZ-HOM
+configure
+slb server SPTDWAPP01H  10.34.196.31
+exit
+exit 
+active-partition DMZ-HOM
+configure
+slb server SPTDWAPP02H  10.34.196.32
+exit
+exit 
+active-partition DMZ-HOM
+configure
+slb server SPTDWAPP03H  10.34.196.33
+exit
+exit 
+active-partition DMZ-HOM
+configure
+slb server SPTFTPAPP01H  10.34.196.24
+exit
+exit 
+active-partition DMZ-HOM
+configure
+slb server SPTLVWEB01H  10.34.196.27
+exit
+exit 
+active-partition DMZ-HOM
+configure
+slb server SPTLVWEB02H  10.34.196.28
+exit
+exit 
+active-partition DMZ-HOM
+configure
+slb server SPTLVWS01H  10.34.196.25
+exit
+exit 
+active-partition DMZ-HOM
+configure
+slb server SPTLVWS02H  10.34.196.26
+exit
+exit 
+active-partition DMZ-HOM
+configure
+slb server SPTOSBWEB01H  10.34.196.77
+exit
+exit 
+active-partition DMZ-HOM
+configure
+slb server SPTOSBWEB02H  10.34.196.78
+exit
+exit 
+active-partition DMZ-HOM
+configure
+slb server SPTRELAY01H  10.34.196.19
+exit
+exit 
+active-partition DMZ-HOM
+configure
+slb server SPTSCAPRIV01H  10.34.196.12
+exit
+exit 
+active-partition DMZ-HOM
+configure
+slb server SPTSCAPRIV02H  10.34.196.13
+exit
+exit 
+active-partition DMZ-HOM
+configure
+slb server SPTSCAPUB01H  10.34.198.14
+exit
+exit 
+active-partition DMZ-HOM
+configure
+slb server SPTSCAPUB02H  10.34.198.15
+exit
+exit 
+active-partition DMZ-HOM
+configure
+slb server SPTSCDAPP01H  10.34.196.22
+exit
+exit 
+active-partition DMZ-HOM
+configure
+slb server SPTSCDAPP02H  10.34.196.23
+exit
+exit 
+active-partition DMZ-HOM
+configure
+slb server SPTSCPWEB01H  10.34.196.6
+exit
+exit 
+active-partition DMZ-HOM
+configure
+slb server SPTSCPWEB02H  10.34.196.29
+exit
+exit 
+active-partition DMZ-HOM
+configure
+slb server SPTSCPWEB03H  10.34.196.7
+exit
+exit 
+active-partition DMZ-HOM
+configure
+slb server SPTSCPWEB04H  10.34.196.30
+exit
+exit 
+active-partition DMZ-HOM
+configure
+slb server SPTWSAPP03  10.34.194.77
+exit
+exit 
+active-partition DMZ-HOM
+configure
+slb server SPTWSAPP03H  10.34.196.36
+exit
+exit 
+active-partition DMZ-HOM
+configure
+slb server SPTWSAPP04  10.34.194.78
+exit
+exit 
+active-partition DMZ-HOM
+configure
+slb server SPTWSAPP04H  10.34.196.39
+exit
+exit 
+active-partition DMZ-HOM
+configure
+slb server sptsoaweb03d  10.34.196.65
+exit
+exit 
+active-partition DMZ-HOM
+configure
+slb server sptsoaweb04d  10.34.196.66
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server 10.34.194.98  10.34.194.98
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTADMWEB01  10.34.194.83
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTADMWEB02  10.34.194.86
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTAF01  10.34.194.101
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTAPPSM1  10.34.194.124
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTAPPSM1-DR  10.34.210.71
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTAPPSM2  10.34.194.125
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTAPPSMP1  10.34.194.126
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTAPPSMP1-DR  10.34.210.72
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTAPPSMP2  10.34.194.127
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTCADESCOLA01  10.34.194.43
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTCADESCOLA02  10.34.194.44
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTDWAPP02  10.34.194.23
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTDWAPP03  10.34.194.15
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTEDI01  10.34.194.55
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTEDI02  10.34.194.56
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTEDI03  10.34.194.57
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTEDI04  10.34.194.58
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTEDI05  10.34.194.59
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTEDI06  10.34.194.60
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTEDI07  10.34.194.61
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTEDI08  10.34.194.62
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTEDI09  10.34.194.63
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTEDI10  10.34.194.64
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTEDI11  10.34.194.65
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTFSFTP01  10.34.194.28
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTFSFTP02  10.34.194.29
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTFTPAPP01  10.34.194.12
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTFTPAPP02  10.34.194.41
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTLPAPP01  10.34.205.103
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTLPAPP02  10.34.205.104
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTLPAPP03  10.34.205.105
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTLPAPP04  10.34.205.106
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTLVWEB01  10.34.194.13
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTLVWEB02  10.34.194.30
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTLVWEB03  10.34.194.37
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTLVWEB11-CNP  10.34.210.13
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTLVWEB12-CNP  10.34.210.30
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTLVWEB13-CNP  10.34.210.37
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTMNTODI01  10.34.194.73
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTMNTODI02  10.34.194.75
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTOSBWEB01  10.34.194.90
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTOSBWEB02  10.34.194.91
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTOSBWEB03  10.34.194.92
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTOSBWEB04  10.34.194.93
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTRELAY01  10.34.194.47
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTSCAAPP01  10.34.194.16
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTSCAAPP04  10.34.194.26
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTSCAPRIV01  10.34.194.39
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTSCAPRIV02  10.34.194.40
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTSCAPRIV03  10.34.194.121
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTSCAPRIV04  10.34.194.122
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTSCAPRIV11  10.34.210.39
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTSCAPRIV12  10.34.210.40
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTSCAPRIV13  10.34.210.69
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTSCAPRIV14  10.34.210.70
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTSCAPUB01  10.34.194.31
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTSCAPUB02  10.34.194.32
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTSCAPUB03  10.34.194.33
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTSCAPUB04  10.34.194.34
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTSCAPUB11  10.34.210.31
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTSCAPUB12  10.34.210.32
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTSCAPUB13  10.34.210.33
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTSCAPUB14  10.34.210.34
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTSCDAPP01  10.34.194.19
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTSCDAPP02  10.34.194.38
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTSCDAPP03  10.34.194.42
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTSCDAPP11-CNP  10.34.210.19
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTSCDAPP12-CNP  10.34.210.38
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTSCDAPP13-CNP  10.34.210.42
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTSCPWEB01  10.34.194.45
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTSCPWEB02  10.34.194.46
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTSCPWEB03  10.34.194.17
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTSCPWEB04  10.34.194.48
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTWSAPP01  10.34.194.35
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTWSAPP02  10.34.194.36
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTWSAPP03  10.34.194.77
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTWSAPP04  10.34.194.78
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTWSAPP13  10.34.210.54
+exit
+exit 
+active-partition DMZ-PRD
+configure
+slb server SPTWSAPP14  10.34.210.55
+exit
+exit 
+active-partition DMZ-QAS
+configure
+slb server SPTCADESCOLA01Q  10.34.197.26
+exit
+exit 
+active-partition DMZ-QAS
+configure
+slb server SPTCADESCOLA02Q  10.34.197.30
+exit
+exit 
+active-partition DMZ-QAS
+configure
+slb server SPTDWAPP01Q  10.34.197.13
+exit
+exit 
+active-partition DMZ-QAS
+configure
+slb server SPTDWAPP02Q  10.34.197.14
+exit
+exit 
+active-partition DMZ-QAS
+configure
+slb server SPTDWAPP03Q  10.34.197.15
+exit
+exit 
+active-partition DMZ-QAS
+configure
+slb server SPTFTPAPP01Q  10.34.197.17
+exit
+exit 
+active-partition DMZ-QAS
+configure
+slb server SPTINTRA01Q  10.34.197.56
+exit
+exit 
+active-partition DMZ-QAS
+configure
+slb server SPTINTRA02Q  10.34.197.57
+exit
+exit 
+active-partition DMZ-QAS
+configure
+slb server SPTMNTODI01Q  10.34.197.9
+exit
+exit 
+active-partition DMZ-QAS
+configure
+slb server SPTMNTODI02Q  10.34.197.11
+exit
+exit 
+active-partition DMZ-QAS
+configure
+slb server SPTRELAY01Q  10.34.197.25
+exit
+exit 
+active-partition DMZ-QAS
+configure
+slb server SPTSCAPRIV01Q  10.34.197.32
+exit
+exit 
+active-partition DMZ-QAS
+configure
+slb server SPTSCAPRIV02Q  10.34.197.34
+exit
+exit 
+active-partition DMZ-QAS
+configure
+slb server SPTSCAPUB01Q  10.34.197.29
+exit
+exit 
+active-partition DMZ-QAS
+configure
+slb server SPTSCAPUB02Q  10.34.197.33
+exit
+exit 
+active-partition DMZ-QAS
+configure
+slb server SPTSCDAPP01Q  10.34.197.35
+exit
+exit 
+active-partition DMZ-QAS
+configure
+slb server SPTSCDAPP02Q  10.34.197.36
+exit
+exit 
+active-partition DMZ-QAS
+configure
+slb server SPTSCPWEB01Q  10.34.197.42
+exit
+exit 
+active-partition DMZ-QAS
+configure
+slb server SPTSCPWEB02Q  10.34.197.38
+exit
+exit 
+active-partition DMZ-QAS
+configure
+slb server SPTSCPWEB03Q  10.34.196.7
+exit
+exit 
+active-partition DMZ-QAS
+configure
+slb server SPTSCPWEB04Q  10.34.196.30
+exit
+exit 
+active-partition DMZ-TEST
+configure
+slb server 10.34.198.48  10.34.198.48
+exit
+exit 
+active-partition DMZ-TEST
+configure
+slb server SPTCADESCOLA01T  10.34.198.22
+exit
+exit 
+active-partition DMZ-TEST
+configure
+slb server SPTCADESCOLA02T  10.34.198.26
+exit
+exit 
+active-partition DMZ-TEST
+configure
+slb server SPTDWAPP01T  10.34.198.9
+exit
+exit 
+active-partition DMZ-TEST
+configure
+slb server SPTDWAPP02T  10.34.198.10
+exit
+exit 
+active-partition DMZ-TEST
+configure
+slb server SPTDWAPP03T  10.34.198.11
+exit
+exit 
+active-partition DMZ-TEST
+configure
+slb server SPTFTPAPP01T  10.34.198.13
+exit
+exit 
+active-partition DMZ-TEST
+configure
+slb server SPTRELAY01T  10.34.198.21
+exit
+exit 
+active-partition DMZ-TEST
+configure
+slb server SPTSCAPRIV01T  10.34.198.28
+exit
+exit 
+active-partition DMZ-TEST
+configure
+slb server SPTSCAPRIV02T  10.34.198.30
+exit
+exit 
+active-partition DMZ-TEST
+configure
+slb server SPTSCAPUB01T  10.34.198.25
+exit
+exit 
+active-partition DMZ-TEST
+configure
+slb server SPTSCAPUB02T  10.34.198.29
+exit
+exit 
+active-partition DMZ-TEST
+configure
+slb server SPTSCDAPP01T  10.34.198.31
+exit
+exit 
+active-partition DMZ-TEST
+configure
+slb server SPTSCDAPP02T  10.34.198.32
+exit
+exit 
+active-partition DMZ-TEST
+configure
+slb server SPTSCPWEB01T  10.34.198.34
+exit
+exit 
+active-partition DMZ-TEST
+configure
+slb server SPTSCPWEB02T  10.34.198.38
+exit
+exit 
+active-partition DMZ-TEST
+configure
+slb server SPTSCPWEB03T  10.34.198.36
+exit
+exit 
+active-partition DMZ-TEST
+configure
+slb server SPTSCPWEB04T  10.34.198.35
+exit
+exit 
+active-partition DMZ-TEST
+configure
+slb server TEST10.34.198.50  10.34.198.50
+exit
+exit 
+active-partition FRONT-HOM
+configure
+slb server SPTHM01H  10.34.202.141
+exit
+exit 
+active-partition FRONT-HOM
+configure
+slb server SPTHM02H  10.34.202.142
+exit
+exit 
+active-partition FRONT-HOM
+configure
+slb server SPTHMREST01H  10.34.202.132
+exit
+exit 
+active-partition FRONT-HOM
+configure
+slb server SPTHMREST02H  10.34.202.133
+exit
+exit 
+active-partition FRONT-PRD
+configure
+slb server SPTHMREC01  10.34.202.41
+exit
+exit 
+active-partition FRONT-PRD
+configure
+slb server SPTHMREC02  10.34.202.42
+exit
+exit 
+active-partition FRONT-PRD
+configure
+slb server SPTHMREC03  10.34.202.44
+exit
+exit 
+active-partition FRONT-PRD
+configure
+slb server SPTHMREC04  10.34.202.45
+exit
+exit 
+active-partition FRONT-PRD
+configure
+slb server SPTHMREC05  10.34.202.46
+exit
+exit 
+active-partition FRONT-PRD
+configure
+slb server SPTHMREC06  10.34.202.48
+exit
+exit 
+active-partition FRONT-PRD
+configure
+slb server SPTHMREC07  10.34.202.49
+exit
+exit 
+active-partition FRONT-PRD
+configure
+slb server SPTHMREC08  10.34.202.50
+exit
+exit 
+active-partition FRONT-PRD
+configure
+slb server SPTHMREC09  10.34.202.57
+exit
+exit 
+active-partition FRONT-PRD
+configure
+slb server SPTHMREC10  10.34.202.58
+exit
+exit 
+active-partition FRONT-PRD
+configure
+slb server SPTSCPAPP01  10.34.202.25
+exit
+exit 
+active-partition FRONT-PRD
+configure
+slb server SPTSCPAPP02  10.34.202.26
+exit
+exit 
+active-partition FRONT-QAS
+configure
+slb server 10.34.193.161  10.34.193.161
+exit
+exit 

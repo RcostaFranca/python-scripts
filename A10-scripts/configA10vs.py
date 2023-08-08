@@ -1,8 +1,8 @@
 import os
 import re
 
-f5_file = open(os.path.normpath("python-scripts/A10-scripts/config-parts/LB794/LB794-vs.txt"))
-a10_file = open(os.path.normpath("python-scripts/A10-scripts/result_files/LB794/A10-LB794-vs.txt"),"a")
+f5_file = open(os.path.normpath("A10-scripts/config-parts/LB792/LB792-vs.txt"))
+#a10_file = open(os.path.normpath("python-scripts/A10-scripts/result_files/LB792/A10-LB792-vs.txt"),"a")
 
 norm_file = str(f5_file.read()).split("# }")
 ip_regex= "destination \/[A-Z\-]+\/\d{1,3}(?:\.\d{1,3}){3}%\d+:\d+"

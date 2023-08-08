@@ -1,0 +1,1581 @@
+active-partition DMZ-HOM
+configure
+slb virtual-server vs_809_lv.hsbe.sptrans.com.br  200.185.50.203
+port 809 tcp
+source-nat auto
+service-group  
+exit
+exit
+ 
+active-partition DMZ-HOM
+configure
+slb virtual-server vs_7778_portal.sptrans.com.br  200.185.50.194
+port 7778 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group pool_http_portal-sptrans-ext
+exit
+exit
+ 
+active-partition DMZ-HOM
+configure
+slb virtual-server vs_8080_ws.hsbe.dc.sptrans.corp  10.34.199.105
+port 8080 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group pool_http_webservices-int
+exit
+exit
+ 
+active-partition DMZ-HOM
+configure
+slb virtual-server vs_8080_ws.hsbe.sptrans.com.br  200.185.50.193
+port 8080 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group pool_8080_webservices
+exit
+exit
+ 
+active-partition DMZ-HOM
+configure
+slb virtual-server vs_appservices_hom.sptrans.corp  10.34.199.116
+port 80 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group  
+port 443 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group  
+exit
+exit
+ 
+active-partition DMZ-HOM
+configure
+slb virtual-server vs_ftp_scdftp.hsbe.sptrans.com.br  200.185.50.202
+port 21 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group pool_ftp_scdftp
+exit
+exit
+ 
+active-partition DMZ-HOM
+configure
+slb virtual-server vs_ftp_scdftp.hsbe.sptrans.corp  10.34.199.103
+port 21 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group pool_ftp_scdftp
+exit
+exit
+ 
+active-partition DMZ-HOM
+configure
+slb virtual-server vs_http_cadescola.sptrans.com.br  200.185.50.197
+port 80 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group pool_highports_cadescola-sca
+port 443 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group pool_highports_cadescola-sca
+exit
+exit
+ 
+active-partition DMZ-HOM
+configure
+slb virtual-server vs_http_lv.hsbe.dc.sptrans.corp  10.34.199.104
+port 80 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group pool_highports_lojavirtual_hom-int
+port 443 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group pool_highports_lojavirtual_hom-int
+exit
+exit
+ 
+ 
+active-partition DMZ-HOM
+configure
+slb virtual-server vs_http_pedidocredito.ws.hsbe.sptrans.com.br  200.185.50.206
+port 8081 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group pool_pedidocredito.ws.hsbe
+exit
+exit
+ 
+active-partition DMZ-HOM
+configure
+slb virtual-server vs_http_pedidocredito.ws.hsbe.sptrans.corp  10.34.199.111
+port 8081 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group pool_pedidocredito.ws.hsbe.sptrans.corp
+exit
+exit
+ 
+ 
+active-partition DMZ-HOM
+configure
+slb virtual-server vs_http_sbeweb.hsbe.sptrans.com.br  200.185.50.204
+port 80 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group pool_http_sbeweb
+port 443 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group pool_http_sbeweb
+exit
+exit
+ 
+active-partition DMZ-HOM
+configure
+slb virtual-server vs_http_sbeweb.hsbe.sptrans.corp  10.34.199.107
+port 80 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group pool_http_sbeweb-int
+port 443 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group pool_http_sbeweb-int
+exit
+exit
+ 
+active-partition DMZ-HOM
+configure
+slb virtual-server vs_http_scapriv.hsbe.dc.sptrans.com.br  200.185.50.196
+port 80 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group  
+port 443 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group  
+exit
+exit
+ 
+active-partition DMZ-HOM
+configure
+slb virtual-server vs_http_scapriv.hsbe.dc.sptrans.corp  10.34.199.100
+port 80 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group  
+port 443 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group  
+exit
+exit
+ 
+active-partition DMZ-HOM
+configure
+slb virtual-server vs_http_scapub.hsbe.dc.sptrans.com.br  200.185.50.195
+port 80 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group  
+port 443 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group  
+exit
+exit
+ 
+active-partition DMZ-HOM
+configure
+slb virtual-server vs_http_scapub.hsbe.dc.sptrans.corp  10.34.199.99
+port 80 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group  
+port 443 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group  
+exit
+exit
+ 
+active-partition DMZ-HOM
+configure
+slb virtual-server vs_http_scd.hsbe.dc.sptrans.corp  10.34.199.102
+port 80 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group pool_scd-web-hom-int
+port 443 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group pool_scd-web-hom-int
+exit
+exit
+ 
+active-partition DMZ-HOM
+configure
+slb virtual-server vs_http_scd.hsbe.sptrans.com.br  200.185.50.201
+port 80 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group pool_scd-web-hom
+port 443 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group pool_scd-web-hom
+exit
+exit
+ 
+active-partition DMZ-HOM
+configure
+slb virtual-server vs_http_scp.hsbe.sptrans.com.br  200.185.50.205
+port 80 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group pool_http_scp
+port 443 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group pool_http_scp
+exit
+exit
+ 
+active-partition DMZ-HOM
+configure
+slb virtual-server vs_http_scp.hsbe.sptrans.corp  10.34.199.108
+port 80 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group pool_http_scp-int
+port 443 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group pool_http_scp-int
+exit
+exit
+ 
+ 
+ 
+active-partition DMZ-HOM
+configure
+slb virtual-server vs_intraneth.dc.sptrans.corp  10.34.199.112
+port 80 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group pool_intraneth.dc.sptrans.corp
+port 443 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group pool_intraneth.dc.sptrans.corp
+exit
+exit
+ 
+active-partition DMZ-HOM
+configure
+slb virtual-server vs_smtp.hsbe.sptrans.corp  10.34.199.109
+port 25 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group pool_smtp.sbe.sptrans.corp
+exit
+exit
+ 
+active-partition DMZ-HOM
+configure
+slb virtual-server vs_sptosbhml.dc.sptrans.corp  10.34.199.115
+port 7002 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group pool_sptosbhml.sptrans.corp
+exit
+exit
+ 
+active-partition DMZ-HOM
+configure
+slb virtual-server vs_sptosbtestefab.dc.sptrans.corp  10.34.199.114
+port 7002 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group pool_sptosbtestefab.dc.sptrans.corp
+exit
+exit
+ 
+active-partition DMZ-HOM
+configure
+slb virtual-server vs_sptsoatestefab.dc.sptrans.corp  10.34.199.113
+port 7003 tcp
+source-nat pool SNAT_POOL_HOMPRD
+service-group pool_sptsoatestefab.dc.sptrans.corp
+exit
+exit
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vc_ftp_ftp.sptrans.corp  10.34.199.11
+port 21 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_ftp_sptrans.corp
+exit
+exit
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_81_lp.sbe.sptrans.corp  10.34.199.26
+port 81 tcp
+source-nat pool SNAT_DMZ_TVS
+service-group pool_81_lp.sbe.sptrans.corp
+exit
+exit
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_809_lv.sbe.dc.sptrans.corp  10.34.199.9
+port 809 tcp
+source-nat auto
+service-group pool_highports_lojavirtual-int
+exit
+exit
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_809_lv.sbe.sptrans.com.br  200.185.40.202
+port 809 tcp
+source-nat auto
+service-group  
+exit
+exit
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_7778_portal.sptrans.com.br_externo  200.185.40.193
+port 7778 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group  
+exit
+exit
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_8080_antifraude.sbe.dc.sptrans.corp  10.34.199.19
+port 8080 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_antifraude.sbe.dc.sptrans.corp
+exit
+exit
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_8080_ws.sbe.dc.sptrans.corp  10.34.199.10
+port 8080 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_8080_webservices-int
+exit
+exit
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_8080_ws.sbe.sptrans.com.br  200.185.40.203
+port 8080 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_8080_webservices
+exit
+exit
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_8081_lvpriv.sbe.sptrans.corp  10.34.199.25
+port 80 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_highports_lvpriv-corp
+port 443 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_highports_lvpriv-corp
+exit
+exit
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_cobranca.dc.sptrans.corp  10.34.199.22
+port 8080 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_cobranca.dc.sptrans.corp
+exit
+exit
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_forwarding_all-dmz-prd  0.0.0.0
+port 0 tcp
+source-nat auto
+service-group  
+exit
+exit
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_ftp_scdftp.sbe.sptran.scom.br  200.185.40.201
+port 21 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_ftp_scdftp
+exit
+exit
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_ftp_scdftp.sbe.sptrans.corp  10.34.199.8
+port 21 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_ftp_scdftp-int
+exit
+exit
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_ftp_sptrans.com.br  200.185.40.199
+port 21 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_ftp_sptrans.com.br
+exit
+exit
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_httpS_cadescola.sptrans.com.br  200.185.40.196
+port 443 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_highports_cadescola-sca
+port 80 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_highports_cadescola-sca
+exit
+exit
+ 
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_httpS_pbe.bilheteunico.dc.sptrans.com.br  200.185.40.207
+port 443 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_pbe.bilheteunico.dc.sptrans.com.br
+port 80 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_pbe.bilheteunico.dc.sptrans.com.br
+exit
+exit
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_httpS_scapriv.sbe.sptrans.com.br  200.185.40.195
+port 443 tcp
+source-nat auto
+service-group  
+port 80 tcp
+source-nat auto
+service-group  
+exit
+exit
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_httpS_scapub.sbe.sptrans.com.br  200.185.40.194
+port 443 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group  
+port 80 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group  
+exit
+exit
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_httpS_scd.sbe.sptrans.com.br  200.185.40.200
+port 443 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_http
+port 80 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_http
+exit
+exit
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_http_api.sptrans.corp  10.34.199.18
+port 80 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_api.sptrans.corp
+port 443 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_api.sptrans.corp
+exit
+exit
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_http_backoffice.recon.sptrans.corp  10.34.199.24
+port 8080 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_backoffice.recon.sptrans.corp
+exit
+exit
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_http_bi.sptrans.corp_int  10.34.199.3
+port 80 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_7778-bi.sptrans.corp-int
+port 443 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_7778-bi.sptrans.corp-int
+exit
+exit
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_http_bilheteunico.sptrans.com.br  200.185.40.198
+port 80 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_http_90_bilhete.sptrans
+port 443 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_http_90_bilhete.sptrans
+exit
+exit
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_http_cadescola.dc.sptrans.corp  10.34.199.6
+port 80 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_highports_cadescola-sca_int
+port 443 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_highports_cadescola-sca_int
+exit
+exit
+ 
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_http_cyberark  10.34.199.29
+port 80 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_cyberark
+port 443 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_cyberark
+exit
+exit
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_http_estudante.sptrans.com.br  200.185.40.197
+port 80 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_http_91_estudante.sptrans
+port 443 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_http_91_estudante.sptrans
+exit
+exit
+ 
+ 
+ 
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_http_odi.sptrans.corp  10.34.199.15
+port 80 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_8001_odi.sptrans.corp
+port 443 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_8001_odi.sptrans.corp
+exit
+exit
+ 
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_http_pbe.bilheteunico.dc.sptrans.corp  10.34.199.23
+port 80 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_pbe.bilheteunico.dc.sptrans.corp
+port 443 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_pbe.bilheteunico.dc.sptrans.corp
+exit
+exit
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_http_pedidodecredito.ws.sbe.dc.sptrans.corp  10.34.199.16
+port 8081 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_pedidocredito
+exit
+exit
+ 
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_http_portal.sptrans.corp_int  10.34.199.2
+port 80 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_7778-portal.sptrans.corp-int
+port 443 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_7778-portal.sptrans.corp-int
+exit
+exit
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_http_sbeweb.sbe.sptrans.com.br  200.185.40.204
+port 80 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_sbeweb.sbe.sptrans.com.br
+port 443 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_sbeweb.sbe.sptrans.com.br
+exit
+exit
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_http_sbeweb.sbe.sptrans.corp  10.34.199.12
+port 80 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_sbeweb.sbe.sptrans.corp
+port 443 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_sbeweb.sbe.sptrans.corp
+exit
+exit
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_http_scapriv.sbe.dc.sptrans.corp  10.34.199.5
+port 80 tcp
+source-nat auto
+service-group pool_highports_scapriv-default_int
+port 443 tcp
+source-nat auto
+service-group pool_highports_scapriv-default_int
+exit
+exit
+ 
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_http_scapub.sbe.dc.sptrans.corp  10.34.199.4
+port 80 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group  
+port 443 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group  
+exit
+exit
+ 
+ 
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_http_scd.sbe.sptrans.corp  10.34.199.7
+port 80 tcp
+source-nat auto
+service-group pool_http_scd_web-int
+port 443 tcp
+source-nat auto
+service-group pool_http_scd_web-int
+exit
+exit
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_http_scp.sbe.sptrans.com.br  200.185.40.205
+port 80 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_scp.sbe.sptrans.com.br
+port 443 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_scp.sbe.sptrans.com.br
+exit
+exit
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_http_scp.sbe.sptrans.corp  10.34.199.13
+port 80 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_scp.sbe.sptrans.corp
+port 443 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_scp.sbe.sptrans.corp
+exit
+exit
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_http_services.sptrans.corp  10.34.199.28
+port 80 tcp
+source-nat auto
+service-group pool_services.sptrans.corp_int
+port 443 tcp
+source-nat auto
+service-group pool_services.sptrans.corp_int
+exit
+exit
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_http_soainfraprd.dc.sptrans.corp  10.34.199.20
+port 80 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_soainfra.dc.sptrans.corp
+port 443 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_soainfra.dc.sptrans.corp
+exit
+exit
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_http_teste_web  10.34.199.30
+port 80 tcp
+source-nat auto
+service-group pool_vs_http_teste_web
+port 443 tcp
+source-nat auto
+service-group pool_vs_http_teste_web
+exit
+exit
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_http_validacaoserpro.sptrans.corp  10.34.199.27
+port 80 tcp
+source-nat auto
+service-group pool_validacaoserpro.sptrans.corp
+port 443 tcp
+source-nat auto
+service-group pool_validacaoserpro.sptrans.corp
+exit
+exit
+ 
+ 
+ 
+ 
+ 
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_smtp.sbe.sptrans.crop  10.34.199.14
+port 25 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_smtp.sbe.sptrans.corp
+exit
+exit
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_sptosbprd.sptrans.corp  10.34.199.21
+port 7003 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_sptosbprd.sptrans.corp
+exit
+exit
+ 
+active-partition DMZ-PRD
+configure
+slb virtual-server vs_ssh_edi.dc.sptrans.com.br  10.34.199.17
+port 22 tcp
+source-nat pool SNAT_POOL_DMZPRD
+service-group pool_ssh_edi_garagens
+exit
+exit
+ 
+active-partition DMZ-QAS
+configure
+slb virtual-server vs_7778_portal.sptrans.com.br  200.185.50.209
+port 7778 tcp
+source-nat pool SNAT-POOL-DMZ-QAS
+service-group pool_http_portal-sptrans-ext
+exit
+exit
+ 
+active-partition DMZ-QAS
+configure
+slb virtual-server vs_ftp_scdftp.qsbe.sptrans.com.br  200.185.50.217
+port 21 tcp
+source-nat pool SNAT-POOL-DMZ-QAS
+service-group pool_ftp_scdftp
+exit
+exit
+ 
+active-partition DMZ-QAS
+configure
+slb virtual-server vs_ftp_scdftp.qsbe.sptrans.corp  10.34.199.136
+port 21 tcp
+source-nat pool SNAT-POOL-DMZ-QAS
+service-group pool_ftp_scdftp
+exit
+exit
+ 
+active-partition DMZ-QAS
+configure
+slb virtual-server vs_httpS_qsbe.bilheteunico.sptrans.com.br  200.185.50.213
+port 443 tcp
+source-nat pool PFL_SSL_
+service-group pool_qbe.bilheteunico.sptrans.com.br
+port 80 tcp
+source-nat pool PFL_SSL_
+service-group pool_qbe.bilheteunico.sptrans.com.br
+exit
+exit
+ 
+active-partition DMZ-QAS
+configure
+slb virtual-server vs_http_bi.sptrans.corp  10.34.199.131
+port 80 tcp
+source-nat pool SNAT-POOL-DMZ-QAS
+service-group pool_http_portal-sptrans-int
+port 443 tcp
+source-nat pool SNAT-POOL-DMZ-QAS
+service-group pool_http_portal-sptrans-int
+exit
+exit
+ 
+active-partition DMZ-QAS
+configure
+slb virtual-server vs_http_cadescola.sptrans.com.br  200.185.50.212
+port 80 tcp
+source-nat pool SNAT-POOL-DMZ-QAS
+service-group pool_highports_cadescola-sca
+port 443 tcp
+source-nat pool SNAT-POOL-DMZ-QAS
+service-group pool_highports_cadescola-sca
+exit
+exit
+ 
+active-partition DMZ-QAS
+configure
+slb virtual-server vs_http_cadescola.sptrans.corp  10.34.199.134
+port 80 tcp
+source-nat pool SNAT-POOL-DMZ-QAS
+service-group pool_highports_cadescola-sca-int
+port 443 tcp
+source-nat pool SNAT-POOL-DMZ-QAS
+service-group pool_highports_cadescola-sca-int
+exit
+exit
+ 
+active-partition DMZ-QAS
+configure
+slb virtual-server vs_http_odiagent.qa.sptrans.corp  10.34.199.129
+port 80 tcp
+source-nat pool SNAT-POOL-DMZ-QAS
+service-group pool_8001_odiagent-int
+port 443 tcp
+source-nat pool SNAT-POOL-DMZ-QAS
+service-group pool_8001_odiagent-int
+exit
+exit
+ 
+ 
+active-partition DMZ-QAS
+configure
+slb virtual-server vs_http_portal.sptrans.corp  10.34.199.130
+port 80 tcp
+source-nat pool SNAT-POOL-DMZ-QAS
+service-group pool_http_portal-sptrans-int
+port 443 tcp
+source-nat pool SNAT-POOL-DMZ-QAS
+service-group pool_http_portal-sptrans-int
+exit
+exit
+ 
+active-partition DMZ-QAS
+configure
+slb virtual-server vs_http_sbeweb.qsbe.sptrans.com.br  200.185.50.219
+port 80 tcp
+source-nat pool SNAT-POOL-DMZ-QAS
+service-group pool_http_sbeweb
+port 443 tcp
+source-nat pool SNAT-POOL-DMZ-QAS
+service-group pool_http_sbeweb
+exit
+exit
+ 
+active-partition DMZ-QAS
+configure
+slb virtual-server vs_http_sbeweb.qsbe.sptrans.corp  10.34.199.140
+port 80 tcp
+source-nat pool SNAT-POOL-DMZ-QAS
+service-group pool_http_sbeweb-int
+port 443 tcp
+source-nat pool SNAT-POOL-DMZ-QAS
+service-group pool_http_sbeweb-int
+exit
+exit
+ 
+active-partition DMZ-QAS
+configure
+slb virtual-server vs_http_scapriv.qsbe.dc.sptrans.com.br  200.185.50.211
+port 80 tcp
+source-nat pool SNAT-POOL-DMZ-QAS
+service-group  
+port 443 tcp
+source-nat pool SNAT-POOL-DMZ-QAS
+service-group  
+exit
+exit
+ 
+active-partition DMZ-QAS
+configure
+slb virtual-server vs_http_scapriv.qsbe.dc.sptrans.corp  10.34.199.133
+port 80 tcp
+source-nat pool SNAT-POOL-DMZ-QAS
+service-group  
+port 443 tcp
+source-nat pool SNAT-POOL-DMZ-QAS
+service-group  
+exit
+exit
+ 
+active-partition DMZ-QAS
+configure
+slb virtual-server vs_http_scapub.qsbe.dc.sptrans.com.br  200.185.50.210
+port 80 tcp
+source-nat pool SNAT-POOL-DMZ-QAS
+service-group  
+port 443 tcp
+source-nat pool SNAT-POOL-DMZ-QAS
+service-group  
+exit
+exit
+ 
+active-partition DMZ-QAS
+configure
+slb virtual-server vs_http_scapub.qsbe.dc.sptrans.corp  10.34.199.132
+port 80 tcp
+source-nat pool SNAT-POOL-DMZ-QAS
+service-group  
+port 443 tcp
+source-nat pool SNAT-POOL-DMZ-QAS
+service-group  
+exit
+exit
+ 
+active-partition DMZ-QAS
+configure
+slb virtual-server vs_http_scd.qsbe.dc.sptrans.com.br  200.185.50.216
+port 80 tcp
+source-nat pool SNAT-POOL-DMZ-QAS
+service-group pool_http_scd_web
+port 443 tcp
+source-nat pool SNAT-POOL-DMZ-QAS
+service-group pool_http_scd_web
+exit
+exit
+ 
+active-partition DMZ-QAS
+configure
+slb virtual-server vs_http_scd.qsbe.dc.sptrans.corp  10.34.199.135
+port 80 tcp
+source-nat pool SNAT-POOL-DMZ-QAS
+service-group pool_http_scd_web-int
+port 443 tcp
+source-nat pool SNAT-POOL-DMZ-QAS
+service-group pool_http_scd_web-int
+exit
+exit
+ 
+active-partition DMZ-QAS
+configure
+slb virtual-server vs_http_scp.qsbe.sptrans.com.br  200.185.50.220
+port 80 tcp
+source-nat pool SNAT-POOL-DMZ-QAS
+service-group pool_http_scp_qas
+port 443 tcp
+source-nat pool SNAT-POOL-DMZ-QAS
+service-group pool_http_scp_qas
+exit
+exit
+ 
+active-partition DMZ-QAS
+configure
+slb virtual-server vs_http_scp.qsbe.sptrans.corp  10.34.199.141
+port 80 tcp
+source-nat pool SNAT-POOL-DMZ-QAS
+service-group pool_http_scp_qas-int
+port 443 tcp
+source-nat pool SNAT-POOL-DMZ-QAS
+service-group pool_http_scp_qas-int
+exit
+exit
+ 
+ 
+active-partition DMZ-QAS
+configure
+slb virtual-server vs_smtp.qsbe.sptrans.corp  10.34.199.142
+port 25 tcp
+source-nat pool SNAT-POOL-DMZ-QAS
+service-group pool_smtp.qsbe.sptrans.corp
+exit
+exit
+ 
+active-partition DMZ-TEST
+configure
+slb virtual-server vs_7778_portal.sptrans.com.br  200.185.50.225
+port 7778 tcp
+source-nat pool SNAT_POOL_TSTPRD
+service-group pool_http_portal-sptrans-ext
+exit
+exit
+ 
+active-partition DMZ-TEST
+configure
+slb virtual-server vs_ftp_scdftp.tsbe.sptrans.com.br  200.185.50.233
+port 21 tcp
+source-nat pool SNAT_POOL_TSTPRD
+service-group pool_ftp_scdftp
+exit
+exit
+ 
+active-partition DMZ-TEST
+configure
+slb virtual-server vs_ftp_scdftp.tsbe.sptrans.corp  10.34.199.167
+port 21 tcp
+source-nat pool SNAT_POOL_TSTPRD
+service-group pool_ftp_scdftp
+exit
+exit
+ 
+active-partition DMZ-TEST
+configure
+slb virtual-server vs_http_bi.sptrans.corp  10.34.199.162
+port 80 tcp
+source-nat pool SNAT_POOL_TSTPRD
+service-group pool_http_portal-sptrans-int
+port 443 tcp
+source-nat pool SNAT_POOL_TSTPRD
+service-group pool_http_portal-sptrans-int
+exit
+exit
+ 
+active-partition DMZ-TEST
+configure
+slb virtual-server vs_http_cadescola.sptrans.com.br  200.185.50.228
+port 80 tcp
+source-nat pool SNAT_POOL_TSTPRD
+service-group pool_highports_cadescola-sca
+port 443 tcp
+source-nat pool SNAT_POOL_TSTPRD
+service-group pool_highports_cadescola-sca
+exit
+exit
+ 
+active-partition DMZ-TEST
+configure
+slb virtual-server vs_http_cadescola.sptrans.corp  10.34.199.165
+port 80 tcp
+source-nat pool SNAT_POOL_TSTPRD
+service-group pool_highports_cadescola-sca-int
+port 443 tcp
+source-nat pool SNAT_POOL_TSTPRD
+service-group pool_highports_cadescola-sca-int
+exit
+exit
+ 
+ 
+active-partition DMZ-TEST
+configure
+slb virtual-server vs_http_portal.sptrans.corp  10.34.199.161
+port 80 tcp
+source-nat pool SNAT_POOL_TSTPRD
+service-group pool_http_portal-sptrans-int
+port 443 tcp
+source-nat pool SNAT_POOL_TSTPRD
+service-group pool_http_portal-sptrans-int
+exit
+exit
+ 
+active-partition DMZ-TEST
+configure
+slb virtual-server vs_http_sbeweb.tsbe.sptrans.com.br  200.185.50.235
+port 80 tcp
+source-nat pool SNAT_POOL_TSTPRD
+service-group pool_http_sbeweb
+port 443 tcp
+source-nat pool SNAT_POOL_TSTPRD
+service-group pool_http_sbeweb
+exit
+exit
+ 
+active-partition DMZ-TEST
+configure
+slb virtual-server vs_http_sbeweb.tsbe.sptrans.corp  10.34.199.171
+port 80 tcp
+source-nat pool SNAT_POOL_TSTPRD
+service-group pool_http_sbeweb-int
+port 443 tcp
+source-nat pool SNAT_POOL_TSTPRD
+service-group pool_http_sbeweb-int
+exit
+exit
+ 
+active-partition DMZ-TEST
+configure
+slb virtual-server vs_http_scapriv.tsbe.dc.sptrans.com.br  200.185.50.227
+port 80 tcp
+source-nat pool SNAT_POOL_TSTPRD
+service-group  
+port 443 tcp
+source-nat pool SNAT_POOL_TSTPRD
+service-group  
+exit
+exit
+ 
+active-partition DMZ-TEST
+configure
+slb virtual-server vs_http_scapriv.tsbe.dc.sptrans.corp  10.34.199.164
+port 80 tcp
+source-nat pool SNAT_POOL_TSTPRD
+service-group  
+port 443 tcp
+source-nat pool SNAT_POOL_TSTPRD
+service-group  
+exit
+exit
+ 
+active-partition DMZ-TEST
+configure
+slb virtual-server vs_http_scapub.tsbe.dc.sptrans.com.br  200.185.50.226
+port 80 tcp
+source-nat pool SNAT_POOL_TSTPRD
+service-group  
+port 443 tcp
+source-nat pool SNAT_POOL_TSTPRD
+service-group  
+exit
+exit
+ 
+active-partition DMZ-TEST
+configure
+slb virtual-server vs_http_scapub.tsbe.dc.sptrans.corp  10.34.199.163
+port 80 tcp
+source-nat pool SNAT_POOL_TSTPRD
+service-group  
+port 443 tcp
+source-nat pool SNAT_POOL_TSTPRD
+service-group  
+exit
+exit
+ 
+active-partition DMZ-TEST
+configure
+slb virtual-server vs_http_scd.tsbe.dc.sptrans.com.br  200.185.50.232
+port 80 tcp
+source-nat pool SNAT_POOL_TSTPRD
+service-group pool_http_scd_web
+port 443 tcp
+source-nat pool SNAT_POOL_TSTPRD
+service-group pool_http_scd_web
+exit
+exit
+ 
+active-partition DMZ-TEST
+configure
+slb virtual-server vs_http_scd.tsbe.dc.sptrans.corp  10.34.199.166
+port 80 tcp
+source-nat pool SNAT_POOL_TSTPRD
+service-group pool_http_scd_web-int
+port 443 tcp
+source-nat pool SNAT_POOL_TSTPRD
+service-group pool_http_scd_web-int
+exit
+exit
+ 
+active-partition DMZ-TEST
+configure
+slb virtual-server vs_http_scp.tsbe.sptrans.com.br  200.185.50.236
+port 80 tcp
+source-nat pool SNAT_POOL_TSTPRD
+service-group pool_http_scp_tst
+port 443 tcp
+source-nat pool SNAT_POOL_TSTPRD
+service-group pool_http_scp_tst
+exit
+exit
+ 
+active-partition DMZ-TEST
+configure
+slb virtual-server vs_http_scp.tsbe.sptrans.corp  10.34.199.172
+port 80 tcp
+source-nat pool SNAT_POOL_TSTPRD
+service-group pool_http_scp_tst-int
+port 443 tcp
+source-nat pool SNAT_POOL_TSTPRD
+service-group pool_http_scp_tst-int
+exit
+exit
+ 
+active-partition DMZ-TEST
+configure
+slb virtual-server vs_https_10.34.198.50  10.34.199.190
+port 443 tcp
+source-nat pool SNAT_POOL_TSTPRD
+service-group pool_https_test10.34.198.50
+port 80 tcp
+source-nat pool SNAT_POOL_TSTPRD
+service-group pool_https_test10.34.198.50
+exit
+exit
+ 
+active-partition DMZ-TEST
+configure
+slb virtual-server vs_smtp.tsbe.sptrans.corp  10.34.199.173
+port 25 tcp
+source-nat pool SNAT_POOL_TSTPRD
+service-group pool_smtp.tsbe.sptrans.corp
+exit
+exit
+ 
+active-partition DMZ-TEST
+configure
+slb virtual-server vs_sptosbteste.sptrans.corp  10.34.199.176
+port 7002 tcp
+source-nat pool SNAT_POOL_TSTPRD
+service-group pool_sptosbteste.sptrans.corp
+exit
+exit
+ 
+active-partition FRONT-HOM
+configure
+slb virtual-server hom.autopass.sptrans.src  10.34.199.83
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-HOM
+service-group pool_hom.autopass.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-HOM
+configure
+slb virtual-server hom.mandacaru.sptrans.src  10.34.199.82
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-HOM
+service-group pool_hom.mandacaru.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-HOM
+configure
+slb virtual-server vs_hom.bencerto.sptrans.src  10.34.199.80
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-HOM
+service-group pool_hom.bencerto.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-HOM
+configure
+slb virtual-server vs_hom.cef.sptrans.src  10.34.199.66
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-HOM
+service-group pool-hom.cef.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-HOM
+configure
+slb virtual-server vs_hom.claropay.sptrans.src  10.34.199.86
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-HOM
+service-group pool_hom.claropay.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-HOM
+configure
+slb virtual-server vs_hom.devels-ipnet.sptrans.src  10.34.199.88
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-HOM
+service-group pool-hom.devels-ipnet.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-HOM
+configure
+slb virtual-server vs_hom.devels.sptrans.src  10.34.199.68
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-HOM
+service-group pool-hom.devels.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-HOM
+configure
+slb virtual-server vs_hom.epago.sptrans.src  10.34.199.78
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-HOM
+service-group pool_hom.epago.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-HOM
+configure
+slb virtual-server vs_hom.getnet.sptrans.src  10.34.199.74
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-HOM
+service-group pool-hom.getnet.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-HOM
+configure
+slb virtual-server vs_hom.grupocard.sptrans.src  10.34.199.85
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-HOM
+service-group pool-hom.grupocard.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-HOM
+configure
+slb virtual-server vs_hom.n2.sptrans.src  10.34.199.84
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-HOM
+service-group pool-hom.n2.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-HOM
+configure
+slb virtual-server vs_hom.pcerto.sptrans.src  10.34.199.65
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-HOM
+service-group pool-hom.pcerto.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-HOM
+configure
+slb virtual-server vs_hom.perto.sptrans.src  10.34.199.70
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-HOM
+service-group pool-hom.smartnet.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-HOM
+configure
+slb virtual-server vs_hom.planin.sptrans.src  10.34.199.73
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-HOM
+service-group pool-hom.planin.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-HOM
+configure
+slb virtual-server vs_hom.pldevice.sptrans.src  10.34.199.75
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-HOM
+service-group pool-hom.pldevice.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-HOM
+configure
+slb virtual-server vs_hom.prodata.sptrans.src  10.34.199.72
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-HOM
+service-group pool-hom.prodata.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-HOM
+configure
+slb virtual-server vs_hom.protege.sptrans.src  10.34.199.71
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-HOM
+service-group pool-hom.protege.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-HOM
+configure
+slb virtual-server vs_hom.qiwibrasil.sptrans.src  10.34.199.81
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-HOM
+service-group pool_hom.qiwibrasil.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-HOM
+configure
+slb virtual-server vs_hom.servlot.sptrans.src  10.34.199.67
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-HOM
+service-group pool-hom.servlot.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-HOM
+configure
+slb virtual-server vs_hom.smartnet.sptrans.src  10.34.199.69
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-HOM
+service-group pool-hom.smartnet.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-HOM
+configure
+slb virtual-server vs_hom.sodexo.sptrans.src  10.34.199.77
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-HOM
+service-group pool_hom.sodexo.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-HOM
+configure
+slb virtual-server vs_hom.tacom.sptrans.src  10.34.199.87
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-HOM
+service-group pool_hom.tacom.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-HOM
+configure
+slb virtual-server vs_hom.tendencia.sptrans.src  10.34.199.76
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-HOM
+service-group pool-hom.tendencia.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-HOM
+configure
+slb virtual-server vs_hom.zuum.sptrans.src  10.34.199.79
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-HOM
+service-group pool_hom.zuum.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-PRD
+configure
+slb virtual-server vs_autopass.sptrans.src  10.34.199.47
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-PRD
+service-group pool-autopass.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-PRD
+configure
+slb virtual-server vs_bencerto.sptrans.scr  10.34.199.45
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-PRD
+service-group pool-bencerto.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-PRD
+configure
+slb virtual-server vs_cef.sptrans.src  10.34.199.34
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-PRD
+service-group pool-cef.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-PRD
+configure
+slb virtual-server vs_devels.sptrans.src  10.34.199.36
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-PRD
+service-group pool-devels.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-PRD
+configure
+slb virtual-server vs_grupocard.sptrans.src  10.34.199.50
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-PRD
+service-group pool-grupocard.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-PRD
+configure
+slb virtual-server vs_newprodata.sptrans.src  10.34.199.48
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-PRD
+service-group pool-newprodata.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-PRD
+configure
+slb virtual-server vs_pcerto.sptrans.src  10.34.199.33
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-PRD
+service-group pool-pcerto.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-PRD
+configure
+slb virtual-server vs_perto.sptrans.src  10.34.199.38
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-PRD
+service-group pool-perto.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-PRD
+configure
+slb virtual-server vs_planin.sptrans.src  10.34.199.41
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-PRD
+service-group pool-planin.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-PRD
+configure
+slb virtual-server vs_pldevice.sptrans.src  10.34.199.43
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-PRD
+service-group pool-pldevice.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-PRD
+configure
+slb virtual-server vs_prodata.sptrans.src  10.34.199.40
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-PRD
+service-group pool-prodata.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-PRD
+configure
+slb virtual-server vs_protege.sptrans.src  10.34.199.39
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-PRD
+service-group pool-protege.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-PRD
+configure
+slb virtual-server vs_qiwi.sptrans.src  10.34.199.60
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-PRD
+service-group pool-qiwi.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-PRD
+configure
+slb virtual-server vs_servlot.sptrans.src  10.34.199.35
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-PRD
+service-group pool-servlot.sptrans.src
+exit
+exit
+ 
+active-partition FRONT-PRD
+configure
+slb virtual-server vs_smartnet.sptrans.src  10.34.199.37
+port 5000 tcp
+source-nat pool SNAT-POOL-FE-PRD
+service-group pool-smartnet.sptrans.src
+exit
+exit

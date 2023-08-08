@@ -1,0 +1,24 @@
+configure
+partition DMZ-HOM id 2
+exit
+configure
+partition DMZ-PRD id 1
+exit
+configure
+partition DMZ-QAS id 3
+exit
+configure
+partition DMZ-TEST id 4
+exit
+configure
+partition FRONT-DEV id 30
+exit
+configure
+partition FRONT-HOM id 20
+exit
+configure
+partition FRONT-PRD id 10
+exit
+configure
+partition FRONT-TEST id 40
+exit

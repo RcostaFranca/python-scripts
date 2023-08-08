@@ -1,7 +1,7 @@
 import os
 
-f5_file = open(os.path.normpath("python-scripts/A10-scripts/config-parts/LB794/LB794-servers.txt"))
-a10_file = open(os.path.normpath("python-scripts/A10-scripts/result_files/LB794/A10-LB794-servers.txt"),"a")
+f5_file = open(os.path.normpath("A10-scripts/config-parts/LB792/LB792-servers.txt"))
+a10_file = open(os.path.normpath("A10-scripts/result_files/LB792/A10-LB792-servers.txt"),"a")
 
 norm_file = str(f5_file.read()).split("}")
 
@@ -9,8 +9,8 @@ norm_file = str(f5_file.read()).split("}")
 def get_srv_ptt_adr (norm_file):
     partition_server = norm_file.split("{")[0]
     partition = partition_server.split("/")[1]
-    server = partition_server.split(" ")[2]
-    server_ip = norm_file.split("{")[1].split(" ")[6]
+    server = partition_server.split("/")[2]
+    server_ip = norm_file.split("{")[1].split(" ")[5]
     #server_ip = norm_file.split("{")[1].split(" ")[5]
     server_ip = str(server_ip).replace("\n", "")    
     srv_info = [partition , server, server_ip]

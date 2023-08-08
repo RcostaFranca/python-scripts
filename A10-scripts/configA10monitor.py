@@ -1,7 +1,7 @@
 import os
 
-f5_file = open(os.path.normpath("python-scripts/A10-scripts/config-parts/LB794/LB794-monitor.txt"))
-a10_file = open(os.path.normpath("python-scripts/A10-scripts/result_files/LB794/A10-LB794-monitor.txt"),"a")
+f5_file = open(os.path.normpath("A10-scripts/config-parts/LB792/LB792-monitor.txt"))
+#a10_file = open(os.path.normpath("python-scripts/A10-scripts/result_files/LB794/A10-LB794-monitor.txt"),"a")
 
 norm_file = str(f5_file.read()).split("# }")
 
@@ -14,22 +14,28 @@ def get_info (norm_file):
     monitorName = partition_server.split("/")[2]
     portNumber = norm_file.split("{")[1].split("#")[3]
     if "destination" in portNumber:
-        portNumber = str(portNumber).split("*:")[1]
+        portNumber = str(portNumber).split(":")[1]
         portNumber = str(portNumber).replace("\n", "")
     else:
         portNumber = norm_file.split("{")[1].split("#")[2]
         if "destination" in portNumber:
-            portNumber = str(portNumber).split("*:")[1]
+            portNumber = str(portNumber).split(":")[1]
             portNumber = str(portNumber).replace("\n", "")
         else:
             portNumber = norm_file.split("{")[1].split("#")[4]
             if "destination" in portNumber:
-                portNumber = str(portNumber).split("*:")[1]
+                portNumber = str(portNumber).split(":")[1]
                 portNumber = str(portNumber).replace("\n", "")
             else:
                 portNumber = norm_file.split("{")[1].split("#")[5]
-                portNumber = str(portNumber).split("*:")[1]
-                portNumber = str(portNumber).replace("\n", "")
+                if "destination" in portNumber:
+                    portNumber = str(portNumber).split(":")[1]
+                    portNumber = str(portNumber).replace("\n", "")
+                else:
+                    portNumber = norm_file.split("{")[1].split("#")[6]
+                    portNumber = str(portNumber).split(":")[1]
+                    portNumber = str(portNumber).replace("\n", "")                
+                
     portNumber = portNumber.replace("*", "80")
     srv_info = [partition , m_type, monitorName, portNumber]
         
