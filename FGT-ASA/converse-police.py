@@ -1,9 +1,12 @@
 import os
 import re
 
-fgt_file = open(os.path.normpath("python-scripts/FGT-ASA/fortigate-files/Fortigate-rules.txt"))
-
+fgt_file = open(os.path.normpath("FGT-ASA/fortigate-files/Fortigate-rules.txt"))
 gate = fgt_file.read().split("    next")
+
+object_ASA = open(os.path.normpath("FGT-ASA/ASA-folder/ASA_OBJS.txt"))
+check_obj = str(object_ASA.read())
+
 
 def remove_caractere(linha):
     caracteres = ["\n",'"',"  ","[","]","'"]
@@ -25,14 +28,27 @@ def get_info (file):
         elif "srcaddr" in lines:
             src_adr = lines.split("srcaddr")[1]
             src_adr = list(filter(None,remove_caractere(src_adr).split(" ")))
+            for i in range(len(src_adr)):
+                if check_obj.find(src_adr[i]) != -1:
+                    src_adr[i]= f"object {src_adr[i]}"
+                else:
+                    src_adr[i]= f"object-group {src_adr[i]}"                                
         elif "dstaddr" in lines:
             dst_adr = lines.split("dstaddr")[1]
             dst_adr = list(filter(None,remove_caractere(dst_adr).split(" ")))
+            for i in range(len(dst_adr)):
+                if check_obj.find(dst_adr[i]) != -1:
+                    dst_adr[i]= f"object {dst_adr[i]}"
+                else:
+                    dst_adr[i]= f"object-group {dst_adr[i]}"
         elif "service" in lines:
             service = lines.split("service")[1]
             service = list(filter(None,remove_caractere(service).split(" ")))
-            if service[0] == "ALL": service ="tcp any"
-            else: service = f"object {service[0]}"            
+            if service[0] == "ALL": service[0] ="tcp any"
+            else: 
+                for i in range(len(service)):
+                    if service[i] == "ALL_ICMP": service[i] = "icmp"                    
+                    else: service[i]  = f"object {service[i]}"          
         elif "action" in lines:
             action = lines.split("action")[1]
             action = list(filter(None,remove_caractere(action).split(" ")))                              
@@ -64,7 +80,7 @@ def write_ASA_ACL(gate_file):
         for service in ports:
             destino = str(gate_info[2]).split(",")
             for d_addr in destino:
-                ASA_ACL= f"access-list {remove_caractere(ACL_int)} extended {remove_caractere(acao)} {remove_caractere(service)} object-group {remove_caractere(s_addr)} object-group {remove_caractere(d_addr)}"
+                ASA_ACL= f"access-list {remove_caractere(ACL_int)} extended {remove_caractere(acao)} {remove_caractere(service)} {remove_caractere(s_addr)} {remove_caractere(d_addr)}"
                 regras.append(ASA_ACL)
 
     
@@ -72,5 +88,6 @@ def write_ASA_ACL(gate_file):
 
 for rules in gate:   
     regras = write_ASA_ACL(rules)
+    print ("\n")
     for i in regras:
         print(i)
