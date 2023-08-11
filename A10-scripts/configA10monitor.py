@@ -1,6 +1,6 @@
 import os
 
-f5_file = open(os.path.normpath("A10-scripts/config-parts/LB792/LB792-monitor.txt"))
+f5_file = open(os.path.normpath("python-scripts/A10-scripts/config-parts/LB792/LB792-monitor.txt"))
 #a10_file = open(os.path.normpath("python-scripts/A10-scripts/result_files/LB794/A10-LB794-monitor.txt"),"a")
 
 norm_file = str(f5_file.read()).split("# }")
@@ -45,5 +45,5 @@ def get_info (norm_file):
 
 for itens in norm_file:   
     info = get_info(itens)
-    a10_monitor_input = f" active-partition {info[0]}\n configure\n health monitor {info[2]}\n interval 5 timeout 5 \n method {info[1]} port {info[3]}\n exit\n exit\n"
+    a10_monitor_input = f" active-partition {info[0]}\nhealth monitor {info[2]}\n interval 5 timeout 5 \n method {info[1]} port {info[3]}\n exit\n"
     print(a10_monitor_input)

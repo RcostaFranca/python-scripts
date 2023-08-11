@@ -1,7 +1,7 @@
 import os
 import re
 
-f5_file = open(os.path.normpath("A10-scripts/config-parts/LB792/LB792-vs.txt"))
+f5_file = open(os.path.normpath("python-scripts/A10-scripts/config-parts/LB794/LB794-vs.txt"))
 #a10_file = open(os.path.normpath("python-scripts/A10-scripts/result_files/LB792/A10-LB792-vs.txt"),"a")
 
 norm_file = str(f5_file.read()).split("# }")
@@ -46,13 +46,13 @@ def write_vs (vs_list, verifica_vs):
         a10_vs_input =" "
     else:
         if vs_info[3] == "80":
-            a10_vs_input = f"active-partition {vs_info[0]}\nconfigure\nslb virtual-server {vs_info[1]} {vs_info[2]}\nport {vs_info[3]} tcp\n{vs_info[5]}\nservice-group {vs_info[4]}\nport 443 tcp\n{vs_info[5]}\nservice-group {vs_info[4]}\nexit\nexit\n " 
+            a10_vs_input = f"active-partition {vs_info[0]}\nslb virtual-server {vs_info[1]} {vs_info[2]}\nport {vs_info[3]} http\n{vs_info[5]}\nservice-group {vs_info[4]}\nport 443 https\n{vs_info[5]}\nservice-group {vs_info[4]}\nexit\nexit\n " 
             verifica_vs.append(vs_info[2])
         elif vs_info[3] == "443":
-            a10_vs_input = f"active-partition {vs_info[0]}\nconfigure\nslb virtual-server {vs_info[1]} {vs_info[2]}\nport {vs_info[3]} tcp\n{vs_info[5]}\nservice-group {vs_info[4]}\nport 80 tcp\n{vs_info[5]}\nservice-group {vs_info[4]}\nexit\nexit\n " 
+            a10_vs_input = f"active-partition {vs_info[0]}\nslb virtual-server {vs_info[1]} {vs_info[2]}\nport {vs_info[3]} https\n{vs_info[5]}\nservice-group {vs_info[4]}\nport 80 http\n{vs_info[5]}\nservice-group {vs_info[4]}\nexit\nexit\n " 
             verifica_vs.append(vs_info[2])
         else:
-            a10_vs_input = f"active-partition {vs_info[0]}\nconfigure\nslb virtual-server {vs_info[1]} {vs_info[2]}\nport {vs_info[3]} tcp\n{vs_info[5]}\nservice-group {vs_info[4]}\nexit\nexit\n " 
+            a10_vs_input = f"active-partition {vs_info[0]}\nslb virtual-server {vs_info[1]} {vs_info[2]}\nport {vs_info[3]} tcp\n{vs_info[5]}\nservice-group {vs_info[4]}\nexit\nexit\n " 
             verifica_vs.append(vs_info[2])            
     return a10_vs_input
 

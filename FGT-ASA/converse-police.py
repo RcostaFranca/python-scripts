@@ -1,10 +1,10 @@
 import os
 import re
 
-fgt_file = open(os.path.normpath("FGT-ASA/fortigate-files/Fortigate-rules.txt"))
+fgt_file = open(os.path.normpath("python-scripts/FGT-ASA/fortigate-files/Fortigate-rules.txt"))
 gate = fgt_file.read().split("    next")
 
-object_ASA = open(os.path.normpath("FGT-ASA/ASA-folder/ASA_OBJS.txt"))
+object_ASA = open(os.path.normpath("python-scripts/FGT-ASA/ASA-folder/ASA_OBJS.txt"))
 check_obj = str(object_ASA.read())
 
 

@@ -20,4 +20,4 @@ auth partition FRONT-PRD {
     default-route-domain 10
 }
 auth partition FRONT-TEST {
-    default-route-domain 40
+    default-route-domain 32

@@ -1,10 +1,9 @@
-
-object network "HDM-ALV-PRX-01"
-    host 200.199.53.194 
-object network "HDM-ALV-PRX-02"
-    host 200.199.53.195 
-object network "HDM-ALV-FTP-01"
-    host 200.199.53.202 
+object network "HDM-PRA-PRX-01"
+    host 200.199.39.178 
+object network "HDM-PRA-PRX-02"
+    host 200.199.39.179 
+object network "HDM-PRA-FTP-01"
+    host 200.199.39.180 
 object network "MGT_RMS_RJ01"
     subnet 200.222.75.0 255.255.255.0
 object network "TACACS_RMS_RJ"
@@ -21,36 +20,38 @@ object network "MGT_RMS_MG"
     subnet 200.216.124.0 255.255.255.0
 object network "Temp_Fernando-01"
     host 177.142.180.44 
-object network "ALV-RJ-CLF-01"
-    host 200.199.42.66 
-object network "HDM-ALV-APP-01"
-    host 200.199.46.130 
-object network "HDM-ALV-APP-02"
-    host 200.199.46.131 
-object network "HDM-ALV-APP-03"
-    host 200.199.46.132 
-object network "HDM-ALV-APP-04"
-    host 200.199.46.133 
-object network "HDM-ALV-APP-11"
-    host 200.199.46.142 
-object network "HDM-ALV-APP-12"
-    host 200.199.46.143 
-object network "SMP-ALV-DB-01"
-    host 200.199.47.178 
-object network "SMP-ALV-DB-02"
-    host 200.199.47.179 
-object network "SMP-ALV-APP-01"
-    host 200.199.47.180 
-object network "SMP-ALV-APP-02"
-    host 200.199.47.181 
+object network "HDM-PRA-APP-01"
+    host 200.199.43.34 
+object network "HDM-PRA-APP-02"
+    host 200.199.43.35 
+object network "HDM-PRA-APP-03"
+    host 200.199.43.36 
+object network "HDM-PRA-APP-04"
+    host 200.199.43.37 
+object network "HDM-PRA-APP-11"
+    host 200.199.43.46 
+object network "HDM-PRA-APP-12"
+    host 200.199.43.47 
+object network "SMP-PRA-APP-01"
+    host 200.199.45.84 
+object network "SMP-PRA-APP-02"
+    host 200.199.45.85 
+object network "SMP-PRA-DB-01"
+    host 200.199.45.82 
+object network "SMP-PRA-DB-02"
+    host 200.199.45.83 
+object network "VIP_HDM"
+    host 200.199.53.249 
 object network "TI_Oi_DCN"
     subnet 10.0.0.0 255.0.0.0
-object network "Temp_Luciano"
-    host 179.213.157.62 
+object network "TI_Oi_IDC"
+    subnet 10.0.0.0 255.0.0.0
+object network "ALV-RJ-CLF-01"
+    host 200.199.42.66 
 object network "Temp_Motive-Access_to_HDM_Support"
     host 64.186.184.100 
-object network "Temp_JM_DB"
-    host 189.59.229.154 
+object network "Temp_Luciano"
+    host 179.213.157.62 
 object network "AS7738_0001"
     subnet 189.12.0.0 255.254.0.0
 object network "AS7738_0002"
@@ -137,6 +138,8 @@ object network "AS7738_0042"
     subnet 179.192.0.0 255.252.0.0
 object network "AS7738_0043"
     subnet 179.196.0.0 255.252.0.0
+object network "Temp_JM_DB"
+    host 189.59.229.154 
 object network "AS8167_0001"
     subnet 177.0.0.0 255.252.0.0
 object network "AS8167_0002"
@@ -235,8 +238,6 @@ object network "Temp_ALU_01"
     host 135.255.208.22 
 object network "Temp_ALU_02"
     host 135.255.209.4 
-object network "TI_Oi_IDC"
-    subnet 10.0.0.0 255.0.0.0
 object network "Temp_Motive_Arturo"
     host 187.131.113.104 
 object network "TEMP_PTI_1110"
@@ -271,8 +272,6 @@ object network "Acesso_ao_CSC-Customer_Service_Console_Srvr11"
     host 10.61.160.15 
 object network "Acesso_ao_CSC-Customer_Service_Console_Srvr12"
     host 10.61.160.16 
-object network "TEMP1valido_ate_05OUT2014_origemPT-PDS 26MAI2014 _29-08-14"
-    subnet 213.13.150.176 255.255.255.240
 object network "HDM_TO_CLF_NASS_Velox-R1_Servidor1_13-06-2014_ARS11783747"
     host 200.165.104.13 
 object network "HDM_TO_CLF_NASS_Velox-R1_Servidor2_13-06-2014_ARS11783747"
@@ -281,6 +280,8 @@ object network "HDM_TO_CLF_NASS_Velox-R2_Servidor1_16-07-2014_ARS11783747"
     host 201.10.124.48 
 object network "HDM_TO_CLF_NASS_Velox-R2_Servidor2_16-07-2014_ARS11783747"
     host 201.10.124.49 
+object network "TEMP1valido_ate_05OUT2014_origemPT-PDS 26MAI2014 _29-08-14"
+    subnet 213.13.150.176 255.255.255.240
 object network "TEMP2valido_ate_05OUT2014_origemPT-PDS 26MAI2014 _29-08-14"
     subnet 213.13.159.16 255.255.255.240
 object network "Temp_ALU_02_Component1_HDM_Support_Team"
@@ -311,26 +312,76 @@ object network "AS7738_0049"
     subnet 179.68.0.0 255.252.0.0
 object network "AS7738_0050"
     subnet 179.192.0.0 255.252.0.0
-object network "host_10.20.230.206"
-    host 10.20.230.206 
-object network "host_10.21.17.34"
-    host 10.21.17.34 
-object network "host_10.21.24.248"
-    host 10.21.24.248 
-object network "host_10.21.26.173"
-    host 10.21.26.173 
-object network "host_10.21.27.23"
-    host 10.21.27.23 
+object network "BLADE_SCS"
+    host 200.216.31.232 
+object network "REDE_TR069"
+    subnet 200.199.39.176 255.255.255.240
+object network "REDE_APP"
+    subnet 200.199.43.32 255.255.255.224
+object network "REDE_SMP"
+    subnet 200.199.45.80 255.255.255.240
+object network "HDM-PRA-APP-05"
+    host 200.199.43.38 
+object network "HDM-PRA-APP-06"
+    host 200.199.43.39 
+object network "HDM-PRA-APP-07"
+    host 200.199.43.40 
+object network "HDM-PRA-APP-08"
+    host 200.199.43.41 
+object network "HDM-PRA-REP-01"
+    host 200.199.43.44 
+object network "HDM-PRA-REP-02"
+    host 200.199.43.45 
 object network "host_10.21.27.150"
     host 10.21.27.150 
+object network "host_10.21.27.23"
+    host 10.21.27.23 
+object network "host_10.21.26.173"
+    host 10.21.26.173 
+object network "host_10.21.17.34"
+    host 10.21.17.34 
+object network "host_10.20.230.206"
+    host 10.20.230.206 
+object network "host_10.21.24.248"
+    host 10.21.24.248 
 object network "host_10.22.192.16"
     host 10.22.192.16 
+object network "10.121.212.39"
+    host 10.121.212.39 
 object network "Ehealth_10.121.212.39"
     host 10.121.212.39 
 object network "HUGHES_131.0.216.0"
     subnet 131.0.216.0 255.255.252.0
 object network "HUGHES_201.54.32.6"
     host 201.54.32.6 
+object network "10.21.27.150"
+    host 10.21.27.150 
+object network "10.121.241.115"
+    host 10.121.241.115 
+object network "10.121.0.134"
+    host 10.121.0.134 
+object network "10.21.26.152"
+    host 10.21.26.152 
+object network "10.21.26.173"
+    host 10.21.26.173 
+object network "10.121.247.110"
+    host 10.121.247.110 
+object network "10.121.247.111"
+    host 10.121.247.111 
+object network "10.21.26.247"
+    host 10.21.26.247 
+object network "10.121.247.113"
+    host 10.121.247.113 
+object network "10.121.1.113"
+    host 10.121.1.113 
+object network "10.121.241.8"
+    host 10.121.241.8 
+object network "200.195.96.89"
+    host 200.195.96.89 
+object network "10.121.149.64/27"
+    subnet 10.121.149.64 255.255.255.224
+object network "10.121.149.96/28"
+    subnet 10.121.149.96 255.255.255.240
 object network "HOST_200.204.186.61"
     host 200.204.186.61 
 object network "Temp_ALU_03"
@@ -343,12 +394,22 @@ object network "Temp_ALU_06"
     host 135.255.209.8 
 object network "Temp_ALU_07"
     host 135.255.209.9 
+object network "10.121.247.125"
+    host 10.121.247.125 
+object network "10.121.247.65"
+    host 10.121.247.65 
 object network "AS8167_0048"
     subnet 191.220.0.0 255.252.0.0
 object network "Temp_ALU_08"
     host 135.245.48.73 
 object network "Temp_ALU_09"
     host 135.245.48.82 
+object network "10.32.216.190"
+    host 10.32.216.190 
+object network "10.32.216.192"
+    host 10.32.216.192 
+object network "SCAN"
+    host 10.58.46.51 
 object network "10.21.18.31"
     host 10.21.18.31 
 object network "10.21.19.170"
@@ -357,12 +418,8 @@ object network "10.21.25.188"
     host 10.21.25.188 
 object network "10.21.18.176"
     host 10.21.18.176 
-object network "10.121.241.115"
-    host 10.121.241.115 
 object network "10.121.0.135"
     host 10.121.0.135 
-object network "10.21.27.150"
-    host 10.21.27.150 
 object network "10.21.27.23"
     host 10.21.27.23 
 object network "10.20.230.206"
@@ -389,10 +446,20 @@ object network "AS7738_0053"
     subnet 191.40.0.0 255.248.0.0
 object network "AS7738_0054"
     subnet 200.195.0.0 255.255.128.0
-object network "Proteus_10.32.207.198"
-    host 10.32.207.198 
+object network "10.121.146.88"
+    host 10.121.146.88 
+object network "10.121.178.24"
+    host 10.121.178.24 
+object network "10.121.178.25"
+    host 10.121.178.25 
+object network "10.121.178.29"
+    host 10.121.178.29 
+object network "10.121.178.30"
+    host 10.121.178.30 
 object network "Proteus_10.32.213.53"
     host 10.32.213.53 
+object network "Proteus_10.32.207.198"
+    host 10.32.207.198 
 object network "Proteus_10.142.176.146"
     host 10.142.176.146 
 object network "Proteus_10.32.213.227"
@@ -403,223 +470,81 @@ object network "Proteus_10.121.242.45"
     host 10.121.242.45 
 object network "Proteus_200.222.75.25"
     host 200.222.75.25 
-object network "10.21.25.3"
+object network "SUPN3"
+    host 200.222.75.12 
+object network "177.208.59.144"
+    host 177.208.59.144 
+object network "host_10.21.25.3"
     host 10.21.25.3 
-object network "NET_200.199.53.192/28"
-    subnet 200.199.53.192 255.255.255.240
-object network "LAN_RMS_HDM_APP_ALV"
-    subnet 200.199.46.128 255.255.255.224
-object network "HDM-ALV-PRX-03"
-    host 200.199.53.196 
-object network "HDM-ALV-PRX-04"
-    host 200.199.53.197 
-object network "HDM-ALV-PRX-05"
-    host 200.199.53.198 
-object network "HDM-ALV-PRX-06"
-    host 200.199.53.199 
-object network "HDM-ALV-PRX-07"
-    host 200.199.53.200 
-object network "HDM-ALV-PRX-08"
-    host 200.199.53.201 
-object network "HDM-ALV-APP-05"
-    host 200.199.46.134 
-object network "HDM-ALV-APP-06"
-    host 200.199.46.135 
-object network "HDM-ALV-APP-07"
-    host 200.199.46.136 
-object network "HDM-ALV-APP-08"
-    host 200.199.46.137 
-object network "HDM-ALV-APP-09"
-    host 200.199.46.138 
-object network "HDM-ALV-APP-10"
-    host 200.199.46.139 
-object network "WAN_RMS"
-    subnet 200.199.39.220 255.255.255.252
-object network "10.21.27.126"
-    host 10.21.27.126 
+object network "NET_10.20.230.0/24"
+    subnet 10.20.230.0 255.255.255.0
+object network "NET_10.21.16.0/20"
+    subnet 10.21.16.0 255.255.240.0
+object network "NET_10.22.208.0/22"
+    subnet 10.22.208.0 255.255.252.0
 object network "AS8167_0051"
     subnet 201.24.90.0 255.255.255.0
-object network "10.21.18.90"
-    host 10.21.18.90 
-object network "10.121.247.125"
-    host 10.121.247.125 
-object network "10.121.247.65"
-    host 10.121.247.65 
-object network "Proteus_10.121.2.48"
-    host 10.121.2.48 
-object network "10.121.178.29"
-    host 10.121.178.29 
-object network "10.121.178.30"
-    host 10.121.178.30 
-object network "10.121.213.138"
-    host 10.121.213.138 
-object network "10.21.19.232"
-    host 10.21.19.232 
-object network "10.21.26.247"
-    host 10.21.26.247 
-object network "10.121.247.200"
-    host 10.121.247.200 
-object network "10.121.247.201"
-    host 10.121.247.201 
-object network "10.121.149.74"
-    host 10.121.149.74 
-object network "10.121.149.80"
-    host 10.121.149.80 
-object network "10.21.27.147"
-    host 10.21.27.147 
-object network "10.121.184.68"
-    host 10.121.184.68 
-object network "10.121.149.66"
-    host 10.121.149.66 
-object network "10.121.149.67"
-    host 10.121.149.67 
-object network "10.121.149.65"
-    host 10.121.149.65 
-object network "10.121.213.141"
-    host 10.121.213.141 
-object network "10.121.247.113"
-    host 10.121.247.113 
-object network "10.121.1.113"
-    host 10.121.1.113 
-object network "10.121.1.155"
-    host 10.121.1.155 
-object network "10.0.0.0/8"
-    subnet 10.0.0.0 255.0.0.0
-object network "10.125.62.116"
-    host 10.125.62.116 
-object network "10.38.139.144/29"
-    subnet 10.38.139.144 255.255.255.248
-object network "10.21.26.113"
-    host 10.21.26.113 
-object network "201.19.238.183"
-    host 201.19.238.183 
-object network "200.199.53.195"
-    host 200.199.53.195 
-object network "10.32.216.190"
-    host 10.32.216.190 
-object network "10.32.216.192"
-    host 10.32.216.192 
+object network "SSLVPN_TUNNEL_ADDR1"
+object network "none"
+    host 0.0.0.0 
+object network "10.121.178.20"
+    host 10.121.178.20 
+object network "10.121.178.21"
+    host 10.121.178.21 
+object network "10.121.178.43"
+    host 10.121.178.43 
+object network "10.121.178.45"
+    host 10.121.178.45 
+object network "10.121.178.47"
+    host 10.121.178.47 
+object network "10.121.178.49"
+    host 10.121.178.49 
+object network "10.121.178.51"
+    host 10.121.178.51 
+object network "10.121.178.53"
+    host 10.121.178.53 
+object network "10.121.178.55"
+    host 10.121.178.55 
 object network "10.32.216.27"
     host 10.32.216.27 
 object network "10.32.216.34"
     host 10.32.216.34 
-object network "SSLVPN_TUNNEL_ADDR1"
-object network "none"
-    host 0.0.0.0 
-object network "10.21.17.175"
-    host 10.21.17.175 
-object network "10.21.25.63"
-    host 10.21.25.63 
-object network "10.20.230.236"
-    host 10.20.230.236 
-object network "10.21.19.241"
-    host 10.21.19.241 
-object network "10.21.17.61"
-    host 10.21.17.61 
-object network "10.21.18.61"
-    host 10.21.18.61 
-object network "10.21.18.115"
-    host 10.21.18.115 
-object network "10.21.25.200"
-    host 10.21.25.200 
-object network "10.21.25.0"
-    host 10.21.25.0 
-object network "10.21.27.58"
-    host 10.21.27.58 
-object network "10.21.26.127"
-    host 10.21.26.127 
-object network "10.21.26.78"
-    host 10.21.26.78 
-object network "10.21.25.224"
-    host 10.21.25.224 
-object network "10.21.24.217"
-    host 10.21.24.217 
-object network "10.21.24.214"
-    host 10.21.24.214 
-object network "10.20.230.171"
-    host 10.20.230.171 
-object network "10.21.17.59"
-    host 10.21.17.59 
-object network "10.21.17.166"
-    host 10.21.17.166 
-object network "10.21.17.91"
-    host 10.21.17.91 
-object network "10.21.25.82"
-    host 10.21.25.82 
-object network "Nokia_10.222.219.112"
+object network "HDM-PRA-APP-09"
+    host 200.199.43.42 
+object network "HDM-PRA-APP-10"
+    host 200.199.43.43 
+object network "HDM-PRA-PRX-03"
+    host 200.199.39.181 
+object network "HDM-PRA-PRX-04"
+    host 200.199.39.182 
+object network "HDM-PRA-PRX-05"
+    host 200.199.39.183 
+object network "HDM-PRA-PRX-06"
+    host 200.199.39.184 
+object network "HDM-PRA-PRX-07"
+    host 200.199.39.185 
+object network "HDM-PRA-PRX-08"
+    host 200.199.39.186 
+object network "10.222.219.112"
     host 10.222.219.112 
-object network "Nokia_10.222.219.113"
+object network "10.222.219.113"
     host 10.222.219.113 
-object network "10.121.152.42"
-    host 10.121.152.42 
-object network "10.121.152.44"
-    host 10.121.152.44 
-object network "10.121.152.46"
-    host 10.121.152.46 
-object network "10.121.152.48"
-    host 10.121.152.48 
+object network "10.125.62.116"
+    host 10.125.62.116 
 object network "10.121.60.2"
     host 10.121.60.2 
 object network "10.121.60.3"
     host 10.121.60.3 
-object network "10.121.149.64/27"
-    subnet 10.121.149.64 255.255.255.224
-object network "10.121.149.96/28"
-    subnet 10.121.149.96 255.255.255.240
-object network "10.22.180.80"
-    host 10.22.180.80 
-object network "10.32.206.152"
-    host 10.32.206.152 
-object network "10.32.206.153"
-    host 10.32.206.153 
-object network "10.32.206.155"
-    host 10.32.206.155 
-object network "10.32.206.163"
-    host 10.32.206.163 
-object network "10.32.206.164"
-    host 10.32.206.164 
-object network "10.32.206.165"
-    host 10.32.206.165 
-object network "10.57.148.49"
-    host 10.57.148.49 
-object network "10.57.148.50"
-    host 10.57.148.50 
-object network "10.57.148.51"
-    host 10.57.148.51 
-object network "10.57.148.52"
-    host 10.57.148.52 
-object network "10.57.148.53"
-    host 10.57.148.53 
-object network "10.57.148.54"
-    host 10.57.148.54 
-object network "10.57.148.63"
-    host 10.57.148.63 
-object network "10.57.148.64"
-    host 10.57.148.64 
-object network "10.57.148.65"
-    host 10.57.148.65 
-object network "10.57.148.66"
-    host 10.57.148.66 
-object network "10.57.148.67"
-    host 10.57.148.67 
-object network "10.57.148.68"
-    host 10.57.148.68 
-object network "10.58.4.4"
-    host 10.58.4.4 
-object network "10.58.4.40"
-    host 10.58.4.40 
+object network "10.32.213.227"
+    host 10.32.213.227 
+object network "10.121.2.48"
+    host 10.121.2.48 
+object network "10.121.241.49"
+    host 10.121.241.49 
 object network "10.125.62.117"
     host 10.125.62.117 
-object network "10.58.1.45"
-    host 10.58.1.45 
-object network "10.58.1.46"
-    host 10.58.1.46 
-object network "10.21.9.161"
-    host 10.21.9.161 
-object network "10.21.24.21"
-    host 10.21.24.21 
-object network "10.58.4.125"
-    host 10.58.4.125 
+object network "SMP-PRA-APP-03"
+    host 200.199.45.86 
 object network "10.22.208.167"
     host 10.22.208.167 
 object network "10.22.210.16"
@@ -630,83 +555,144 @@ object network "10.22.208.81"
     host 10.22.208.81 
 object network "10.22.208.42"
     host 10.22.208.42 
-object network "13.58.93.249"
-    host 13.58.93.249 
-object network "10.38.176.0/20"
+object network "10.21.9.161"
+    host 10.21.9.161 
+object network "10.21.25.23"
+    host 10.21.25.3 
+object network "10.58.1.37"
+    host 10.58.1.37 
+object network "10.58.1.38"
+    host 10.58.1.38 
+object network "10.32.206.152"
+    host 10.32.206.152 
+object network "10.32.206.153"
+    host 10.32.206.152 
+object network "10.32.206.155"
+    host 10.32.206.155 
+object network "10.32.206.163"
+    host 10.32.206.163 
+object network "10.32.206.164"
+    host 10.32.206.164 
+object network "10.32.206.165"
+    host 10.32.206.164 
+object network "10.32.216.48"
+    host 10.32.216.48 
+object network "10.58.139.135"
+    host 10.58.139.135 
+object network "10.58.139.136"
+    host 10.58.139.136 
+object network "10.58.139.137"
+    host 10.58.139.137 
+object network "10.58.139.138"
+    host 10.58.139.138 
+object network "10.58.139.139"
+    host 10.58.139.139 
+object network "10.58.139.140"
+    host 10.58.139.140 
+object network "10.58.139.141"
+    host 10.58.139.141 
+object network "10.58.139.142"
+    host 10.58.139.142 
+object network "10.21.25.3"
+    host 10.21.25.3 
+object network "10.121.184.150"
+    host 10.121.184.150 
+object network "10.32.216.11"
+    host 10.32.216.11 
+object network "10.58.4.125"
+    host 10.58.4.125 
+object network "VIP_CLF_VELOX_R1"
+    host 200.149.22.128 
+object network "POOL_VPN_10.38.176.0_20"
     subnet 10.38.176.0 255.255.240.0
 object network "SOAP_HDM"
     subnet 200.199.43.32 255.255.255.240
-object network "SOAP_HDM2"
+object network "SOAP_HDM_2"
     subnet 200.199.46.128 255.255.255.240
-object network "200.165.104.30/32"
+object network "200.165.104.30"
     host 200.165.104.30 
-object network "200.165.104.13/32"
+object network "200.165.104.13"
     host 200.165.104.13 
-object network "201.10.124.48/32"
+object network "201.10.124.48"
     host 201.10.124.48 
-object network "201.10.124.49/32"
+object network "201.10.124.49"
     host 201.10.124.49 
-object network "200.199.42.66/32"
+object network "200.199.42.66"
     host 200.199.42.66 
-object network "200.199.37.66/32"
+object network "200.199.37.66"
     host 200.199.37.66 
-object network "200.149.22.6/32"
+object network "200.149.22.6"
     host 200.149.22.6 
-object network "200.149.22.38/32"
+object network "200.149.22.38"
     host 200.149.22.38 
-object network "201.10.239.86/32"
+object network "201.10.239.86"
     host 201.10.239.86 
-object network "201.10.239.166/32"
+object network "201.10.239.166"
     host 201.10.239.166 
-object network "CLF-BRRR"
-    host 200.149.22.38 
+object network "TEMP_187.208.18.208"
+    host 187.208.18.208 
+object network "ZABBIX-OSS"
+    host 10.121.184.68 
+object network "Proteus_10.121.2.48"
+    host 10.121.2.48 
 object network "10.22.208.85"
     host 10.22.208.85 
 object network "ARC-RJ-NTP-01"
     host 200.222.75.121 
 object network "MPI-MG-NTP-01"
     host 200.216.124.121 
+object network "10.61.47.138"
+    host 10.61.47.138 
+object network "HDM-PRA-APP-13"
+    host 200.199.43.51 
+object network "HDM-PRA-APP-14"
+    host 200.199.43.52 
 object network "10.61.178.204"
     host 10.61.178.204 
 object network "10.142.176.89"
     host 10.142.176.89 
 object network "10.151.176.85"
     host 10.151.176.85 
-object network "HDM-ALV-REP-02"
-    host 200.199.46.141 
-object network "HDM-ALV-REP-01"
-    host 200.199.46.140 
-object network "HDM-ALV-DB-01"
-    host 200.199.46.144 
-object network "HDM-ALV-DB-02"
-    host 200.199.46.145 
+object network "HDM-PRA-DB-01"
+    host 200.199.43.48 
+object network "HDM-PRA-DB-02"
+    host 200.199.43.49 
+object network "HDM-PRA-DB-03"
+    host 200.199.43.50 
 object network "10.38.64.0/19"
     subnet 10.38.64.0 255.255.224.0
 object network "10.55.64.0/19"
     subnet 10.55.64.0 255.255.224.0
-object network "HDM-ALV-APP-01_NAT"
-    host 10.121.150.164 
-object network "HDM-ALV-APP-13"
-    host 200.199.46.147 
-object network "HDM-ALV-APP-14"
-    host 200.199.46.148 
-object network "HDM-ALV-DB-03"
-    host 200.199.46.146 
-object network "Permite-tudo"
-object network "LAN_RMS_TR069_ALV"
-    subnet 200.199.53.192 255.255.255.240
-object network "LAN_RMS_SMP_APP_ALV"
-    subnet 200.199.47.176 255.255.255.240
+object network "10.58.1.45"
+    host 10.58.1.45 
+object network "10.58.1.46"
+    host 10.58.1.46 
+object network "10.58.52.137"
+    host 10.58.52.137 
+object network "10.58.52.237"
+    host 10.58.52.237 
+object network "10.58.52.135"
+    host 10.58.52.135 
+object network "10.58.53.59"
+    host 10.58.53.59 
+object network "10.58.53.60"
+    host 10.58.53.60 
+object network "10.58.53.61"
+    host 10.58.53.61 
 object network "10.121.184.155"
     host 10.121.184.155 
+object network "HDM-PRA-PRX-09"
+    host 200.199.39.187 
+object network "SMP-PRA-APP-04"
+    host 200.199.45.87 
+object network "10.58.129.0/29"
+    subnet 10.58.129.0 255.255.255.248
 object network "179.190.42.141"
     host 179.190.42.141 
 object network "179.190.41.25"
     host 179.190.41.25 
-object network "10.55.178.214"
-    host 10.55.178.214 
-object network "Host_10.55.73.56"
-    host 10.55.73.56 
+object network "VPN SUPORTE NOKIA"
+    subnet 10.38.172.32 255.255.255.224
 object network "10.32.142.43"
     host 10.32.142.43 
 object network "10.32.143.27"
@@ -717,60 +703,44 @@ object network "10.58.22.13"
     host 10.58.22.13 
 object network "10.58.22.0/24"
     subnet 10.58.22.0 255.255.255.0
-object network "10.58.1.37"
-    host 10.58.1.37 
-object network "10.58.1.38"
-    host 10.58.1.38 
-object network "SMP-ALV-APP-03"
-    host 200.199.47.182 
-object network "SMP-ALV-APP-04"
-    host 200.199.47.183 
-object network "HDM-ALV-PRX-09"
-    host 200.199.53.203 
-object network "HDM-ALV-APP-15"
-    host 200.199.46.149 
-object network "HDM-ALV-APP-16"
-    host 200.199.46.150 
-object network "HDM-ALV-APP-17"
-    host 200.199.46.151 
-object network "HDM-ALV-APP-18"
-    host 200.199.46.152 
-object network "HDM-ALV-APP-19"
-    host 200.199.46.153 
-object network "host_10.121.60.18"
-    host 10.121.60.18 
-object network "10.58.128.0/21"
-    subnet 10.58.128.0 255.255.248.0
-object network "10.160.8.0/21"
-    subnet 10.160.8.0 255.255.248.0
-object network "LAN_MNGTLOCAL_FTTH"
-    subnet 192.168.25.128 255.255.255.128
-object network "Host_10.58.23.116"
-    host 10.58.23.116 
-object network "host_10.58.90.68"
-    host 10.58.90.68 
-object network "10.121.187.138"
-    host 10.121.187.138 
-object network "10.121.189.93"
-    host 10.121.189.93 
-object network "host_10.21.27.167"
-    host 10.21.27.167 
+object network "HDM-PRA-APP-15"
+    host 200.199.43.53 
+object network "HDM-PRA-APP-16"
+    host 200.199.43.54 
+object network "HDM-PRA-APP-17"
+    host 200.199.43.55 
+object network "HDM-PRA-APP-18"
+    host 200.199.43.56 
+object network "HDM-PRA-APP-19"
+    host 200.199.43.57 
+object network "10.55.216.0/21"
+    subnet 10.55.216.0 255.255.248.0
 object network "10.21.26.194"
     host 10.21.26.194 
 object network "10.121.184.246"
     host 10.121.184.246 
+object network "10.58.168.5"
+    host 10.58.169.0 
+object network "10.58.69.0/27"
+    subnet 10.58.69.0 255.255.255.224
+object network "10.58.70.140/30"
+    subnet 10.58.70.140 255.255.255.252
+object network "10.58.168.6"
+    host 10.58.168.6 
+object network "10.58.169.5"
+    host 10.58.169.5 
 object network "BLOCOS_CP01"
     subnet 170.82.136.0 255.255.252.0
-object network "10.58.212.0/23"
-    subnet 10.58.212.0 255.255.254.0
+object network "10.58.82.0/23"
+    subnet 10.58.82.0 255.255.254.0
 object network "10.58.168.12/32"
     host 10.58.168.12 
 object network "10.58.168.13/32"
     host 10.58.168.13 
 object network "10.58.168.14/32"
     host 10.58.168.14 
-object network "10.58.82.0/23"
-    subnet 10.58.82.0 255.255.254.0
+object network "10.58.212.0/23"
+    subnet 10.58.212.0 255.255.254.0
 object network "10.58.168.15"
     host 10.58.168.15 
 object network "10.58.168.16"
@@ -781,8 +751,6 @@ object network "10.58.88.11"
     host 10.58.88.11 
 object network "10.58.92.8"
     host 10.58.92.8 
-object network "10.121.244.250"
-    host 10.121.244.250 
 object network "23.10.60.83"
     host 23.10.60.83 
 object network "209.132.183.108"
@@ -815,42 +783,46 @@ object network "10.58.7.41"
     host 10.58.7.41 
 object network "10.58.1.58"
     host 10.58.1.58 
-object network "10.32.142.43/32"
-    host 10.32.142.43 
+object network "10.21.18.101"
+    host 10.21.18.101 
+object network "10.21.20.17"
+    host 10.21.20.17 
+object network "10.21.19.103"
+    host 10.21.19.103 
+object network "BRRR-BA-CLF-01"
+    host 200.149.22.38 
 object network "10.58.30.0/24"
     subnet 10.58.30.0 255.255.255.0
 object network "10.58.36.64/28"
     subnet 10.58.36.64 255.255.255.240
 object network "209.132.178.16"
     host 209.132.178.16 
-object network "10.21.9.160"
-    host 10.21.9.160 
+object network "201.14.147.104"
+    host 201.14.147.104 
+object network "191.220.128.166"
+    host 191.220.128.166 
+object network "179.252.242.12"
+    host 179.252.242.12 
+object network "189.73.163.158"
+    host 189.73.163.158 
 object network "Shared"
     subnet 100.122.0.0 255.255.0.0
 object network "189.13.35.44"
     host 189.13.35.44 
-object network "200.195.97.49"
-    host 200.195.97.49 
-object network "200.199.39.210"
-    host 200.199.39.210 
-object network "177.203.110.244"
-    host 177.203.110.244 
-object network "200.163.70.219"
-    host 200.163.70.219 
-object network "100.120.6.13"
-    host 100.120.6.13 
+object network "200.199.39.222"
+    host 200.199.39.222 
 object network "10.61.46.190"
     host 10.61.46.190 
 object network "10.61.46.191"
     host 10.61.46.191 
+object network "104.219.110.132"
+    host 104.219.110.132 
 object network "10.121.187.68"
     host 10.121.187.68 
 object network "10.121.184.249"
     host 10.121.184.249 
 object network "10.121.189.68"
     host 10.121.189.68 
-object network "10.38.141.80/29"
-    subnet 10.38.141.80 255.255.255.248
 object network "10.101.3.136"
     host 10.101.3.136 
 object network "10.101.3.137"
@@ -859,14 +831,18 @@ object network "10.101.35.75"
     host 10.101.35.75 
 object network "10.101.35.76"
     host 10.101.35.76 
+object network "10.58.128.0/21"
+    subnet 10.58.128.0 255.255.248.0
+object network "10.160.8.0/21"
+    subnet 10.160.8.0 255.255.248.0
 object network "34.151.244.172"
     host 34.151.244.172 
 object network "10.103.0.0/17"
     subnet 10.103.0.0 255.255.128.0
 object network "10.104.0.0/17"
     subnet 10.104.0.0 255.255.128.0
-object network "10.104.34.0/24"
-    subnet 10.104.34.0 255.255.255.0
+object network "10.21.9.160"
+    host 10.21.9.160 
 object network "AXTRACT1-179.190.61.66/32"
     host 179.190.61.66 
 object network "AXTRACT1-179.190.41.20/32"
@@ -877,3 +853,131 @@ object network "10.58.36.0/24"
     subnet 10.58.36.0 255.255.255.0
 object network "10.32.143.28"
     host 10.32.143.28 
+object network "all"
+object network "all"
+object network "HDM-PRA-PRX-01_NAT_DCN"
+    host "200.199.39.178"
+object network "HDM-PRA-PRX-02_NAT_DCN"
+    host "200.199.39.179"
+object network "HDM-PRA-FTP-01_NAT_DCN"
+    host "200.199.39.180"
+object network "HDM-PRA-APP-01_NAT_DCN"
+    host "200.199.43.34"
+object network "HDM-PRA-APP-03_NAT_DCN"
+    host "200.199.43.36"
+object network "HDM-PRA-APP-02_NAT_DCN"
+    host "200.199.43.35"
+object network "HDM-PRA-APP-04_NAT_DCN"
+    host "200.199.43.37"
+object network "HDM-PRA-APP-11_NAT_DCN"
+    host "200.199.43.46"
+object network "HDM-PRA-APP-12_NAT_DCN"
+    host "200.199.43.47"
+object network "SMP-PRA-APP-01_NAT_DCN"
+    host "200.199.45.84"
+object network "SMP-PRA-APP-02_NAT_DCN"
+    host "200.199.45.85"
+object network "SMP-PRA-DB-01_NAT_DCN"
+    host "200.199.45.82"
+object network "SMP-PRA-DB-02_NAT_DCN"
+    host "200.199.45.83"
+object network "HDM-PRA-APP-05_NAT_DCN"
+    host "200.199.43.38"
+object network "HDM-PRA-APP-06_NAT_DCN"
+    host "200.199.43.39"
+object network "HDM-PRA-APP-07_NAT_DCN"
+    host "200.199.43.40"
+object network "HDM-PRA-APP-08_NAT_DCN"
+    host "200.199.43.41"
+object network "HDM-PRA-REP-01_NAT_DCN"
+    host "200.199.43.44"
+object network "HDM-PRA-REP-02_NAT_DCN"
+    host "200.199.43.45"
+object network "HDM-PRA-PRX-03_NAT_DCN"
+    host "200.199.39.181"
+object network "HDM-PRA-PRX-04_NAT_DCN"
+    host "200.199.39.182"
+object network "HDM-PRA-PRX-05_NAT_DCN"
+    host "200.199.39.183"
+object network "HDM-PRA-PRX-06_NAT_DCN"
+    host "200.199.39.184"
+object network "HDM-PRA-PRX-07_NAT_DCN"
+    host "200.199.39.185"
+object network "HDM-PRA-PRX-08_NAT_DCN"
+    host "200.199.39.186"
+object network "HDM-PRA-APP-09_NAT_DCN"
+    host "200.199.43.42"
+object network "HDM-PRA-APP-10_NAT_DCN"
+    host "200.199.43.43"
+object network "SMP-PRA-APP-03_NAT_DCN"
+    host "200.199.45.86"
+object network "HDM-PRA-DB-01_NAT_DCN"
+    host "200.199.43.48"
+object network "HDM-PRA-DB-02_NAT_DCN"
+    host "200.199.43.49"
+object network "HDM-PRA-DB-03_NAT_DCN"
+    host "200.199.43.50"
+object network "HDM-PRA-PRX-09_NAT_DCN"
+    host "200.199.39.187"
+object network "HDM-PRA-APP-13_NAT_DCN"
+    host "200.199.43.51"
+object network "HDM-PRA-APP-14_NAT_DCN"
+    host "200.199.43.52"
+object network "SMP-PRA-APP-04_NAT_DCN"
+    host "200.199.45.87"
+object network "HDM-PRA-APP-15_NAT_DCN"
+    host "200.199.43.53"
+object network "HDM-PRA-APP-16_NAT_DCN"
+    host "200.199.43.54"
+object network "HDM-PRA-APP-17_NAT_DCN"
+    host "200.199.43.55"
+object network "HDM-PRA-APP-18_NAT_DCN"
+    host "200.199.43.56"
+object network "HDM-PRA-APP-19_NAT_DCN"
+    host "200.199.43.57"
+object network "HDM-PRA-MNGT-01_NAT_DCN"
+    host "192.168.25.4"
+object network "HDM-PRA-APP-BCK-01_NAT_DCN"
+    host "192.168.25.5"
+object network "HDM-PRA-REDIS-01_NAT_DCN"
+    host "192.168.25.6"
+object network "HDM-PRA-APP-BCK-02_NAT_DCN"
+    host "192.168.25.7"
+object network "HDM-PRA-REDIS-02_NAT_DCN"
+    host "192.168.25.8"
+object network "HDM-PRA-PRX-HOST-01_NAT_DCN"
+    host "192.168.25.9"
+object network "HDM-PRA-PRX-HOST-02_NAT_DCN"
+    host "192.168.25.10"
+object network "HDM-PRA-PRX-HOST-03_NAT_DCN"
+    host "192.168.25.11"
+object network "HDM-PRA-APP-HOST-01_NAT_DCN"
+    host "192.168.25.12"
+object network "HDM-PRA-APP-HOST-02_NAT_DCN"
+    host "192.168.25.13"
+object network "HDM-PRA-APP-HOST-03_NAT_DCN"
+    host "192.168.25.14"
+object network "HDM-PRA-APP-HOST-04_NAT_DCN"
+    host "192.168.25.15"
+object network "HDM-PRA-PRX-SBI-01_NAT_DCN"
+    host "192.168.25.16"
+object network "HDM-PRA-LBF5-01-SSH_NAT_DCN"
+    host "192.168.25.17"
+object network "PLAT_HDM_RJ_RJO_PRA_LB_VBIGIP01_HTTPS_NAT_DCN"
+    host "192.168.25.23"
+object network "HDM-PRA-LBF5-02-SSH_NAT_DCN"
+    host "192.168.25.18"
+object network "PLAT_HDM_RJ_RJO_PRA_LB_VBIGIP02_HTTPS_NAT_DCN"
+    host "192.168.25.24"
+object network "HDM-PRA-APP-HOST-05_NAT_DCN"
+    host "192.168.25.21"
+object network "HDM-PRA-APP-HOST-06_NAT_DCN"
+    host "192.168.25.22"
+object network "HDM-PRA-PRX-HOST-04_NAT_DCN"
+    host "192.168.25.19"
+object network "HDM-PRA-PRX-HOST-05_NAT_DCN"
+    host "192.168.25.20"
+object network "SMP-PRA-SA-01_NAT_DCN"
+    host "200.199.45.93"
+object network "SMP-PRA-SA-02_NAT_DCN"
+    host "200.199.45.94"
