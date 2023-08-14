@@ -1,0 +1,912 @@
+#gtm pool a pool-autopass.sptrans.src {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-FRONT-PRD-CEN:/FRONT-PRD-CEN/vs_autopass_sptrans_src {
+#            member-order 1
+#        }
+#        LTM-FRONT-PRD-TSM:/FRONT-PRD/vs_autopass_sptrans_src {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool-hom.grupocard.sptrans.src {
+#    members {
+#        LTM-FRONT-HOM-TSM:/FRONT-HOM/vs_hom_grupocard_sptrans_src {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool-qiwi.sptrans.src {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-FRONT-PRD-CEN:/FRONT-PRD-CEN/vs_hsmartnet_sptrans_src {
+#            member-order 1
+#        }
+#        LTM-FRONT-PRD-TSM:/FRONT-PRD/vs_hdevels_sptrans_src {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_CEN_scdftp.hsbe.dc.sptrans.com.br {
+#    alternate-mode global-availability
+#    fallback-mode global-availability
+#    load-balancing-mode global-availability
+#    members {
+#        LTM-DMZ-HOM-CENESP:/DMZ-HOM-CEN/vs_ftp_scdftp_hsbe_sptrans_com_br {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_backoffice.recon.dc.sptrans.corp {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-TSM:/DMZ-PRD/vs_http_backoffice_recon_sptrans_corp {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_bencerto.sptrans.src {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-FRONT-PRD-CEN:/FRONT-PRD-CEN/vs_bencerto_sptrans_scr {
+#            member-order 1
+#        }
+#        LTM-FRONT-PRD-TSM:/FRONT-PRD/vs_bencerto_sptrans_scr {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_bi.sptrans.corp {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_http_bi_sptrans_corp_int {
+#            disabled
+#            member-order 1
+#        }
+#        LTM-TSM:/DMZ-PRD/vs_http_bi_sptrans_corp_int {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_bilheteunico.sptrans.com.br {
+#    load-balancing-mode least-connections
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_https_bilheteunico_sptrans_com_br {
+#            member-order 1
+#        }
+#        LTM-TSM:/DMZ-PRD/vs_https_bilheteunico_sptrans_com_br {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_busptrans.com.br {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_http_portal_sptrans_com_br_externo {
+#            disabled
+#            member-order 1
+#        }
+#        LTM-TSM:/DMZ-PRD/vs_http_portal_sptrans_com_br_externo {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_cadescola.sbe.dc.sptrans.corp {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_http_cadescola_dc_sptrans_corp {
+#            member-order 1
+#        }
+#        LTM-TSM:/DMZ-PRD/vs_http_cadescola_dc_sptrans_corp {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_cadescola.sptrans.com.br {
+#    alternate-mode return-to-dns
+#    fallback-mode ratio
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_httpS_cadescola_sptrans_com_br {
+#            member-order 1
+#        }
+#        LTM-TSM:/DMZ-PRD/vs_httpS_cadescola_sptrans_com_br {
+#            member-order 0
+#        }
+#    }
+#    ttl 60
+#}
+#gtm pool a pool_cef.sptrans.src {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-FRONT-PRD-CEN:/FRONT-PRD-CEN/vs_cef_sptrans_src {
+#            member-order 1
+#        }
+#        LTM-FRONT-PRD-TSM:/FRONT-PRD/vs_cef_sptrans_src {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_cen_scapub.sbe.sptrans.com.br {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_httpS_scapub_sbe_sptrans_com_br {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_cnp_lv.sbe.sptrans.com.br {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_httpS_lv_sbe_sptrans_com_br {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_devels.sptrans.src {
+#    load-balancing-mode ratio
+#    members {
+#        LTM-FRONT-PRD-CEN:/FRONT-PRD-CEN/vs_devels_sptrans_src {
+#            member-order 1
+#        }
+#        LTM-FRONT-PRD-TSM:/FRONT-PRD/vs_devels_sptrans_src {
+#            member-order 0
+#            ratio 10
+#        }
+#    }
+#}
+#gtm pool a pool_estudante.sptrans.com.br {
+#    load-balancing-mode least-connections
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_https_estudante_sptrans_com_br {
+#            member-order 1
+#        }
+#        LTM-TSM:/DMZ-PRD/vs_https_estudante_sptrans_com_br {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_ftp.sptrans.com.br {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_ftp_sptrans_com_br {
+#            disabled
+#            member-order 1
+#        }
+#        LTM-TSM:/DMZ-PRD/vs_ftp_sptrans_com_br {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_ftp_sptrans.corp {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_ftp_ftp_sptrans_corp {
+#            disabled
+#            member-order 1
+#        }
+#        LTM-TSM:/DMZ-PRD/vc_ftp_ftp_sptrans_corp {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_getnet.sptrans.src {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-FRONT-PRD-CEN:/FRONT-PRD-CEN/vs_getnet_sptrans_src {
+#            member-order 1
+#        }
+#        LTM-FRONT-PRD-TSM:/FRONT-PRD/vs_getnet_sptrans_src {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_hom.cef.sptrans.src {
+#    load-balancing-mode least-connections
+#    members {
+#        LTM-FRONT-HOM-TSM:/FRONT-HOM/vs_hom_cef_sptrans_src {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_hom.devels.sptrans.src {
+#    load-balancing-mode least-connections
+#    members {
+#        LTM-FRONT-HOM-TSM:/FRONT-HOM/vs_hom_devels_sptrans_src {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_hom.epago.sptrans.src {
+#    members {
+#        LTM-FRONT-HOM-TSM:/FRONT-HOM/vs_hom_epago_sptrans_src {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_hom.getnet.sptrans.src {
+#    load-balancing-mode least-connections
+#    members {
+#        LTM-FRONT-HOM-TSM:/FRONT-HOM/vs_hom_getnet_sptrans_src {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_hom.mandacaru.sptrans.src {
+#    members {
+#        LTM-FRONT-HOM-TSM:/FRONT-HOM/hom_mandacaru_sptrans_src {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_hom.pcerto.sptrans.src {
+#    load-balancing-mode least-connections
+#    members {
+#        LTM-FRONT-HOM-TSM:/FRONT-HOM/vs_hom_pcerto_sptrans_src {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_hom.perto.sptrans.src {
+#    load-balancing-mode least-connections
+#    members {
+#        LTM-FRONT-HOM-TSM:/FRONT-HOM/vs_hom_perto_sptrans_src {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_hom.planin.sptrans.src {
+#    load-balancing-mode least-connections
+#    members {
+#        LTM-FRONT-HOM-TSM:/FRONT-HOM/vs_hom_planin_sptrans_src {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_hom.pldevice.sptrans.src {
+#    load-balancing-mode least-connections
+#    members {
+#        LTM-FRONT-HOM-TSM:/FRONT-HOM/vs_hom_pldevice_sptrans_src {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_hom.prodata.sptrans.src {
+#    load-balancing-mode least-connections
+#    members {
+#        LTM-FRONT-HOM-TSM:/FRONT-HOM/vs_hom_prodata_sptrans_src {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_hom.protege.sptrans.src {
+#    load-balancing-mode least-connections
+#    members {
+#        LTM-FRONT-HOM-TSM:/FRONT-HOM/vs_hom_protege_sptrans_src {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_hom.qiwibrasil.sptrans.src {
+#    members {
+#        LTM-FRONT-HOM-TSM:/FRONT-HOM/vs_hom_qiwibrasil_sptrans_src {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_hom.servlot.sptrans.src {
+#    load-balancing-mode least-connections
+#    members {
+#        LTM-FRONT-HOM-TSM:/FRONT-HOM/vs_hom_servlot_sptrans_src {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_hom.smartnet.sptrans.src {
+#    load-balancing-mode least-connections
+#    members {
+#        LTM-FRONT-HOM-TSM:/FRONT-HOM/vs_hom_smartnet_sptrans_src {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_intraneth.dc.sptrans.corp {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-HOM-TSM:/DMZ-HOM/vs_intraneth_dc_sptrans_corp {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_lv.hsbe.dc.sptrans.com.br {
+#    members {
+#        LTM-DMZ-HOM-TSM:/DMZ-HOM/vs_809_lv_hsbe_sptrans_com_br {
+#            member-order 1
+#        }
+#        LTM-DMZ-HOM-TSM:/DMZ-HOM/vs_http_lv_hsbe_sptrans_com_br {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_lv.hsbe.dc.sptrans.corp {
+#    members {
+#        LTM-DMZ-HOM-TSM:/DMZ-HOM/vs_http_lv_hsbe_dc_corp {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_lv.sbe.dc.sptrans.corp {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_809_lv_sbe_dc_sptrans_corp {
+#            member-order 1
+#        }
+#        LTM-TSM:/DMZ-PRD/vs_809_lv_dc_sptrans_corp {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_lv.sbe.sptrans.com.br {
+#    alternate-mode static-persistence
+#    fallback-mode round-robin
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_httpS_lv_sbe_sptrans_com_br {
+#            member-order 1
+#        }
+#        LTM-TSM:/DMZ-PRD/vs_httpS_lv_sbe_sptrans_com_br {
+#            disabled
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_odi.sptrans.corp {
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_http_odi_sptrans_corp {
+#            member-order 1
+#        }
+#        LTM-TSM:/DMZ-PRD/vs_http_odi_sptrans_corp {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_pbe.bilheteunico.dc.sptrans.com.br {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_http_pbe_bilheteunico_dc_sptrans_com_br {
+#            member-order 0
+#        }
+#        LTM-TSM:/DMZ-PRD/vs_http_pbe_bilheteunico_dc_sptrans_com_br {
+#            member-order 1
+#        }
+#    }
+#}
+#gtm pool a pool_pbe.bilheteunico.dc.sptrans.corp {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_http_pbe_bilheteunico_dc_sptrans_corp {
+#            member-order 1
+#        }
+#        LTM-TSM:/DMZ-PRD/vs_http_pbe_bilheteunico_dc_sptrans_corp {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_pcerto.sptrans.src {
+#    load-balancing-mode least-connections
+#    members {
+#        LTM-FRONT-PRD-CEN:/FRONT-PRD-CEN/vs_pcerto_sptrans_src {
+#            member-order 0
+#        }
+#        LTM-FRONT-PRD-TSM:/FRONT-PRD/vs_pcerto_sptrans_src {
+#            member-order 1
+#        }
+#    }
+#}
+#gtm pool a pool_pedidocredito.ws.hsbe.sptrans.com.br {
+#    members {
+#        LTM-DMZ-HOM-TSM:/DMZ-HOM/vs_http_pedidocredito_ws_hsbe_sptrans_com_br {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_pedidocredito.ws.hsbe.sptrans.corp {
+#    members {
+#        LTM-DMZ-HOM-TSM:/DMZ-HOM/vs_http_pedidocredito_ws_hsbe_sptrans_corp {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_pedidocredito.ws.sbe.dc.sptrans.corp {
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_http_pedidodecredito_ws_sbe_dc_sptrans_corp {
+#            member-order 0
+#        }
+#        LTM-TSM:/DMZ-PRD/vs_http_pedidodecredito_ws_sbe_dc_sptrans_corp {
+#            member-order 1
+#        }
+#    }
+#}
+#gtm pool a pool_perto.sptrans.src {
+#    alternate-mode packet-rate
+#    members {
+#        LTM-FRONT-PRD-CEN:/FRONT-PRD-CEN/vs_perto_sptrans_src {
+#            disabled
+#            member-order 1
+#        }
+#        LTM-FRONT-PRD-TSM:/FRONT-PRD/vs_perto_sptrans_src {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_planin.sptrans.src {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-FRONT-PRD-CEN:/FRONT-PRD-CEN/vs_planin_sptrans_src {
+#            disabled
+#            member-order 1
+#        }
+#        LTM-FRONT-PRD-TSM:/FRONT-PRD/vs_planin_sptrans_src {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_pldevice.sptrans.src {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-FRONT-PRD-CEN:/FRONT-PRD-CEN/vs_pldevice_sptrans_src {
+#            disabled
+#            member-order 1
+#        }
+#        LTM-FRONT-PRD-TSM:/FRONT-PRD/vs_pldevice_sptrans_src {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_portal.sptrans.com.br {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_http_portal_sptrans_com_br_externo {
+#            disabled
+#            member-order 0
+#        }
+#        LTM-TSM:/DMZ-PRD/vs_http_portal_sptrans_com_br_externo {
+#            member-order 1
+#        }
+#    }
+#}
+#gtm pool a pool_portal.sptrans.corp {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_http_portal_sptrans_corp_int {
+#            disabled
+#            member-order 1
+#        }
+#        LTM-TSM:/DMZ-PRD/vs_http_portal_sptrans_corp_int {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_portalh.sptrans.com.br {
+#    members {
+#        LTM-DMZ-HOM-TSM:/DMZ-HOM/vs_http_portal_sptrans_com_br {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_portalh.sptrans.corp {
+#    members {
+#        LTM-DMZ-HOM-TSM:/DMZ-HOM/vs_http_portal_sptrans_corp {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_prodata-new.sptrans.src {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-FRONT-PRD-CEN:/FRONT-PRD-CEN/vs_hservlot_sptrans_src {
+#            member-order 1
+#        }
+#        LTM-FRONT-PRD-TSM:/FRONT-PRD/vs_hservlot_sptrans_src {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_prodata.sptrans.src {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-FRONT-PRD-CEN:/FRONT-PRD-CEN/vs_protada_sptrans_src {
+#            member-order 1
+#        }
+#        LTM-FRONT-PRD-TSM:/FRONT-PRD/vs_prodata_sptrans_src {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_protege.sptrans.src {
+#    members {
+#        LTM-FRONT-PRD-CEN:/FRONT-PRD-CEN/vs_protege_sptrans_src {
+#            member-order 1
+#        }
+#        LTM-FRONT-PRD-TSM:/FRONT-PRD/vs_vcprotege_sptrans_src {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_qsbe.bilheteunico.dc.sptrans.com.br {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-QAS-TSM:/DMZ-QAS/vs_qsbe_bilheteunico_sptrans_com_br {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_sbeweb.sbe.busptrans.com.br {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_http_sbeweb_sbe_sptrans_com_br {
+#            disabled
+#            member-order 0
+#        }
+#        LTM-TSM:/DMZ-PRD/vs_http_sbeweb_sbe_sptrans_com_br {
+#            member-order 1
+#        }
+#    }
+#}
+#gtm pool a pool_sbeweb.sbe.dc.sptrans.corp {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_http_sbeweb_sbe_sptrans_corp {
+#            disabled
+#            member-order 0
+#        }
+#        LTM-TSM:/DMZ-PRD/vs_http_sbeweb_sbe_sptrans_corp {
+#            member-order 1
+#        }
+#    }
+#}
+#gtm pool a pool_sbeweb.sbe.sptrans.com.br {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_http_sbeweb_sbe_sptrans_com_br {
+#            disabled
+#            member-order 1
+#        }
+#        LTM-TSM:/DMZ-PRD/vs_http_sbeweb_sbe_sptrans_com_br {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_scapriv.sbe.dc.sptrans.corp {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_http_scapriv_sbe_dc_sptrans_corp {
+#            member-order 1
+#        }
+#        LTM-TSM:/DMZ-PRD/vs_http_scapriv_sbe_dc_sptrans_corp {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_scapriv.sbe.sptrans.com.br {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_http_scapriv_sbe_sptrans_com_br {
+#            disabled
+#            member-order 0
+#        }
+#        LTM-TSM:/DMZ-PRD/vs_http_scapriv_sbe_sptrans_com_br {
+#            member-order 1
+#        }
+#    }
+#}
+#gtm pool a pool_scapub.sbe.dc.sptrans.corp {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_http_scapub_sbe_dc_sptrans_corp {
+#            member-order 0
+#        }
+#        LTM-TSM:/DMZ-PRD/vs_http_scapub_sbe_dc_sptrans_corp {
+#            member-order 1
+#        }
+#    }
+#}
+#gtm pool a pool_scapub.sbe.sptrans.com.br {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_httpS_scapub_sbe_sptrans_com_br {
+#            member-order 0
+#        }
+#        LTM-TSM:/DMZ-PRD/vs_httpS_scapub_sbe_sptrans_com_br {
+#            disabled
+#            member-order 1
+#        }
+#    }
+#}
+#gtm pool a pool_scd.hsbe.dc.sptrans.com.br {
+#    alternate-mode return-to-dns
+#    fallback-mode round-robin
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-HOM-TSM:/DMZ-HOM/vs_http_scd_hsbe_sptrans_com_br {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_scd.hsbe.dc.sptrans.corp {
+#    members {
+#        LTM-DMZ-HOM-TSM:/DMZ-HOM/vs_http_scd_hsbe_dc_sptrans_corp {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_scd.qsbe.dc.sptrans.com.br {
+#    members {
+#        LTM-DMZ-QAS-TSM:/DMZ-QAS/vs_http_scd_qsbe_dc_sptrans_com_br {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_scd.sbe.dc.sptrans.corp {
+#    alternate-mode global-availability
+#    fallback-mode global-availability
+#    load-balancing-mode global-availability
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_http_scd_sbe_sptrans_corp {
+#            member-order 1
+#        }
+#        LTM-TSM:/DMZ-PRD/vs_http_scd_sbe_sptrans_corp {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_scd.sbe.sptrans.com.br {
+#    alternate-mode global-availability
+#    fallback-mode global-availability
+#    load-balancing-mode global-availability
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_http_scd_sbe_sptrans_com_br {
+#            member-order 1
+#        }
+#        LTM-TSM:/DMZ-PRD/vs_http_scd_sbe_sptrans_com_br {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_scdftp.hsbe.dc.sptrans.com.br {
+#    alternate-mode global-availability
+#    fallback-mode global-availability
+#    load-balancing-mode global-availability
+#    members {
+#        LTM-DMZ-HOM-TSM:/DMZ-HOM/vs_ftp_scdftp_hsbe_sptrans_com_br {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_scdftp.qsbe.sptrans.com.br {
+#    members {
+#        LTM-DMZ-QAS-TSM:/DMZ-QAS/vs_ftp_scdftp_hsbe_sptrans_com_br {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_scdftp.sbe.dc.sptrans.corp {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_ftp_scdftp_sbe_sptrans_corp {
+#            disabled
+#            member-order 1
+#        }
+#        LTM-TSM:/DMZ-PRD/vs_ftp_scdftp_sbe_sptrans_corp {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_scdftp.sbe.sptrans.com.br {
+#    alternate-mode global-availability
+#    fallback-mode global-availability
+#    load-balancing-mode global-availability
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_ftp_scdftp_sbe_sptrans_com_br {
+#            disabled
+#            member-order 1
+#        }
+#        LTM-TSM:/DMZ-PRD/vs_ftp_scdftp_sbe_sptran_scom_br {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_scp.sbe.busptrans.com.br {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_http_scp_sbe_sptrans_com_br {
+#            disabled
+#            member-order 0
+#        }
+#        LTM-TSM:/DMZ-PRD/vs_http_scp_sbe_sptrans_com_br {
+#            member-order 1
+#        }
+#    }
+#}
+#gtm pool a pool_scp.sbe.dc.sptrans.corp {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_http_scp_sbe_sptrans_corp {
+#            disabled
+#            member-order 0
+#        }
+#        LTM-TSM:/DMZ-PRD/vs_http_scp_sbe_sptrans_corp {
+#            member-order 1
+#        }
+#    }
+#}
+#gtm pool a pool_scp.sbe.sptrans.com.br {
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_http_scp_sbe_sptrans_com_br {
+#            member-order 1
+#        }
+#        LTM-TSM:/DMZ-PRD/vs_http_scp_sbe_sptrans_com_br {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_services.sptrans.corp {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_http_services_sptrans_corp {
+#            member-order 1
+#        }
+#        LTM-TSM:/DMZ-PRD/vs_http_services_sptrans_corp {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_servlot.sptrans.src {
+#    load-balancing-mode least-connections
+#    members {
+#        LTM-FRONT-PRD-CEN:/FRONT-PRD-CEN/vs_servlot_sptrans_src {
+#            member-order 1
+#        }
+#        LTM-FRONT-PRD-TSM:/FRONT-PRD/vs_servlot_sptrans_src {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_smartnet.sptrans.src {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-FRONT-PRD-CEN:/FRONT-PRD-CEN/vs_smartnet_sptrans_src {
+#            member-order 1
+#        }
+#        LTM-FRONT-PRD-TSM:/FRONT-PRD/vs_smartnet_sptrans_src {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_smtp.sbe.sptrans.corp {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_smtp_sbe_sptrans_crop {
+#            disabled
+#            member-order 1
+#        }
+#        LTM-TSM:/DMZ-PRD/vs_smtp_sbe_sptrans_crop {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_soainfra.dc.sptrans.corp {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-TSM:/DMZ-PRD/vs_http_soainfraprd_dc_sptrans_corp {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_sptosbhml.sptrans.corp {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-HOM-TSM:/DMZ-HOM/vs_sptosbhml_dc_sptrans_corp {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_sptosbprd.dc.sptrans.corp {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_sptosbprd_sptrans_corp {
+#            member-order 1
+#        }
+#        LTM-TSM:/DMZ-PRD/vs_sptosbprd_sptrans_corp {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_sptosbteste.sptrans.dc.corp {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-TST-TSM:/DMZ-TEST/vs_sptosbteste_sptrans_corp {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_sptosbtestefab.dc.sptrans.corp {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-HOM-TSM:/DMZ-HOM/vs_sptosbtestefab_dc_sptrans_corp {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_sptsoatestefab.dc.sptrans.corp {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-HOM-TSM:/DMZ-HOM/vs_sptsoatestefab_dc_sptrans_corp {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_tsm_lv.sbe.sptrans.com.br {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-TSM:/DMZ-PRD/vs_httpS_lv_sbe_sptrans_com_br {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_tsm_scapub.sbe.sptrans.com.br {
+#    load-balancing-mode ratio
+#    members {
+#        LTM-TSM:/DMZ-PRD/vs_http_scapub_sbe_sptrans_com_br {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_validacaoserpro.sptrans.corp {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_http_validacaoserpro_sptrans_corp {
+#            member-order 1
+#        }
+#        LTM-TSM:/DMZ-PRD/vs_http_validacaoserpro_sptrans_corp {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_ws.hsbe.sptrans.com.br {
+#    members {
+#        LTM-DMZ-HOM-TSM:/DMZ-HOM/vs_8080_ws_hsbe_sptrans_com_br {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_ws.hsbe.sptrans.corp {
+#    members {
+#        LTM-DMZ-HOM-TSM:/DMZ-HOM/vs_8080_ws_hsbe_dc_sptrans_corp {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_ws.sbe.dc.sptrans.corp {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_8080_ws_sbe_dc_sptrans_corp {
+#            disabled
+#            member-order 1
+#        }
+#        LTM-TSM:/DMZ-PRD/vs_8080_ws_sbe_dc_sptrans_corp {
+#            member-order 0
+#        }
+#    }
+#}
+#gtm pool a pool_ws.sbe.sptrans.com.br {
+#    load-balancing-mode static-persistence
+#    members {
+#        LTM-DMZ-PRD-CENESP:/DMZ-PRD-CEN/vs_8080_ws_sbe_sptrans_com_br {
+#            disabled
+#            member-order 1
+#        }
+#        LTM-TSM:/DMZ-PRD/vs_8080_ws_sbe_sptrans_com_br {
+#            member-order 0
+#        }
+#    }

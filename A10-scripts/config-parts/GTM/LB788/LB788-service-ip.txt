@@ -1,0 +1,864 @@
+#        /DMZ-HOM-CEN/vs_ftp_scdftp_hsbe_sptrans_com_br {
+#            destination 200.185.187.161:ftp
+#        }
+#    }
+
+#        /DMZ-HOM/vs_809_lv_hsbe_sptrans_com_br {
+#            destination 200.185.50.203:809
+#        }
+#        /DMZ-HOM/vs_7778_portal_sptrans_com_br {
+#            destination 200.185.50.194:interwise
+#        }
+#        /DMZ-HOM/vs_8080_ws_hsbe_dc_sptrans_corp {
+#            destination 10.34.199.105:webcache
+#        }
+#        /DMZ-HOM/vs_8080_ws_hsbe_sptrans_com_br {
+#            destination 200.185.50.193:webcache
+#        }
+#        /DMZ-HOM/vs_appservices_hom_sptrans_corp {
+#            destination 10.34.199.116:http
+#        }
+#        /DMZ-HOM/vs_ftp_scdftp_hsbe_sptrans_com_br {
+#            destination 200.185.50.202:ftp
+#        }
+#        /DMZ-HOM/vs_ftp_scdftp_hsbe_sptrans_corp {
+#            destination 10.34.199.103:ftp
+#        }
+#        /DMZ-HOM/vs_http_bi_sptrans_corp {
+#            destination 10.34.199.98:http
+#        }
+#        /DMZ-HOM/vs_http_cadescola_sptrans_com_br {
+#            destination 200.185.50.197:http
+#        }
+#        /DMZ-HOM/vs_http_cadescola_sptrans_corp {
+#            destination 10.34.199.101:http
+#        }
+#        /DMZ-HOM/vs_http_lv_hsbe_dc_corp {
+#            destination 10.34.199.104:http
+#        }
+#        /DMZ-HOM/vs_http_lv_hsbe_sptrans_com_br {
+#            destination 200.185.50.203:http
+#        }
+#        /DMZ-HOM/vs_http_pedidocredito_ws_hsbe_sptrans_com_br {
+#            destination 200.185.50.206:tproxy
+#        }
+#        /DMZ-HOM/vs_http_pedidocredito_ws_hsbe_sptrans_corp {
+#            destination 10.34.199.111:tproxy
+#        }
+#        /DMZ-HOM/vs_http_portal_sptrans_com_br {
+#            destination 200.185.50.194:http
+#        }
+#        /DMZ-HOM/vs_http_portal_sptrans_corp {
+#            destination 10.34.199.97:http
+#        }
+#        /DMZ-HOM/vs_http_sbeweb_hsbe_sptrans_corp {
+#            destination 10.34.199.107:http
+#        }
+#        /DMZ-HOM/vs_http_scapriv_hsbe_dc_sptrans_com_br {
+#            destination 200.185.50.196:http
+#        }
+#        /DMZ-HOM/vs_http_scapriv_hsbe_dc_sptrans_corp {
+#            destination 10.34.199.100:http
+#        }
+#        /DMZ-HOM/vs_http_scapub_hsbe_dc_sptrans_com_br {
+#            destination 200.185.50.195:http
+#        }
+#        /DMZ-HOM/vs_http_scapub_hsbe_dc_sptrans_corp {
+#            destination 10.34.199.99:http
+#        }
+#        /DMZ-HOM/vs_http_scd_hsbe_dc_sptrans_corp {
+#            destination 10.34.199.102:http
+#        }
+#        /DMZ-HOM/vs_http_scd_hsbe_sptrans_com_br {
+#            destination 200.185.50.201:http
+#        }
+#        /DMZ-HOM/vs_http_scp_hsbe_sptrans_com_br {
+#            destination 200.185.50.205:http
+#        }
+#        /DMZ-HOM/vs_http_scp_hsbe_sptrans_corp {
+#            destination 10.34.199.108:http
+#        }
+#        /DMZ-HOM/vs_https_appservices_hom_sptrans_corp {
+#            destination 10.34.199.116:https
+#        }
+#        /DMZ-HOM/vs_https_lv_hsbe_sptrans_com_br {
+#            destination 200.185.50.203:https
+#        }
+#        /DMZ-HOM/vs_intraneth_dc_sptrans_corp {
+#            destination 10.34.199.112:http
+#        }
+#        /DMZ-HOM/vs_smtp_hsbe_sptrans_corp {
+#            destination 10.34.199.109:smtp
+#        }
+#        /DMZ-HOM/vs_sptosbhml_dc_sptrans_corp {
+#            destination 10.34.199.115:afs3-prserver
+#        }
+#        /DMZ-HOM/vs_sptosbtestefab_dc_sptrans_corp {
+#            destination 10.34.199.114:afs3-prserver
+#        }
+#        /DMZ-HOM/vs_sptsoatestefab_dc_sptrans_corp {
+#            destination 10.34.199.113:afs3-vlserver
+#        }
+#        /DMZ-HOM/vs_testes {
+#            destination 200.185.50.204:http
+#        }
+#    }
+
+#        /DMZ-PRD-CEN/vs_809_lv_sbe_dc_sptrans_corp {
+#            destination 10.34.215.9:809
+#        }
+#        /DMZ-PRD-CEN/vs_809_lv_sbe_sptrans_com_br {
+#            destination 200.185.187.58:809
+#        }
+#        /DMZ-PRD-CEN/vs_7777_portal_sptrans_com_br_externo {
+#            destination 200.185.187.49:cbt
+#        }
+#        /DMZ-PRD-CEN/vs_7778_portal_sptrans_com_br_externo {
+#            destination 200.185.187.49:interwise
+#        }
+#        /DMZ-PRD-CEN/vs_8080_antifraude_sbe_dc_sptrans_corp {
+#            destination 10.34.215.19:webcache
+#        }
+#        /DMZ-PRD-CEN/vs_8080_ws_sbe_dc_sptrans_corp {
+#            destination 10.34.215.10:webcache
+#        }
+#        /DMZ-PRD-CEN/vs_8080_ws_sbe_sptrans_com_br {
+#            destination 200.185.187.59:webcache
+#        }
+#        /DMZ-PRD-CEN/vs_8081_lvpriv_sbe_sptrans_corp {
+#            destination 10.34.215.25:tproxy
+#        }
+#        /DMZ-PRD-CEN/vs_cobranca_dc_sptrans_corp {
+#            destination 10.34.215.22:webcache
+#        }
+#        /DMZ-PRD-CEN/vs_ftp_ftp_sptrans_corp {
+#            destination 10.34.215.11:ftp
+#        }
+#        /DMZ-PRD-CEN/vs_ftp_scdftp_sbe_sptrans_com_br {
+#            destination 200.185.187.57:ftp
+#        }
+#        /DMZ-PRD-CEN/vs_ftp_scdftp_sbe_sptrans_corp {
+#            destination 10.34.215.8:ftp
+#        }
+#        /DMZ-PRD-CEN/vs_ftp_sptrans_com_br {
+#            destination 200.185.187.55:ftp
+#        }
+#        /DMZ-PRD-CEN/vs_httpS_api.sptrans.corp {
+#            destination 10.34.215.18:https
+#        }
+#        /DMZ-PRD-CEN/vs_httpS_cadescola_sptrans_com_br {
+#            destination 200.185.187.52:https
+#        }
+#        /DMZ-PRD-CEN/vs_httpS_lv_sbe_sptrans_com_br {
+#            destination 200.185.187.58:https
+#        }
+#        /DMZ-PRD-CEN/vs_httpS_pbe_bilheteunico_dc_sptrans_com_br {
+#            destination 200.185.187.62:https
+#        }
+#        /DMZ-PRD-CEN/vs_httpS_pbe_bilheteunico_dc_sptrans_corp {
+#            destination 10.34.215.23:https
+#        }
+#        /DMZ-PRD-CEN/vs_httpS_scapriv_sbe_sptrans_com_br {
+#            destination 200.185.187.51:https
+#        }
+#        /DMZ-PRD-CEN/vs_httpS_scapub_sbe_sptrans_com_br {
+#            destination 200.185.187.50:https
+#        }
+#        /DMZ-PRD-CEN/vs_httpS_scd_sbe_sptrans_com_br {
+#            destination 200.185.187.56:https
+#        }
+#        /DMZ-PRD-CEN/vs_http_api.sptrans.corp {
+#            destination 10.34.215.18:http
+#        }
+#        /DMZ-PRD-CEN/vs_http_bi_sptrans_corp_int {
+#            destination 10.34.215.3:http
+#        }
+#        /DMZ-PRD-CEN/vs_http_bilheteunico_sptrans_com_br {
+#            destination 200.185.187.53:http
+#        }
+#        /DMZ-PRD-CEN/vs_http_cadescola_dc_sptrans_corp {
+#            destination 10.34.215.6:http
+#        }
+#        /DMZ-PRD-CEN/vs_http_cadescola_sptrans_com_br {
+#            destination 200.185.187.52:http
+#        }
+#        /DMZ-PRD-CEN/vs_http_estudante_sptrans_com_br {
+#            destination 200.185.187.54:http
+#        }
+#        /DMZ-PRD-CEN/vs_http_lv_sbe_sptrans_com_br {
+#            destination 200.185.187.58:http
+#        }
+#        /DMZ-PRD-CEN/vs_http_odi_sptrans_corp {
+#            destination 10.34.215.15:http
+#        }
+#        /DMZ-PRD-CEN/vs_http_pbe_bilheteunico_dc_sptrans_com_br {
+#            destination 200.185.187.62:http
+#        }
+#        /DMZ-PRD-CEN/vs_http_pbe_bilheteunico_dc_sptrans_corp {
+#            destination 10.34.215.23:http
+#        }
+#        /DMZ-PRD-CEN/vs_http_pedidodecredito_ws_sbe_dc_sptrans_corp {
+#            destination 10.34.215.16:tproxy
+#        }
+#        /DMZ-PRD-CEN/vs_http_portal_sptrans_com_br_externo {
+#            destination 200.185.187.49:http
+#        }
+#        /DMZ-PRD-CEN/vs_http_portal_sptrans_corp_int {
+#            destination 10.34.215.2:http
+#        }
+#        /DMZ-PRD-CEN/vs_http_sbeweb_sbe_sptrans_com_br {
+#            destination 200.185.187.60:http
+#        }
+#        /DMZ-PRD-CEN/vs_http_sbeweb_sbe_sptrans_corp {
+#            destination 10.34.215.11:http
+#        }
+#        /DMZ-PRD-CEN/vs_http_scapriv_sbe_dc_sptrans_corp {
+#            destination 10.34.215.5:http
+#        }
+#        /DMZ-PRD-CEN/vs_http_scapriv_sbe_sptrans_com_br {
+#            destination 200.185.187.51:http
+#        }
+#        /DMZ-PRD-CEN/vs_http_scapub_sbe_dc_sptrans_corp {
+#            destination 10.34.215.4:http
+#        }
+#        /DMZ-PRD-CEN/vs_http_scapub_sbe_sptrans_com_br {
+#            destination 200.185.187.50:http
+#        }
+#        /DMZ-PRD-CEN/vs_http_scd_sbe_sptrans_com_br {
+#            destination 200.185.187.56:http
+#        }
+#        /DMZ-PRD-CEN/vs_http_scd_sbe_sptrans_corp {
+#            destination 10.34.215.7:http
+#        }
+#        /DMZ-PRD-CEN/vs_http_scp_sbe_sptrans_com_br {
+#            destination 200.185.187.61:http
+#        }
+#        /DMZ-PRD-CEN/vs_http_scp_sbe_sptrans_corp {
+#            destination 10.34.215.12:http
+#        }
+#        /DMZ-PRD-CEN/vs_http_scpweb_sbe_sptrans_com_br {
+#            destination 200.185.187.62:http
+#        }
+#        /DMZ-PRD-CEN/vs_http_scpweb_sbe_sptrans_corp {
+#            destination 10.34.215.13:http
+#        }
+#        /DMZ-PRD-CEN/vs_http_services_sptrans_corp {
+#            destination 10.34.215.28:http
+#        }
+#        /DMZ-PRD-CEN/vs_http_validacaoserpro_sptrans_corp {
+#            destination 10.34.215.27:http
+#        }
+#        /DMZ-PRD-CEN/vs_https_bilheteunico_sptrans_com_br {
+#            destination 200.185.187.53:https
+#        }
+#        /DMZ-PRD-CEN/vs_https_estudante_sptrans_com_br {
+#            destination 200.185.187.54:https
+#        }
+#        /DMZ-PRD-CEN/vs_smtp_sbe_sptrans_com_br {
+#            destination 200.185.187.62:smtp
+#        }
+#        /DMZ-PRD-CEN/vs_smtp_sbe_sptrans_crop {
+#            destination 10.34.215.14:smtp
+#        }
+#        /DMZ-PRD-CEN/vs_sptosbprd_sptrans_corp {
+#            destination 10.34.215.21:afs3-vlserver
+#        }
+#        /DMZ-PRD-CEN/vs_teste {
+#            destination 10.34.215.30:http
+#        }
+#    }
+
+#        /DMZ-QAS-CEN/vs_teste-qas {
+#            destination 10.34.215.99:any
+#        }
+#    }
+
+#        /DMZ-QAS/vs_7778_portal_sptrans_com_br {
+#            destination 200.185.50.209:interwise
+#        }
+#        /DMZ-QAS/vs_ftp_scdftp_hsbe_sptrans_com_br {
+#            destination 200.185.50.217:ftp
+#        }
+#        /DMZ-QAS/vs_ftp_scdftp_hsbe_sptrans_corp {
+#            destination 10.34.199.136:ftp
+#        }
+#        /DMZ-QAS/vs_httpS_qsbe_bilheteunico_dc_sptrans_com_br {
+#            destination 200.185.50.222:https
+#        }
+#        /DMZ-QAS/vs_httpS_qsbe_bilheteunico_sptrans_com_br {
+#            destination 200.185.50.213:https
+#        }
+#        /DMZ-QAS/vs_http_bi_sptrans_corp {
+#            destination 10.34.199.131:http
+#        }
+#        /DMZ-QAS/vs_http_cadescola_sptrans_com_br {
+#            destination 200.185.50.212:http
+#        }
+#        /DMZ-QAS/vs_http_cadescola_sptrans_corp {
+#            destination 10.34.199.134:http
+#        }
+#        /DMZ-QAS/vs_http_odiagent_qa_sptrans_corp {
+#            destination 10.34.199.129:http
+#        }
+#        /DMZ-QAS/vs_http_portal_sptrans_com_br {
+#            destination 200.185.50.209:http
+#        }
+#        /DMZ-QAS/vs_http_portal_sptrans_corp {
+#            destination 10.34.199.130:http
+#        }
+#        /DMZ-QAS/vs_http_sbeweb_qsbe_sptrans_com_br {
+#            destination 200.185.50.219:http
+#        }
+#        /DMZ-QAS/vs_http_sbeweb_qsbe_sptrans_corp {
+#            destination 10.34.199.140:http
+#        }
+#        /DMZ-QAS/vs_http_scapriv_qsbe_dc_sptrans_com_br {
+#            destination 200.185.50.211:http
+#        }
+#        /DMZ-QAS/vs_http_scapriv_qsbe_dc_sptrans_corp {
+#            destination 10.34.199.133:http
+#        }
+#        /DMZ-QAS/vs_http_scapub_qsbe_dc_sptrans_com_br {
+#            destination 200.185.50.210:http
+#        }
+#        /DMZ-QAS/vs_http_scapub_qsbe_dc_sptrans_corp {
+#            destination 10.34.199.132:http
+#        }
+#        /DMZ-QAS/vs_http_scd_qsbe_dc_sptrans_com_br {
+#            destination 200.185.50.216:http
+#        }
+#        /DMZ-QAS/vs_http_scd_qsbe_dc_sptrans_corp {
+#            destination 10.34.199.135:http
+#        }
+#        /DMZ-QAS/vs_http_scp_qsbe_sptrans_com_br {
+#            destination 200.185.50.220:http
+#        }
+#        /DMZ-QAS/vs_http_scp_qsbe_sptrans_corp {
+#            destination 10.34.199.141:http
+#        }
+#        /DMZ-QAS/vs_qsbe_bilheteunico_dc_sptrans_com_br {
+#            destination 200.185.50.222:http
+#        }
+#        /DMZ-QAS/vs_qsbe_bilheteunico_sptrans_com_br {
+#            destination 200.185.50.213:http
+#        }
+#        /DMZ-QAS/vs_smtp_qsbe_sptrans_corp {
+#            destination 10.34.199.142:smtp
+#        }
+#    }
+
+#        /DMZ-TEST/vs_7778_portal_sptrans_com_br {
+#            destination 200.185.50.225:interwise
+#        }
+#        /DMZ-TEST/vs_ftp_scdftp_tsbe_sptrans_com_br {
+#            destination 200.185.50.233:ftp
+#        }
+#        /DMZ-TEST/vs_ftp_scdftp_tsbe_sptrans_corp {
+#            destination 10.34.199.167:ftp
+#        }
+#        /DMZ-TEST/vs_http_bi_sptrans_corp {
+#            destination 10.34.199.162:http
+#        }
+#        /DMZ-TEST/vs_http_cadescola_sptrans_com_br {
+#            destination 200.185.50.228:http
+#        }
+#        /DMZ-TEST/vs_http_cadescola_sptrans_corp {
+#            destination 10.34.199.165:http
+#        }
+#        /DMZ-TEST/vs_http_portal_sptrans_com_br {
+#            destination 200.185.50.225:http
+#        }
+#        /DMZ-TEST/vs_http_portal_sptrans_corp {
+#            destination 10.34.199.161:http
+#        }
+#        /DMZ-TEST/vs_http_sbeweb_tsbe_sptrans_com_br {
+#            destination 200.185.50.235:http
+#        }
+#        /DMZ-TEST/vs_http_sbeweb_tsbe_sptrans_corp {
+#            destination 10.34.199.171:http
+#        }
+#        /DMZ-TEST/vs_http_scapriv_tsbe_dc_sptrans_com_br {
+#            destination 200.185.50.227:http
+#        }
+#        /DMZ-TEST/vs_http_scapriv_tsbe_dc_sptrans_corp {
+#            destination 10.34.199.164:http
+#        }
+#        /DMZ-TEST/vs_http_scapub_tsbe_dc_sptrans_com_br {
+#            destination 200.185.50.226:http
+#        }
+#        /DMZ-TEST/vs_http_scapub_tsbe_dc_sptrans_corp {
+#            destination 10.34.199.163:http
+#        }
+#        /DMZ-TEST/vs_http_scd_tsbe_dc_sptrans_com_br {
+#            destination 200.185.50.232:http
+#        }
+#        /DMZ-TEST/vs_http_scd_tsbe_dc_sptrans_corp {
+#            destination 10.34.199.166:http
+#        }
+#        /DMZ-TEST/vs_http_scp_tsbe_sptrans_com_br {
+#            destination 200.185.50.236:http
+#        }
+#        /DMZ-TEST/vs_http_scp_tsbe_sptrans_corp {
+#            destination 10.34.199.172:http
+#        }
+#        /DMZ-TEST/vs_https_10_34_198_50 {
+#            destination 10.34.199.190:https
+#        }
+#        /DMZ-TEST/vs_smtp_tsbe_sptrans_corp {
+#            destination 10.34.199.173:smtp
+#        }
+#        /DMZ-TEST/vs_sptosbteste_sptrans_corp {
+#            destination 10.34.199.176:afs3-prserver
+#        }
+#    }
+
+#        /FRONT-HOM/hom_autopass_sptrans_src {
+#            destination 10.34.199.83:commplex-main
+#        }
+#        /FRONT-HOM/hom_mandacaru_sptrans_src {
+#            destination 10.34.199.82:commplex-main
+#        }
+#        /FRONT-HOM/vs_hom_bencerto_sptrans_src {
+#            destination 10.34.199.80:commplex-main
+#        }
+#        /FRONT-HOM/vs_hom_cef_sptrans_src {
+#            destination 10.34.199.66:commplex-main
+#        }
+#        /FRONT-HOM/vs_hom_devels_sptrans_src {
+#            destination 10.34.199.68:commplex-main
+#        }
+#        /FRONT-HOM/vs_hom_epago_sptrans_src {
+#            destination 10.34.199.78:commplex-main
+#        }
+#        /FRONT-HOM/vs_hom_getnet_sptrans_src {
+#            destination 10.34.199.74:commplex-main
+#        }
+#        /FRONT-HOM/vs_hom_grupocard_sptrans_src {
+#            destination 10.34.199.85:commplex-main
+#        }
+#        /FRONT-HOM/vs_hom_n2_sptrans_src {
+#            destination 10.34.199.84:commplex-main
+#        }
+#        /FRONT-HOM/vs_hom_pcerto_sptrans_src {
+#            destination 10.34.199.65:commplex-main
+#        }
+#        /FRONT-HOM/vs_hom_perto_sptrans_src {
+#            destination 10.34.199.70:commplex-main
+#        }
+#        /FRONT-HOM/vs_hom_planin_sptrans_src {
+#            destination 10.34.199.73:commplex-main
+#        }
+#        /FRONT-HOM/vs_hom_pldevice_sptrans_src {
+#            destination 10.34.199.75:commplex-main
+#        }
+#        /FRONT-HOM/vs_hom_prodata_sptrans_src {
+#            destination 10.34.199.72:commplex-main
+#        }
+#        /FRONT-HOM/vs_hom_protege_sptrans_src {
+#            destination 10.34.199.71:commplex-main
+#        }
+#        /FRONT-HOM/vs_hom_qiwibrasil_sptrans_src {
+#            destination 10.34.199.81:commplex-main
+#        }
+#        /FRONT-HOM/vs_hom_servlot_sptrans_src {
+#            destination 10.34.199.67:commplex-main
+#        }
+#        /FRONT-HOM/vs_hom_smartnet_sptrans_src {
+#            destination 10.34.199.69:commplex-main
+#        }
+#        /FRONT-HOM/vs_hom_sodexo_sptrans_src {
+#            destination 10.34.199.77:commplex-main
+#        }
+#        /FRONT-HOM/vs_hom_tendencia_sptrans_src {
+#            destination 10.34.199.76:commplex-main
+#        }
+#        /FRONT-HOM/vs_hom_zuum_sptrans_src {
+#            destination 10.34.199.79:commplex-main
+#        }
+#        /FRONT-HOM/vs_pldevice-testando {
+#            destination 10.34.199.77:commplex-main
+#        }
+#    }
+
+#        /FRONT-PRD-CEN/vs_autopass_sptrans_src {
+#            destination 10.34.215.47:commplex-main
+#        }
+#        /FRONT-PRD-CEN/vs_bencerto_sptrans_scr {
+#            destination 10.34.215.45:commplex-main
+#        }
+#        /FRONT-PRD-CEN/vs_cef_sptrans_src {
+#            destination 10.34.215.34:commplex-main
+#        }
+#        /FRONT-PRD-CEN/vs_devels_sptrans_src {
+#            destination 10.34.215.36:commplex-main
+#        }
+#        /FRONT-PRD-CEN/vs_getnet_sptrans_src {
+#            destination 10.34.215.42:commplex-main
+#        }
+#        /FRONT-PRD-CEN/vs_grupocard.sptrans.src {
+#            destination 10.34.215.50:commplex-main
+#        }
+#        /FRONT-PRD-CEN/vs_hdevels_sptrans_src {
+#            destination 10.34.215.49:commplex-main
+#        }
+#        /FRONT-PRD-CEN/vs_hgetnet_sptrans_src {
+#            destination 10.34.215.55:commplex-main
+#        }
+#        /FRONT-PRD-CEN/vs_hpcerto_sptrans_src {
+#            destination 10.34.215.46:commplex-main
+#        }
+#        /FRONT-PRD-CEN/vs_hperto_sptrans_src {
+#            destination 10.34.215.51:commplex-main
+#        }
+#        /FRONT-PRD-CEN/vs_hplanin_sptrans_src {
+#            destination 10.34.215.54:commplex-main
+#        }
+#        /FRONT-PRD-CEN/vs_hpldevice_sptrans_src {
+#            destination 10.34.215.56:commplex-main
+#        }
+#        /FRONT-PRD-CEN/vs_hprodata_sptrans_src {
+#            destination 10.34.215.53:commplex-main
+#        }
+#        /FRONT-PRD-CEN/vs_hprotege_sptrans_src {
+#            destination 10.34.215.52:commplex-main
+#        }
+#        /FRONT-PRD-CEN/vs_hservlot_sptrans_src {
+#            destination 10.34.215.48:commplex-main
+#        }
+#        /FRONT-PRD-CEN/vs_hsmartnet_sptrans_src {
+#            destination 10.34.215.60:commplex-main
+#        }
+#        /FRONT-PRD-CEN/vs_pcerto_sptrans_src {
+#            destination 10.34.215.33:commplex-main
+#        }
+#        /FRONT-PRD-CEN/vs_perto_sptrans_src {
+#            destination 10.34.215.38:commplex-main
+#        }
+#        /FRONT-PRD-CEN/vs_planin_sptrans_src {
+#            destination 10.34.215.41:commplex-main
+#        }
+#        /FRONT-PRD-CEN/vs_pldevice_sptrans_src {
+#            destination 10.34.215.43:commplex-main
+#        }
+#        /FRONT-PRD-CEN/vs_prodata_sptrans_src {
+#            destination 10.34.215.40:commplex-main
+#        }
+#        /FRONT-PRD-CEN/vs_protada_sptrans_src {
+#            destination 10.34.215.40:commplex-main
+#        }
+#        /FRONT-PRD-CEN/vs_protege_sptrans_src {
+#            destination 10.34.215.39:commplex-main
+#        }
+#        /FRONT-PRD-CEN/vs_servlot_sptrans_src {
+#            destination 10.34.215.35:commplex-main
+#        }
+#        /FRONT-PRD-CEN/vs_smartnet_sptrans_src {
+#            destination 10.34.215.37:commplex-main
+#        }
+#        /FRONT-PRD-CEN/vs_smartnet_sptrans_src-TESTE {
+#            destination 10.34.215.44:commplex-main
+#        }
+#    }
+
+#        /FRONT-PRD/vs_autopass_sptrans_src {
+#            destination 10.34.199.47:commplex-main
+#        }
+#        /FRONT-PRD/vs_bencerto_sptrans_scr {
+#            destination 10.34.199.45:commplex-main
+#        }
+#        /FRONT-PRD/vs_cef_sptrans_src {
+#            destination 10.34.199.34:commplex-main
+#        }
+#        /FRONT-PRD/vs_devels_sptrans_src {
+#            destination 10.34.199.36:commplex-main
+#        }
+#        /FRONT-PRD/vs_getnet_sptrans_src {
+#            destination 10.34.199.42:commplex-main
+#        }
+#        /FRONT-PRD/vs_grupocard.sptrans.src {
+#            destination 10.34.199.50:commplex-main
+#        }
+#        /FRONT-PRD/vs_hdevels_sptrans_src {
+#            destination 10.34.199.60:commplex-main
+#        }
+#        /FRONT-PRD/vs_hgetnet_sptrans_src {
+#            destination 10.34.199.55:commplex-main
+#        }
+#        /FRONT-PRD/vs_hpcerto_sptrans_src {
+#            destination 10.34.199.46:commplex-main
+#        }
+#        /FRONT-PRD/vs_hperto_sptrans_src {
+#            destination 10.34.199.51:commplex-main
+#        }
+#        /FRONT-PRD/vs_hplanin_sptrans_src {
+#            destination 10.34.199.54:commplex-main
+#        }
+#        /FRONT-PRD/vs_hpldevice_sptrans_src {
+#            destination 10.34.199.56:commplex-main
+#        }
+#        /FRONT-PRD/vs_hprodata_sptrans_src {
+#            destination 10.34.199.53:commplex-main
+#        }
+#        /FRONT-PRD/vs_hprotege_sptrans_src {
+#            destination 10.34.199.52:commplex-main
+#        }
+#        /FRONT-PRD/vs_hservlot_sptrans_src {
+#            destination 10.34.199.48:commplex-main
+#        }
+#        /FRONT-PRD/vs_hsmartnet_sptrans_src {
+#            destination 10.34.199.60:commplex-main
+#        }
+#        /FRONT-PRD/vs_metro_hm_sptrans_corp {
+#            destination 10.34.202.100:http
+#        }
+#        /FRONT-PRD/vs_pcerto_sptrans_src {
+#            destination 10.34.199.33:commplex-main
+#        }
+#        /FRONT-PRD/vs_perto_sptrans_src {
+#            destination 10.34.199.38:commplex-main
+#        }
+#        /FRONT-PRD/vs_planin_sptrans_src {
+#            destination 10.34.199.41:commplex-main
+#        }
+#        /FRONT-PRD/vs_pldevice_sptrans_src {
+#            destination 10.34.199.43:commplex-main
+#        }
+#        /FRONT-PRD/vs_prodata_sptrans_src {
+#            destination 10.34.199.40:commplex-main
+#        }
+#        /FRONT-PRD/vs_scp_sgp_sbe_sptrans_corp {
+#            destination 10.34.199.17:ssh
+#        }
+#        /FRONT-PRD/vs_servlot_sptrans_src {
+#            destination 10.34.199.35:commplex-main
+#        }
+#        /FRONT-PRD/vs_smartnet_sptrans_src {
+#            destination 10.34.199.37:commplex-main
+#        }
+#        /FRONT-PRD/vs_smartnet_sptrans_src-TESTE {
+#            destination 10.34.199.44:commplex-main
+#        }
+#        /FRONT-PRD/vs_testefrontend {
+#            destination 10.34.202.126:1020
+#        }
+#        /FRONT-PRD/vs_vcprotege_sptrans_src {
+#            destination 10.34.199.39:commplex-main
+#        }
+#    }
+
+#        /DMZ-PRD/vc_ftp_ftp_sptrans_corp {
+#            destination 10.34.199.11:ftp
+#        }
+#        /DMZ-PRD/vs_81_lp_sbe_sptrans_corp {
+#            destination 10.34.199.26:81
+#        }
+#        /DMZ-PRD/vs_809_lv_dc_sptrans_corp {
+#            destination 10.34.199.9:809
+#        }
+#        /DMZ-PRD/vs_809_lv_sbe_sptrans_com_br {
+#            destination 200.185.40.202:809
+#        }
+#        /DMZ-PRD/vs_7777_portal_sptrans_com_br_externo {
+#            destination 200.185.40.193:cbt
+#        }
+#        /DMZ-PRD/vs_7778_portal_sptrans_com_br_externo {
+#            destination 200.185.40.193:interwise
+#        }
+#        /DMZ-PRD/vs_7778_portal_sptrans_com_br_interno {
+#            destination 10.34.199.1:interwise
+#        }
+#        /DMZ-PRD/vs_8080_antifraude_sbe_dc_sptrans_corp {
+#            destination 10.34.199.19:webcache
+#        }
+#        /DMZ-PRD/vs_8080_ws_sbe_dc_sptrans_corp {
+#            destination 10.34.199.10:webcache
+#        }
+#        /DMZ-PRD/vs_8080_ws_sbe_sptrans_com_br {
+#            destination 200.185.40.203:webcache
+#        }
+#        /DMZ-PRD/vs_8081_lvpriv_sbe_sptrans_corp {
+#            destination 10.34.199.25:http
+#        }
+#        /DMZ-PRD/vs_9401_portal_sptrans_com_br_externo {
+#            destination 200.185.40.193:sec-t4net-clt
+#        }
+#        /DMZ-PRD/vs_10000_lp_sbe_sptrans_corp {
+#            destination 10.34.199.26:ndmp
+#        }
+#        /DMZ-PRD/vs_10001_lp_sbe_sptrans_corp {
+#            destination 10.34.199.26:scp-config
+#        }
+#        /DMZ-PRD/vs_10002_lp_sbe_sptrans_corp {
+#            destination 10.34.199.26:documentum
+#        }
+#        /DMZ-PRD/vs_11000_lp_sbe_sptrans_corp {
+#            destination 10.34.199.26:irisa
+#        }
+#        /DMZ-PRD/vs_11001_lp_sbe_sptrans_corp {
+#            destination 10.34.199.26:metasys
+#        }
+#        /DMZ-PRD/vs_11002_lp_sbe_sptrans_corp {
+#            destination 10.34.199.26:11002
+#        }
+#        /DMZ-PRD/vs_cobranca_dc_sptrans_corp {
+#            destination 10.34.199.22:webcache
+#        }
+#        /DMZ-PRD/vs_ftp_scdftp_sbe_sptran_scom_br {
+#            destination 200.185.40.201:ftp
+#        }
+#        /DMZ-PRD/vs_ftp_scdftp_sbe_sptrans_corp {
+#            destination 10.34.199.8:ftp
+#        }
+#        /DMZ-PRD/vs_ftp_sptrans_com_br {
+#            destination 200.185.40.199:ftp
+#        }
+#        /DMZ-PRD/vs_httpS_cadescola_sptrans_com_br {
+#            destination 200.185.40.196:https
+#        }
+#        /DMZ-PRD/vs_httpS_lv_sbe_sptrans_com_br {
+#            destination 200.185.40.202:https
+#        }
+#        /DMZ-PRD/vs_httpS_pbe_bilheteunico_dc_sptrans_com_br {
+#            destination 200.185.40.207:https
+#        }
+#        /DMZ-PRD/vs_httpS_scapriv_sbe_sptrans_com_br {
+#            destination 200.185.40.195:https
+#        }
+#        /DMZ-PRD/vs_httpS_scapub_sbe_sptrans_com_br {
+#            destination 200.185.40.194:https
+#        }
+#        /DMZ-PRD/vs_httpS_scd_sbe_sptrans_com_br {
+#            destination 200.185.40.200:https
+#        }
+#        /DMZ-PRD/vs_http_api.sptrans.corp {
+#            destination 10.34.199.18:http
+#        }
+#        /DMZ-PRD/vs_http_backoffice_recon_sptrans_corp {
+#            destination 10.34.199.24:webcache
+#        }
+#        /DMZ-PRD/vs_http_bi_sptrans_corp_int {
+#            destination 10.34.199.3:http
+#        }
+#        /DMZ-PRD/vs_http_bilheteunico_sptrans_com_br {
+#            destination 200.185.40.198:http
+#        }
+#        /DMZ-PRD/vs_http_cadescola_dc_sptrans_corp {
+#            destination 10.34.199.6:http
+#        }
+#        /DMZ-PRD/vs_http_cadescola_sptrans_com_br {
+#            destination 200.185.40.196:http
+#        }
+#        /DMZ-PRD/vs_http_estudante_sptrans_com_br {
+#            destination 200.185.40.197:http
+#        }
+#        /DMZ-PRD/vs_http_lp_sbe_sptrans_corp {
+#            destination 10.34.199.26:http
+#        }
+#        /DMZ-PRD/vs_http_lv_sbe_dc_sptrans_corp {
+#            destination 10.34.199.9:http
+#        }
+#        /DMZ-PRD/vs_http_lv_sbe_sptrans_com_br {
+#            destination 200.185.40.202:http
+#        }
+#        /DMZ-PRD/vs_http_odi_sptrans_corp {
+#            destination 10.34.199.15:http
+#        }
+#        /DMZ-PRD/vs_http_pbe_bilheteunico_dc_sptrans_com_br {
+#            destination 200.185.40.207:http
+#        }
+#        /DMZ-PRD/vs_http_pbe_bilheteunico_dc_sptrans_corp {
+#            destination 10.34.199.23:http
+#        }
+#        /DMZ-PRD/vs_http_pedidodecredito_ws_sbe_dc_sptrans_corp {
+#            destination 10.34.199.16:tproxy
+#        }
+#        /DMZ-PRD/vs_http_portal_sptrans_com_br_externo {
+#            destination 200.185.40.193:http
+#        }
+#        /DMZ-PRD/vs_http_portal_sptrans_com_br_interno {
+#            destination 10.34.199.1:http
+#        }
+#        /DMZ-PRD/vs_http_portal_sptrans_corp_int {
+#            destination 10.34.199.2:http
+#        }
+#        /DMZ-PRD/vs_http_sbeweb_sbe_sptrans_com_br {
+#            destination 200.185.40.204:http
+#        }
+#        /DMZ-PRD/vs_http_sbeweb_sbe_sptrans_corp {
+#            destination 10.34.199.12:http
+#        }
+#        /DMZ-PRD/vs_http_scapriv_sbe_dc_sptrans_corp {
+#            destination 10.34.199.5:http
+#        }
+#        /DMZ-PRD/vs_http_scapriv_sbe_sptrans_com_br {
+#            destination 200.185.40.195:http
+#        }
+#        /DMZ-PRD/vs_http_scapub_sbe_dc_sptrans_corp {
+#            destination 10.34.199.4:http
+#        }
+#        /DMZ-PRD/vs_http_scapub_sbe_sptrans_com_br {
+#            destination 200.185.40.194:http
+#        }
+#        /DMZ-PRD/vs_http_scd_sbe_sptrans_com_br {
+#            destination 200.185.40.200:http
+#        }
+#        /DMZ-PRD/vs_http_scd_sbe_sptrans_corp {
+#            destination 10.34.199.7:http
+#        }
+#        /DMZ-PRD/vs_http_scp_sbe_sptrans_com_br {
+#            destination 200.185.40.205:http
+#        }
+#        /DMZ-PRD/vs_http_scp_sbe_sptrans_corp {
+#            destination 10.34.199.13:http
+#        }
+#        /DMZ-PRD/vs_http_scpweb_sbe_sptrans_com_br {
+#            destination 200.185.40.206:http
+#        }
+#        /DMZ-PRD/vs_http_scpweb_sbe_sptrans_corp {
+#            destination 10.34.199.14:http
+#        }
+#        /DMZ-PRD/vs_http_services_sptrans_corp {
+#            destination 10.34.199.28:http
+#        }
+#        /DMZ-PRD/vs_http_soainfraprd_dc_sptrans_corp {
+#            destination 10.34.199.20:http
+#        }
+#        /DMZ-PRD/vs_http_teste_web {
+#            destination 10.34.199.30:http
+#        }
+#        /DMZ-PRD/vs_http_validacaoserpro_sptrans_corp {
+#            destination 10.34.199.27:http
+#        }
+#        /DMZ-PRD/vs_https_api.sptrans.corp {
+#            destination 10.34.199.18:https
+#        }
+#        /DMZ-PRD/vs_https_bilheteunico_sptrans_com_br {
+#            destination 200.185.40.198:https
+#        }
+#        /DMZ-PRD/vs_https_estudante_sptrans_com_br {
+#            destination 200.185.40.197:https
+#        }
+#        /DMZ-PRD/vs_https_lp_sbe_sptrans_corp {
+#            destination 10.34.199.26:https
+#        }
+#        /DMZ-PRD/vs_https_pbe_bilheteunico_dc_sptrans_corp {
+#            destination 10.34.199.23:https
+#        }
+#        /DMZ-PRD/vs_smtp_sbe_sptrans_crop {
+#            destination 10.34.199.14:smtp
+#        }
+#        /DMZ-PRD/vs_smtp_smtp_sbe_sptrans_com_br {
+#            destination 200.185.40.206:smtp
+#        }
+#        /DMZ-PRD/vs_sptosbprd_sptrans_corp {
+#            destination 10.34.199.21:afs3-vlserver
+#        }
+#        /DMZ-PRD/vs_ssh_edi_dc_sptrans_com_br {
+#            destination 10.34.199.17:ssh
+#        }
+#        /DMZ-PRD/vsss {
+#            destination 40.1.1.1:http
+#        }
+
+#        /DMZ-PRD/vs_httpS_pbe_bilheteunico_dc_sptrans_com_br {
+#            destination 200.185.40.207:https

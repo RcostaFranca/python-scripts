@@ -1,0 +1,751 @@
+#gtm wideip a autopass.sptrans.src {
+#    persistence enabled
+#    pools {
+#        pool-autopass.sptrans.src {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a backoffice.recon.dc.sptrans.corp {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_backoffice.recon.dc.sptrans.corp {
+#            order 0
+#        }
+#    }
+#    ttl-persistence 180000
+#}
+#gtm wideip a bencerto.sptrans.src {
+#    pools {
+#        pool_bencerto.sptrans.src {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a bi.dc.sptrans.corp {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_bi.sptrans.corp {
+#            order 0
+#        }
+#    }
+#    ttl-persistence 18000
+#}
+#gtm wideip a bilheteunico.dc.sptrans.com.br {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_bilheteunico.sptrans.com.br {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a cadescola.dc.sptrans.com.br {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_cadescola.sptrans.com.br {
+#            order 0
+#        }
+#    }
+#    ttl-persistence 36000
+#}
+#gtm wideip a cadescola.dc.sptrans.corp {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_cadescola.sbe.dc.sptrans.corp {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a cef.sptrans.src {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_cef.sptrans.src {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a devels.sptrans.src {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_devels.sptrans.src {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a estudante.dc.sptrans.com.br {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_estudante.sptrans.com.br {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a ftp.dc.sptrans.com.br {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_ftp.sptrans.com.br {
+#            order 0
+#        }
+#    }
+#    ttl-persistence 18000
+#}
+#gtm wideip a ftp.dc.sptrans.corp {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_ftp_sptrans.corp {
+#            order 0
+#        }
+#    }
+#    ttl-persistence 18000
+#}
+#gtm wideip a getnet.sptrans.src {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_getnet.sptrans.src {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a hom.cef.sptrans.src {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_hom.cef.sptrans.src {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a hom.devels.sptrans.src {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_hom.devels.sptrans.src {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a hom.epago.sptrans.src {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_hom.epago.sptrans.src {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a hom.getnet.sptrans.src {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_hom.getnet.sptrans.src {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a hom.grupocard.sptrans.src {
+#    persistence enabled
+#    pools {
+#        pool-hom.grupocard.sptrans.src {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a hom.mandacaru.sptrans.src {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_hom.mandacaru.sptrans.src {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a hom.pcerto.sptrans.src {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_hom.pcerto.sptrans.src {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a hom.perto.sptrans.src {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_hom.perto.sptrans.src {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a hom.planin.sptrans.src {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_hom.planin.sptrans.src {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a hom.pldevice.sptrans.src {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_hom.pldevice.sptrans.src {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a hom.prodata.sptrans.src {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_hom.prodata.sptrans.src {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a hom.protege.sptrans.src {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_hom.protege.sptrans.src {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a hom.qiwibrasil.sptrans.src {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_hom.qiwibrasil.sptrans.src {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a hom.servlot.sptrans.src {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_hom.servlot.sptrans.src {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a hom.smartnet.sptrans.src {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_hom.smartnet.sptrans.src {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a intraneth.dc.sptrans.corp {
+#    description "Intranet Homologacao"
+#    pools {
+#        pool_intraneth.dc.sptrans.corp {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a lv.hsbe.dc.sptrans.com.br {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_lv.hsbe.dc.sptrans.com.br {
+#            order 0
+#        }
+#    }
+#    ttl-persistence 36000
+#}
+#gtm wideip a lv.hsbe.dc.sptrans.corp {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_lv.hsbe.dc.sptrans.corp {
+#            order 0
+#        }
+#    }
+#    ttl-persistence 36000
+#}
+#gtm wideip a lv.sbe.dc.sptrans.com.br {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_lv.sbe.sptrans.com.br {
+#            order 0
+#        }
+#    }
+#    ttl-persistence 36000
+#}
+#gtm wideip a lv.sbe.dc.sptrans.corp {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_lv.sbe.dc.sptrans.corp {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a odi.dc.sptrans.corp {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_odi.sptrans.corp {
+#            order 0
+#        }
+#    }
+#    ttl-persistence 18000
+#}
+#gtm wideip a pbe.bilheteunico.dc.sptrans.com.br {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_pbe.bilheteunico.dc.sptrans.com.br {
+#            order 0
+#        }
+#    }
+#    ttl-persistence 36000
+#}
+#gtm wideip a pbe.bilheteunico.dc.sptrans.corp {
+#    pools {
+#        pool_pbe.bilheteunico.dc.sptrans.corp {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a pcerto.sptrans.src {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_pcerto.sptrans.src {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a pedidocredito.ws.hsbe.dc.sptrans.com.br {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_pedidocredito.ws.hsbe.sptrans.com.br {
+#            order 0
+#        }
+#    }
+#    ttl-persistence 18000
+#}
+#gtm wideip a pedidocredito.ws.hsbe.dc.sptrans.corp {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_pedidocredito.ws.hsbe.sptrans.corp {
+#            order 0
+#        }
+#    }
+#    ttl-persistence 18000
+#}
+#gtm wideip a pedidocredito.ws.sbe.dc.sptrans.corp {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_pedidocredito.ws.sbe.dc.sptrans.corp {
+#            order 0
+#        }
+#    }
+#    ttl-persistence 18000
+#}
+#gtm wideip a perto.sptrans.src {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_perto.sptrans.src {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a planin.sptrans.src {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_planin.sptrans.src {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a pldevice.sptrans.src {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_pldevice.sptrans.src {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a portal.dc.sptrans.com.br {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_portal.sptrans.com.br {
+#            order 0
+#        }
+#    }
+#    ttl-persistence 18000
+#}
+#gtm wideip a portal.dc.sptrans.corp {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_portal.sptrans.corp {
+#            order 0
+#        }
+#    }
+#    ttl-persistence 18000
+#}
+#gtm wideip a portalh.sptrans.com.br {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_portalh.sptrans.com.br {
+#            order 0
+#        }
+#    }
+#    ttl-persistence 18000
+#}
+#gtm wideip a portalh.sptrans.corp {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_portalh.sptrans.corp {
+#            order 0
+#        }
+#    }
+#    ttl-persistence 18000
+#}
+#gtm wideip a prodata.sptrans.src {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_prodata.sptrans.src {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a protege.sptrans.src {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_protege.sptrans.src {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a qsbe.bilheteunico.dc.sptrans.com.br {
+#    persist-cidr-ipv4 128
+#    persist-cidr-ipv6 10
+#    persistence enabled
+#    pools {
+#        pool_qsbe.bilheteunico.dc.sptrans.com.br {
+#            order 0
+#        }
+#    }
+#    ttl-persistence 3800
+#}
+#gtm wideip a sbeweb.sbe.dc.sptrans.com.br {
+#    persistence enabled
+#    pools {
+#        pool_sbeweb.sbe.sptrans.com.br {
+#            order 0
+#        }
+#    }
+#    ttl-persistence 36000
+#}
+#gtm wideip a sbeweb.sbe.dc.sptrans.corp {
+#    pools {
+#        pool_sbeweb.sbe.dc.sptrans.corp {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a scapriv.sbe.dc.sptrans.com.br {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_scapriv.sbe.sptrans.com.br {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a scapriv.sbe.dc.sptrans.corp {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_scapriv.sbe.dc.sptrans.corp {
+#            order 0
+#        }
+#    }
+#    ttl-persistence 36000
+#}
+#gtm wideip a scapub.sbe.dc.sptrans.com.br {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_scapub.sbe.sptrans.com.br {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a scapub.sbe.dc.sptrans.corp {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_scapub.sbe.dc.sptrans.corp {
+#            order 0
+#        }
+#    }
+#    ttl-persistence 36000
+#}
+#gtm wideip a scd.hsbe.dc.sptrans.com.br {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_scd.hsbe.dc.sptrans.com.br {
+#            order 0
+#        }
+#    }
+#    ttl-persistence 18000
+#}
+#gtm wideip a scd.qsbe.dc.sptrans.com.br {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_scd.qsbe.dc.sptrans.com.br {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a scd.sbe.dc.sptrans.com.br {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_scd.sbe.sptrans.com.br {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a scd.sbe.dc.sptrans.corp {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_scd.sbe.dc.sptrans.corp {
+#            order 0
+#        }
+#    }
+#    ttl-persistence 18000
+#}
+#gtm wideip a scdftp.qsbe.dc.sptrans.com.br {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_scdftp.qsbe.sptrans.com.br {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a scdftp.sbe.dc.sptrans.com.br {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_scdftp.sbe.sptrans.com.br {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a scdftp.sbe.dc.sptrans.corp {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_scdftp.sbe.dc.sptrans.corp {
+#            order 0
+#        }
+#    }
+#    ttl-persistence 18000
+#}
+#gtm wideip a scp.sbe.dc.sptrans.com.br {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_scp.sbe.sptrans.com.br {
+#            order 0
+#        }
+#    }
+#    ttl-persistence 18000
+#}
+#gtm wideip a scp.sbe.dc.sptrans.corp {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_scp.sbe.dc.sptrans.corp {
+#            order 0
+#        }
+#    }
+#    ttl-persistence 18000
+#}
+#gtm wideip a scpweb.sbe.dc.sptrans.com.br {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_sbeweb.sbe.sptrans.com.br {
+#            order 0
+#        }
+#    }
+#    ttl-persistence 36000
+#}
+#gtm wideip a scpweb.sbe.sptrans.corp {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_scp.sbe.dc.sptrans.corp {
+#            order 0
+#        }
+#    }
+#    ttl-persistence 36000
+#}
+#gtm wideip a services.sptrans.corp {
+#    persistence enabled
+#    pools {
+#        pool_services.sptrans.corp {
+#            order 0
+#        }
+#    }
+#    ttl-persistence 36000
+#}
+#gtm wideip a servlot.sptrans.src {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_servlot.sptrans.src {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a smartnet.sptrans.src {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_smartnet.sptrans.src {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a smtp.sbe.dc.sptrans.corp {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_smtp.sbe.sptrans.corp {
+#            order 0
+#        }
+#    }
+#    ttl-persistence 18000
+#}
+#gtm wideip a soainfra.dc.sptrans.corp {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_soainfra.dc.sptrans.corp {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a sptosbhml.dc.sptrans.corp {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_sptosbhml.sptrans.corp {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a sptosbprd.dc.sptrans.corp {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_sptosbprd.dc.sptrans.corp {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a sptosbteste.dc.sptrans.corp {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_sptosbteste.sptrans.dc.corp {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a sptosbtestefab.dc.sptrans.corp {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_sptosbtestefab.dc.sptrans.corp {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a sptsoatestefab.dc.sptrans.corp {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_sptsoatestefab.dc.sptrans.corp {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a validacaoserpro.sptrans.corp {
+#    persist-cidr-ipv4 27
+#    persistence enabled
+#    pools {
+#        pool_validacaoserpro.sptrans.corp {
+#            order 0
+#        }
+#    }
+#    ttl-persistence 36000
+#}
+#gtm wideip a ws.hsbe.dc.sptrans.com.br {
+#    pools {
+#        pool_ws.hsbe.sptrans.com.br {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a ws.hsbe.dc.sptrans.corp {
+#    pools {
+#        pool_ws.hsbe.sptrans.corp {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a ws.sbe.dc.sptrans.com.br {
+#    pools {
+#        pool_ws.sbe.sptrans.com.br {
+#            order 0
+#        }
+#    }
+#}
+#gtm wideip a ws.sbe.dc.sptrans.corp {
+#    pools {
+#        pool_ws.sbe.dc.sptrans.corp {
+#            order 0
+#        }
+#    }
+
