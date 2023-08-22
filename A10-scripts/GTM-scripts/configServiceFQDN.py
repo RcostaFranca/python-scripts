@@ -135,7 +135,7 @@ def write_serviceFQDN(line):
     dns_record = f"dns-a-record cen-{vs[0]} static\n"
     dns_record_tst = f"dns-a-record tsm-{vs[0]} static\n"
     if port == "": port = "80"
-    string_service = f"gslb zone {dominio}\nservice {port} {service_name}\n{dns_record}{dns_record_tst}!"
+    string_service = f"gslb zone {dominio}\nservice {port} {service_name}\n!"
     return string_service
     # return  pool ,vs
 
