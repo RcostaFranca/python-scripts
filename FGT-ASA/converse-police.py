@@ -7,7 +7,9 @@ gate = fgt_file.read().split("    next")
 object_ASA = open(os.path.normpath("python-scripts/FGT-ASA/ASA-folder/ASA_OBJS.txt"))
 check_obj = str(object_ASA.read())
 
-
+def testing ():
+    print("oi")
+    
 def remove_caractere(linha):
     caracteres = ["\n",'"',"  ","[","]","'"]
     for i in caracteres:
